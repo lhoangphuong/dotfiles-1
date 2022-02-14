@@ -1,5 +1,5 @@
-require ('settings')
 require ('plugins')
+require ('settings')
 require ('lspstuff')
 require ('ts')
 require ('comment_setup')
