@@ -82,5 +82,5 @@ alias n=my_vim
 alias flutter='fvm flutter'
 enable-fzf-tab
 export PATH="/usr/local/opt/llvm/bin:$PATH"
-eval "$(rbenv init -)"
+#eval "$(rbenv init -)"
 bindkey '^f' autosuggest-accept
