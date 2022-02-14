@@ -48,7 +48,7 @@ use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
 --rust
 -- use 'simrat39/rust-tools.nvim'
 --rescript-lang
--- use 'rescript-lang/vim-rescript'
+use 'rescript-lang/vim-rescript'
 
 -- autocomplete
 use{ 'hrsh7th/nvim-cmp'}
