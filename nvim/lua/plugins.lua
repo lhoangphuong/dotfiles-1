@@ -103,6 +103,10 @@ use {
   end
 }
 use {'norcalli/nvim-colorizer.lua',config = function() require'colorizer'.setup() end}
--- use { 'hoschi/yode-nvim', requires = 'nvim-lua/plenary.nvim',config = function() require'yode-nvim'.setup() end}
-
+use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons', -- optional, for file icon
+    }
+}
 end)
