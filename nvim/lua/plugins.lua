@@ -102,7 +102,6 @@ use {
 
   end
 }
-use {"luukvbaal/nnn.nvim"}
 use {'norcalli/nvim-colorizer.lua',config = function() require'colorizer'.setup() end}
 -- use { 'hoschi/yode-nvim', requires = 'nvim-lua/plenary.nvim',config = function() require'yode-nvim'.setup() end}
 
