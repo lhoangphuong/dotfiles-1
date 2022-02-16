@@ -47,6 +47,7 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 
 function on_attach(_,bufnr)
   require("telescope").load_extension("flutter")
+  require'dependency_assist'.setup{}
 
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end

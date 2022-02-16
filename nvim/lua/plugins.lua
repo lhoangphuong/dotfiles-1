@@ -39,6 +39,7 @@ use{ 'j-hui/fidget.nvim'}
 --flutter
 use 'Neevash/awesome-flutter-snippets'
 use {'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim'}
+use 'akinsho/dependency-assist.nvim'
 use 'windwp/lsp-fastaction.nvim'
 
 -- debug stuff
