@@ -39,7 +39,9 @@ function on_attach(_,bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-  if vim.loop.cwd() == "/Users/TVG/admintool" then
+  local admintool_path = vim.fn.getenv('HOME')..'/admintool'
+
+  if vim.loop.cwd() == admintool_path then
     buf_set_keymap('n','<space>fa',':FlutterRun -t lib/main_staging.dart --no-sound-null-safety -d chrome --web-hostname 0.0.0.0 --web-port=7800<CR>',opts)
   else
     buf_set_keymap('n','<space>fa',':FlutterRun',opts)
