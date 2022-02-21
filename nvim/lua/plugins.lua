@@ -39,7 +39,6 @@ use{ 'j-hui/fidget.nvim'}
 --flutter
 use 'Neevash/awesome-flutter-snippets'
 use {'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim'}
-use 'akinsho/dependency-assist.nvim'
 use 'windwp/lsp-fastaction.nvim'
 
 -- debug stuff
@@ -68,6 +67,8 @@ use {"akinsho/toggleterm.nvim"}
 use 'jiangmiao/auto-pairs'
 use 'tpope/vim-surround'
 use 'tpope/vim-unimpaired'
+use 'tpope/vim-sensible'
+use 'tpope/vim-eunuch'
 use {'mg979/vim-visual-multi', branch = 'master'}
 use {'numToStr/Comment.nvim'}
 use {

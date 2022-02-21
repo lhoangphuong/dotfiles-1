@@ -6,7 +6,7 @@ vim.cmd([[
   set relativenumber
   set shiftwidth=2
   set smartindent
-  autocmd FileType qf wincmd J
+  autocmd FileType qf wincmd L
 
   autocmd FileType typescriptreact setlocal shiftwidth=2 tabstop=2
   so ~/.config/nvim/vim/vscode.vim
