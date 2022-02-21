@@ -43,7 +43,6 @@ use 'akinsho/dependency-assist.nvim'
 use 'windwp/lsp-fastaction.nvim'
 
 -- debug stuff
---use 'mfussenegger/nvim-dap'
 use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
 
 --rust
@@ -68,6 +67,7 @@ use 'github/copilot.vim'
 use {"akinsho/toggleterm.nvim"}
 use 'jiangmiao/auto-pairs'
 use 'tpope/vim-surround'
+use 'tpope/vim-unimpaired'
 use {'mg979/vim-visual-multi', branch = 'master'}
 use {'numToStr/Comment.nvim'}
 use {
