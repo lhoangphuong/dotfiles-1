@@ -9,6 +9,7 @@ packer.init({
 return packer.startup(function()
 
 use 'wbthomason/packer.nvim'
+
 -- color Theme
 use {'Mofiqul/vscode.nvim', branch = 'main'}
 
@@ -64,7 +65,7 @@ use 'github/copilot.vim'
 
 -- other plugins
 use {"akinsho/toggleterm.nvim"}
-use 'jiangmiao/auto-pairs'
+use 'windwp/nvim-autopairs'
 use 'tpope/vim-surround'
 use 'tpope/vim-unimpaired'
 use 'tpope/vim-sensible'

@@ -62,8 +62,7 @@ let g:nvim_tree_icons = {
     \   }
     \ }
 
-nnoremap <C-n> :NvimTreeToggle<CR>
-nnoremap <leader>r :NvimTreeRefresh<CR>
+nnoremap <leader>t :NvimTreeToggle<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
 
 " a list of groups can be found at `:help nvim_tree_highlight`
