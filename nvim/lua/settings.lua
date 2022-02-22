@@ -12,6 +12,8 @@ vim.cmd([[
   so ~/.config/nvim/vim/vscode.vim
   so ~/.config/nvim/vim/vsnip.vim
   so ~/.config/nvim/vim/copilot.vim
+
+  packadd cfilter
 ]])
 
 local opts = { noremap=true, silent=true }
