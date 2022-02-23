@@ -6,6 +6,8 @@ vim.cmd([[
   set relativenumber
   set shiftwidth=2
   set smartindent
+  " set smartcase
+  " set ignorecase
   autocmd FileType qf wincmd J
 
   autocmd FileType typescriptreact setlocal shiftwidth=2 tabstop=2

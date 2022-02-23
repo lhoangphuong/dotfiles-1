@@ -60,16 +60,16 @@ use 'hrsh7th/cmp-cmdline'
 use 'hrsh7th/cmp-vsnip'
 use 'hrsh7th/vim-vsnip'
 
--- ai stuff :)
+-- tpope
 use 'github/copilot.vim'
-
--- other plugins
-use {"akinsho/toggleterm.nvim"}
-use 'windwp/nvim-autopairs'
 use 'tpope/vim-surround'
 use 'tpope/vim-unimpaired'
 use 'tpope/vim-sensible'
 use 'tpope/vim-eunuch'
+
+-- other plugins
+use {"akinsho/toggleterm.nvim"}
+use 'windwp/nvim-autopairs'
 use {'mg979/vim-visual-multi', branch = 'master'}
 use {'numToStr/Comment.nvim'}
 use {
