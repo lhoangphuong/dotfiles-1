@@ -49,8 +49,8 @@ export PATH="$PATH:$ANDROID_HOME/emulator/"
 export PATH="$PATH:$HOME/.cargo/bin/"
 export PATH="$PATH:$HOME/Library/Python/2.7/bin"
 export PATH="$PATH:$HOME/nvim-osx64/bin"
-export JAVA_HOME=$(/usr/libexec/java_home)
-export PATH=$PATH:$JAVA_HOME/bin
+# export JAVA_HOME=$(/usr/libexec/java_home)
+# export PATH=$PATH:$JAVA_HOME/bin
 
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
