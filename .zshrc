@@ -80,6 +80,7 @@ my_vim(){
 }
 alias n=my_vim
 alias flutter='fvm flutter'
+alias dart='fvm dart'
 enable-fzf-tab
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 #eval "$(rbenv init -)"
