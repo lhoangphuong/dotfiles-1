@@ -66,6 +66,7 @@ use 'tpope/vim-surround'
 use 'tpope/vim-unimpaired'
 use 'tpope/vim-sensible'
 use 'tpope/vim-eunuch'
+use 'tpope/vim-sleuth'
 
 -- other plugins
 use {"akinsho/toggleterm.nvim"}

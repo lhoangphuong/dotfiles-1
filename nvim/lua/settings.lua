@@ -4,13 +4,15 @@ vim.cmd([[
   set clipboard=unnamed
   set number
   set relativenumber
-  set shiftwidth=2
   set smartindent
+
   " set smartcase
   " set ignorecase
+  " set shiftwidth=2
+  " autocmd FileType typescriptreact setlocal shiftwidth=2 tabstop=2
+
   autocmd FileType qf wincmd J
 
-  autocmd FileType typescriptreact setlocal shiftwidth=2 tabstop=2
   so ~/.config/nvim/vim/vscode.vim
   so ~/.config/nvim/vim/vsnip.vim
   so ~/.config/nvim/vim/copilot.vim
