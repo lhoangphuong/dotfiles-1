@@ -1,7 +1,7 @@
 require"fidget".setup{
   text = {
     spinner = "pipe",
-    done = "ʕっ• ᴥ • ʔっ",
+    done = "ლ( ͡❛ ‿‿ ͡❛)ლ",
     commenced = "Started",
     completed = "Completed",
   },

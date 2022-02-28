@@ -38,7 +38,7 @@ local opts = {
         autoSetHints = true,
 
         -- Whether to show hover actions inside the hover window
-        -- This overrides the default hover handler 
+        -- This overrides the default hover handler
         hover_with_actions = true,
 
 		-- how to execute terminal commands
