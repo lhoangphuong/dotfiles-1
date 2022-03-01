@@ -67,6 +67,8 @@ use 'tpope/vim-unimpaired'
 use 'tpope/vim-sensible'
 use 'tpope/vim-eunuch'
 use 'tpope/vim-sleuth'
+use 'tpope/vim-vinegar'
+
 
 -- other plugins
 use {"akinsho/toggleterm.nvim"}
