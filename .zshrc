@@ -14,6 +14,7 @@ plugins=(
   zsh-navigation-tools
   fzf
   tmux
+  zsh-aliases-exa
 )
 
 MODE_CURSOR_VIINS="#ffc0cb blinking bar"
