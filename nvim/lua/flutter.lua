@@ -46,8 +46,8 @@ function on_attach(_,bufnr)
   end
 
   buf_set_keymap('n','<space>fq',':FlutterQuit<CR>',opts)
-  buf_set_keymap('n','<space>fc',':FlutterCopyProfilerUrl<CR>',opts)
-  buf_set_keymap('n','<space>fd',':FlutterDevices<CR>',opts)
+  -- buf_set_keymap('n','<space>fc',':FlutterCopyProfilerUrl<CR>',opts)
+  -- buf_set_keymap('n','<space>fd',':FlutterDevices<CR>',opts)
   buf_set_keymap('n','<space>fl',':FlutterLogClear<CR>',opts)
   buf_set_keymap('n','<space>o' ,':FlutterOutlineToggle<CR>',opts)
   buf_set_keymap('n','<Space>rl',':FlutterReload<CR>',opts)
