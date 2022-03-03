@@ -39,7 +39,7 @@ use{ 'j-hui/fidget.nvim'}
 
 --flutter
 use 'Neevash/awesome-flutter-snippets'
-use {'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim'}
+use {'huylg/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim'}
 use 'windwp/lsp-fastaction.nvim'
 
 -- debug stuff
@@ -109,10 +109,10 @@ use {
   end
 }
 use {'norcalli/nvim-colorizer.lua',config = function() require'colorizer'.setup() end}
-use {
-    'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons', -- optional, for file icon
-    }
-}
+-- use {
+--     'kyazdani42/nvim-tree.lua',
+--     requires = {
+--       'kyazdani42/nvim-web-devicons', -- optional, for file icon
+--     }
+-- }
 end)
