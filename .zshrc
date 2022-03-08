@@ -86,3 +86,5 @@ enable-fzf-tab
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 #eval "$(rbenv init -)"
 bindkey '^f' autosuggest-accept
+
+eval $(thefuck --alias)
