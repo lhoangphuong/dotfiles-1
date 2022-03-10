@@ -33,6 +33,10 @@ use {
     'nvim-lua/plenary.nvim'
   },
 }
+
+-- ThePrimeagen
+use 'ThePrimeagen/git-worktree.nvim'
+
 -- lsp stuff
 use{ 'neovim/nvim-lspconfig'}
 use{ 'j-hui/fidget.nvim'}
