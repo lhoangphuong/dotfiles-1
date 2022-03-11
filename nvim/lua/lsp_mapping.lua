@@ -5,11 +5,11 @@ function map(_,bufnr)
   local opts = { noremap=true, silent=true }
 
   buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+  buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>la', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
   buf_set_keymap('n', '<space>qa', '<cmd>lua vim.diagnostic.setqflist({title="warnings",severity=vim.diagnostic.severity.WARN})<CR>', opts)
-  buf_set_keymap('n', '<space>qe', '<cmd>lua vim.diagnostic.setqflist({severity="Error"})<CR>', opts)
+  buf_set_keymap('n', '<space>qe', '<cmd>lua vim.diagnostic.setqflist({severity=vim.diagnostic.severity.ERROR})<CR> <cmd>silent cr<CR>', opts)
   buf_set_keymap('n', '<space>a', '<cmd>lua vim.diagnostic.setqflist()<CR>', opts)
 
 
@@ -27,6 +27,7 @@ function map(_,bufnr)
   buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   -- buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   buf_set_keymap('n', '<space>ca', '<cmd>lua require("lsp-fastaction").code_action()<CR>', opts)
+  buf_set_keymap('v', '<space>a', '<esc><cmd>lua require("lsp-fastaction").range_code_action()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   buf_set_keymap('n', "<space>fm", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
   buf_set_keymap('n', "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)

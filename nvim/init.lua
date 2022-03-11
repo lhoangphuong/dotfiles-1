@@ -24,7 +24,7 @@ require ('telescope_setup')
 require ('wev_devicons_setup')
 require ('lsp-fastaction_setup')
 require ('autopairs')
-require ('git-worktree-setup')
+-- require ('git-worktree-setup')
 end
 
 R_all()

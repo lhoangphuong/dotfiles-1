@@ -35,11 +35,12 @@ use {
 }
 
 -- ThePrimeagen
-use 'ThePrimeagen/git-worktree.nvim'
+-- use 'ThePrimeagen/git-worktree.nvim'
 
 -- lsp stuff
 use{ 'neovim/nvim-lspconfig'}
 use{ 'j-hui/fidget.nvim'}
+use  'onsails/diaglist.nvim'
 
 --flutter
 use 'Neevash/awesome-flutter-snippets'

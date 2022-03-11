@@ -2,6 +2,15 @@ local nvim_lsp = require('lspconfig')
 local lsp_mapping = require'lsp_mapping'.map
 
 
+require("diaglist").init({
+    -- optional settings
+    -- below are defaults
+    debug = false, 
+
+    -- increase for noisy servers
+    debounce_ms = 150,
+})
+
 local servers = {'hls','tsserver','elmls','sumneko_lua'}
 for _, lsp in ipairs(servers) do
    nvim_lsp[lsp].setup {
