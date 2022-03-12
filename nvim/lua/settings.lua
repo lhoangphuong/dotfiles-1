@@ -5,6 +5,7 @@ vim.cmd([[
   set number
   set relativenumber
   set smartindent
+  set colorcolumn=80
 
   " set smartcase
   " set ignorecase
