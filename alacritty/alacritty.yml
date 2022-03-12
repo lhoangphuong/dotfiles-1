@@ -1,5 +1,3 @@
-# background_opacity: 0.8
-
 # TokyoNight Alacritty Colors
 colors:
   # Default colors
@@ -39,6 +37,7 @@ font:
     family: SFMono Nerd Font
 
 window:
+  # opacity: 0.93
   decorations: "none"
 
 key_bindings:
