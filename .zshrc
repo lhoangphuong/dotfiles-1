@@ -84,7 +84,7 @@ alias dart='fvm dart'
 enable-fzf-tab
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 #eval "$(rbenv init -)"
-bindkey '^f' autosuggest-accept
+bindkey '^j' autosuggest-accept
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
