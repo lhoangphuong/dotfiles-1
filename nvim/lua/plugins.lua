@@ -64,9 +64,10 @@ use 'hrsh7th/cmp-path'
 use 'hrsh7th/cmp-cmdline'
 use 'hrsh7th/cmp-vsnip'
 use 'hrsh7th/vim-vsnip'
+use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
 
 -- tpope
-use 'github/copilot.vim'
+-- use 'github/copilot.vim'
 use 'tpope/vim-surround'
 use 'tpope/vim-unimpaired'
 use 'tpope/vim-sensible'
