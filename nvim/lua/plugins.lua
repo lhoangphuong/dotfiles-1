@@ -70,7 +70,7 @@ use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
 -- use 'github/copilot.vim'
 use 'tpope/vim-surround'
 use 'tpope/vim-unimpaired'
-use 'tpope/vim-sensible'
+use 'huylg/vim-sensible'
 use 'tpope/vim-eunuch'
 use 'tpope/vim-sleuth'
 use 'tpope/vim-vinegar'

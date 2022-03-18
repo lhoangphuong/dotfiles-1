@@ -37,10 +37,3 @@ vim.api.nvim_set_keymap('n', '<space>ll',':lli<CR>',opts)
 vim.api.nvim_set_keymap('t', '<Esc>','<C-\\><C-n>',opts)
 
 vim.api.nvim_set_keymap('n','<leader><CR>',":lua require('rest-nvim').run()<CR>",opts)
-
-function remove_qf_list()
-  local qflist = vim.fn.getqflist();
-  for _, item in ipairs(qflist) do
-    vim.api.nvim_buf_set_lines(item.bufnr,item.lnum-1,item.lnum,false,{''})
-  end
-end

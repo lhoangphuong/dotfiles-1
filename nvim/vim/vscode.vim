@@ -29,3 +29,5 @@ hi CopilotSuggestion guifg=#f19494
 
 hi GitSignsDeleteLn guifg=#F44747 guibg=NONE
 hi GitSignsAddLn guifg=#6A9955 guibg=NONE
+
+hi WinSeparator guibg=none guifg=pink
