@@ -77,7 +77,6 @@ use 'tpope/vim-vinegar'
 
 
 -- other plugins
-use {"akinsho/toggleterm.nvim"}
 use 'windwp/nvim-autopairs'
 use {'mg979/vim-visual-multi', branch = 'master'}
 use {'numToStr/Comment.nvim'}
