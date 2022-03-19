@@ -23,7 +23,6 @@ require('telescope').setup{
     buffer_previewer_maker = new_maker,
     mappings = {
       i = {
-        ["<C-w>"] = false,
         ["<C-q>"] = actions.send_to_qflist,
         ["<C-l>"] = actions.send_to_loclist,
       },
