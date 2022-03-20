@@ -12,6 +12,7 @@ use 'wbthomason/packer.nvim'
 
 -- color Theme
 use {'Mofiqul/vscode.nvim', branch = 'main'}
+use "rebelot/kanagawa.nvim"
 
 -- Tree sitter
 use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
