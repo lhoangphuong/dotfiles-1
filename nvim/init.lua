@@ -23,7 +23,6 @@ require ('telescope_setup')
 require ('wev_devicons_setup')
 require ('lsp-fastaction_setup')
 require ('autopairs')
-require ('kanagawa_setup')
 -- require ('git-worktree-setup')
 end
 
