@@ -1,26 +1,7 @@
 local actions = require('telescope.actions')
-local previewers = require('telescope.previewers')
-
-local new_maker = function(filepath, bufnr, opts)
-  opts = opts or {}
--- vim.api.nvim_set_keymap('n','<space>lw',"<cmd>lua require('telescope.builtin').lsp_workspace_diagnostics()<cr>",opts)
--- vim.api.nvim_set_keymap('n','<space>ld',"<cmd>lua require('telescope.builtin').lsp_document_diagnostics()<cr>",opts)
-
-  filepath = vim.fn.expand(filepath)
-  vim.loop.fs_stat(filepath, function(_, stat)
-    if not stat then return end
-    if stat.size > 100000 then
-      return
-    else
-      previewers.buffer_previewer_maker(filepath, bufnr, opts)
-    end
-  end)
-end
-
 require('telescope').setup{
   igfile_ignore_patterns = { "node_modules" },
   defaults = {
-    buffer_previewer_maker = new_maker,
     mappings = {
       i = {
         ["<C-q>"] = actions.send_to_qflist,

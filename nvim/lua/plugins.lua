@@ -6,7 +6,7 @@ packer.init({
         clone_timeout = 600, -- Timeout, in seconds, for git clones
   }
 })
-return packer.startup(function()
+return packer.startup(function(use)
 
 use 'wbthomason/packer.nvim'
 
@@ -45,6 +45,20 @@ use  'onsails/diaglist.nvim'
 --flutter
 use 'Neevash/awesome-flutter-snippets'
 use {'huylg/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim'}
+use {
+'akinsho/pubspec-assist.nvim',
+requires = 'plenary.nvim',
+rocks = {
+  {
+    'lyaml',
+    server = 'http://rocks.moonscript.org',
+    -- If using macOS or Ubuntu, you may need to install the `libyaml` package.
+    -- if you install libyaml with homebrew you will need to set the YAML_DIR
+    -- to the location of the homebrew installation of libyaml e.g.
+    -- env = { YAML_DIR = '/opt/homebrew/Cellar/libyaml/0.2.5/' },
+  },
+},
+}
 use 'windwp/lsp-fastaction.nvim'
 
 -- debug stuff

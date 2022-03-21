@@ -23,6 +23,7 @@ require ('telescope_setup')
 require ('wev_devicons_setup')
 require ('lsp-fastaction_setup')
 require ('autopairs')
+require ('pubspec-assist_setup')
 -- require ('git-worktree-setup')
 end
 
