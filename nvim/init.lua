@@ -2,8 +2,7 @@ local ok, reload = pcall(require, 'plenary.reload')
 RELOAD = ok and reload.reload_module or function(...)
   return ...
 end
-function R(name)
-  RELOAD(name)
+function R(name) RELOAD(name)
   return require(name)
 end
 
@@ -23,7 +22,6 @@ require ('telescope_setup')
 require ('wev_devicons_setup')
 require ('lsp-fastaction_setup')
 require ('autopairs')
-require ('pubspec-assist_setup')
 -- require ('git-worktree-setup')
 end
 

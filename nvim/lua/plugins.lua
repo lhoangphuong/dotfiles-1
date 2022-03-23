@@ -52,10 +52,11 @@ rocks = {
   {
     'lyaml',
     server = 'http://rocks.moonscript.org',
-    -- If using macOS or Ubuntu, you may need to install the `libyaml` package.
-    -- if you install libyaml with homebrew you will need to set the YAML_DIR
-    -- to the location of the homebrew installation of libyaml e.g.
-    -- env = { YAML_DIR = '/opt/homebrew/Cellar/libyaml/0.2.5/' },
+    config = function ()
+	  print('meo meo')
+	  require ('pubspec-assist_setup')
+    end,
+    env = { YAML_DIR = '/opt/homebrew/Cellar/libyaml/0.2.5/' },
   },
 },
 }
