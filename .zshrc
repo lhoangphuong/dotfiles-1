@@ -91,3 +91,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 export BAT_THEME='Visual Studio Dark+'
+alias gpa='git add .; git commit -m "$1"; git push;'

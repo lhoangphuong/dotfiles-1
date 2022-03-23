@@ -6,7 +6,7 @@ packer.init({
         clone_timeout = 600, -- Timeout, in seconds, for git clones
   }
 })
-return packer.startup(function(use)
+return packer.startup(function(use,use_local)
 
 use 'wbthomason/packer.nvim'
 
@@ -53,14 +53,13 @@ rocks = {
     'lyaml',
     server = 'http://rocks.moonscript.org',
     config = function ()
-	  print('meo meo')
 	  require ('pubspec-assist_setup')
     end,
     env = { YAML_DIR = '/opt/homebrew/Cellar/libyaml/0.2.5/' },
   },
 },
 }
-use 'windwp/lsp-fastaction.nvim'
+use {'huylg/lsp-fastaction.nvim'}
 
 -- debug stuff
 use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
