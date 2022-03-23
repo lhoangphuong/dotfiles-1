@@ -1,25 +1,18 @@
 vim.cmd([[
-  set completeopt=menu,menuone,noselect
-  set mouse=a
-  set clipboard=unnamed
-  set number
-  set relativenumber
-  set smartindent
-  set colorcolumn=80
-
-  " set smartcase
-  " set ignorecase
-  " set shiftwidth=2
-  " autocmd FileType typescriptreact setlocal shiftwidth=2 tabstop=2
-
   autocmd FileType qf wincmd J
-
-  so ~/.config/nvim/vim/vscode.vim
-  so ~/.config/nvim/vim/vsnip.vim
-  " so ~/.config/nvim/vim/copilot.vim
-
   packadd cfilter
 ]])
+
+
+vim.o.termguicolors = true
+vim.o.completeopt='menu,menuone,noselect'
+vim.o.mouse='a'
+vim.o.clipboard='unnamed'
+vim.o.number=true
+vim.o.relativenumber=true
+vim.o.smartindent=true
+vim.o.colorcolumn=80
+
 local opts = { noremap=true, silent=true }
 vim.api.nvim_set_keymap('i','<C-b>','<left>',opts)
 vim.api.nvim_set_keymap('i','<C-f>','<right>',opts)

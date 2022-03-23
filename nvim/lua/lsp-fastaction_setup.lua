@@ -1,1 +1,0 @@
-require('lsp-fastaction').setup({})

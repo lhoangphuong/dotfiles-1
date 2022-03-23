@@ -1,8 +1,8 @@
-set termguicolors
-let g:vscode_style = "dark"
+vim.g.vscode_italic_comment = 1
+vim.g.vscode_style = "dark"
+
+vim.cmd([[
 colorscheme vscode
-
-
 hi Normal guibg=#1a1b26 ctermbg=NONE
 hi LineNr guibg=NONE ctermbg=NONE
 hi SignColumn guibg=NONE ctermbg=NONE
@@ -27,3 +27,4 @@ hi! CursorLine gui=underline cterm=underline
 hi CursorLineNr guibg=NONE
 
 hi WinSeparator guibg=none guifg=#c0caf5
+]])

@@ -23,7 +23,6 @@ require('telescope').setup{
     }
   }
 }
-require('telescope').load_extension('fzf')
 
 local ivy_theme_string = "require('telescope.themes').get_ivy()";
 
