@@ -18,8 +18,8 @@ end
 
 require('telescope').setup{
   igfile_ignore_patterns = { "node_modules" },
-  buffer_previewer_maker = new_maker,
   defaults = {
+    buffer_previewer_maker = new_maker,
     mappings = {
       i = {
         ["<C-q>"] = actions.send_to_qflist,

@@ -10,7 +10,7 @@ function map(_,bufnr)
   buf_set_keymap('n', '<space>la', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
   buf_set_keymap('n', '<space>qa', '<cmd>lua vim.diagnostic.setqflist({title="warnings",severity=vim.diagnostic.severity.WARN})<CR>', opts)
   buf_set_keymap('n', '<space>qe', '<cmd>lua vim.diagnostic.setqflist({severity=vim.diagnostic.severity.ERROR})<CR> <cmd>silent cr<CR>', opts)
-  buf_set_keymap('n', '<space>a', '<cmd>lua vim.diagnostic.setqflist()<CR>', opts)
+  buf_set_keymap('n', '<space>a', '<cmd>lua vim.diagnostic.setqflist()<CR> <cmd>silent cr<CR>', opts)
 
 
   -- Enable completion triggered by <c-x><c-o>
