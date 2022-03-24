@@ -32,23 +32,6 @@ return packer.startup(function()
 
 use 'wbthomason/packer.nvim'
 
-
-use {
-  'akinsho/pubspec-assist.nvim',
-  requires = 'nvim-lua/plenary.nvim',
-
-  rocks = {
-    {
-      'lyaml',
-      server = 'http://rocks.moonscript.org',
-      env = { YAML_DIR = '/usr/local/Cellar/libyaml/0.2.5/' },
-    },
-  },
-  config = function()
-    require('pubspec-assist').setup()
-  end,
-}
-
 -- color Theme
 use {'Mofiqul/vscode.nvim', branch = 'main',config = function ()
     require'vscode_setup'
