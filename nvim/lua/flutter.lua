@@ -3,7 +3,7 @@
 -- map buffer local keybindings when the language server attaches
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-function on_attach(_,bufnr)
+local function on_attach(_,bufnr)
   require("telescope").load_extension("flutter")
 
   local opts = { noremap=true, silent=true }
@@ -26,7 +26,7 @@ function on_attach(_,bufnr)
   buf_set_keymap('n','<Space>rl',':FlutterReload<CR>',opts)
   buf_set_keymap('n','<space>fR',':FlutterRestart<CR>',opts)
 
-  require'lsp_mapping'.map(_,bufnr)
+  require'lsp_mapping'.map(bufnr)
 end
 
 require("flutter-tools").setup {

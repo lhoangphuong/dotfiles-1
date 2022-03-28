@@ -117,7 +117,10 @@ use {'mfussenegger/nvim-dap',requires ={ 'rcarriga/nvim-dap-ui', after = 'nvim-d
 end}}
 
 --rust
--- use 'simrat39/rust-tools.nvim'
+use{ 'simrat39/rust-tools.nvim',config = function()
+    require'rust-tools_setup'
+end}
+
 --rescript-lang
 use 'rescript-lang/vim-rescript'
 use{ 'nkrkv/nvim-treesitter-rescript',run = ':TSInstall rescript' }
