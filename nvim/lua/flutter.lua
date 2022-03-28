@@ -46,17 +46,10 @@ require("flutter-tools").setup {
       device = true,
     }
   },
-  debugger = { -- integrate with nvim dap + install dart code debugger
+   debugger = { -- integrate with nvim dap + install dart code debugger
     enabled = false,
     run_via_dap = false, -- use dap instead of a plenary job to run flutter apps
-
     register_configurations = function(paths)
-
-    require('dap').adapters.dart = {
-      type = "executable",
-      command = "node",
-      args = {vim.fn.stdpath('config').."/nvim/Dart-Code/out/dist/debug.js", "flutter"}
-    }
 
     require("dap").configurations.dart = {
         {
@@ -67,7 +60,7 @@ require("flutter-tools").setup {
           flutterSdkPath = paths.flutter_sdk,
           program = "${workspaceFolder}/lib/main_staging.dart",
           cwd = "${workspaceFolder}",
-	  args = {'--no-sound-null-safety'}
+	  args = {'-d','chrome'}
         },
         {
           type = "dart",
@@ -77,7 +70,7 @@ require("flutter-tools").setup {
           flutterSdkPath = paths.flutter_sdk,
           program = "${workspaceFolder}/lib/main_staging.dart",
           cwd = "${workspaceFolder}",
-	  args = {'--no-sound-null-safety'}
+	  args = {'-d','chrome'}
         },
     }
     end,

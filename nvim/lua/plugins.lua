@@ -19,7 +19,6 @@ end
 
 vim.api.nvim_set_keymap('n','<leader>ps',"<cmd>PackerSync<cr>",{ noremap=true, silent=true })
 vim.api.nvim_set_keymap('n','<leader>pc',"<cmd>PackerClean<cr>",{ noremap=true, silent=true })
-vim.api.nvim_set_keymap('n','<leader>pc',"<cmd>PackerClean<cr>",{ noremap=true, silent=true })
 
 local packer = require('packer')
 packer.init({
