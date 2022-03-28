@@ -1,6 +1,7 @@
 vim.cmd([[
   autocmd FileType qf wincmd J
   packadd cfilter
+  set clipboard+=unnamedplus
 ]])
 
 
