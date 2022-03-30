@@ -4,7 +4,9 @@ local lsp_mapping = require'lsp_mapping'.map
 local servers = {'hls','tsserver','elmls','sumneko_lua'}
 for _, lsp in ipairs(servers) do
    nvim_lsp[lsp].setup {
-     on_attach = lsp_mapping,
+     on_attach = function (_,bufnr)
+	lsp_mapping(bufnr)
+     end,
      flags = {
        debounce_text_changes = 150,
      },
@@ -19,7 +21,9 @@ for _, lsp in ipairs(servers) do
  end
 
 nvim_lsp['rescriptls'].setup {
-  on_attach = lsp_mapping,
+     on_attach = function (_,bufnr)
+	lsp_mapping(bufnr)
+     end,
   flags = {
     debounce_text_changes = 150,
   },
