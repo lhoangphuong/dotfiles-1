@@ -29,5 +29,3 @@ vim.api.nvim_set_keymap('n', '<space>lc',':lcl<CR>',opts)
 vim.api.nvim_set_keymap('n', '<space>ll',':lli<CR>',opts)
 
 vim.api.nvim_set_keymap('t', '<Esc>','<C-\\><C-n>',opts)
-
-vim.api.nvim_set_keymap('n','<leader><CR>',":lua require('rest-nvim').run()<CR>",opts)
