@@ -13,7 +13,8 @@ local function on_attach(_,bufnr)
   local admintool_path = vim.fn.getenv('HOME')..'/admintool'
 
   if vim.loop.cwd() == admintool_path then
-    buf_set_keymap('n','<space>fa',':FlutterRun -t lib/int5.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800<CR>',opts)
+    -- buf_set_keymap('n','<space>fa',':FlutterRun -t lib/int5.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800<CR>',opts)
+    buf_set_keymap('n','<space>fa',':Start flutter run -t lib/int5.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800<CR>',opts)
   else
     buf_set_keymap('n','<space>fa',':FlutterRun',opts)
   end
