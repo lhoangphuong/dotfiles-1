@@ -171,11 +171,14 @@ use 'tpope/vim-vinegar'
 
 
 -- other plugins
-use {'windwp/nvim-autopairs',config = function ()
-  require('nvim-autopairs').setup({
-    disable_filetype = { "TelescopePrompt"},
-  })
-end}
+use 'jiangmiao/auto-pairs'
+
+-- use {'windwp/nvim-autopairs',config = function ()
+--   require('nvim-autopairs').setup({
+--     disable_filetype = { "TelescopePrompt"},
+--   })
+-- end}
+
 use {'mg979/vim-visual-multi', branch = 'master'}
 use {'numToStr/Comment.nvim', config = function ()
     require('Comment').setup({
