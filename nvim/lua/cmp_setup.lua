@@ -28,11 +28,7 @@ cmp.setup({
       { name = 'buffer' },
       { name = 'vsnip' }, -- For vsnip users.
       { name = 'path' },
-      { name = 'cmp_tabnine' }
     }
-    -- { name = 'luasnip' }, -- For luasnip users.
-    -- { name = 'ultisnips' }, -- For ultisnips users.
-    -- { name = 'snippy' }, -- For snippy users.
     ),{
     }
 })

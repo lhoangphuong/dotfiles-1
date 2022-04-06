@@ -84,7 +84,7 @@ use{ 'j-hui/fidget.nvim', config = function ()
   require"fidget".setup{
     text = {
       spinner = "pipe",
-      done = "ლ( ͡❛ ‿‿ ͡❛)ლ",
+      done = "ლ( ͡❛ ‿‿ ͡❛)ლ ",
       commenced = "Started",
       completed = "Completed",
     },
@@ -96,11 +96,11 @@ use{ 'j-hui/fidget.nvim', config = function ()
 }
 
 --flutter
-use 'Neevash/awesome-flutter-snippets'
 use {
   'huylg/flutter-tools.nvim', requires ={
     'nvim-lua/plenary.nvim',
     'hrsh7th/cmp-nvim-lsp',
+    'Neevash/awesome-flutter-snippets'
   },
     config = function ()
       require'flutter'
@@ -154,14 +154,11 @@ use{
         ]])
       end},
       {'hrsh7th/vim-vsnip',after='nvim-cmp'},
-      {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp',after='nvim-cmp'},
   }
-
-
 }
 
 -- tpope
--- use 'github/copilot.vim'
+use 'github/copilot.vim'
 use 'tpope/vim-surround'
 use 'tpope/vim-unimpaired'
 use 'huylg/vim-sensible'

@@ -4,7 +4,6 @@ vim.cmd([[
   set clipboard+=unnamedplus
 ]])
 
-
 vim.o.termguicolors = true
 vim.o.completeopt='menu,menuone,noselect'
 vim.o.mouse='a'

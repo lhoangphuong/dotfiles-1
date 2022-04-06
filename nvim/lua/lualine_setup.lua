@@ -129,6 +129,7 @@ ins_left {
 ins_left {
   'filename',
   cond = conditions.buffer_not_empty,
+  path = 2,
   color = { fg = colors.magenta, gui = 'bold' },
 }
 
