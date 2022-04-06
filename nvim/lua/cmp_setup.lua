@@ -28,6 +28,7 @@ cmp.setup({
       { name = 'buffer' },
       { name = 'vsnip' }, -- For vsnip users.
       { name = 'path' },
+      { name = 'copilot' },
     }
     ),{
     }
