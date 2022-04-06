@@ -97,7 +97,7 @@ use{ 'j-hui/fidget.nvim', config = function ()
 
 --flutter
 use {
-  'huylg/flutter-tools.nvim', requires ={
+  'akinsho/flutter-tools.nvim', requires ={
     'nvim-lua/plenary.nvim',
     'hrsh7th/cmp-nvim-lsp',
     'Neevash/awesome-flutter-snippets'
