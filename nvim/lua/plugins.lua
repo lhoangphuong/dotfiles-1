@@ -157,19 +157,6 @@ use{
   }
 }
 
--- copilot
-use {
-    "zbirenbaum/copilot-cmp",
-    after = {"copilot.lua", "nvim-cmp"},
-}
-use {
-  "huylg/copilot.lua",
-  event = "InsertEnter",
-  config = function ()
-    vim.schedule(function() require("copilot").setup() end)
-  end,
-}
-
 -- tpope
 use 'tpope/vim-surround'
 use 'tpope/vim-unimpaired'
@@ -235,4 +222,5 @@ use {
 }
 use {'norcalli/nvim-colorizer.lua',config = function() require'colorizer'.setup() end}
 use {'tpope/vim-dispatch'}
+use 'segeljakt/vim-silicon'
 end)

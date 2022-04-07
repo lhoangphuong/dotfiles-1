@@ -30,7 +30,6 @@ cmp.setup({
       { name = 'path' },
     }
     ),{
-      { name = 'copilot' },
     }
 })
 cmp.setup.cmdline('/', {
