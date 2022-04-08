@@ -159,7 +159,6 @@ use{
 
 -- tpope
 use{ 'github/copilot.vim',config = function ()
-    print'copilot loaded'
     vim.cmd([[
         imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
         let g:copilot_no_tab_map = v:true
@@ -229,5 +228,5 @@ use {
 }
 use {'norcalli/nvim-colorizer.lua',config = function() require'colorizer'.setup() end}
 use {'tpope/vim-dispatch'}
-use 'segeljakt/vim-silicon'
+use {'christoomey/vim-tmux-navigator'}
 end)
