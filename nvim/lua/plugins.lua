@@ -158,6 +158,13 @@ use{
 }
 
 -- tpope
+use{ 'github/copilot.vim',config = function ()
+    print'copilot loaded'
+    vim.cmd([[
+        imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+        let g:copilot_no_tab_map = v:true
+    ]])
+end}
 use 'tpope/vim-surround'
 use 'tpope/vim-unimpaired'
 use 'huylg/vim-sensible'
@@ -198,7 +205,7 @@ use {'numToStr/Comment.nvim', config = function ()
     post_hook = nil,
 })
 
-require'Comment.ft'.set('dart', {'// %s', '/*%s*/'})
+    require'Comment.ft'.set('dart', {'// %s', '/*%s*/'})
 
 end}
 use {
