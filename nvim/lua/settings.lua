@@ -11,7 +11,8 @@ vim.o.clipboard='unnamed'
 vim.o.number=true
 vim.o.relativenumber=true
 vim.o.smartindent=true
-vim.o.colorcolumn=80
+vim.wo.colorcolumn='80'
+
 
 local opts = { noremap=true, silent=true }
 vim.api.nvim_set_keymap('i','<C-b>','<left>',opts)

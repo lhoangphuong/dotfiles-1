@@ -106,10 +106,7 @@ use {
       require'flutter'
     end
 }
-
-use {'sidlatau/lsp-fastaction.nvim',config = function ()
-  require('lsp-fastaction').setup({})
-end}
+use 'aspeddro/lsp_menu.nvim'
 
 -- debug stuff
 use {'mfussenegger/nvim-dap',requires ={ 'rcarriga/nvim-dap-ui', after = 'nvim-dap', config = function ()

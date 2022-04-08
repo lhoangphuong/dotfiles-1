@@ -22,9 +22,13 @@ hi GitSignsDeleteLn guifg=#F44747 guibg=NONE
 hi GitSignsAddLn guifg=#6A9955 guibg=NONE
 
 set cursorline
-hi clear CursorLine
-hi! CursorLine gui=underline cterm=underline
+hi! CursorLine gui=underline cterm=underline guibg=none
 hi CursorLineNr guibg=NONE
 
 hi WinSeparator guibg=none guifg=#c0caf5
+
+hi ColorColumn guibg=#2A2A37
+
+set cursorcolumn
+hi CursorColumn guibg=#363646
 ]])

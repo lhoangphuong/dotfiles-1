@@ -1,7 +1,3 @@
-local function on_attach(_,bufnr)
-    require'lsp_mapping'.map(bufnr)
-end
-
 local opts = {
     tools = { -- rust-tools options
         -- Automatically set inlay hints (type hints)
@@ -103,7 +99,7 @@ local opts = {
     -- these override the defaults set by rust-tools.nvim
     -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
 	server = {
-		on_attach = on_attach,
+		on_attach = require'lsp_mapping'.map,
 		-- standalone file support
 		-- setting it to false may improve startup time
 		standalone = true,
