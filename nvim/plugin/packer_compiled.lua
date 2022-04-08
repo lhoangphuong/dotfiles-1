@@ -121,7 +121,7 @@ _G.packer_plugins = {
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
   ["copilot.vim"] = {
-    config = { "\27LJ\2\nµ\1\0\0\3\0\5\0\b6\0\0\0'\2\1\0B\0\2\0016\0\2\0009\0\3\0'\2\4\0B\0\2\1K\0\1\0u        imap <silent><script><expr> <C-J> copilot#Accept(\"\\<CR>\")\n        let g:copilot_no_tab_map = v:true\n    \bcmd\bvim\19copilot loaded\nprint\0" },
+    config = { "\27LJ\2\n”\1\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0u        imap <silent><script><expr> <C-J> copilot#Accept(\"\\<CR>\")\n        let g:copilot_no_tab_map = v:true\n    \bcmd\bvim\0" },
     loaded = true,
     path = "/Users/TVG/.local/share/nvim/site/pack/packer/start/copilot.vim",
     url = "https://github.com/github/copilot.vim"
@@ -276,11 +276,6 @@ _G.packer_plugins = {
     path = "/Users/TVG/.local/share/nvim/site/pack/packer/start/vim-surround",
     url = "https://github.com/tpope/vim-surround"
   },
-  ["vim-tmux-navigator"] = {
-    loaded = true,
-    path = "/Users/TVG/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
-    url = "https://github.com/christoomey/vim-tmux-navigator"
-  },
   ["vim-unimpaired"] = {
     loaded = true,
     path = "/Users/TVG/.local/share/nvim/site/pack/packer/start/vim-unimpaired",
@@ -324,10 +319,10 @@ time([[Config for fidget.nvim]], false)
 time([[Config for lsp-fastaction.nvim]], true)
 try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19lsp-fastaction\frequire\0", "config", "lsp-fastaction.nvim")
 time([[Config for lsp-fastaction.nvim]], false)
--- Config for: rust-tools.nvim
-time([[Config for rust-tools.nvim]], true)
-try_loadstring("\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21rust-tools_setup\frequire\0", "config", "rust-tools.nvim")
-time([[Config for rust-tools.nvim]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+try_loadstring("\27LJ\2\n(\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\rlspstuff\frequire\0", "config", "nvim-lspconfig")
+time([[Config for nvim-lspconfig]], false)
 -- Config for: flutter-tools.nvim
 time([[Config for flutter-tools.nvim]], true)
 try_loadstring("\27LJ\2\n'\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\fflutter\frequire\0", "config", "flutter-tools.nvim")
@@ -336,14 +331,14 @@ time([[Config for flutter-tools.nvim]], false)
 time([[Config for vscode.nvim]], true)
 try_loadstring("\27LJ\2\n,\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\17vscode_setup\frequire\0", "config", "vscode.nvim")
 time([[Config for vscode.nvim]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-try_loadstring("\27LJ\2\n(\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\rlspstuff\frequire\0", "config", "nvim-lspconfig")
-time([[Config for nvim-lspconfig]], false)
 -- Config for: copilot.vim
 time([[Config for copilot.vim]], true)
-try_loadstring("\27LJ\2\nµ\1\0\0\3\0\5\0\b6\0\0\0'\2\1\0B\0\2\0016\0\2\0009\0\3\0'\2\4\0B\0\2\1K\0\1\0u        imap <silent><script><expr> <C-J> copilot#Accept(\"\\<CR>\")\n        let g:copilot_no_tab_map = v:true\n    \bcmd\bvim\19copilot loaded\nprint\0", "config", "copilot.vim")
+try_loadstring("\27LJ\2\n”\1\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0u        imap <silent><script><expr> <C-J> copilot#Accept(\"\\<CR>\")\n        let g:copilot_no_tab_map = v:true\n    \bcmd\bvim\0", "config", "copilot.vim")
 time([[Config for copilot.vim]], false)
+-- Config for: rust-tools.nvim
+time([[Config for rust-tools.nvim]], true)
+try_loadstring("\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21rust-tools_setup\frequire\0", "config", "rust-tools.nvim")
+time([[Config for rust-tools.nvim]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
 try_loadstring("\27LJ\2\n.\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\19gitsigns_setup\frequire\0", "config", "gitsigns.nvim")
