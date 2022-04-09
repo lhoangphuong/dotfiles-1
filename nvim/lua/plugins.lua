@@ -155,12 +155,7 @@ use{
 }
 
 -- tpope
-use{ 'github/copilot.vim',config = function ()
-    vim.cmd([[
-        imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
-        let g:copilot_no_tab_map = v:true
-    ]])
-end}
+use 'github/copilot.vim'
 use 'tpope/vim-surround'
 use 'tpope/vim-unimpaired'
 use 'huylg/vim-sensible'
@@ -171,13 +166,6 @@ use 'tpope/vim-vinegar'
 
 -- other plugins
 use 'jiangmiao/auto-pairs'
-
--- use {'windwp/nvim-autopairs',config = function ()
---   require('nvim-autopairs').setup({
---     disable_filetype = { "TelescopePrompt"},
---   })
--- end}
-
 use {'mg979/vim-visual-multi', branch = 'master'}
 use {'numToStr/Comment.nvim', config = function ()
     require('Comment').setup({
