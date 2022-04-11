@@ -1,3 +1,5 @@
+vim.o.termguicolors = true
+
 local ok, reload = pcall(require, 'plenary.reload')
 RELOAD = ok and reload.reload_module or function(...)
   return ...
@@ -6,5 +8,4 @@ function R(name) RELOAD(name)
   return require(name)
 end
 
-R ('settings')
 R ('plugins')

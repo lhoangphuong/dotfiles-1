@@ -156,19 +156,9 @@ use{
 }
 
 -- tpope
-use {
-  'github/copilot.vim',
-  config = function()
-    print('copilot.vim plugin loaded')
-    vim.g.copilot_no_tab_map = true
-    vim.g.copilot_filetypes = {
-      ['*'] = true,
-    }
-  end,
-}
+use 'github/copilot.vim'
 use 'tpope/vim-surround'
 use 'tpope/vim-unimpaired'
-use 'huylg/vim-sensible'
 use 'tpope/vim-eunuch'
 use 'tpope/vim-sleuth'
 use 'tpope/vim-vinegar'
