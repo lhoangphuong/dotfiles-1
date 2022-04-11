@@ -16,7 +16,7 @@ hi link GitSignsCurrentLineBlame Comment
 
 hi FidgetTitle ctermfg=110 guifg=#6cb6eb guibg=none ctermbg=NONE
 hi FidgetTask guibg=none guifg=#D4D4D4 ctermbg=NONE
-" hi CopilotSuggestion guifg=#e5e3f7
+hi CopilotSuggestion guifg=#e5e3f7
 
 hi GitSignsDeleteLn guifg=#F44747 guibg=NONE
 hi GitSignsAddLn guifg=#6A9955 guibg=NONE
