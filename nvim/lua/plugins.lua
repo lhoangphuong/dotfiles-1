@@ -106,6 +106,7 @@ use {
       require'flutter'
     end
 }
+use 'dart-lang/dart-vim-plugin'
 use 'aspeddro/lsp_menu.nvim'
 
 -- debug stuff
@@ -158,8 +159,8 @@ use{
 use {
   'github/copilot.vim',
   config = function()
+    print('copilot.vim plugin loaded')
     vim.g.copilot_no_tab_map = true
-
     vim.g.copilot_filetypes = {
       ['*'] = true,
     }
@@ -174,7 +175,12 @@ use 'tpope/vim-vinegar'
 
 
 -- other plugins
-use 'jiangmiao/auto-pairs'
+use {'windwp/nvim-autopairs',config = function ()
+  require('nvim-autopairs').setup({
+    disable_filetype = { "TelescopePrompt"},
+  })
+end}
+
 use {'mg979/vim-visual-multi', branch = 'master'}
 use {'numToStr/Comment.nvim', config = function ()
     require('Comment').setup({
