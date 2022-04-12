@@ -103,10 +103,18 @@ use {
     'Neevash/awesome-flutter-snippets'
   },
     config = function ()
-      require'flutter'
+       require'flutter'
     end
 }
-use 'dart-lang/dart-vim-plugin'
+
+use{ 'natebosch/vim-lsc-dart',requires = {
+     'dart-lang/dart-vim-plugin',
+     'natebosch/vim-lsc',
+  },config =function()
+      vim.g.lsc_enable_autocomplete = false
+      vim.g.lsc_enable_diagnostics = false
+    end  }
+
 use 'aspeddro/lsp_menu.nvim'
 
 -- debug stuff
@@ -133,25 +141,8 @@ use{
       {'hrsh7th/cmp-nvim-lsp',after='nvim-cmp'},
       {'hrsh7th/cmp-buffer',after='nvim-cmp'},
       {'hrsh7th/cmp-path',after='nvim-cmp'},
-      {'hrsh7th/cmp-cmdline'} ,
-      {'hrsh7th/cmp-vsnip',after='nvim-cmp',config = function ()
-        vim.cmd([[
-          " Expand
-          imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
-          smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
-
-          " Expand or jump
-          imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
-          smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
-
-          " Jump forward or backward
-          imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
-          smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
-          imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
-          smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
-        ]])
-      end},
-      {'hrsh7th/vim-vsnip',after='nvim-cmp'},
+      {'hrsh7th/cmp-cmdline',after='nvim-cmp'},
+      {'saadparwaiz1/cmp_luasnip',after='nvim-cmp'},
   }
 }
 
