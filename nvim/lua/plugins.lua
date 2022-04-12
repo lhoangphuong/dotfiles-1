@@ -106,16 +106,7 @@ use {
        require'flutter'
     end
 }
-
-use{ 'natebosch/vim-lsc-dart',requires = {
-     'dart-lang/dart-vim-plugin',
-     'natebosch/vim-lsc',
-  },config =function()
-      vim.g.lsc_enable_autocomplete = false
-      vim.g.lsc_enable_diagnostics = false
-    end  }
-
-use 'aspeddro/lsp_menu.nvim'
+use 'dart-lang/dart-vim-plugin'
 
 -- debug stuff
 use {'mfussenegger/nvim-dap',requires ={ 'rcarriga/nvim-dap-ui', after = 'nvim-dap', config = function ()
