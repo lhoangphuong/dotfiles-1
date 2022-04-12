@@ -13,8 +13,8 @@ local function on_attach(client,bufnr)
   local admintool_path = vim.fn.getenv('HOME')..'/admintool'
 
   if vim.loop.cwd() == admintool_path then
-    buf_set_keymap('n','<space>fa',':FlutterRun -t lib/int5.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800<CR>',opts)
-    -- buf_set_keymap('n','<space>fa',':Start flutter run -t lib/int5.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800<CR>',opts)
+    -- buf_set_keymap('n','<space>fa',':FlutterRun -t lib/int5.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800<CR>',opts)
+    buf_set_keymap('n','<space>fa',':Start! flutter run -t lib/int5.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800<CR>',opts)
   else
     buf_set_keymap('n','<space>fa',':FlutterRun',opts)
   end
@@ -28,6 +28,7 @@ local function on_attach(client,bufnr)
   buf_set_keymap('n','<space>fR',':FlutterRestart<CR>',opts)
   buf_set_keymap('n','<space>fc',':Telescope flutter commands<CR>',opts)
   buf_set_keymap('n','<space>ft',':Dispatch flutter drive --driver=test_driver/integration_test.dart --target=integration_test/app_test.dart -d web-server --verbose <CR>',opts)
+  buf_set_keymap('n','<space>fm',':DartFmt<CR>',opts)
 
   require'lsp_mapping'.map(client,bufnr)
 end
