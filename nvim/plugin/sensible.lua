@@ -11,6 +11,8 @@ vim.o.number=true
 vim.o.relativenumber=true
 vim.o.smartindent=true
 vim.o.laststatus = 3
+vim.o.cursorline = true
+vim.o.cursorcolumn = true
 vim.wo.colorcolumn='80'
 
 

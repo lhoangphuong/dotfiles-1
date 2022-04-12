@@ -155,8 +155,8 @@ use{
   }
 }
 
--- tpope
 use 'github/copilot.vim'
+use 'wellle/targets.vim'
 use 'tpope/vim-surround'
 use 'tpope/vim-unimpaired'
 use 'tpope/vim-eunuch'
