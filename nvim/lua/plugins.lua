@@ -146,6 +146,11 @@ use{
   }
 }
 
+use{ 'L3MON4D3/LuaSnip',config = function ()
+    require("luasnip.loaders.from_vscode").lazy_load()
+end, requires = {'rafamadriz/friendly-snippets'}
+}
+
 use 'github/copilot.vim'
 use 'wellle/targets.vim'
 use 'tpope/vim-surround'
