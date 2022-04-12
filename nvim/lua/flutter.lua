@@ -14,13 +14,13 @@ local function on_attach(client,bufnr)
 
   if vim.loop.cwd() == admintool_path then
     -- buf_set_keymap('n','<space>fa',':FlutterRun -t lib/int5.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800<CR>',opts)
-    buf_set_keymap('n','<space>fa',':Dispatch zsh $HOME/hlg/dotfiles/tmux-workspace-script/flutter-run-admintool.sh',opts)
+    buf_set_keymap('n','<space>fa',':Dispatch zsh $HOME/hlg/dotfiles/tmux-workspace-script/flutter-run-admintool.sh<CR>',opts)
   else
     buf_set_keymap('n','<space>fa',':FlutterRun',opts)
   end
 
   buf_set_keymap('n','<space>fq',':FlutterQuit<CR>',opts)
-  buf_set_keymap('n','<space>fq',':Dispatch zsh $HOME/hlg/dotfiles/tmux-workspace-script/flutter-stop-admintool.sh',opts)
+  buf_set_keymap('n','<space>fq',':Dispatch zsh $HOME/hlg/dotfiles/tmux-workspace-script/flutter-stop-admintool.sh<CR>',opts)
   -- buf_set_keymap('n','<space>fc',':FlutterCopyProfilerUrl<CR>',opts)
   -- buf_set_keymap('n','<space>fd',':FlutterDevices<CR>',opts)
   buf_set_keymap('n','<space>fl',':FlutterLogClear<CR>',opts)
