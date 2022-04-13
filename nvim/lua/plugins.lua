@@ -157,7 +157,9 @@ use {'windwp/nvim-autopairs',config = function ()
     disable_filetype = { "TelescopePrompt"},
   })
 end}
-
+use {'antoinemadec/FixCursorHold.nvim',config = function ()
+ vim.g.cursorhold_updatetime = 100
+end}
 use {'mg979/vim-visual-multi', branch = 'master'}
 use {'numToStr/Comment.nvim', config = function ()
     require('Comment').setup({
