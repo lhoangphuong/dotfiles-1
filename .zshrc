@@ -92,3 +92,5 @@ export NVM_DIR="$HOME/.nvm"
 
 export BAT_THEME='Visual Studio Dark+'
 alias gpa='git add .; git commit -m "$1"; git push;'
+
+alias update_vim='sudo -rf $HOME/admintool; wget -c https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz -O - | tar -xzv'
