@@ -31,11 +31,6 @@ local function on_attach(client,bufnr)
   buf_set_keymap('n','<space>ft',':Dispatch flutter drive --driver=test_driver/integration_test.dart --target=integration_test/app_test.dart -d web-server --verbose <CR>',opts)
   buf_set_keymap('n','<space>fm',':DartFmt<CR>',opts)
 
-  if client.resolved_capabilities.document_highlight then
-    vim.cmd 'autocmd CursorHold  <buffer> lua vim.lsp.buf.document_highlight()'
-    vim.cmd 'autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()'
-    vim.cmd 'autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()'
-  end
   require'lsp_mapping'.map(client,bufnr)
 end
 
