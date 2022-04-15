@@ -26,7 +26,7 @@ packer.init({
         clone_timeout = 600, -- Timeout, in seconds, for git clones
   }
 })
-return packer.startup(function()
+return packer.startup(function(use)
 
 
 use 'wbthomason/packer.nvim'
@@ -105,20 +105,6 @@ use {
     config = function ()
        require'flutter'
     end
-}
-use{
-  'akinsho/pubspec-assist.nvim',
-  requires = 'plenary.nvim',
-  rocks = {
-    {
-      'lyaml',
-      server = 'http://rocks.moonscript.org',
-      env = { YAML_DIR = '/usr/local/Cellar/libyaml/0.2.5/' },
-    },
-  },
-config = function()
-  require('pubspec-assist').setup()
-end,
 }
 use 'dart-lang/dart-vim-plugin'
 
