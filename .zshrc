@@ -65,7 +65,7 @@ alias fcl='fvm flutter clean'
 alias fpg='fvm flutter pub get'
 alias fr='fvm flutter run'
 alias fdo='fvm flutter doctor'
-alias fb='fvm flutter pub run build_runner build --delete-conflicting-outputs'
+alias fbr='fvm flutter pub run build_runner build --delete-conflicting-outputs'
 alias lg=lazygit
 alias gdi='git icdiff'
 alias gspd='git diff | git-split-diffs --color | less -RFX'
@@ -93,4 +93,4 @@ export NVM_DIR="$HOME/.nvm"
 export BAT_THEME='Visual Studio Dark+'
 alias gpa='git add .; git commit -m "$1"; git push;'
 
-alias update_vim='sudo rm -rf $HOME/nvim-osx64; wget -c https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz -O - | tar -xzv $HOME'
+alias update_vim='sudo rm -rf $HOME/nvim-osx64; wget -c https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz -O - | tar -xzv'
