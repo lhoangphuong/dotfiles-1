@@ -18,7 +18,7 @@ cmp.setup({
         documentation = cmp.config.window.bordered(),
       },
   mapping = {
-    ["<Tab>"] = cmp.mapping(function(fallback)
+    ["<Tab>"] = cmp.mapping.preset.insert(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       elseif luasnip.expand_or_jumpable() then

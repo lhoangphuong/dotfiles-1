@@ -125,7 +125,6 @@ use{ 'nkrkv/nvim-treesitter-rescript',run = ':TSInstall rescript' }
 -- autocomplete
 use{
     'hrsh7th/nvim-cmp',
-    commit = "dbc72290295cfc63075dab9ea635260d2b72f2e5",
     config = function ()
       require'cmp_setup'
     end,
