@@ -80,6 +80,12 @@ use {
 use{ 'neovim/nvim-lspconfig', config = function ()
     require'lspstuff'
 end}
+
+use({
+  'weilbith/nvim-code-action-menu',
+  cmd = 'CodeActionMenu',
+})
+
 use{ 'j-hui/fidget.nvim', config = function ()
   require"fidget".setup{
     text = {
@@ -142,7 +148,10 @@ use{ 'L3MON4D3/LuaSnip',config = function ()
 end, requires = {'rafamadriz/friendly-snippets'}
 }
 
-use 'github/copilot.vim'
+use {'github/copilot.vim',config = function ()
+    vim.cmd[[imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")]]
+    vim.g.copilot_no_tab_map = true
+end}
 use 'wellle/targets.vim'
 use 'tpope/vim-surround'
 use 'tpope/vim-unimpaired'
