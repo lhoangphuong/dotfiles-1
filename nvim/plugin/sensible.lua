@@ -2,8 +2,6 @@ vim.cmd([[
   autocmd FileType qf wincmd J
   packadd cfilter
   set clipboard+=unnamedplus
-  hi! CursorLine gui=underline cterm=underline guibg=none
-  hi CursorLineNr guibg=NONE
 ]])
 
 vim.o.completeopt='menu,menuone,noselect'

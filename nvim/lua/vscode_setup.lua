@@ -24,4 +24,7 @@ hi WinSeparator guibg=none guifg=#c0caf5
 
 hi ColorColumn guibg=#2A2A37
 hi CursorColumn guibg=#363646
+
+hi! CursorLine gui=underline cterm=underline guibg=none
+hi CursorLineNr guibg=NONE
 ]])

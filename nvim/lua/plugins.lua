@@ -77,16 +77,11 @@ use {
 -- use 'ThePrimeagen/git-worktree.nvim'
 
 -- lsp stuff
-use{ 'neovim/nvim-lspconfig', config = function ()
+use{'neovim/nvim-lspconfig', config = function ()
     require'lspstuff'
 end}
 
-use({
-  'weilbith/nvim-code-action-menu',
-  cmd = 'CodeActionMenu',
-})
-
-use{ 'j-hui/fidget.nvim', config = function ()
+use{'j-hui/fidget.nvim', config = function ()
   require"fidget".setup{
     text = {
       spinner = "pipe",
@@ -139,6 +134,7 @@ use{
       {'hrsh7th/cmp-buffer',after='nvim-cmp'},
       {'hrsh7th/cmp-path',after='nvim-cmp'},
       {'hrsh7th/cmp-cmdline',after='nvim-cmp'},
+      {'hrsh7th/cmp-copilot',after='nvim-cmp'},
       {'saadparwaiz1/cmp_luasnip',after='nvim-cmp'},
   }
 }
