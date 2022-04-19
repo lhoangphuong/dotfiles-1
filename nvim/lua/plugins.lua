@@ -32,9 +32,8 @@ return packer.startup(function(use)
 use 'wbthomason/packer.nvim'
 
 -- color Theme
-use {'Mofiqul/vscode.nvim', branch = 'main',config = function ()
-    require'vscode_setup'
-end }
+use {'Mofiqul/vscode.nvim', branch = 'main'}
+
 
 -- Tree sitter
 use {
@@ -85,7 +84,7 @@ use{'j-hui/fidget.nvim', config = function ()
   require"fidget".setup{
     text = {
       spinner = "pipe",
-      done = "ლ( ͡❛ ‿‿ ͡❛)ლ ",
+      done = "(=^･ｪ･^=))ﾉ彡☆ ",
       commenced = "Started",
       completed = "Completed",
     },
@@ -154,7 +153,7 @@ use 'tpope/vim-unimpaired'
 use 'tpope/vim-eunuch'
 use 'tpope/vim-sleuth'
 use 'tpope/vim-vinegar'
-
+use 'tpope/vim-dispatch'
 
 -- other plugins
 use {'windwp/nvim-autopairs',config = function ()
@@ -211,6 +210,8 @@ use {
   }
 }
 use {'norcalli/nvim-colorizer.lua',config = function() require'colorizer'.setup() end}
-use {'tpope/vim-dispatch'}
 use 'segeljakt/vim-silicon'
+use {'simrat39/symbols-outline.nvim',config = function ()
+        require'symbols-outline_setup'
+    end}
 end)
