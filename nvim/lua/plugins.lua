@@ -154,6 +154,7 @@ use 'tpope/vim-eunuch'
 use 'tpope/vim-sleuth'
 use 'tpope/vim-vinegar'
 use 'tpope/vim-dispatch'
+use 'tpope/vim-repeat'
 
 -- other plugins
 use {'windwp/nvim-autopairs',config = function ()
@@ -211,7 +212,4 @@ use {
 }
 use {'norcalli/nvim-colorizer.lua',config = function() require'colorizer'.setup() end}
 use 'segeljakt/vim-silicon'
-use {'simrat39/symbols-outline.nvim',config = function ()
-        require'symbols-outline_setup'
-    end}
 end)
