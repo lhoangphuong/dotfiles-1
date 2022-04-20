@@ -48,7 +48,6 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH="$PATH:$ANDROID_HOME/emulator/"
 export PATH="$PATH:$HOME/.cargo/bin/"
 export PATH="$PATH:$HOME/Library/Python/2.7/bin"
-export PATH="$PATH:$HOME/nvim-osx64/bin"
 # export JAVA_HOME=$(/usr/libexec/java_home)
 # export PATH=$PATH:$JAVA_HOME/bin
 
@@ -73,9 +72,9 @@ alias t=tmux
 
 my_vim(){
 	if (( $# == 0 )); then
-    		nvim .
+    		$HOME/nvim-osx64/bin/nvim .
 	else
-		nvim $1
+		$HOME/nvim-osx64/bin/nvim $1
 	fi
 }
 alias n=my_vim
