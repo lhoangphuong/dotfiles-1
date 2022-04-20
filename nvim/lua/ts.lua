@@ -1,5 +1,5 @@
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = {'vim','lua','rust','http','json','dart','elm','javascript','yaml'},
+  ensure_installed = {'vim','lua','rust','http','json','dart','elm','javascript','yaml','bash'},
   highlight = {
     enable = true,
   },
