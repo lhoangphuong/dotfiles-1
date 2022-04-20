@@ -10,6 +10,7 @@ hi EndOfBuffer guibg=NONE ctermbg=NONE
 hi BufferTabpageFill guibg=none
 hi LspDiagnosticsUnderlineInformation guifg=NONE
 hi LspDiagnosticsUnderlineError guifg=NONE
+hi link NormalFloat  Normal
 
 hi Comment gui=italic
 hi link GitSignsCurrentLineBlame Comment

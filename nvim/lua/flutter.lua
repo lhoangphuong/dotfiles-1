@@ -33,6 +33,14 @@ local function on_attach(client,bufnr)
   buf_set_keymap('n','<space>fm',':DartFmt<CR>',opts)
 
   require'lsp_mapping'.map(client,bufnr)
+
+  function SendKeyToFlutterTmux()
+    local key = vim.fn.input('Enter key to send to flutter:')
+    local command = 'Dispatch tmux send-keys -t admintool-flutter-run.1 '..key;
+    vim.cmd(command);
+  end
+
+  buf_set_keymap('n','<space>fk',':SendKeyToFlutterTmux<CR>',opts)
 end
 
 require("flutter-tools").setup {

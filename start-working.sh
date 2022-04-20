@@ -2,7 +2,7 @@ if [[  "$(hostname)" != "mac26973.elcaNet.local" ]]; then
 	ssh hlg@mac26973.elcaNet.local
 fi
 
-tmux new-session -d -s tng-workspace
+tmux new-session -s tng-workspace
 
 tmux new-window -t tng-workspace -c ~/admintool/
 

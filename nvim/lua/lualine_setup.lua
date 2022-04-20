@@ -31,6 +31,10 @@ local conditions = {
     local gitdir = vim.fn.finddir('.git', filepath .. ';')
     return gitdir and #gitdir > 0 and #gitdir < #filepath
   end,
+  check_flutter_workspace = function ()
+    return vim.g.flutter_tools_decorations ~= nil
+  end
+
 }
 
 -- Config
@@ -39,6 +43,7 @@ local config = {
     -- Disable sections and component separators
     component_separators = '',
     section_separators = '',
+    globalstatus = true,
     theme = {
       -- We are going to use lualine_c an lualine_x as left and
       -- right section. Both are highlighted by c theme .  So we
@@ -174,6 +179,24 @@ ins_left {
     return msg
   end,
   icon = ' LSP:',
+  color = { fg = '#ffffff', gui = 'bold' },
+}
+
+-- ins_left{
+--   function ()
+--     return vim.g.flutter_tools_decorations.device
+--   end,
+--   cond = conditions.check_flutter_workspace,
+--   icon = 'device: ',
+--   color = { fg = '#ffffff', gui = 'bold' },
+-- }
+
+ins_left{
+  function ()
+    return vim.g.flutter_tools_decorations.app_version
+  end,
+  icon = '⚡VERSION:',
+  cond = conditions.check_flutter_workspace,
   color = { fg = '#ffffff', gui = 'bold' },
 }
 

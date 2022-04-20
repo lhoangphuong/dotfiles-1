@@ -34,5 +34,3 @@ vim.api.nvim_set_keymap('t', '<Esc>','<C-\\><C-n>',opts)
 
 -- color scheme
 require'vscode_setup'
-
-vim.o.laststatus = 3
