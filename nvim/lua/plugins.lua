@@ -33,7 +33,6 @@ use 'wbthomason/packer.nvim'
 
 -- color Theme
 use {'Mofiqul/vscode.nvim', branch = 'main'}
-use 'Mofiqul/dracula.nvim'
 
 
 -- Tree sitter
