@@ -33,4 +33,9 @@ vim.api.nvim_set_keymap('t', '<Esc>','<C-\\><C-n>',opts)
 
 
 -- color scheme
-require'vscode_setup'
+-- require'vscode_setup'
+vim.cmd [[  
+  colorscheme dracula 
+  hi! CursorLine gui=underline cterm=underline guibg=none
+  hi CursorLineNr guibg=NONE
+]]

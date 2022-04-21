@@ -33,6 +33,7 @@ use 'wbthomason/packer.nvim'
 
 -- color Theme
 use {'Mofiqul/vscode.nvim', branch = 'main'}
+use 'Mofiqul/dracula.nvim'
 
 
 -- Tree sitter
@@ -170,27 +171,28 @@ use {'antoinemadec/FixCursorHold.nvim',config = function ()
  vim.g.cursorhold_updatetime = 100
 end}
 use {'mg979/vim-visual-multi', branch = 'master'}
-use {'numToStr/Comment.nvim', config = function ()
-    require('Comment').setup({
-    padding = true,
-    sticky = true,
-    ignore = nil,
-    mappings = {
-        basic = true,
-        extra = true,
-        extended = false,
-    },
-    toggler = {
-        line = 'gcc',
-        block = 'gbc',
-    },
-    opleader = {
-        line = 'gc',
-        block = 'gb',
-    },
-    pre_hook = nil,
-    post_hook = nil,
-})
+use {'numToStr/Comment.nvim', config = 
+    function ()
+      require('Comment').setup({
+      padding = true,
+      sticky = true,
+      ignore = nil,
+      mappings = {
+          -- basic = true,
+          -- extra = true,
+          -- extended = false,
+      },
+      toggler = {
+          line = 'gcc',
+          block = 'gbc',
+      },
+      opleader = {
+          line = 'gc',
+          block = 'gb',
+      },
+      pre_hook = nil,
+      post_hook = nil,
+    })
 
     require'Comment.ft'.set('dart', {'// %s', '/*%s*/'})
 
