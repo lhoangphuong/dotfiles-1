@@ -64,6 +64,9 @@ use {
 
 -- git stuff
 use 'tpope/vim-fugitive'
+use {'tommcdo/vim-fubitive',config = function ()
+   vim.g.fubitive_domain_pattern = 'bitbucket.svc.elca.ch'
+end}
 use {
   'lewis6991/gitsigns.nvim',
   requires =  'nvim-lua/plenary.nvim',
