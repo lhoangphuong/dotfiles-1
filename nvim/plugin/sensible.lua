@@ -31,6 +31,15 @@ vim.api.nvim_set_keymap('n', '<space>ll',':lli<CR>',opts)
 
 vim.api.nvim_set_keymap('t', '<Esc>','<C-\\><C-n>',opts)
 
+-- Highlight on yank
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = '*',
+})
 
 -- color scheme
 require'vscode_setup'
