@@ -16,9 +16,8 @@ void main(List<String> arguments) {
   var watcher = DirectoryWatcher(p.absolute(arguments[0]));
   watcher.events.listen((event) {
     print(event);
-    print(p.extension(event.path));
     if (p.extension(event.path) == '.dart') {
-      io.Process.run('tmux', ['send-keys', '-t', 'admintool-flutter-run.1', 'r'], runInShell: true)
+      io.Process.run('tmux', ['send-keys', '-t', 'admintool-flutter-run.1', 'r'], runInShell: false)
           .then((value) => value.stdout)
           .then(print);
     }
