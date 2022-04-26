@@ -117,11 +117,6 @@ use {'mfussenegger/nvim-dap',requires ={ 'rcarriga/nvim-dap-ui', after = 'nvim-d
     require'dap_setup'
 end}}
 
---rust
-use{ 'simrat39/rust-tools.nvim',config = function()
-    require'rust-tools_setup'
-end}
-
 --rescript-lang
 use 'rescript-lang/vim-rescript'
 use{ 'nkrkv/nvim-treesitter-rescript',run = ':TSInstall rescript' }
@@ -170,16 +165,16 @@ use {'antoinemadec/FixCursorHold.nvim',config = function ()
  vim.g.cursorhold_updatetime = 100
 end}
 use {'mg979/vim-visual-multi', branch = 'master'}
-use {'numToStr/Comment.nvim', config = 
+use {'numToStr/Comment.nvim', config =
     function ()
       require('Comment').setup({
       padding = true,
       sticky = true,
       ignore = nil,
       mappings = {
-          -- basic = true,
-          -- extra = true,
-          -- extended = false,
+          basic = true,
+          extra = true,
+          extended = false,
       },
       toggler = {
           line = 'gcc',
@@ -215,6 +210,4 @@ use {
     end
   }
 }
-use {'norcalli/nvim-colorizer.lua',config = function() require'colorizer'.setup() end}
-use 'segeljakt/vim-silicon'
 end)

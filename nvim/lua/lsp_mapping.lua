@@ -37,6 +37,7 @@ local function map(client,bufnr)
   buf_set_keymap('n', "<space>ds", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", opts)
   buf_set_keymap('n','<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>',opts)
   buf_set_keymap('n','<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>',opts)
+
   if client.resolved_capabilities.document_highlight then
     vim.cmd 'autocmd CursorHold  <buffer> lua vim.lsp.buf.document_highlight()'
     vim.cmd 'autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()'
@@ -47,7 +48,6 @@ end
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
   vim.lsp.handlers.hover, {
-    -- Use a sharp border with `FloatBorder` highlights
     border = "single"
   }
 )
