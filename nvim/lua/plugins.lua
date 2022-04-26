@@ -44,7 +44,10 @@ use {
     requires = {
       {'nvim-treesitter/playground',after = 'nvim-treesitter'},
       {'nvim-treesitter/nvim-treesitter-textobjects', after = 'nvim-treesitter'},
-      {'nvim-treesitter/nvim-treesitter-refactor'}
+      {'nvim-treesitter/nvim-treesitter-refactor', after = 'nvim-treesitter'},
+      {'romgrk/nvim-treesitter-context', after = 'nvim-treesitter', config=function ()
+        require 'ts-context'
+      end},
     },
 }
 

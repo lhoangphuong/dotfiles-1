@@ -95,3 +95,19 @@ export BAT_THEME='Visual Studio Dark+'
 alias gpa='git add .; git commit -m "$1"; git push;'
 
 alias update_vim='sudo rm -rf $HOME/nvim-osx64; wget -c https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz -O - | tar -xzv'
+
+update_openapi_func(){
+  rm -rf $HOME/openapi 
+  rm $TMPDIR/openapi.yaml
+  wget --header="Authorization: Bearer $BITBUCKET_PAC" https://bitbucket.svc.elca.ch/projects/TYXR/repos/openapi/raw/tixngo/backend-operator-api.yaml -O $TMPDIR/openapi.yaml 
+  openapi-generator generate -i $TMPDIR/openapi.yaml -g dart-dio-next -o $HOME/openapi 
+  cd $HOME/openapi 
+  fvm flutter pub get 
+  fvm flutter pub run build_runner build --delete-conflicting-outputs 
+}
+alias update_openapi='eval update_openapi_func'
+
+
+#token please don't publish it :)
+export BITBUCKET_PAC="ODU1NDcyNTM1ODIwOokzd5uPANQBD/uOreCfAUCvd5Oo"
+export GITHUb_PAC="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"
