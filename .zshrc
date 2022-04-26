@@ -99,7 +99,7 @@ alias update_vim='sudo rm -rf $HOME/nvim-osx64; wget -c https://github.com/neovi
 update_openapi_func(){
   rm -rf $HOME/openapi 
   rm $TMPDIR/openapi.yaml
-  wget --header="Authorization: Bearer $BITBUCKET_PAC" https://bitbucket.svc.elca.ch/projects/TYXR/repos/openapi/raw/tixngo/backend-operator-api.yaml -O $TMPDIR/openapi.yaml 
+  wget --header="Authorization: Bearer $BITBUCKET_PAC" https://bitbucket.svc.elca.ch/projects/TYXR/repos/openapi/raw/tixngo/backend-organizer-api.yaml\?at\=refs%2Fheads%2Fdevelop -O $TMPDIR/openapi.yaml 
   openapi-generator generate -i $TMPDIR/openapi.yaml -g dart-dio-next -o $HOME/openapi 
   cd $HOME/openapi 
   fvm flutter pub get 
