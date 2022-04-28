@@ -14,8 +14,6 @@ vim.o.cursorcolumn = true
 vim.wo.colorcolumn='80'
 vim.o.ignorecase = true
 vim.o.smartcase = true
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
 
 
 local opts = { noremap=true, silent=true }

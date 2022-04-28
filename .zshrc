@@ -97,7 +97,7 @@ export BAT_THEME='Visual Studio Dark+'
 alias gpa='git add .; git commit -m "$1"; git push;'
 
 update_vim(){
-  sudo rm -rf $HOME/nvim-osx64
+  rm -rf $HOME/nvim-osx64
   wget -c https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz -O - | tar -xzv
 }
 
