@@ -1,12 +1,11 @@
 vim.cmd([[
   autocmd FileType qf wincmd J
   packadd cfilter
-  set clipboard+=unnamedplus
 ]])
 
 vim.o.completeopt='menu,menuone,noselect'
 vim.o.mouse='a'
-vim.o.clipboard='unnamed'
+vim.o.clipboard='unnamedplus'
 vim.o.number=true
 vim.o.relativenumber=true
 vim.o.smartindent=true
