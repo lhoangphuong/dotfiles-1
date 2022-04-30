@@ -1,12 +1,11 @@
 vim.cmd([[
   autocmd FileType qf wincmd J
   packadd cfilter
-  set clipboard+=unnamedplus
 ]])
 
 vim.o.completeopt = 'menuone,noselect'
 vim.o.mouse='a'
-vim.o.clipboard='unnamed'
+vim.o.clipboard='unnamedplus'
 vim.o.number=true
 vim.o.relativenumber=true
 vim.o.smartindent=true
@@ -33,6 +32,8 @@ vim.api.nvim_set_keymap('n', '<space>ll',':lli<CR>',opts)
 
 vim.api.nvim_set_keymap('t', '<Esc>','<C-\\><C-n>',opts)
 
+vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 -- Highlight on yank
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {

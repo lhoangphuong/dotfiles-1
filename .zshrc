@@ -65,8 +65,11 @@ alias f='fvm flutter'
 alias fcl='fvm flutter clean'
 alias fpg='fvm flutter pub get'
 alias fr='fvm flutter run'
+alias fu='fvm flutter upgrade'
 alias fdo='fvm flutter doctor'
 alias fbr='fvm flutter pub get; fvm flutter pub run build_runner build --delete-conflicting-outputs'
+alias dr='fvm dart run'
+
 alias lg=lazygit
 alias gdi='git icdiff'
 alias gspd='git diff | git-split-diffs --color | less -RFX'

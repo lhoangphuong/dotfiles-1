@@ -104,13 +104,13 @@ use {
   'akinsho/flutter-tools.nvim', requires ={
     'nvim-lua/plenary.nvim',
     'hrsh7th/cmp-nvim-lsp',
+    'dart-lang/dart-vim-plugin',
     'Neevash/awesome-flutter-snippets'
   },
     config = function ()
        require'flutter'
     end
 }
-use 'dart-lang/dart-vim-plugin'
 
 -- debug stuff
 use {'mfussenegger/nvim-dap',requires ={ 'rcarriga/nvim-dap-ui', after = 'nvim-dap', config = function ()
