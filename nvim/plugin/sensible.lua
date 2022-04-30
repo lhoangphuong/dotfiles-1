@@ -4,7 +4,7 @@ vim.cmd([[
   set clipboard+=unnamedplus
 ]])
 
-vim.o.completeopt='menu,menuone,noselect'
+vim.o.completeopt = 'menuone,noselect'
 vim.o.mouse='a'
 vim.o.clipboard='unnamed'
 vim.o.number=true
