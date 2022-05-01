@@ -72,8 +72,6 @@ alias fbr='fvm flutter pub get; fvm flutter pub run build_runner build --delete-
 alias dr='fvm dart run'
 
 alias lg=lazygit
-alias gdi='git icdiff'
-alias gspd='git diff | git-split-diffs --color | less -RFX'
 alias t=tmux
 
 my_vim(){
