@@ -49,7 +49,6 @@ export PATH="$PATH:$ANDROID_HOME/emulator/"
 export PATH="$PATH:$HOME/.cargo/bin/"
 export PATH="$PATH:$HOME/Library/Python/2.7/bin"
 export PATH="$PATH:$HOME/nvim-osx64/bin/"
-export PATH="$PATH:$HOME/helix/"
 
 # export JAVA_HOME=$(/usr/libexec/java_home)
 # export PATH=$PATH:$JAVA_HOME/bin
@@ -82,6 +81,16 @@ my_vim(){
 	fi
 }
 alias n=my_vim
+
+my_helix(){
+	if (( $# == 0 )); then
+		$HOME/helix/hx .
+	else
+		$HOME/helix/hx $1
+	fi
+}
+alias h=my_helix
+
 alias flutter='fvm flutter'
 alias dart='fvm dart'
 enable-fzf-tab
