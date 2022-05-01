@@ -9,6 +9,7 @@ require'nvim-treesitter.configs'.setup {
     'elm',
     'javascript',
     'yaml',
+    'toml',
     'bash'
   },
   highlight = {
