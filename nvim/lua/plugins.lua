@@ -17,8 +17,8 @@ else
 end
 
 
-vim.api.nvim_set_keymap('n','<leader>ps',"<cmd>PackerSync<cr>",{ noremap=true, silent=true })
-vim.api.nvim_set_keymap('n','<leader>pc',"<cmd>PackerClean<cr>",{ noremap=true, silent=true })
+vim.keymap.set('n','<leader>ps',"<cmd>PackerSync<cr>",{ noremap=true, silent=true })
+vim.keymap.set('n','<leader>pc',"<cmd>PackerClean<cr>",{ noremap=true, silent=true })
 
 local packer = require('packer')
 packer.init({
@@ -33,7 +33,7 @@ use 'wbthomason/packer.nvim'
 
 -- color Theme
 use {'Mofiqul/vscode.nvim', branch = 'main'}
-
+use { "ellisonleao/gruvbox.nvim" }
 
 -- Tree sitter
 use {
@@ -194,7 +194,12 @@ end}
 use {
   'nvim-lualine/lualine.nvim',
   config = function ()
-      require ('lualine_setup')
+            require 'lualine'.setup({
+        options = {
+          theme = 'gruvbox'
+        }
+      })
+      -- require ('lualine_setup')
   end,
   requires = { 'kyazdani42/nvim-web-devicons', opt = true, config =function ()
     require'nvim-web-devicons'.setup {

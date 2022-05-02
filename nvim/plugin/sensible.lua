@@ -17,20 +17,20 @@ vim.o.smartcase = true
 
 
 local opts = { noremap=true, silent=true }
-vim.api.nvim_set_keymap('i','<C-b>','<left>',opts)
-vim.api.nvim_set_keymap('i','<C-f>','<right>',opts)
+vim.keymap.set('i','<C-b>','<left>',opts)
+vim.keymap.set('i','<C-f>','<right>',opts)
 
-vim.api.nvim_set_keymap('n','<space>s',':update<CR>',opts)
+vim.keymap.set('n','<space>s',':update<CR>',opts)
 
-vim.api.nvim_set_keymap('n','<space>co',':copen<CR>',opts)
-vim.api.nvim_set_keymap('n','<space>cc',':ccl<CR>',opts)
-vim.api.nvim_set_keymap('n','<space>cl',':cli<CR>',opts)
+vim.keymap.set('n','<space>co',':copen<CR>',opts)
+vim.keymap.set('n','<space>cc',':ccl<CR>',opts)
+vim.keymap.set('n','<space>cl',':cli<CR>',opts)
 
-vim.api.nvim_set_keymap('n', '<space>lo',':lopen<CR>',opts)
-vim.api.nvim_set_keymap('n', '<space>lc',':lcl<CR>',opts)
-vim.api.nvim_set_keymap('n', '<space>ll',':lli<CR>',opts)
+vim.keymap.set('n', '<space>lo',':lopen<CR>',opts)
+vim.keymap.set('n', '<space>lc',':lcl<CR>',opts)
+vim.keymap.set('n', '<space>ll',':lli<CR>',opts)
 
-vim.api.nvim_set_keymap('t', '<Esc>','<C-\\><C-n>',opts)
+vim.keymap.set('t', '<Esc>','<C-\\><C-n>',opts)
 
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -45,5 +45,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- color scheme
-require'vscode_setup'
+-- require'vscode_setup'
 
+require'gruvbox_setup'

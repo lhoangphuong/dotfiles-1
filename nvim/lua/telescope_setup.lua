@@ -5,9 +5,7 @@ local previewers = require('telescope.previewers')
 
 local new_maker = function(filepath, bufnr, opts)
   opts = opts or {}
-
-  filepath = vim.fn.expand(filepath)
-  vim.loop.fs_stat(filepath, function(_, stat)
+filepath = vim.fn.expand(filepath) vim.loop.fs_stat(filepath, function(_, stat)
     if not stat then return end
     if stat.size > 100000 then
       return
@@ -44,20 +42,40 @@ require('telescope').setup{
   }
 }
 
-local ivy_theme_string = "require('telescope.themes').get_ivy()";
+local ivy = require('telescope.themes').get_ivy();
+local builtin = require'telescope.builtin'
 
 local opts = { noremap=true, silent=true }
-vim.api.nvim_set_keymap('n','<space>p',"<cmd>lua require('telescope.builtin').find_files({previewer = false})<cr>",opts)
-vim.api.nvim_set_keymap('n','<space>fg',"<cmd>lua require('telescope.builtin').live_grep()<cr>",opts)
-vim.api.nvim_set_keymap('n','<space>fb',"<cmd>lua require('telescope.builtin').buffers()<cr>",opts)
-vim.api.nvim_set_keymap('n','<space>fo',"<cmd>lua require('telescope.builtin').oldfiles()<cr>",opts)
-vim.api.nvim_set_keymap('n','<space>fr',"<cmd>lua require('telescope.builtin').resume()<cr>",opts)
-vim.api.nvim_set_keymap('n','<space>qf',string.format("<cmd>lua require('telescope.builtin').quickfix(%s)<cr>",ivy_theme_string),opts)
--- vim.api.nvim_set_keymap('n','<space>lj',"<cmd>lua require('telescope.builtin').jumplist()<jr>",opts)
-vim.api.nvim_set_keymap('n','<space>gr',string.format("<cmd>lua require('telescope.builtin').lsp_references(%s)<cr>",ivy_theme_string),opts)
-vim.api.nvim_set_keymap('n','<space>gd',string.format("<cmd>lua require('telescope.builtin').lsp_definitions(%s)<cr>",ivy_theme_string),opts)
-vim.api.nvim_set_keymap('n','<space>fd',string.format("<cmd>lua require('telescope.builtin').diagnostics(%s)<cr>",ivy_theme_string),opts)
--- vim.api.nvim_set_keymap('n','<space>la',"<cmd>lua require('telescope.builtin').lsp_code_actions()<cr>",opts)
--- vim.api.nvim_set_keymap('n','<space>lw',"<cmd>lua require('telescope.builtin').lsp_workspace_diagnostics()<cr>",opts)
--- vim.api.nvim_set_keymap('n','<space>ld',"<cmd>lua require('telescope.builtin').lsp_document_diagnostics()<cr>",opts)
-vim.api.nvim_set_keymap('n','<space>t',":Telescope<cr>",opts)
+
+vim.keymap.set('n','<space>p',function ()
+  if vim.loop.cwd() == vim.fn.getenv('HOME')..'/dotfiles' then
+     builtin.git_files({previewer = false})
+  else
+     builtin.find_files({previewer = false})
+  end
+end,opts)
+
+vim.keymap.set('n','<space>fg',builtin.live_grep,opts)
+vim.keymap.set('n','<space>fb',builtin.buffers,opts)
+vim.keymap.set('n','<space>fo',builtin.oldfiles,opts)
+vim.keymap.set('n','<space>fr',builtin.resume,opts)
+
+vim.keymap.set('n','<space>qf',function ()
+  builtin.quickfix(ivy)
+end,opts)
+
+vim.keymap.set('n','<space>gr',function ()
+  builtin.lsp_references(ivy)
+end ,opts)
+
+vim.keymap.set('n','<space>gd',function ()
+  builtin.lsp_definitions(ivy)
+end ,opts)
+
+vim.keymap.set('n','<space>fd',function ()
+  builtin.diagnostics(ivy)
+end ,opts)
+
+vim.keymap.set('n','<space>t',function ()
+  vim.cmd ':Telescope <cr>'
+end,opts)

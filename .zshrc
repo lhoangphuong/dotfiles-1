@@ -39,6 +39,7 @@ zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
 
 
+
 export PATH="$PATH:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin"
 export PATH="$PATH:$HOME/fvm/versions/stable/bin"
 export PATH="$PATH:$HOME/fvm/versions/stable/bin/cache/dart-sdk/bin"
@@ -60,6 +61,10 @@ export FZF_DEFAULT_COMMAND="fd ."
 export FZF_CTRL_T_COMMAND="$FZF_DEFULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd -t d ."
 export EDITOR='nvim'
+export DOTFILE_DIR="$HOME/dotfiles"
+
+# set up token
+source $DOTFILE_DIR/token/token.sh
 
 alias f='fvm flutter'
 alias fcl='fvm flutter clean'
@@ -119,8 +124,3 @@ update_openapi(){
   fvm flutter pub get 
   fvm flutter pub run build_runner build --delete-conflicting-outputs 
 }
-
-
-#token please don't publish it :)
-export BITBUCKET_PAC="ODU1NDcyNTM1ODIwOokzd5uPANQBD/uOreCfAUCvd5Oo"
-export GITHUb_PAC="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"
