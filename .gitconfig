@@ -1,0 +1,22 @@
+[core]
+	compression = 0
+	whitespace = cr-at-eol
+	autocrlf = input
+[user]
+	name = huy
+	email = huy
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[merge]
+  tool = vimdiff
+[mergetool]
+  prompt = true
+[mergetool "vimdiff"]
+  cmd = nvim -d $LOCAL $MERGED $REMOTE
+[difftool]
+  prompt = false
+[diff]
+  tool = vimdiff
