@@ -196,6 +196,7 @@ use {
   config = function ()
             require 'lualine'.setup({
         options = {
+          globalstatus = true,
           theme = 'gruvbox'
         }
       })
@@ -215,4 +216,8 @@ use {
     end
   }
 }
+use {'norcalli/nvim-colorizer.lua',config = function ()
+    require'colorizer'.setup()
+end}
+
 end)

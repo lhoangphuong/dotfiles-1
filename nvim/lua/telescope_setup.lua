@@ -77,5 +77,5 @@ vim.keymap.set('n','<space>fd',function ()
 end ,opts)
 
 vim.keymap.set('n','<space>t',function ()
-  vim.cmd ':Telescope <cr>'
+  vim.cmd 'Telescope'
 end,opts)
