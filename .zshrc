@@ -112,7 +112,7 @@ alias gpa='git add .; git commit -m "$1"; git push;'
 
 update_vim(){
   rm -rf $HOME/nvim-osx64
-  wget -c https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz -O - | tar -xzv
+  wget -c https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz -O - | tar -xzvf - -C $HOME/nvim-osx64
 }
 
 update_openapi(){

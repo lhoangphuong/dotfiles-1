@@ -20,12 +20,16 @@ cmp.setup({
   mapping = {
     ["<Tab>"] = cmp.mapping.preset.insert(function(fallback)
       if cmp.visible() then
+        print 'select'
         cmp.select_next_item()
       elseif luasnip.expand_or_jumpable() then
+        print 'luasnip'
         luasnip.expand_or_jump()
       elseif has_words_before() then
+        print'complete'
         cmp.complete()
       else
+        print'fallback'
         fallback()
       end
     end, { "i", "s" }),

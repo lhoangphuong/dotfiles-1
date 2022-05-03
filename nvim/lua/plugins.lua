@@ -8,7 +8,8 @@ local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
   packer_notify 'Downloading packer.nvim...'
   packer_notify(
-    fn.system { 'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path }
+    fn.system { 'git', 'clone', 'https://github.com/wbthomason/packer.nvim',
+      install_path }
   )
   vim.cmd 'packadd! packer.nvim'
   require('packer').sync()
@@ -17,8 +18,15 @@ else
 end
 
 
-vim.keymap.set('n','<leader>ps',"<cmd>PackerSync<cr>",{ noremap=true, silent=true })
-vim.keymap.set('n','<leader>pc',"<cmd>PackerClean<cr>",{ noremap=true, silent=true })
+vim.keymap.set('n','<leader>ps',"<cmd>PackerSync<cr>",{ noremap=true,
+  silent=true })
+vim.keymap.set('n','<leader>pc',"<cmd>PackerClean<cr>",{ noremap=true,
+  silent=true })
+
+local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
+vim.api.nvim_create_autocmd('BufWritePost',
+  { command = [[ source <afile> | PackerCompile ]],
+  group = packer_group, pattern = '**/*.lua' })
 
 local packer = require('packer')
 packer.init({
@@ -43,8 +51,9 @@ use {
     end,
     requires = {
       {'nvim-treesitter/playground',after = 'nvim-treesitter'},
-      {'nvim-treesitter/nvim-treesitter-textobjects', after = 'nvim-treesitter'},
-      {'nvim-treesitter/nvim-treesitter-refactor', after = 'nvim-treesitter'},
+      {'nvim-treesitter/nvim-treesitter-textobjects',after =
+        'nvim-treesitter'},
+      {'nvim-treesitter/nvim-treesitter-refactor',after = 'nvim-treesitter'},
     },
 }
 
@@ -56,7 +65,8 @@ use {
     end,
   requires = {
     'nvim-lua/plenary.nvim',
-    {'nvim-telescope/telescope-fzf-native.nvim', run = 'make', after = 'telescope.nvim' ,config = function ()
+    {'nvim-telescope/telescope-fzf-native.nvim', run = 'make', after =
+        'telescope.nvim' ,config = function ()
 	require('telescope').load_extension('fzf')
     end
     }
@@ -88,7 +98,7 @@ use{'j-hui/fidget.nvim', config = function ()
   require"fidget".setup{
     text = {
       spinner = "pipe",
-      done = "(=^･ｪ･^=))ﾉ彡☆ ",
+      done = "(っ- ‸ - ς) ",
       commenced = "Started",
       completed = "Completed",
     },
@@ -113,7 +123,8 @@ use {
 }
 
 -- debug stuff
-use {'mfussenegger/nvim-dap',requires ={ 'rcarriga/nvim-dap-ui', after = 'nvim-dap', config = function ()
+use {'mfussenegger/nvim-dap',requires ={ 'rcarriga/nvim-dap-ui', after =
+    'nvim-dap', config = function ()
     require'dap_setup'
 end}}
 
@@ -161,9 +172,11 @@ use {'windwp/nvim-autopairs',config = function ()
     disable_filetype = { "TelescopePrompt"},
   })
 end}
+
 use {'antoinemadec/FixCursorHold.nvim',config = function ()
  vim.g.cursorhold_updatetime = 100
 end}
+
 use {'mg979/vim-visual-multi', branch = 'master'}
 use {'numToStr/Comment.nvim', config =
     function ()
@@ -191,6 +204,7 @@ use {'numToStr/Comment.nvim', config =
     require'Comment.ft'.set('dart', {'// %s', '/*%s*/'})
 
 end}
+
 use {
   'nvim-lualine/lualine.nvim',
   config = function ()
@@ -216,6 +230,7 @@ use {
     end
   }
 }
+
 use {'norcalli/nvim-colorizer.lua',config = function ()
     require'colorizer'.setup()
 end}

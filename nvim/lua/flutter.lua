@@ -6,31 +6,29 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 local function on_attach(client,bufnr)
   require("telescope").load_extension("flutter")
 
-  local opts = { noremap=true, silent=true }
-
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local opts = { noremap=true, silent=true,buffer=bufnr }
 
   local admintool_path = vim.fn.getenv('HOME')..'/admintool'
 
   if vim.loop.cwd() == admintool_path then
-    -- buf_set_keymap('n','<space>fa',':FlutterRun -t lib/int5.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800<CR>',opts)
-    buf_set_keymap('n','<space>fa',':!zsh $HOME/dotfiles/tmux-workspace-script/flutter-run-admintool.sh<CR>',opts)
+    -- vim.keymap.set('n','<space>fa',':FlutterRun -t lib/int5.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800<CR>',opts)
+    vim.keymap.set('n','<space>fa',':!zsh $HOME/dotfiles/tmux-workspace-script/flutter-run-admintool.sh<CR>',opts)
   else
-    buf_set_keymap('n','<space>fa',':FlutterRun',opts)
+    vim.keymap.set('n','<space>fa',':FlutterRun',opts)
   end
 
-  -- buf_set_keymap('n','<space>fq',':FlutterQuit<CR>',opts)
-  -- buf_set_keymap('n','<space>fc',':FlutterCopyProfilerUrl<CR>',opts)
-  -- buf_set_keymap('n','<space>fd',':FlutterDevices<CR>',opts)
-  -- buf_set_keymap('n','<space>fl',':FlutterLogClear<CR>',opts)
-  -- buf_set_keymap('n','<space>o' ,':FlutterOutlineToggle<CR>',opts)
-  -- buf_set_keymap('n','<Space>rl',':FlutterReload<CR>',opts)
-  -- buf_set_keymap('n','<space>fR',':FlutterRestart<CR>',opts)
-  -- buf_set_keymap('n','<space>fc',':Telescope flutter commands<CR>',opts)
+  -- vim.keymap.set('n','<space>fq',':FlutterQuit<CR>',opts)
+  -- vim.keymap.set('n','<space>fc',':FlutterCopyProfilerUrl<CR>',opts)
+  -- vim.keymap.set('n','<space>fd',':FlutterDevices<CR>',opts)
+  -- vim.keymap.set('n','<space>fl',':FlutterLogClear<CR>',opts)
+  -- vim.keymap.set('n','<space>o' ,':FlutterOutlineToggle<CR>',opts)
+  -- vim.keymap.set('n','<Space>rl',':FlutterReload<CR>',opts)
+  -- vim.keymap.set('n','<space>fR',':FlutterRestart<CR>',opts)
+  -- vim.keymap.set('n','<space>fc',':Telescope flutter commands<CR>',opts)
 
-  buf_set_keymap('n','<space>fq',':!zsh $HOME/dotfiles/tmux-workspace-script/flutter-stop-admintool.sh<CR>',opts)
-  buf_set_keymap('n','<space>ft',':Dispatch flutter drive --driver=test_driver/integration_test.dart --target=integration_test/app_test.dart -d web-server --verbose <CR>',opts)
-  buf_set_keymap('n','<space>fm',':DartFmt<CR>',opts)
+  vim.keymap.set('n','<space>fq',':!zsh $HOME/dotfiles/tmux-workspace-script/flutter-stop-admintool.sh<CR>',opts)
+  vim.keymap.set('n','<space>ft',':Dispatch flutter drive --driver=test_driver/integration_test.dart --target=integration_test/app_test.dart -d web-server --verbose <CR>',opts)
+  vim.keymap.set('n','<space>fm',':DartFmt<CR>',opts)
 
   require'lsp_mapping'.map(client,bufnr)
 
@@ -57,7 +55,7 @@ Enter key to send to flutter: ]]
     vim.cmd(command);
   end
 
-  buf_set_keymap('n','<space>fk',':lua SendKeyToFlutterTmux()<CR>',opts)
+  vim.keymap.set('n','<space>fk',':lua SendKeyToFlutterTmux()<CR>',opts)
 end
 
 require("flutter-tools").setup {
