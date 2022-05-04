@@ -63,9 +63,6 @@ export FZF_ALT_C_COMMAND="fd -t d ."
 export EDITOR='nvim'
 export DOTFILE_DIR="$HOME/dotfiles"
 
-# set up token
-source $DOTFILE_DIR/token/token.sh
-
 alias f='fvm flutter'
 alias fcl='fvm flutter clean'
 alias fpg='fvm flutter pub get'
