@@ -28,7 +28,7 @@ local function on_attach(client,bufnr)
 
   vim.keymap.set('n','<space>fq',':!zsh $HOME/dotfiles/tmux-workspace-script/flutter-stop-admintool.sh<CR>',opts)
   vim.keymap.set('n','<space>ft',':Dispatch flutter drive --driver=test_driver/integration_test.dart --target=integration_test/app_test.dart -d web-server --verbose <CR>',opts)
-  vim.keymap.set('n','<space>fm',':DartFmt<CR>',opts)
+  vim.keymap.set('n','<space>dm',':DartFmt<CR>',opts)
 
   require'lsp_mapping'.map(client,bufnr)
 
