@@ -145,6 +145,7 @@ use{
       {'hrsh7th/cmp-cmdline',after='nvim-cmp'},
       {'hrsh7th/cmp-copilot',after='nvim-cmp'},
       {'saadparwaiz1/cmp_luasnip',after='nvim-cmp'},
+      {'andersevenrud/cmp-tmux', after='nvim-cmp'},
   }
 }
 

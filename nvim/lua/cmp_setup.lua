@@ -20,16 +20,12 @@ cmp.setup({
   mapping = {
     ["<Tab>"] = cmp.mapping.preset.insert(function(fallback)
       if cmp.visible() then
-        print 'select'
         cmp.select_next_item()
       elseif luasnip.expand_or_jumpable() then
-        print 'luasnip'
         luasnip.expand_or_jump()
       elseif has_words_before() then
-        print'complete'
         cmp.complete()
       else
-        print'fallback'
         fallback()
       end
     end, { "i", "s" }),
@@ -61,7 +57,15 @@ cmp.setup({
       { name = 'nvim_lsp' },
       { name = 'buffer' },
       { name = 'path' },
-      { name = 'copilot' },
+      { name = 'copilot'},
+      { name = 'tmux',
+        option = {
+          all_panes = false,
+          label = '[tmux]',
+          trigger_characters = { '.' },
+          trigger_characters_ft = {} -- { filetype = { '.' } }
+        }
+      },
     }
     ),{
     }
