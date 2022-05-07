@@ -75,6 +75,8 @@ alias dr='fvm dart run'
 alias lg=lazygit
 alias t=tmux
 
+alias so=source
+
 my_vim(){
 	if (( $# == 0 )); then
     		$HOME/nvim-osx64/bin/nvim .
