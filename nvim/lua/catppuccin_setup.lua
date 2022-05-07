@@ -12,6 +12,7 @@ vim.cmd([[
 	hi SignColumn guibg=NONE ctermbg=NONE
 
 	hi link NormalFloat  Normal
+	hi WinSeparator guibg=none guifg=#c0caf5
 ]])
 
 
