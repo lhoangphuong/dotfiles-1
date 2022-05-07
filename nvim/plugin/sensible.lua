@@ -47,4 +47,4 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- color scheme
 -- require'vscode_setup'
 
-require'gruvbox_setup'
+require'catppuccin_setup'

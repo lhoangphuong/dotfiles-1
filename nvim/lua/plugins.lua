@@ -41,7 +41,10 @@ use 'wbthomason/packer.nvim'
 
 -- color Theme
 use {'Mofiqul/vscode.nvim', branch = 'main'}
-use { "ellisonleao/gruvbox.nvim" }
+use({
+    "catppuccin/nvim",
+    as = "catppuccin"
+})
 
 -- Tree sitter
 use {
@@ -208,10 +211,10 @@ end}
 use {
   'nvim-lualine/lualine.nvim',
   config = function ()
-            require 'lualine'.setup({
+      require 'lualine'.setup({
         options = {
           globalstatus = true,
-          theme = 'gruvbox'
+          theme = 'catppuccin'
         }
       })
       -- require ('lualine_setup')
