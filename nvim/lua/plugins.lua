@@ -148,10 +148,7 @@ use{
       {'hrsh7th/cmp-cmdline',after='nvim-cmp'},
       {'saadparwaiz1/cmp_luasnip',after='nvim-cmp'},
       {'andersevenrud/cmp-tmux', after='nvim-cmp'},
-      {
-        "zbirenbaum/copilot-cmp",
-        after = { "copilot.lua", "nvim-cmp" },
-      }
+      {'hrsh7th/cmp-copilot',after='nvim-cmp'},
   }
 }
 
@@ -168,6 +165,10 @@ use 'tpope/vim-sleuth'
 use 'tpope/vim-vinegar'
 use 'tpope/vim-dispatch'
 use 'tpope/vim-repeat'
+use {'github/copilot.vim',config = function ()
+    vim.cmd[[imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")]]
+    vim.g.copilot_no_tab_map = true
+end}
 
 -- other plugins
 use {'windwp/nvim-autopairs',config = function ()
@@ -211,13 +212,13 @@ end}
 use {
   'nvim-lualine/lualine.nvim',
   config = function ()
-      require 'lualine'.setup({
-        options = {
-          globalstatus = true,
-          theme = 'catppuccin'
-        }
-      })
-      -- require ('lualine_setup')
+      -- require 'lualine'.setup({
+      --   options = {
+      --     globalstatus = true,
+      --     theme = 'catppuccin'
+      --   }
+      -- })
+      require ('lualine_setup')
   end,
   requires = { 'kyazdani42/nvim-web-devicons', opt = true, config =function ()
     require'nvim-web-devicons'.setup {
@@ -238,13 +239,4 @@ use {'norcalli/nvim-colorizer.lua',config = function ()
     require'colorizer'.setup()
 end}
 
-use{
-  "zbirenbaum/copilot.lua",
-  event = {"VimEnter"},
-  config = function()
-    vim.defer_fn(function()
-      require("copilot").setup()
-    end, 100)
-  end,
-}
 end)

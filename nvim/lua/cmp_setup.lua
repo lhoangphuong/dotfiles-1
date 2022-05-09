@@ -50,7 +50,11 @@ cmp.setup({
       { name = 'nvim_lsp' },
       { name = 'buffer' },
       { name = 'path' },
-      { name = 'copilot'},
+      { name = 'copilot',
+        option={
+          label = '[Copilot]'
+        },
+      },
       { name = 'tmux',
         option = {
           all_panes = false,
