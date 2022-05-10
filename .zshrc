@@ -124,3 +124,5 @@ update_openapi(){
   fvm flutter pub get 
   fvm flutter pub run build_runner build --delete-conflicting-outputs 
 }
+
+source $DOTFILE_DIR/macos-animation.sh

@@ -121,7 +121,7 @@ use {
     'Neevash/awesome-flutter-snippets'
   },
     config = function ()
-       require'flutter'
+       -- require'flutter'
     end
 }
 
