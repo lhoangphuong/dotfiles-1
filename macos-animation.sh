@@ -1,5 +1,7 @@
 # disable all animation
 defaults write -g NSScrollAnimationEnabled -bool false
+defaults write -g NSAutomaticWindowAnimationsEnabled -bool false
+defaults write -g NSScrollAnimationEnabled -bool false
 defaults write -g NSWindowResizeTime -float 0.001
 defaults write -g QLPanelAnimationDuration -float 0
 defaults write -g NSScrollViewRubberbanding -bool false
@@ -14,7 +16,7 @@ defaults write com.apple.dock springboard-hide-duration -float 0
 defaults write com.apple.dock springboard-page-duration -float 0
 defaults write com.apple.finder DisableAllAnimations -bool true
 defaults write com.apple.Mail DisableSendAnimations -bool true
-defaults write com.apple.Mail DisableReplyAnimations -bool truen
+defaults write com.apple.Mail DisableReplyAnimations -bool true
 
 # enable all animatiodefaults write -g NSAutomaticWindowAnimationsEnabled -bool false
 #defaults delete -g NSAutomaticWindowAnimationsEnabled
