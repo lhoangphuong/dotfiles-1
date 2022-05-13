@@ -10,7 +10,8 @@ require'nvim-treesitter.configs'.setup {
     'javascript',
     'yaml',
     'toml',
-    'bash'
+    'bash',
+    'swift'
   },
   highlight = {
     enable = true,
