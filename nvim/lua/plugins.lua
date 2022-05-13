@@ -126,10 +126,14 @@ use {
 }
 
 -- debug stuff
-use {'mfussenegger/nvim-dap',requires ={ 'rcarriga/nvim-dap-ui', after =
-    'nvim-dap', config = function ()
-    require'dap_setup'
-end}}
+use {'mfussenegger/nvim-dap',
+    requires = {
+      'rcarriga/nvim-dap-ui',
+      after = 'nvim-dap', config = function ()
+          require'dap_setup'
+      end
+    }
+  }
 
 --rescript-lang
 use 'rescript-lang/vim-rescript'
