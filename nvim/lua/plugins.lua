@@ -169,6 +169,7 @@ use 'tpope/vim-sleuth'
 use 'tpope/vim-vinegar'
 use 'tpope/vim-dispatch'
 use 'tpope/vim-repeat'
+use 'tpope/vim-sensible'
 use {'github/copilot.vim',config = function ()
     vim.cmd[[imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")]]
     vim.g.copilot_no_tab_map = true
