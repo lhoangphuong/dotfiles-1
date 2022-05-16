@@ -3,7 +3,6 @@ vim.cmd([[
   packadd cfilter
 ]])
 
-vim.o.completeopt = 'menuone,noselect'
 vim.o.mouse='a'
 vim.o.clipboard='unnamedplus'
 vim.o.number=true

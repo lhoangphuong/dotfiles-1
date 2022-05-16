@@ -55,6 +55,7 @@ cmp.setup({
       select = true,
     })
   },
+  confirmation = { completeopt = 'menu,menuone,noinsert' },
   sources = cmp.config.sources({
       { name = 'luasnip' },
       { name = 'nvim_lsp' },
