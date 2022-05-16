@@ -14,6 +14,7 @@ plugins=(
   fzf
   tmux
   zsh-aliases-exa
+  flutter
 )
 
 MODE_CURSOR_VIINS="#ffc0cb blinking bar"
@@ -41,8 +42,6 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 
 
 export PATH="$PATH:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin"
-export PATH="$PATH:$HOME/fvm/versions/stable/bin"
-export PATH="$PATH:$HOME/fvm/versions/stable/bin/cache/dart-sdk/bin"
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
@@ -63,14 +62,20 @@ export FZF_ALT_C_COMMAND="fd -t d ."
 export EDITOR='nvim'
 export DOTFILE_DIR="$HOME/dotfiles"
 
-alias f='fvm flutter'
-alias fcl='fvm flutter clean'
-alias fpg='fvm flutter pub get'
-alias fr='fvm flutter run'
-alias fu='fvm flutter upgrade'
-alias fdo='fvm flutter doctor'
-alias fbr='fvm flutter pub get; fvm flutter pub run build_runner build --delete-conflicting-outputs'
-alias dr='fvm dart run'
+export PATH="$PATH:$HOME/fvm/versions/stable/bin"
+export PATH="$PATH:$HOME/fvm/versions/stable/bin/cache/dart-sdk/bin"
+alias flutter='fvm flutter'
+alias dart='fvm dart'
+
+# export PATH="$PATH:$HOME/fvm"
+# alias f='fvm flutter'
+# alias fcl='fvm flutter clean'
+# alias fpg='fvm flutter pub get'
+# alias fr='fvm flutter run'
+# alias fu='fvm flutter upgrade'
+# alias fdo='fvm flutter doctor'
+# alias fbr='fvm flutter pub get; fvm flutter pub run build_runner build --delete-conflicting-outputs'
+# alias dr='fvm dart run'
 
 alias lg=lazygit
 alias t=tmux
@@ -95,8 +100,6 @@ my_helix(){
 }
 alias h=my_helix
 
-alias flutter='fvm flutter'
-alias dart='fvm dart'
 enable-fzf-tab
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 #eval "$(rbenv init -)"
