@@ -15,6 +15,7 @@ plugins=(
   tmux
   zsh-aliases-exa
   flutter
+  zsh-autopair
 )
 
 MODE_CURSOR_VIINS="#ffc0cb blinking bar"
@@ -56,9 +57,10 @@ export PATH="$PATH:$HOME/nvim-osx64/bin/"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
-export FZF_DEFAULT_COMMAND="fd ."
-export FZF_CTRL_T_COMMAND="$FZF_DEFULT_COMMAND"
-export FZF_ALT_C_COMMAND="fd -t d ."
+# export FZF_DEFAULT_COMMAND="fd ."
+# export FZF_CTRL_T_COMMAND="$FZF_DEFULT_COMMAND"
+# export FZF_ALT_C_COMMAND="fd -t d ."
+
 export EDITOR='nvim'
 export DOTFILE_DIR="$HOME/dotfiles"
 
@@ -127,5 +129,3 @@ update_openapi(){
   fvm flutter pub get 
   fvm flutter pub run build_runner build --delete-conflicting-outputs 
 }
-
-#source $DOTFILE_DIR/macos-animation.sh
