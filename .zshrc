@@ -2,9 +2,7 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="powerlevel10k/powerlevel10k"
-plugins=(
-  fzf-tab
+ZSH_THEME="powerlevel10k/powerlevel10k" plugins=( fzf-tab
   git
   zsh-autosuggestions
   zsh-syntax-highlighting
@@ -122,9 +120,9 @@ update_vim(){
 
 update_openapi(){
   rm -rf $HOME/openapi 
-  rm $TMPDIR/openapi.yaml
-  wget --header="Authorization: Bearer $BITBUCKET_PAC" https://bitbucket.svc.elca.ch/projects/TYXR/repos/openapi/raw/tixngo/backend-organizer-api.yaml\?at\=refs%2Fheads%2Fdevelop -O $TMPDIR/openapi.yaml 
-  openapi-generator generate -i $TMPDIR/openapi.yaml -g dart-dio-next -o $HOME/openapi 
+  rm -rf $TMPDIR/tixngo
+  gcl ssh://git@bitbucket.svc.elca.ch:7999/openapi.git $TMPDIR/tixngo
+  openapi-generator generate -i $TMPDIR/tixngo/backend-operator-api.yaml -g dart-dio-next -o $HOME/openapi 
   cd $HOME/openapi 
   fvm flutter pub get 
   fvm flutter pub run build_runner build --delete-conflicting-outputs 

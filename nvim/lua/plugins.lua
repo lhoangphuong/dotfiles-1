@@ -1,7 +1,6 @@
 local packer_notify = function (msg,level)
     vim.notify(msg, level, { title = 'Packer' })
-end
-local fn = vim.fn
+end local fn = vim.fn
 local fmt = string.format
 
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
@@ -114,12 +113,12 @@ use{'j-hui/fidget.nvim', config = function ()
 
 --flutter
 use {
-  'akinsho/flutter-tools.nvim', requires ={
-    'nvim-lua/plenary.nvim',
-    'hrsh7th/cmp-nvim-lsp',
-    'dart-lang/dart-vim-plugin',
-    'Neevash/awesome-flutter-snippets'
-  },
+  'akinsho/flutter-tools.nvim', requires = {
+      'nvim-lua/plenary.nvim',
+      'hrsh7th/cmp-nvim-lsp',
+      'dart-lang/dart-vim-plugin',
+      'Neevash/awesome-flutter-snippets',
+    },
     config = function ()
        require'flutter'
     end
@@ -238,5 +237,25 @@ use {
 use {'norcalli/nvim-colorizer.lua',config = function ()
     require'colorizer'.setup()
 end}
+
+use {'simrat39/rust-tools.nvim',
+    requires = {
+       'nvim-lua/plenary.nvim',
+       'mfussenegger/nvim-dap'
+     },
+    config = function ()
+        require'rust-tools_setup'
+    end,
+}
+
+
+use {
+    'saecki/crates.nvim',
+    event = { "BufRead Cargo.toml" },
+    requires = { { 'nvim-lua/plenary.nvim' } },
+    config = function()
+        require('crates').setup()
+    end,
+}
 
 end)
