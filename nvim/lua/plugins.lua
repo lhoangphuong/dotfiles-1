@@ -242,21 +242,22 @@ end}
 use {'simrat39/rust-tools.nvim',
     requires = {
        'nvim-lua/plenary.nvim',
-       'mfussenegger/nvim-dap'
+       'mfussenegger/nvim-dap',
+        use {
+          'saecki/crates.nvim',
+          event = { "BufRead Cargo.toml" },
+          requires = { { 'nvim-lua/plenary.nvim' } },
+          config = function()
+              require('crates').setup()
+          end,
+        }
+
      },
     config = function ()
         require'rust-tools_setup'
     end,
 }
 
-
-use {
-    'saecki/crates.nvim',
-    event = { "BufRead Cargo.toml" },
-    requires = { { 'nvim-lua/plenary.nvim' } },
-    config = function()
-        require('crates').setup()
-    end,
-}
+use 'gfontenot/vim-xcode'
 
 end)
