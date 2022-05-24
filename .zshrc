@@ -84,12 +84,21 @@ alias so=source
 
 my_vim(){
 	if (( $# == 0 )); then
-    		$HOME/nvim-osx64/bin/nvim .
+    		$HOME/nvim-nightly/nvim-osx64/bin/nvim .
 	else
-		$HOME/nvim-osx64/bin/nvim $1
+		$HOME/nvim-nightly/nvim-osx64/bin/nvim $1
 	fi
 }
 alias n=my_vim
+
+my_vim_stable(){
+	if (( $# == 0 )); then
+    		$HOME/nvim-stable/nvim-osx64/bin/nvim .
+	else
+		$HOME/nvim-stable/nvim-osx64/bin/nvim $1
+	fi
+}
+alias ns=my_vim_stable
 
 my_helix(){
 	if (( $# == 0 )); then
@@ -115,7 +124,12 @@ alias gpa='git add .; git commit -m "$1"; git push;'
 
 update_vim(){
   rm -rf $HOME/nvim-osx64
-  wget -c https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz -O - | tar -xv - -C $HOME/
+  wget -c https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz -O - | tar -xv - -C $HOME/nvim-nightly
+}
+
+update_vim_stable(){
+  rm -rf $HOME/nvim-osx64
+  wget -c https://github.com/neovim/neovim/releases/download/stable/nvim-macos.tar.gz -O - | tar -xv - -C $HOME/nvim-stable
 }
 
 update_openapi(){

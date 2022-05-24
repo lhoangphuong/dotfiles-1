@@ -41,7 +41,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
-vim.o.winbar = '%f'
+if vim.fn.has('nvim-0.8') then
+  vim.o.winbar = '%f'
+end
 
 -- color scheme
 -- require'vscode_setup'
