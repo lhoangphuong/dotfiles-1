@@ -67,6 +67,11 @@ use {
     end,
   requires = {
     'nvim-lua/plenary.nvim',
+    {'nvim-telescope/telescope-ui-select.nvim', after = 'telescope.nvim',
+        config = function ()
+          require'telescope'.load_extension('ui-select')
+        end
+    },
     {'nvim-telescope/telescope-fzf-native.nvim', run = 'make', after =
         'telescope.nvim' ,config = function ()
 	require('telescope').load_extension('fzf')
