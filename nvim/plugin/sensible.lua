@@ -41,7 +41,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
-if vim.fn.has('nvim-0.8') then
+if vim.version().minor >= 8 then
   vim.o.winbar = '%f'
 end
 
