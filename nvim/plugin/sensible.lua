@@ -46,6 +46,6 @@ if vim.version().minor >= 8 then
 end
 
 -- color scheme
--- require'vscode_setup'
+require'vscode_setup'
 
-require'catppuccin_setup'
+-- require'catppuccin_setup'
