@@ -54,8 +54,7 @@ use {
     end,
     requires = {
       {'nvim-treesitter/playground',after = 'nvim-treesitter'},
-      {'nvim-treesitter/nvim-treesitter-textobjects',after =
-        'nvim-treesitter'},
+      {'nvim-treesitter/nvim-treesitter-textobjects',after = 'nvim-treesitter'},
       {'nvim-treesitter/nvim-treesitter-refactor',after = 'nvim-treesitter'},
     },
 }
@@ -224,7 +223,15 @@ end}
 use {
   'nvim-lualine/lualine.nvim',
   config = function ()
-      require ('lualine_setup')
+      -- require ('lualine_setup')
+
+        require 'lualine'.setup{
+          options = {
+            theme = 'auto',
+            globalstatus = true,
+          }
+        }
+
   end,
   requires = { 'kyazdani42/nvim-web-devicons', opt = true, config =function ()
     require'nvim-web-devicons'.setup {

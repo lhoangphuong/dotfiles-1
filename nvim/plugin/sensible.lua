@@ -41,11 +41,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
-if vim.version().minor >= 8 then
-  vim.o.winbar = '%f'
-end
-
 -- color scheme
-require'vscode_setup'
+-- require'vscode_setup'
 
 -- require'catppuccin_setup'
+require 'gruvbox_setup'
