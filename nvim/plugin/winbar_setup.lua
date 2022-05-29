@@ -1,1 +1,1 @@
-vim.o.winbar = "%f"
+vim.o.winbar = "%=%m %f"
