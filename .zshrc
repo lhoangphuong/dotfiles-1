@@ -64,8 +64,8 @@ export DOTFILE_DIR="$HOME/dotfiles"
 
 export PATH="$PATH:$HOME/fvm/versions/stable/bin"
 export PATH="$PATH:$HOME/fvm/versions/stable/bin/cache/dart-sdk/bin"
-alias flutter='fvm flutter'
-alias dart='fvm dart'
+# alias flutter='fvm flutter'
+# alias dart='fvm dart'
 
 # export PATH="$PATH:$HOME/fvm"
 # alias f='fvm flutter'

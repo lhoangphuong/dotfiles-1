@@ -223,15 +223,7 @@ end}
 use {
   'nvim-lualine/lualine.nvim',
   config = function ()
-      -- require ('lualine_setup')
-
-        require 'lualine'.setup{
-          options = {
-            theme = 'auto',
-            globalstatus = true,
-          }
-        }
-
+      require ('lualine_setup')
   end,
   requires = { 'kyazdani42/nvim-web-devicons', opt = true, config =function ()
     require'nvim-web-devicons'.setup {
