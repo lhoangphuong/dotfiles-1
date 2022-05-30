@@ -40,7 +40,7 @@ use 'wbthomason/packer.nvim'
 
 -- color Theme
 use {'Mofiqul/vscode.nvim', branch = 'main'}
-use { "ellisonleao/gruvbox.nvim" }
+use 'gruvbox-community/gruvbox'
 use({
     "catppuccin/nvim",
     as = "catppuccin"
@@ -223,14 +223,14 @@ end}
 use {
   'nvim-lualine/lualine.nvim',
   config = function ()
-      require ('lualine_setup')
+      -- require ('lualine_setup')
 
-        -- require 'lualine'.setup{
-        --   options = {
-        --     theme = 'auto',
-        --     globalstatus = true,
-        --   }
-        -- }
+        require 'lualine'.setup{
+          options = {
+            theme = 'auto',
+            globalstatus = true,
+          }
+        }
 
   end,
   requires = { 'kyazdani42/nvim-web-devicons', opt = true, config =function ()

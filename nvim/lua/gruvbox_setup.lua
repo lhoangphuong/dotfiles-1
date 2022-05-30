@@ -12,5 +12,3 @@ vim.cmd([[
 	hi link NormalFloat  Normal
 	hi link FidgetTask Normal
 ]])
-
-

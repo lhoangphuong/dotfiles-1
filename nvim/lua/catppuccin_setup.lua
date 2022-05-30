@@ -13,5 +13,3 @@ vim.cmd([[
 	hi WinSeparator guibg=none guifg=#c0caf5
 	hi link FidgetTask Normal
 ]])
-
-
