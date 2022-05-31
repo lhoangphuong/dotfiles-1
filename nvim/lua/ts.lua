@@ -5,13 +5,13 @@ require'nvim-treesitter.configs'.setup {
     'rust',
     'http',
     'json',
-    --temporary disable dart for now
-    -- 'dart',
+    'dart',
     'elm',
     'javascript',
     'yaml',
     'toml',
     'bash',
+    'swift',
   },
   highlight = {
     enable = true,

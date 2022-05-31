@@ -109,8 +109,7 @@ use{'j-hui/fidget.nvim', config = function ()
       done = "(っ- ‸ - ς) ",
       commenced = "Started",
       completed = "Completed",
-    },
-    window = {
+    }, window = {
       blend = 0
     }
   }
@@ -262,4 +261,54 @@ use {'simrat39/rust-tools.nvim',
         require'rust-tools_setup'
     end,
 }
+
+use {
+  'tami5/xbase',
+    run = 'make install',
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    },
+    config = function()
+      local config = {
+        --- Log level. Set to error to ignore everything: { "trace", "debug", "info", "warn", "error" }
+        log_level = "debug",
+        --- Default log buffer direction: { "horizontal", "vertical", "float" }
+        default_log_buffer_direction = "horizontal",
+        --- Statusline provider configurations
+        statusline = {
+          running = { icon = "⚙", color = "#e0af68" },
+          device_running = { icon = "", color = "#4a6edb" },
+          success = { icon = "", color = "#1abc9c" },
+          failure = { icon = "", color = "#db4b4b" },
+          show_progress = false,
+        },
+        --- TODO(nvim): Limit devices platform to select from
+        simctl = {
+          iOS = {
+            "iPhone 13 Pro",
+            "iPad (9th generation)",
+          },
+        },
+        mappings = {
+          --- Whether xbase mapping should be disabled.
+          enable = true,
+          --- Open build picker. showing targets and configuration.
+          build_picker = "<leader>b", --- set to 0 to disable
+          --- Open run picker. showing targets, devices and configuration
+          run_picker = "<leader>r", --- set to 0 to disable
+          --- Open watch picker. showing run or build, targets, devices and configuration
+          watch_picker = "<leader>s", --- set to 0 to disable
+          --- A list of all the previous pickers
+          all_picker = "<leader>ef", --- set to 0 to disable
+          --- horizontal toggle log buffer
+          toggle_split_log_buffer = "<leader>ls",
+          --- vertical toggle log buffer
+          toggle_vsplit_log_buffer = "<leader>lv",
+        }
+  }
+  require('xbase').setup(config)
+  end
+}
+
 end)
