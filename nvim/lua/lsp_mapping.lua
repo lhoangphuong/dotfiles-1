@@ -1,7 +1,7 @@
 local function map(client,bufnr)
 
   vim.api.nvim_buf_set_option(bufnr,'omnifunc', 'v:lua.vim.lsp.omnifunc')
-local opts = { noremap=true, silent=true, buffer=bufnr}
+  local opts = { noremap=true, silent=true, buffer=bufnr}
 
   vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
   vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)

@@ -179,7 +179,7 @@ ins_left {
     return msg
   end,
   icon = ' LSP:',
-  color = { fg = '#ffffff', gui = 'bold' },
+  color = { fg = colors.fg, gui = 'bold' },
 }
 
 -- ins_left{
@@ -197,7 +197,7 @@ ins_left{
   end,
   icon = '⚡VERSION:',
   cond = conditions.check_flutter_workspace,
-  color = { fg = '#ffffff', gui = 'bold' },
+  color = { fg = colors.fg, gui = 'bold' },
 }
 
 -- Add components to right sections
