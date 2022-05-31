@@ -56,6 +56,7 @@ use {
       {'nvim-treesitter/playground',after = 'nvim-treesitter'},
       {'nvim-treesitter/nvim-treesitter-textobjects',after = 'nvim-treesitter'},
       {'nvim-treesitter/nvim-treesitter-refactor',after = 'nvim-treesitter'},
+      {'nkrkv/nvim-treesitter-rescript',run = ':TSInstall rescript', after = 'nvim-treesitter'}
     },
 }
 
@@ -141,7 +142,6 @@ use {'mfussenegger/nvim-dap',
 
 --rescript-lang
 use 'rescript-lang/vim-rescript'
-use{ 'nkrkv/nvim-treesitter-rescript',run = ':TSInstall rescript' }
 
 -- autocomplete
 use{
