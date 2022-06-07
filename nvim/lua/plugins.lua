@@ -156,7 +156,9 @@ use{
       {'saadparwaiz1/cmp_luasnip',after='nvim-cmp'},
       {'andersevenrud/cmp-tmux', after='nvim-cmp'},
       {'hrsh7th/cmp-copilot',after='nvim-cmp'},
-      {'dmitmel/cmp-cmdline-history',after='nvim-cmp'}
+      {'dmitmel/cmp-cmdline-history',after='nvim-cmp',
+      {'ray-x/cmp-treesitter', after='nvim-cmp'}
+      }
   }
 }
 

@@ -12,6 +12,7 @@ require'nvim-treesitter.configs'.setup {
     'toml',
     'bash',
     'swift',
+    'query',
   },
   highlight = {
     enable = true,
