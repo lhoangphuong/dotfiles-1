@@ -34,8 +34,10 @@ local function on_attach(client,bufnr)
 
   function SendKeyToFlutterTmux(key)
 
+    print("SendKeyToFlutterTmux: " .. key)
+
     if key == nil then
-      local message = [[v Open Flutter DevTools.
+      local message = [[Open Flutter DevTools.
   w Dump widget hierarchy to the console.                                               (debugDumpApp)
   t Dump rendering tree to the console.                                          (debugDumpRenderTree)
   L Dump layer tree to the console.                                               (debugDumpLayerTree)
@@ -59,6 +61,7 @@ local function on_attach(client,bufnr)
     vim.cmd(command);
   end
 
+  vim.cmd [[command! -nargs=* FlutterTmuxSendKey <bang>lua require'flutter'.SendKeyToFlutterTmux(<args>)]];
 
 end
 
