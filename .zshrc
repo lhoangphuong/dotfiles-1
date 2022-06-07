@@ -70,7 +70,9 @@ alias fpg='flutter pub get'
 alias fr='flutter run'
 alias fu='flutter upgrade'
 alias fdo='flutter doctor'
+alias fa='flutter analyze'
 alias fbr='flutter pub get; flutter pub run build_runner build --delete-conflicting-outputs'
+
 alias dr='dart run'
 
 alias lg=lazygit
