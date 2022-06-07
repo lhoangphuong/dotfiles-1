@@ -61,7 +61,7 @@ local function on_attach(client,bufnr)
     vim.cmd(command);
   end
 
-  vim.cmd [[command! -nargs=* FlutterTmuxSendKey <bang>lua require'flutter'.SendKeyToFlutterTmux(<args>)]];
+  vim.cmd [[command! -nargs=* FlutterTmuxSendKey <bang>lua SendKeyToFlutterTmux(<args>)]];
 
 end
 
