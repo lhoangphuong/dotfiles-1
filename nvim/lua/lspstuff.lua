@@ -1,7 +1,7 @@
 local nvim_lsp = require('lspconfig')
 local lsp_mapping = require'lsp_mapping'.map
 
-local servers = {'hls','tsserver','elmls','sumneko_lua','sourcekit','pyright','sourcekit', 'clangd'}
+local servers = {'hls','tsserver','elmls','sumneko_lua','sourcekit','pyright','sourcekit' }
 for _, lsp in ipairs(servers) do
    nvim_lsp[lsp].setup {
      on_attach = lsp_mapping,
