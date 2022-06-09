@@ -26,7 +26,7 @@ local function on_attach(client,bufnr)
   -- vim.keymap.set('n','<space>fR',':FlutterRestart<CR>',opts)
   -- vim.keymap.set('n','<space>fc',':Telescope flutter commands<CR>',opts)
 
-  vim.keymap.set('n','<space>fq',':!zsh $HOME/dotfiles/tmux/flutter-stop-admintool.sh<CR>',opts)
+  vim.keymap.set('n','<space>fq',':!zsh $HOME/dotfiles/tmux-workspace-script/flutter-stop-admintool.sh<CR>',opts)
   vim.keymap.set('n','<space>ft',':Dispatch flutter drive --driver=test_driver/integration_test.dart --target=integration_test/app_test.dart -d web-server --verbose <CR>',opts)
   vim.keymap.set('n','<space>dm',':DartFmt<CR>',opts)
 
@@ -76,9 +76,7 @@ require("flutter-tools").setup {
       -- set to true to be able use the 'flutter_tools_decorations.app_version' in your statusline
       -- this will show the current version of the flutter app from the pubspec.yaml file
       app_version = true,
-      -- set to true to be able use the 'flutter_tools_decorations.device' in your statusline
-      -- this will show the currently running device if an application was started with a specific
-      -- device
+      -- set to true to be able use the 'flutter_tools_decorations.device' in your statusline this will show the currently running device if an application was started with a specific device
       device = true,
     }
   },
@@ -147,7 +145,7 @@ require("flutter-tools").setup {
     settings = {
       showTodos = true,
       completeFunctionCalls = true,
-      -- analysisExcludedFolders = {<path-to-flutter-sdk-packages>}
+      renameFilesWithClasses = 'always',
     }
   }
 }
