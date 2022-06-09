@@ -13,6 +13,7 @@ require'nvim-treesitter.configs'.setup {
     'bash',
     'swift',
     'query',
+    'cpp',
   },
   highlight = {
     enable = true,

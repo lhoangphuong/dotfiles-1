@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(fd . $HOME/admintool-workspace  $DOTFILE_DIR -t d ---exact-depth 1 | fzf)
+    selected=$(fd . $HOME/admintool-workspace  $DOTFILE_DIR $HOME/personal -t d ---exact-depth 1 | fzf)
 fi
 
 if [[ -z $selected ]]; then
