@@ -76,7 +76,6 @@ alias fbr='flutter pub get; flutter pub run build_runner build --delete-conflict
 alias dr='dart run'
 
 alias lg=lazygit
-alias t=tmux
 
 alias so=source
 
@@ -110,7 +109,7 @@ alias h=my_helix
 enable-fzf-tab
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 #eval "$(rbenv init -)"
-bindkey '^j' autosuggest-accept
+# bindkey '^j' autosuggest-accept
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
@@ -128,5 +127,6 @@ update_vim_stable(){
   wget -c https://github.com/neovim/neovim/releases/download/stable/nvim-macos.tar.gz -O - | tar -xv - -C $HOME/nvim-stable
 }
 
-# Where should I put you?
+#tmux
+alias t=tmux
 alias tss='sh ${DOTFILE_DIR}/tmux/tmux-sessionizer.sh'
