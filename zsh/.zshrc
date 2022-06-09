@@ -128,12 +128,5 @@ update_vim_stable(){
   wget -c https://github.com/neovim/neovim/releases/download/stable/nvim-macos.tar.gz -O - | tar -xv - -C $HOME/nvim-stable
 }
 
-update_openapi(){
-  rm -rf $HOME/openapi 
-  rm -rf $TMPDIR/tixngo
-  gcl ssh://git@bitbucket.svc.elca.ch:7999/openapi.git $TMPDIR/tixngo
-  openapi-generator generate -i $TMPDIR/tixngo/backend-operator-api.yaml -g dart-dio-next -o $HOME/openapi 
-  cd $HOME/openapi 
-  fvm flutter pub get 
-  fvm flutter pub run build_runner build --delete-conflicting-outputs 
-}
+# Where should I put you?
+alias tss='sh ${DOTFILE_DIR}/tmux/tmux-sessionizer.sh'

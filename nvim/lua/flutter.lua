@@ -8,11 +8,11 @@ local function on_attach(client,bufnr)
 
   local opts = { noremap=true, silent=true,buffer=bufnr }
 
-  local admintool_path = vim.fn.getenv('HOME')..'/admintool'
+  local admintool_path = vim.fn.getenv('HOME')..'/admintool-workspace/admintool'
 
   if vim.loop.cwd() == admintool_path then
     -- vim.keymap.set('n','<space>fa',':FlutterRun -t lib/int5.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800<CR>',opts)
-    vim.keymap.set('n','<space>fa',':!zsh $HOME/dotfiles/tmux-workspace-script/flutter-run-admintool.sh<CR>',opts)
+    vim.keymap.set('n','<space>fa',':!zsh $HOME/dotfiles/tmux/flutter-run-admintool.sh<CR>',opts)
   else
     vim.keymap.set('n','<space>fa',':FlutterRun',opts)
   end
@@ -26,7 +26,7 @@ local function on_attach(client,bufnr)
   -- vim.keymap.set('n','<space>fR',':FlutterRestart<CR>',opts)
   -- vim.keymap.set('n','<space>fc',':Telescope flutter commands<CR>',opts)
 
-  vim.keymap.set('n','<space>fq',':!zsh $HOME/dotfiles/tmux-workspace-script/flutter-stop-admintool.sh<CR>',opts)
+  vim.keymap.set('n','<space>fq',':!zsh $HOME/dotfiles/tmux/flutter-stop-admintool.sh<CR>',opts)
   vim.keymap.set('n','<space>ft',':Dispatch flutter drive --driver=test_driver/integration_test.dart --target=integration_test/app_test.dart -d web-server --verbose <CR>',opts)
   vim.keymap.set('n','<space>dm',':DartFmt<CR>',opts)
 
