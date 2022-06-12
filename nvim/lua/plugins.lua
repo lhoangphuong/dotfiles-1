@@ -231,7 +231,7 @@ use {
   config = function ()
       require ('lualine_setup')
   end,
-  requires = { 'kyazdani42/nvim-web-devicons', opt = true, config =function ()
+  requires = { 'kyazdani42/nvim-web-devicons', opt = true, config = function ()
     require'nvim-web-devicons'.setup {
       override = {
        zsh = {
