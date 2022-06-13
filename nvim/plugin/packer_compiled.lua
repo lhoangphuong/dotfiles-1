@@ -70,7 +70,7 @@ time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["Comment.nvim"] = {
-    config = { "\27LJ\2\n�\2\0\0\4\0\14\0\0206\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0=\3\t\2B\0\2\0016\0\0\0'\2\n\0B\0\2\0029\0\v\0'\2\f\0005\3\r\0B\0\3\1K\0\1\0\1\3\0\0\n// %s\v/*%s*/\tdart\bset\15Comment.ft\ropleader\1\0\2\tline\agc\nblock\agb\ftoggler\1\0\2\tline\bgcc\nblock\bgbc\rmappings\1\0\3\nbasic\2\rextended\1\nextra\2\1\0\2\fpadding\2\vsticky\2\nsetup\fComment\frequire\0" },
+    config = { "\27LJ\2\n�\2\0\0\4\0\14\0\0206\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0=\3\t\2B\0\2\0016\0\0\0'\2\n\0B\0\2\0029\0\v\0'\2\f\0005\3\r\0B\0\3\1K\0\1\0\1\3\0\0\n// %s\v/*%s*/\tdart\bset\15Comment.ft\ropleader\1\0\2\tline\agc\nblock\agb\ftoggler\1\0\2\tline\bgcc\nblock\bgbc\rmappings\1\0\3\nbasic\2\rextended\1\nextra\2\1\0\2\fpadding\2\vsticky\2\nsetup\fComment\frequire\0" },
     loaded = true,
     path = "/Users/TVG/.local/share/nvim/site/pack/packer/start/Comment.nvim",
     url = "https://github.com/numToStr/Comment.nvim"
@@ -169,7 +169,7 @@ _G.packer_plugins = {
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
   ["copilot.vim"] = {
-    config = { "\27LJ\2\n�\1\0\0\3\0\5\0\t6\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\0\0009\0\3\0+\1\2\0=\1\4\0K\0\1\0\23copilot_no_tab_map\6g>imap <silent><script><expr> <C-J> copilot#Accept(\"\\<CR>\")\bcmd\bvim\0" },
+    config = { "\27LJ\2\n�\1\0\0\3\0\5\0\t6\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\0\0009\0\3\0+\1\2\0=\1\4\0K\0\1\0\23copilot_no_tab_map\6g>imap <silent><script><expr> <C-J> copilot#Accept(\"\\<CR>\")\bcmd\bvim\0" },
     loaded = true,
     path = "/Users/TVG/.local/share/nvim/site/pack/packer/start/copilot.vim",
     url = "https://github.com/github/copilot.vim"
@@ -189,7 +189,7 @@ _G.packer_plugins = {
     url = "https://github.com/dart-lang/dart-vim-plugin"
   },
   ["fidget.nvim"] = {
-    config = { "\27LJ\2\n�\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\vwindow\1\0\1\nblend\3\0\ttext\1\0\0\1\0\4\tdone\21(っ- ‸ - ς) \fspinner\tpipe\14commenced\fStarted\14completed\14Completed\nsetup\vfidget\frequire\0" },
+    config = { "\27LJ\2\n�\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\vwindow\1\0\1\nblend\3\0\ttext\1\0\0\1\0\4\tdone\21(っ- ‸ - ς) \fspinner\tpipe\14commenced\fStarted\14completed\14Completed\nsetup\vfidget\frequire\0" },
     loaded = true,
     path = "/Users/TVG/.local/share/nvim/site/pack/packer/start/fidget.nvim",
     url = "https://github.com/j-hui/fidget.nvim"
@@ -418,7 +418,7 @@ _G.packer_plugins = {
     url = "https://github.com/Mofiqul/vscode.nvim"
   },
   xbase = {
-    config = { "\27LJ\2\n�\4\0\0\4\0\20\0\0245\0\0\0005\1\2\0005\2\1\0=\2\3\0015\2\4\0=\2\5\0015\2\6\0=\2\a\0015\2\b\0=\2\t\1=\1\n\0005\1\f\0005\2\v\0=\2\r\1=\1\14\0005\1\15\0=\1\16\0006\1\17\0'\3\18\0B\1\2\0029\1\19\1\18\3\0\0B\1\2\1K\0\1\0\nsetup\nxbase\frequire\rmappings\1\0\a\15all_picker\15<leader>ef\28toggle_split_log_buffer\15<leader>ls\17watch_picker\14<leader>s\29toggle_vsplit_log_buffer\15<leader>lv\15run_picker\14<leader>r\17build_picker\14<leader>b\venable\2\vsimctl\biOS\1\0\0\1\3\0\0\18iPhone 13 Pro\26iPad (9th generation)\15statusline\ffailure\1\0\2\ncolor\f#db4b4b\ticon\b\fsuccess\1\0\2\ncolor\f#1abc9c\ticon\b\19device_running\1\0\2\ncolor\f#4a6edb\ticon\b\frunning\1\0\1\18show_progress\1\1\0\2\ncolor\f#e0af68\ticon\b⚙\1\0\2!default_log_buffer_direction\15horizontal\14log_level\ndebug\0" },
+    config = { "\27LJ\2\n�\4\0\0\4\0\20\0\0245\0\0\0005\1\2\0005\2\1\0=\2\3\0015\2\4\0=\2\5\0015\2\6\0=\2\a\0015\2\b\0=\2\t\1=\1\n\0005\1\f\0005\2\v\0=\2\r\1=\1\14\0005\1\15\0=\1\16\0006\1\17\0'\3\18\0B\1\2\0029\1\19\1\18\3\0\0B\1\2\1K\0\1\0\nsetup\nxbase\frequire\rmappings\1\0\a\15all_picker\15<leader>ef\28toggle_split_log_buffer\15<leader>ls\17watch_picker\14<leader>s\29toggle_vsplit_log_buffer\15<leader>lv\15run_picker\14<leader>r\17build_picker\14<leader>b\venable\2\vsimctl\biOS\1\0\0\1\3\0\0\18iPhone 13 Pro\26iPad (9th generation)\15statusline\ffailure\1\0\2\ncolor\f#db4b4b\ticon\b\fsuccess\1\0\2\ncolor\f#1abc9c\ticon\b\19device_running\1\0\2\ncolor\f#4a6edb\ticon\b\frunning\1\0\1\18show_progress\1\1\0\2\ncolor\f#e0af68\ticon\b⚙\1\0\2!default_log_buffer_direction\15horizontal\14log_level\ndebug\0" },
     loaded = true,
     path = "/Users/TVG/.local/share/nvim/site/pack/packer/start/xbase",
     url = "https://github.com/tami5/xbase"
@@ -440,8 +440,12 @@ try_loadstring("\27LJ\2\n/\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\20telesco
 time([[Config for telescope.nvim]], false)
 -- Config for: fidget.nvim
 time([[Config for fidget.nvim]], true)
-try_loadstring("\27LJ\2\n�\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\vwindow\1\0\1\nblend\3\0\ttext\1\0\0\1\0\4\tdone\21(っ- ‸ - ς) \fspinner\tpipe\14commenced\fStarted\14completed\14Completed\nsetup\vfidget\frequire\0", "config", "fidget.nvim")
+try_loadstring("\27LJ\2\n�\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\vwindow\1\0\1\nblend\3\0\ttext\1\0\0\1\0\4\tdone\21(っ- ‸ - ς) \fspinner\tpipe\14commenced\fStarted\14completed\14Completed\nsetup\vfidget\frequire\0", "config", "fidget.nvim")
 time([[Config for fidget.nvim]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+try_loadstring("\27LJ\2\n/\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\20telescope_setup\frequire\0", "config", "telescope.nvim")
+time([[Config for telescope.nvim]], false)
 -- Config for: flutter-tools.nvim
 time([[Config for flutter-tools.nvim]], true)
 try_loadstring("\27LJ\2\n'\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\fflutter\frequire\0", "config", "flutter-tools.nvim")
@@ -456,7 +460,7 @@ try_loadstring("\27LJ\2\nx\0\0\3\0\6\0\f6\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016
 time([[Config for git-worktree.nvim]], false)
 -- Config for: Comment.nvim
 time([[Config for Comment.nvim]], true)
-try_loadstring("\27LJ\2\n�\2\0\0\4\0\14\0\0206\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0=\3\t\2B\0\2\0016\0\0\0'\2\n\0B\0\2\0029\0\v\0'\2\f\0005\3\r\0B\0\3\1K\0\1\0\1\3\0\0\n// %s\v/*%s*/\tdart\bset\15Comment.ft\ropleader\1\0\2\tline\agc\nblock\agb\ftoggler\1\0\2\tline\bgcc\nblock\bgbc\rmappings\1\0\3\nbasic\2\rextended\1\nextra\2\1\0\2\fpadding\2\vsticky\2\nsetup\fComment\frequire\0", "config", "Comment.nvim")
+try_loadstring("\27LJ\2\n�\2\0\0\4\0\14\0\0206\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0=\3\t\2B\0\2\0016\0\0\0'\2\n\0B\0\2\0029\0\v\0'\2\f\0005\3\r\0B\0\3\1K\0\1\0\1\3\0\0\n// %s\v/*%s*/\tdart\bset\15Comment.ft\ropleader\1\0\2\tline\agc\nblock\agb\ftoggler\1\0\2\tline\bgcc\nblock\bgbc\rmappings\1\0\3\nbasic\2\rextended\1\nextra\2\1\0\2\fpadding\2\vsticky\2\nsetup\fComment\frequire\0", "config", "Comment.nvim")
 time([[Config for Comment.nvim]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
@@ -472,7 +476,7 @@ try_loadstring("\27LJ\2\nM\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K
 time([[Config for LuaSnip]], false)
 -- Config for: copilot.vim
 time([[Config for copilot.vim]], true)
-try_loadstring("\27LJ\2\n�\1\0\0\3\0\5\0\t6\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\0\0009\0\3\0+\1\2\0=\1\4\0K\0\1\0\23copilot_no_tab_map\6g>imap <silent><script><expr> <C-J> copilot#Accept(\"\\<CR>\")\bcmd\bvim\0", "config", "copilot.vim")
+try_loadstring("\27LJ\2\n�\1\0\0\3\0\5\0\t6\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\0\0009\0\3\0+\1\2\0=\1\4\0K\0\1\0\23copilot_no_tab_map\6g>imap <silent><script><expr> <C-J> copilot#Accept(\"\\<CR>\")\bcmd\bvim\0", "config", "copilot.vim")
 time([[Config for copilot.vim]], false)
 -- Config for: vim-fubitive
 time([[Config for vim-fubitive]], true)
@@ -488,7 +492,7 @@ try_loadstring("\27LJ\2\n\"\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\ats\freq
 time([[Config for nvim-treesitter]], false)
 -- Config for: xbase
 time([[Config for xbase]], true)
-try_loadstring("\27LJ\2\n�\4\0\0\4\0\20\0\0245\0\0\0005\1\2\0005\2\1\0=\2\3\0015\2\4\0=\2\5\0015\2\6\0=\2\a\0015\2\b\0=\2\t\1=\1\n\0005\1\f\0005\2\v\0=\2\r\1=\1\14\0005\1\15\0=\1\16\0006\1\17\0'\3\18\0B\1\2\0029\1\19\1\18\3\0\0B\1\2\1K\0\1\0\nsetup\nxbase\frequire\rmappings\1\0\a\15all_picker\15<leader>ef\28toggle_split_log_buffer\15<leader>ls\17watch_picker\14<leader>s\29toggle_vsplit_log_buffer\15<leader>lv\15run_picker\14<leader>r\17build_picker\14<leader>b\venable\2\vsimctl\biOS\1\0\0\1\3\0\0\18iPhone 13 Pro\26iPad (9th generation)\15statusline\ffailure\1\0\2\ncolor\f#db4b4b\ticon\b\fsuccess\1\0\2\ncolor\f#1abc9c\ticon\b\19device_running\1\0\2\ncolor\f#4a6edb\ticon\b\frunning\1\0\1\18show_progress\1\1\0\2\ncolor\f#e0af68\ticon\b⚙\1\0\2!default_log_buffer_direction\15horizontal\14log_level\ndebug\0", "config", "xbase")
+try_loadstring("\27LJ\2\n�\4\0\0\4\0\20\0\0245\0\0\0005\1\2\0005\2\1\0=\2\3\0015\2\4\0=\2\5\0015\2\6\0=\2\a\0015\2\b\0=\2\t\1=\1\n\0005\1\f\0005\2\v\0=\2\r\1=\1\14\0005\1\15\0=\1\16\0006\1\17\0'\3\18\0B\1\2\0029\1\19\1\18\3\0\0B\1\2\1K\0\1\0\nsetup\nxbase\frequire\rmappings\1\0\a\15all_picker\15<leader>ef\28toggle_split_log_buffer\15<leader>ls\17watch_picker\14<leader>s\29toggle_vsplit_log_buffer\15<leader>lv\15run_picker\14<leader>r\17build_picker\14<leader>b\venable\2\vsimctl\biOS\1\0\0\1\3\0\0\18iPhone 13 Pro\26iPad (9th generation)\15statusline\ffailure\1\0\2\ncolor\f#db4b4b\ticon\b\fsuccess\1\0\2\ncolor\f#1abc9c\ticon\b\19device_running\1\0\2\ncolor\f#4a6edb\ticon\b\frunning\1\0\1\18show_progress\1\1\0\2\ncolor\f#e0af68\ticon\b⚙\1\0\2!default_log_buffer_direction\15horizontal\14log_level\ndebug\0", "config", "xbase")
 time([[Config for xbase]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
