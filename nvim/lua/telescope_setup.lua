@@ -53,7 +53,7 @@ local opts = { noremap=true, silent=true }
 
 vim.keymap.set('n','<space>p',function ()
   for dir in vim.fs.parents(vim.api.nvim_buf_get_name(0)) do
-    if vim.fn.isdirectory(dir .. "/.git") then
+    if vim.fn.isdirectory(dir .. "/.git") == 1 then
       builtin.git_files({previewer = false})
       return
     end

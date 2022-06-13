@@ -45,7 +45,7 @@ use({
     "catppuccin/nvim",
     as = "catppuccin"
 })
-use {vim.fs.normalize('$HOME/ToogleCommentHighlight.nvim'), branch = 'main'}
+-- use {vim.fs.normalize('$HOME/ToogleCommentHighlight.nvim'), branch = 'main'}
 
 -- Tree sitter
 use {
