@@ -8,7 +8,7 @@ local function on_attach(client,bufnr)
 
   local opts = { noremap=true, silent=true,buffer=bufnr }
 
-  local admintool_path = vim.fn.getenv('HOME')..'/admintool-workspace/admintool'
+  local admintool_path = vim.fs.normalize('$HOME/admintool-workspace/admintool')
 
   if vim.loop.cwd() == admintool_path then
     -- vim.keymap.set('n','<space>fa',':FlutterRun -t lib/int5.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800<CR>',opts)

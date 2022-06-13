@@ -43,5 +43,24 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- color scheme
 -- require'vscode_setup'
+--
 require'catppuccin_setup'
+require'toggle-comment-highlight'.setup({foreground = '#dcdcaa'})
+
 -- vim.cmd [[colorscheme gruvbox]]
+-- --
+--
+-- -- toogle comment color
+-- local comment_original_hi = vim.api.nvim_get_hl_by_name('Comment',true)
+-- local comment_hi = {foreground = '#dcdcaa'}
+--
+-- function TOOGLE_COMMENT_HIGHLIGHT_COLOR()
+--  local current_comment_hi = vim.api.nvim_get_hl_by_name('Comment',true)
+--   if current_comment_hi.foreground == comment_original_hi.foreground then
+--     vim.api.nvim_set_hl(0,'Comment',comment_hi)
+--   else
+--     vim.api.nvim_set_hl(0,'Comment',comment_original_hi)
+--   end
+-- end
+--
+--

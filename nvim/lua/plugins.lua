@@ -45,6 +45,7 @@ use({
     "catppuccin/nvim",
     as = "catppuccin"
 })
+use {vim.fs.normalize('$HOME/ToogleCommentHighlight.nvim'), branch = 'main'}
 
 -- Tree sitter
 use {
@@ -318,4 +319,5 @@ use {
   end
 }
 
+use 'mtdl9/vim-log-highlighting'
 end)
