@@ -26,37 +26,6 @@ local function on_attach(client, bufnr)
 
   require'lsp_mapping'.map(client,bufnr)
 
-  function SendKeyToFlutterTmux(key)
-
-    print("SendKeyToFlutterTmux: " .. key)
-
-    if key == nil then
-      local message = [[Open Flutter DevTools.
-  w Dump widget hierarchy to the console.                                               (debugDumpApp)
-  t Dump rendering tree to the console.                                          (debugDumpRenderTree)
-  L Dump layer tree to the console.                                               (debugDumpLayerTree)
-  S Dump accessibility tree in traversal order.                                   (debugDumpSemantics)
-  U Dump accessibility tree in inverse hit test order.                            (debugDumpSemantics)
-  i Toggle widget inspector.                                  (WidgetsApp.showWidgetInspectorOverride)
-  p Toggle the display of construction lines.                                  (debugPaintSizeEnabled)
-  I Toggle oversized image inversion.                                     (debugInvertOversizedImages)
-  o Simulate different operating systems.                                      (defaultTargetPlatform)
-  b Toggle platform brightness (dark and light mode).                        (debugBrightnessOverride)
-  P Toggle performance overlay.                                    (WidgetsApp.showPerformanceOverlay)
-  a Toggle timeline events for all widget build methods.                    (debugProfileWidgetBuilds)
-  g Run source code generators.                                              (debugDumpGeneratedCode)
-
-  Enter key to send to flutter: ]]
-
-      key = vim.fn.input(message)
-    end
-
-    local command = 'Dispatch tmux send-keys -t admintool-flutter-run.1 '..key;
-    vim.cmd(command);
-  end
-
-  vim.cmd [[command! -nargs=* FlutterTmuxSendKey <bang>lua SendKeyToFlutterTmux(<args>)]];
-
 end
 
 require("flutter-tools").setup {
