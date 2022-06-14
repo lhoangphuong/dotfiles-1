@@ -5,6 +5,6 @@ tmux new-session -d -s admintool-flutter-run  'dart pub get --directory=$HOME/do
 
 tmux new-window -t admintool-flutter-run 'flutter run -t lib/int5.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800 --project-root=$HOME/elca-workspace/tixngo-admintool-flutter-2/ --route /info; read -p "Press enter to continue"' 
 
-ssh hlg@192.168.3.1 'open -na 'Alacritty.app' --args --command zsh --login -c ' ssh hlg@192.168.3.2 tmux attach-session -t admintool-flutter-run''
+-open -na 'Alacritty.app' --args --command zsh --login -c 'tmux attach-session -t admintool-flutter-run'
 
 echo 'admintool run'
