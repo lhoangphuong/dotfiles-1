@@ -109,6 +109,7 @@ require("flutter-tools").setup {
       showTodos = true,
       completeFunctionCalls = true,
       renameFilesWithClasses = 'always',
+      updateImportsOnRename = true,
     }
   }
 }

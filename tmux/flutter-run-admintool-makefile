@@ -1,0 +1,8 @@
+run: 
+    tmux new-session -d -s admintool-flutter-run  'dart pub get --directory=$HOME/dotfiles/dart_watcher/; dart $HOME/dotfiles/dart_watcher/bin/dart_watcher.dart /Users/TVG/elca-workspace/tixngo-admintool-flutter-2/lib'
+    tmux new-window -t admintool-flutter-run 'flutter run -t lib/int5.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800 --project-root=$HOME/elca-workspace/tixngo-admintool-flutter-2/ --route /info; read -p "Press enter to continue"' 
+    echo 'flutter run'
+stop:
+    tmux kill-session -t admintool-flutter-run
+log:
+    t attach -t admintool-flutter-run
