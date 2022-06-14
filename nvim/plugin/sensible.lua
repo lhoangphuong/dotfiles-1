@@ -41,8 +41,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
-vim.cmd [[set cmdheight=0]]
-
 -- color scheme
 -- require'vscode_setup'
 --
