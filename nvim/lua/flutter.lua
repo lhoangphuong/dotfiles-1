@@ -110,6 +110,7 @@ require("flutter-tools").setup {
       completeFunctionCalls = true,
       renameFilesWithClasses = 'always',
       updateImportsOnRename = true,
+      enableSnippets = true,
     }
   }
 }

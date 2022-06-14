@@ -14,6 +14,7 @@ require'nvim-treesitter.configs'.setup {
     'swift',
     'query',
     'cpp',
+    'make',
   },
   highlight = {
     enable = true,
