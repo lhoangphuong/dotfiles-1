@@ -122,6 +122,13 @@ use{'j-hui/fidget.nvim', config = function ()
   end
 }
 
+
+-- init.lua
+use {'simrat39/symbols-outline.nvim',config = function ()
+    require 'symbol_outline_setup'
+end,
+}
+
 --flutter
 use {
   'akinsho/flutter-tools.nvim', requires = {
