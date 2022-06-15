@@ -1,0 +1,32 @@
+call plug#begin()
+
+"basic stuff
+Plug 'wellle/targets.vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-rsi'
+
+"fzf
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+
+
+" dart stuff
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'natebosch/vim-lsc'
+Plug 'natebosch/vim-lsc-dart'
+
+" color scheme
+Plug 'gruvbox-community/gruvbox'
+
+call plug#end()
+
+let g:lsc_auto_map = v:true
+set relativenumber
+set background=dark
