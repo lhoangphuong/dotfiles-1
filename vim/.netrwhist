@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =5
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/Users/TVG/elca-workspace/tixngo-admintool-flutter-2/lib/features/event_details/widget'
+let g:netrw_dirhist_6='/Users/TVG/elca-workspace/tixngo-admintool-flutter-2/lib/features/event_details/repository'
 let g:netrw_dirhist_5='/Users/TVG/.vim'
 let g:netrw_dirhist_4='/Users/TVG/elca-workspace/tixngo-admintool-flutter-2'
 let g:netrw_dirhist_3='/Users/TVG'
@@ -8,5 +10,3 @@ let g:netrw_dirhist_1='/Users/TVG'
 let g:netrw_dirhist_0='/Users/TVG/.vim'
 let g:netrw_dirhist_9='/Users/TVG'
 let g:netrw_dirhist_8='/Users/TVG/.vim'
-let g:netrw_dirhist_7='/Users/TVG'
-let g:netrw_dirhist_6='/Users/TVG/.vim'
