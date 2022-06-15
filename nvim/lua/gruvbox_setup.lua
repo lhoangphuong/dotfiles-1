@@ -1,6 +1,6 @@
 vim.cmd([[
 	colorscheme gruvbox
-
+	hi Normal guibg=NONE ctermbg=NONE
 	hi Comment gui=italic
 	hi link GitSignsCurrentLineBlame Comment
 

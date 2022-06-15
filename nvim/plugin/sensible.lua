@@ -44,10 +44,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- color scheme
 -- require'vscode_setup'
 --
-require'catppuccin_setup'
+-- require'catppuccin_setup'
 -- require'toggle-comment-highlight'.setup({foreground = '#dcdcaa'})
 
--- vim.cmd [[colorscheme gruvbox]]
+require 'gruvbox_setup'
 -- --
 --
 -- -- toogle comment color

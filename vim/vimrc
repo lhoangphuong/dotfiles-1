@@ -16,17 +16,63 @@ Plug 'tpope/vim-rsi'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 
+"git
+Plug 'tpope/vim-fugitive'
 
 " dart stuff
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
 
-" color scheme
-Plug 'gruvbox-community/gruvbox'
-
+" snippet
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'rafamadriz/friendly-snippets'
+Plug 'Neevash/awesome-flutter-snippets'
 call plug#end()
 
-let g:lsc_auto_map = v:true
+let g:lsc_auto_map = {
+    \ 'GoToDefinition': '<C-]>',
+    \ 'GoToDefinitionSplit': ['<C-W>]', '<C-W><C-]>'],
+    \ 'FindReferences': 'gr',
+    \ 'NextReference': '<C-n>',
+    \ 'PreviousReference': '<C-p>',
+    \ 'FindImplementations': 'gI',
+    \ 'FindCodeActions': 'ga',
+    \ 'Rename': 'gR',
+    \ 'ShowHover': v:true,
+    \ 'DocumentSymbol': 'go',
+    \ 'WorkspaceSymbol': 'gS',
+    \ 'SignatureHelp': 'gm',
+    \ 'Completion': 'completefunc',
+    \}
+
 set relativenumber
+set number
+set hlsearch
 set background=dark
+
+nmap <space>s  :update<CR>
+nmap <space>co :copen<CR>
+nmap <space>cc :ccl<CR>
+nmap <space>cl :cli<CR>
+nmap <space>lo :lopen<CR>
+nmap <space>lc :lcl<CR>
+nmap <space>ll :lli<CR>
+
+nmap <space>p :GFiles<CR>
+nmap <space>fb :Buffers<CR>
+nmap <space>fg :Rg
+
+"nmap k	 "v:count == 0 ? 'gk' : 'k'"
+"nmap j	 "v:count == 0 ? 'gj' : 'j'"
+"
+
+imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+
+" Jump forward or backward
+imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
