@@ -64,7 +64,7 @@ font:
     family: SFMono Nerd Font
 
 window:
-  opacity: 0.93
+  opacity: 0.9
   decorations: "none"
 
 key_bindings:
