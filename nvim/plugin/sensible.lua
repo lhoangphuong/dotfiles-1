@@ -9,8 +9,8 @@ vim.o.number=true
 vim.o.relativenumber=true
 vim.o.smartindent=true
 vim.o.cursorline = true
-vim.o.cursorcolumn = true
-vim.wo.colorcolumn='80'
+-- vim.o.cursorcolumn = true
+-- vim.wo.colorcolumn='80'
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
@@ -41,13 +41,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
+require 'default_scheme'
 -- color scheme
 -- require'vscode_setup'
 --
 -- require'catppuccin_setup'
 -- require'toggle-comment-highlight'.setup({foreground = '#dcdcaa'})
 
-require 'gruvbox_setup'
+-- require 'gruvbox_setup'
 -- --
 --
 -- -- toogle comment color
