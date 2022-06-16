@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =8
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/Users/hlg/dotfiles/vim'
 let g:netrw_dirhist_8='/Users/huyly/personal/algo_and_ds/playground'
 let g:netrw_dirhist_7='/Users/huyly/personal/algo_and_ds'
 let g:netrw_dirhist_6='/Users/huyly/personal/algo_and_ds/playground'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_3='/Users/huyly/personal/algo_and_ds'
 let g:netrw_dirhist_2='/Users/huyly/personal/algo_and_ds/playground'
 let g:netrw_dirhist_1='/Users/huyly/personal/algo_and_ds'
 let g:netrw_dirhist_0='/Users/huyly/dotfiles/vim/plugged'
-let g:netrw_dirhist_9='/Users/huyly/dotfiles/vim'
