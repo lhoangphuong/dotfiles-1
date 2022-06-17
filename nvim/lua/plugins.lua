@@ -39,7 +39,6 @@ return packer.startup(function(use)
 use 'wbthomason/packer.nvim'
 
 -- color Theme
-use {'Mofiqul/vscode.nvim', branch = 'main'}
 use 'gruvbox-community/gruvbox'
 use({
     "catppuccin/nvim",
