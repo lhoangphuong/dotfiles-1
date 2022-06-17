@@ -7,7 +7,8 @@ local servers = {'hls',
   'sumneko_lua',
   'sourcekit',
   'pyright',
-  'sourcekit'}
+  'sourcekit'
+}
 
 for _, lsp in ipairs(servers) do
    nvim_lsp[lsp].setup {
