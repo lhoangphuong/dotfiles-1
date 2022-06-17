@@ -14,7 +14,7 @@ void main(List<String> arguments) {
   }
 
   final workingDir = arguments.first;
-  final command = arguments.last;
+  final command = arguments.last.split(' ');
 
   final watcher = DirectoryWatcher(
     p.absolute(
@@ -25,8 +25,7 @@ void main(List<String> arguments) {
     (event) {
       print(event);
       if (p.extension(event.path) == '.dart') {
-        io.Process.run(
-                'command', ['send-keys', '-t', 'admintool-flutter-run.1', 'r'],
+        io.Process.run(command.first, command.skip(0).toList(),
                 runInShell: false)
             .then((value) => value.stdout)
             .then(print);

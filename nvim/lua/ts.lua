@@ -17,8 +17,8 @@ require'nvim-treesitter.configs'.setup {
     'make',
   },
   highlight = {
-    -- enable = true,
-    enable = false,
+    enable = true,
+    -- enable = false,
   },
   incremental_selection={
     enable = true,
