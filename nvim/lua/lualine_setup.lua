@@ -155,6 +155,8 @@ ins_left { 'location' }
 
 ins_left { 'progress', color = { fg = colors.fg, gui = 'bold' } }
 
+ins_left 'lsp_progress'
+
 ins_left {
   'diagnostics',
   sources = { 'nvim_diagnostic' },

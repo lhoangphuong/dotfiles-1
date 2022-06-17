@@ -107,21 +107,6 @@ use{'neovim/nvim-lspconfig', config = function ()
     require'lspstuff'
 end}
 
-use{'j-hui/fidget.nvim', config = function ()
-  require"fidget".setup{
-    text = {
-      spinner = "pipe",
-      done = "(っ- ‸ - ς) ",
-      commenced = "Started",
-      completed = "Completed",
-    }, window = {
-      blend = 0
-    }
-  }
-  end
-}
-
-
 --flutter
 use {
   'akinsho/flutter-tools.nvim', requires = {
@@ -232,18 +217,22 @@ use {
   config = function ()
       require ('lualine_setup')
   end,
-  requires = { 'kyazdani42/nvim-web-devicons', opt = true, config = function ()
-    require'nvim-web-devicons'.setup {
-      override = {
-       zsh = {
-       icon = "",
-       color = "#428850",
-       name = "Zsh"
-       }
-      };
-      default = true;
-    }
-    end
+  requires = {
+      {'arkav/lualine-lsp-progress', after = 'lualine.nvim'},
+      {
+        'kyazdani42/nvim-web-devicons', opt = true, config = function ()
+          require'nvim-web-devicons'.setup {
+            override = {
+              zsh = {
+                icon = "",
+                color = "#428850",
+                name = "Zsh"
+              }
+            };
+            default = true;
+          }
+        end
+      }
   }
 }
 
