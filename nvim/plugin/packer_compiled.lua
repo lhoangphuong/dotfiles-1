@@ -70,7 +70,7 @@ time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["Comment.nvim"] = {
-    config = { "\27LJ\2\n…\2\0\0\4\0\14\0\0206\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0=\3\t\2B\0\2\0016\0\0\0'\2\n\0B\0\2\0029\0\v\0'\2\f\0005\3\r\0B\0\3\1K\0\1\0\1\3\0\0\n// %s\v/*%s*/\tdart\bset\15Comment.ft\ropleader\1\0\2\tline\agc\nblock\agb\ftoggler\1\0\2\tline\bgcc\nblock\bgbc\rmappings\1\0\3\nbasic\2\rextended\1\nextra\2\1\0\2\vsticky\2\fpadding\2\nsetup\fComment\frequire\0" },
+    config = { "\27LJ\2\n…\2\0\0\4\0\14\0\0206\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0=\3\t\2B\0\2\0016\0\0\0'\2\n\0B\0\2\0029\0\v\0'\2\f\0005\3\r\0B\0\3\1K\0\1\0\1\3\0\0\n// %s\v/*%s*/\tdart\bset\15Comment.ft\ropleader\1\0\2\nblock\agb\tline\agc\ftoggler\1\0\2\nblock\bgbc\tline\bgcc\rmappings\1\0\3\nextra\2\nbasic\2\rextended\1\1\0\2\vsticky\2\fpadding\2\nsetup\fComment\frequire\0" },
     loaded = true,
     path = "/Users/hlg/.local/share/nvim/site/pack/packer/start/Comment.nvim",
     url = "https://github.com/numToStr/Comment.nvim"
@@ -230,7 +230,7 @@ _G.packer_plugins = {
     url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
-    after = { "cmp-buffer", "cmp_luasnip", "cmp-cmdline", "cmp-copilot", "cmp-path", "cmp-tmux", "cmp-treesitter" },
+    after = { "cmp-buffer", "cmp-cmdline", "cmp-copilot", "cmp-path", "cmp-tmux", "cmp-treesitter", "cmp_luasnip" },
     loaded = true,
     only_config = true
   },
@@ -257,7 +257,7 @@ _G.packer_plugins = {
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-treesitter"] = {
-    after = { "nvim-treesitter-refactor", "playground", "nvim-treesitter-textobjects", "nvim-treesitter-rescript" },
+    after = { "nvim-treesitter-rescript", "nvim-treesitter-textobjects", "nvim-treesitter-refactor", "playground" },
     loaded = true,
     only_config = true
   },
@@ -281,13 +281,6 @@ _G.packer_plugins = {
     needs_bufread = false,
     path = "/Users/hlg/.local/share/nvim/site/pack/packer/opt/nvim-treesitter-textobjects",
     url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
-  },
-  ["nvim-web-devicons"] = {
-    config = { "\27LJ\2\n’\1\0\0\5\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\2B\0\2\1K\0\1\0\roverride\1\0\1\fdefault\2\bzsh\1\0\0\1\0\3\ncolor\f#428850\tname\bZsh\ticon\bîž•\nsetup\22nvim-web-devicons\frequire\0" },
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/hlg/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons",
-    url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -334,7 +327,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-telescope/telescope-ui-select.nvim"
   },
   ["telescope.nvim"] = {
-    after = { "telescope-fzf-native.nvim", "telescope-ui-select.nvim" },
+    after = { "telescope-ui-select.nvim", "telescope-fzf-native.nvim" },
     loaded = true,
     only_config = true
   },
@@ -412,79 +405,76 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: copilot.vim
-time([[Config for copilot.vim]], true)
-try_loadstring("\27LJ\2\n‚\1\0\0\3\0\5\0\t6\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\0\0009\0\3\0+\1\2\0=\1\4\0K\0\1\0\23copilot_no_tab_map\6g>imap <silent><script><expr> <C-J> copilot#Accept(\"\\<CR>\")\bcmd\bvim\0", "config", "copilot.vim")
-time([[Config for copilot.vim]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-try_loadstring("\27LJ\2\np\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\21disable_filetype\1\0\0\1\2\0\0\20TelescopePrompt\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
-time([[Config for nvim-autopairs]], false)
--- Config for: LuaSnip
-time([[Config for LuaSnip]], true)
-try_loadstring("\27LJ\2\nM\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\14lazy_load luasnip.loaders.from_vscode\frequire\0", "config", "LuaSnip")
-time([[Config for LuaSnip]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-try_loadstring("\27LJ\2\n-\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\18lualine_setup\frequire\0", "config", "lualine.nvim")
-time([[Config for lualine.nvim]], false)
--- Config for: git-worktree.nvim
-time([[Config for git-worktree.nvim]], true)
-try_loadstring("\27LJ\2\nx\0\0\3\0\6\0\f6\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\2\3\0B\0\2\0029\0\4\0'\2\5\0B\0\2\1K\0\1\0\17git_worktree\19load_extension\14telescope\nsetup\17git-worktree\frequire\0", "config", "git-worktree.nvim")
-time([[Config for git-worktree.nvim]], false)
--- Config for: rust-tools.nvim
-time([[Config for rust-tools.nvim]], true)
-try_loadstring("\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21rust-tools_setup\frequire\0", "config", "rust-tools.nvim")
-time([[Config for rust-tools.nvim]], false)
+-- Config for: Comment.nvim
+time([[Config for Comment.nvim]], true)
+try_loadstring("\27LJ\2\n…\2\0\0\4\0\14\0\0206\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0=\3\t\2B\0\2\0016\0\0\0'\2\n\0B\0\2\0029\0\v\0'\2\f\0005\3\r\0B\0\3\1K\0\1\0\1\3\0\0\n// %s\v/*%s*/\tdart\bset\15Comment.ft\ropleader\1\0\2\nblock\agb\tline\agc\ftoggler\1\0\2\nblock\bgbc\tline\bgcc\rmappings\1\0\3\nextra\2\nbasic\2\rextended\1\1\0\2\vsticky\2\fpadding\2\nsetup\fComment\frequire\0", "config", "Comment.nvim")
+time([[Config for Comment.nvim]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
 try_loadstring("\27LJ\2\n)\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\14cmp_setup\frequire\0", "config", "nvim-cmp")
 time([[Config for nvim-cmp]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-try_loadstring("\27LJ\2\n/\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\20telescope_setup\frequire\0", "config", "telescope.nvim")
-time([[Config for telescope.nvim]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-try_loadstring("\27LJ\2\n.\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\19gitsigns_setup\frequire\0", "config", "gitsigns.nvim")
-time([[Config for gitsigns.nvim]], false)
--- Config for: nvim-colorizer.lua
-time([[Config for nvim-colorizer.lua]], true)
-try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14colorizer\frequire\0", "config", "nvim-colorizer.lua")
-time([[Config for nvim-colorizer.lua]], false)
--- Config for: Comment.nvim
-time([[Config for Comment.nvim]], true)
-try_loadstring("\27LJ\2\n…\2\0\0\4\0\14\0\0206\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0=\3\t\2B\0\2\0016\0\0\0'\2\n\0B\0\2\0029\0\v\0'\2\f\0005\3\r\0B\0\3\1K\0\1\0\1\3\0\0\n// %s\v/*%s*/\tdart\bset\15Comment.ft\ropleader\1\0\2\tline\agc\nblock\agb\ftoggler\1\0\2\tline\bgcc\nblock\bgbc\rmappings\1\0\3\nbasic\2\rextended\1\nextra\2\1\0\2\vsticky\2\fpadding\2\nsetup\fComment\frequire\0", "config", "Comment.nvim")
-time([[Config for Comment.nvim]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
 try_loadstring("\27LJ\2\n\"\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\ats\frequire\0", "config", "nvim-treesitter")
 time([[Config for nvim-treesitter]], false)
--- Config for: vim-fubitive
-time([[Config for vim-fubitive]], true)
-try_loadstring("\27LJ\2\nO\0\0\2\0\4\0\0056\0\0\0009\0\1\0'\1\3\0=\1\2\0K\0\1\0\26bitbucket.svc.elca.ch\28fubitive_domain_pattern\6g\bvim\0", "config", "vim-fubitive")
-time([[Config for vim-fubitive]], false)
 -- Config for: flutter-tools.nvim
 time([[Config for flutter-tools.nvim]], true)
 try_loadstring("\27LJ\2\n'\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\fflutter\frequire\0", "config", "flutter-tools.nvim")
 time([[Config for flutter-tools.nvim]], false)
--- Config for: FixCursorHold.nvim
-time([[Config for FixCursorHold.nvim]], true)
-try_loadstring("\27LJ\2\n7\0\0\2\0\3\0\0056\0\0\0009\0\1\0)\1d\0=\1\2\0K\0\1\0\26cursorhold_updatetime\6g\bvim\0", "config", "FixCursorHold.nvim")
-time([[Config for FixCursorHold.nvim]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+try_loadstring("\27LJ\2\np\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\21disable_filetype\1\0\0\1\2\0\0\20TelescopePrompt\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
+time([[Config for nvim-autopairs]], false)
 -- Config for: nvim-lspconfig
 time([[Config for nvim-lspconfig]], true)
 try_loadstring("\27LJ\2\n(\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\rlspstuff\frequire\0", "config", "nvim-lspconfig")
 time([[Config for nvim-lspconfig]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+try_loadstring("\27LJ\2\n-\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\18lualine_setup\frequire\0", "config", "lualine.nvim")
+time([[Config for lualine.nvim]], false)
+-- Config for: copilot.vim
+time([[Config for copilot.vim]], true)
+try_loadstring("\27LJ\2\n‚\1\0\0\3\0\5\0\t6\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\0\0009\0\3\0+\1\2\0=\1\4\0K\0\1\0\23copilot_no_tab_map\6g>imap <silent><script><expr> <C-J> copilot#Accept(\"\\<CR>\")\bcmd\bvim\0", "config", "copilot.vim")
+time([[Config for copilot.vim]], false)
+-- Config for: rust-tools.nvim
+time([[Config for rust-tools.nvim]], true)
+try_loadstring("\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21rust-tools_setup\frequire\0", "config", "rust-tools.nvim")
+time([[Config for rust-tools.nvim]], false)
+-- Config for: FixCursorHold.nvim
+time([[Config for FixCursorHold.nvim]], true)
+try_loadstring("\27LJ\2\n7\0\0\2\0\3\0\0056\0\0\0009\0\1\0)\1d\0=\1\2\0K\0\1\0\26cursorhold_updatetime\6g\bvim\0", "config", "FixCursorHold.nvim")
+time([[Config for FixCursorHold.nvim]], false)
+-- Config for: git-worktree.nvim
+time([[Config for git-worktree.nvim]], true)
+try_loadstring("\27LJ\2\nx\0\0\3\0\6\0\f6\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\2\3\0B\0\2\0029\0\4\0'\2\5\0B\0\2\1K\0\1\0\17git_worktree\19load_extension\14telescope\nsetup\17git-worktree\frequire\0", "config", "git-worktree.nvim")
+time([[Config for git-worktree.nvim]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+try_loadstring("\27LJ\2\n/\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\20telescope_setup\frequire\0", "config", "telescope.nvim")
+time([[Config for telescope.nvim]], false)
+-- Config for: nvim-colorizer.lua
+time([[Config for nvim-colorizer.lua]], true)
+try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14colorizer\frequire\0", "config", "nvim-colorizer.lua")
+time([[Config for nvim-colorizer.lua]], false)
+-- Config for: vim-fubitive
+time([[Config for vim-fubitive]], true)
+try_loadstring("\27LJ\2\nO\0\0\2\0\4\0\0056\0\0\0009\0\1\0'\1\3\0=\1\2\0K\0\1\0\26bitbucket.svc.elca.ch\28fubitive_domain_pattern\6g\bvim\0", "config", "vim-fubitive")
+time([[Config for vim-fubitive]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+try_loadstring("\27LJ\2\n.\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\19gitsigns_setup\frequire\0", "config", "gitsigns.nvim")
+time([[Config for gitsigns.nvim]], false)
+-- Config for: LuaSnip
+time([[Config for LuaSnip]], true)
+try_loadstring("\27LJ\2\nM\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\14lazy_load luasnip.loaders.from_vscode\frequire\0", "config", "LuaSnip")
+time([[Config for LuaSnip]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
-vim.cmd [[ packadd cmp-tmux ]]
-vim.cmd [[ packadd cmp_luasnip ]]
-vim.cmd [[ packadd cmp-buffer ]]
-vim.cmd [[ packadd cmp-copilot ]]
-vim.cmd [[ packadd cmp-treesitter ]]
-vim.cmd [[ packadd cmp-cmdline ]]
-vim.cmd [[ packadd cmp-path ]]
+vim.cmd [[ packadd playground ]]
+vim.cmd [[ packadd nvim-treesitter-refactor ]]
+vim.cmd [[ packadd nvim-treesitter-rescript ]]
+vim.cmd [[ packadd nvim-treesitter-textobjects ]]
 vim.cmd [[ packadd lualine-lsp-progress ]]
 vim.cmd [[ packadd telescope-fzf-native.nvim ]]
 
@@ -496,10 +486,13 @@ vim.cmd [[ packadd telescope-ui-select.nvim ]]
 -- Config for: telescope-ui-select.nvim
 try_loadstring("\27LJ\2\nN\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\14ui-select\19load_extension\14telescope\frequire\0", "config", "telescope-ui-select.nvim")
 
-vim.cmd [[ packadd playground ]]
-vim.cmd [[ packadd nvim-treesitter-rescript ]]
-vim.cmd [[ packadd nvim-treesitter-refactor ]]
-vim.cmd [[ packadd nvim-treesitter-textobjects ]]
+vim.cmd [[ packadd cmp-copilot ]]
+vim.cmd [[ packadd cmp-treesitter ]]
+vim.cmd [[ packadd cmp-path ]]
+vim.cmd [[ packadd cmp-tmux ]]
+vim.cmd [[ packadd cmp-buffer ]]
+vim.cmd [[ packadd cmp-cmdline ]]
+vim.cmd [[ packadd cmp_luasnip ]]
 time([[Sequenced loading]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]

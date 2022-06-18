@@ -35,7 +35,6 @@ packer.init({
 })
 return packer.startup(function(use)
 
-
 use 'wbthomason/packer.nvim'
 
 -- color Theme
@@ -77,7 +76,7 @@ use {
         'telescope.nvim' ,config = function ()
 	require('telescope').load_extension('fzf')
     end
-    }
+    },
   },
 }
 
@@ -219,20 +218,6 @@ use {
   end,
   requires = {
       {'arkav/lualine-lsp-progress', after = 'lualine.nvim'},
-      {
-        'kyazdani42/nvim-web-devicons', opt = true, config = function ()
-          require'nvim-web-devicons'.setup {
-            override = {
-              zsh = {
-                icon = "",
-                color = "#428850",
-                name = "Zsh"
-              }
-            };
-            default = true;
-          }
-        end
-      }
   }
 }
 
