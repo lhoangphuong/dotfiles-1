@@ -279,5 +279,4 @@ use {
 }
     end
 }
-  use{'/Users/huyly/cp.nvim'}
 end)
