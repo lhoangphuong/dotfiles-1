@@ -247,10 +247,10 @@ use {'simrat39/rust-tools.nvim',
 use 'mtdl9/vim-log-highlighting'
 use 'nvim-lua/plenary.nvim'
 use {
-	'nullchilly/cp.nvim',
+	'nullchilly/cpeditor.nvim',
 	requires = 'nvim-lua/plenary.nvim',
     config = function ()
-      require("cp").setup {
+      require("cpeditor").setup {
 	integration = {
 		bufferline = false,
 		nvim_dap = false
@@ -279,4 +279,5 @@ use {
 }
     end
 }
+  use{'/Users/huyly/cp.nvim'}
 end)
