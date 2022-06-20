@@ -8,13 +8,12 @@ import 'package:path/path.dart' as p;
 import 'package:watcher/watcher.dart';
 
 void main(List<String> arguments) {
-  if (arguments.length != 2) {
-    print('Usage: watch <directory path> <command>');
+  if (arguments.length != 1) {
+    print('Usage: watch <directory path>');
     return;
   }
 
   final workingDir = arguments.first;
-  final command = arguments.last.split(' ');
 
   final watcher = DirectoryWatcher(
     p.absolute(
@@ -25,7 +24,8 @@ void main(List<String> arguments) {
     (event) {
       print(event);
       if (p.extension(event.path) == '.dart') {
-        io.Process.run(command.first, command.skip(0).toList(),
+        io.Process.run(
+                'tmux', ['send-keys', '-t', 'admintool-flutter-run.1', 'r'],
                 runInShell: false)
             .then((value) => value.stdout)
             .then(print);

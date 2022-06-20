@@ -271,4 +271,5 @@ use {'simrat39/rust-tools.nvim',
 }
 
 use 'mtdl9/vim-log-highlighting'
+use 'nvim-lua/plenary.nvim'
 end)

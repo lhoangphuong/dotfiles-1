@@ -130,3 +130,5 @@ update_vim_stable(){
 #tmux
 alias t=tmux
 alias tss='sh ${DOTFILE_DIR}/tmux/tmux-sessionizer.sh'
+
+export PATH="$DOTFILE_DIR/bin/:$PATH"

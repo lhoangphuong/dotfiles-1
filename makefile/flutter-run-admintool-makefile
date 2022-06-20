@@ -1,6 +1,6 @@
 run:
-	flutter run -t lib/int5.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800
-	@echo "flutter run"
+	tmux new-session -d -s admintool-flutter-run 'flutter run -t lib/int5.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800'	
+	@echo "flutter run ${$!}"
 stop-run:
 	tmux kill-session -t admintool-flutter-run
 	@echo "flutter stop run"
@@ -8,8 +8,8 @@ log:
 	tmux attach -t admintool-flutter-run
 	@echo "flutter log"
 watch:
-# tmux new-session -t admintool-flutter-watch  'dart pub get --directory=$HOME/dotfiles/dart_watcher/; dart $HOME/dotfiles/dart_watcher/bin/dart_watcher.dart /Users/TVG/elca-workspace/tixngo-admintool-flutter-2/lib'
-	${DOTFILE_DIR}/dart_watcher/bin/dart_watcher ./
+	# dart_watcher . 'tmux send-keys -t admintool-flutter-run.1 r'
+	dart pub get --directory=$HOME/dotfiles/dart_watcher/; dart $HOME/dotfiles/dart_watcher/bin/dart_watcher.dart /Users/TVG/elca-workspace/tixngo-admintool-flutter-2/lib 'tmux send-keys -t admintool-flutter-run.1 r'
 	@echo "flutter watch"
 stop-watch:
 	tmux kill-session -t admintool-flutter-watch
