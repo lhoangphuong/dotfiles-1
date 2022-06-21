@@ -43,7 +43,7 @@ use({
     "catppuccin/nvim",
     as = "catppuccin"
 })
--- use {vim.fs.normalize('$HOME/ToogleCommentHighlight.nvim'), branch = 'main'}
+use 'bluz71/vim-nightfly-guicolors'
 
 -- Tree sitter
 use {

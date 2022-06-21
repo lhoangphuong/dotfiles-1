@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =7
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/Users/TVG/dotfiles/nvim'
 let g:netrw_dirhist_7='/Users/hlg/dotfiles/tmux'
 let g:netrw_dirhist_6='/Users'
 let g:netrw_dirhist_5='/Users/hlg'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_2='/Users/hlg/dotfiles'
 let g:netrw_dirhist_1='/Users/hlg/personal/leetcode/leetcode-algo-1'
 let g:netrw_dirhist_0='/Users/hlg/personal/leetcode'
 let g:netrw_dirhist_9='/Users/hlg/dotfiles/vim'
-let g:netrw_dirhist_8='/Users/huyly/personal/algo_and_ds/playground'

@@ -42,6 +42,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 require 'default_scheme'
+-- require 'default_scheme'
 -- color scheme
 -- require'vscode_setup'
 --

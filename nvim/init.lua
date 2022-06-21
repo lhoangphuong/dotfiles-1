@@ -1,5 +1,4 @@
--- vim.o.termguicolors = true
-
+vim.o.termguicolors = true
 local ok, reload = pcall(require, 'plenary.reload')
 RELOAD = ok and reload.reload_module or function(...)
   return ...
