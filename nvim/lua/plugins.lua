@@ -77,6 +77,7 @@ use {
 	require('telescope').load_extension('fzf')
     end
     },
+    {'kyazdani42/nvim-web-devicons'}
   },
 }
 
@@ -118,6 +119,13 @@ use {
        require'flutter'
     end
 }
+use({
+    'akinsho/pubspec-assist.nvim',
+    ft = { 'dart', 'yaml' },
+    config = function()
+      require('pubspec-assist').setup()
+    end,
+})
 
 -- debug stuff
 use {'mfussenegger/nvim-dap',

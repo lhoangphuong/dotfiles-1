@@ -17,4 +17,8 @@ vim.cmd([[
 	hi WinSeparator guibg=none guifg=#c0caf5
 
 	hi Comment guifg=#949494
+	hi DiagnosticHint guibg=NONE
+	hi DiagnosticWarn guibg=NONE
+	hi DiagnosticError guibg=NONE
+	hi DiagnosticInfo guibg=NONE
 ]])
