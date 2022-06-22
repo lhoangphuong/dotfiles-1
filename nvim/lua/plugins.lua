@@ -108,7 +108,7 @@ end}
 
 --flutter
 use {
-  'akinsho/flutter-tools.nvim', requires = {
+  vim.fs.normalize'$HOME/personal/flutter-tools.nvim', requires = {
       'nvim-lua/plenary.nvim',
       'hrsh7th/cmp-nvim-lsp',
       'dart-lang/dart-vim-plugin',

@@ -1,3 +1,7 @@
+require 'catppuccin'.setup {
+	transparent_background = true,
+}
+
 vim.cmd([[
 	colorscheme catppuccin
 
@@ -9,6 +13,8 @@ vim.cmd([[
 
 	hi SignColumn guibg=NONE ctermbg=NONE
 
-	hi link NormalFloat  Normal
+	" hi link NormalFloat  Normal
 	hi WinSeparator guibg=none guifg=#c0caf5
+
+	hi Comment guifg=#949494
 ]])

@@ -7,19 +7,32 @@ local has_words_before = function()
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
-local winhighlight = {
-  winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel",
-}
 
 cmp.setup({
-    snippet = {
+  formatting = {
+    format = function(entry, vim_item)
+      vim_item.menu = ({
+        luasnip = "[LuaSnip]",
+        nvim_lsp = "[LSP]",
+        buffer = "[BUFFER]",
+        path = "[PATH]",
+        treesitter = "[TS]",
+        copilot = "[COPILOT]",
+        tmux = "[TMUX]",
+        cmdline = "[CMD]",
+        cmdline_history = "[HISTORY]",
+      })[entry.source.name]
+      return vim_item
+    end
+  },
+  snippet = {
       expand = function(args)
         require'luasnip'.lsp_expand(args.body)
       end,
     },
       window = {
-        completion = cmp.config.window.bordered(winhighlight),
-        documentation = cmp.config.window.bordered(winhighlight),
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
       },
   mapping = {
     ["<Tab>"] = cmp.mapping.preset.insert(function(fallback)
@@ -65,15 +78,10 @@ cmp.setup({
       { name = 'buffer' },
       { name = 'path' },
       { name = 'treesitter' },
-      { name = 'copilot',
-        option={
-          label = '[Copilot]'
-        },
-      },
+      { name = 'copilot'},
       { name = 'tmux',
         option = {
           all_panes = false,
-          label = '[tmux]',
           trigger_characters = { '.' },
           trigger_characters_ft = {} -- { filetype = { '.' } }
         }

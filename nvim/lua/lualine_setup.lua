@@ -153,6 +153,8 @@ ins_left {
 
 ins_left { 'location' }
 
+ins_left { 'quickfix', color = { fg = colors.fg,} }
+
 ins_left { 'progress', color = { fg = colors.fg, gui = 'bold' } }
 
 ins_left 'lsp_progress'
