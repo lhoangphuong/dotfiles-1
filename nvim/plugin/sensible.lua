@@ -13,7 +13,7 @@ vim.o.cursorline = true
 vim.wo.colorcolumn='80'
 vim.o.ignorecase = true
 vim.o.smartcase = true
-vim.cmd 'no swapfile'
+vim.cmd 'set noswapfile'
 
 
 local opts = { noremap=true, silent=true }
