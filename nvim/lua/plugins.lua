@@ -23,9 +23,20 @@ vim.keymap.set('n','<leader>pc',"<cmd>PackerClean<cr>",{ noremap=true,
   silent=true })
 
 local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
+
+local cwd = vim.fs.normalize(vim.fn.getcwd())
+local nvim_dir = vim.fs.normalize('$DOTFILE_DIR/nvim')
+
+if cwd == nvim_dir then
 vim.api.nvim_create_autocmd('BufWritePost',
   { command = [[ source <afile> | PackerCompile ]],
   group = packer_group, pattern = '**/*.lua' })
+else
+vim.api.nvim_create_autocmd('BufWritePost',
+  { command = [[source <afile>]],
+  group = packer_group, pattern = '**/*.lua' })
+end
+
 
 local packer = require('packer')
 packer.init({
@@ -36,8 +47,8 @@ packer.init({
 return packer.startup(function(use)
 
 use 'wbthomason/packer.nvim'
-
 -- color Theme
+  --
 use 'gruvbox-community/gruvbox'
 use({
     "catppuccin/nvim",
@@ -119,20 +130,7 @@ use {
        require'flutter'
     end
 }
-use {
-  'akinsho/pubspec-assist.nvim',
-  requires = 'plenary.nvim',
-  rocks = {
-    {
-      'lyaml',
-      server = 'http://rocks.moonscript.org',
-      env = { YAML_DIR = '/usr/local/Cellar/libyaml/0.2.5/' },
-    },
-  },
-  config = function()
-    require('pubspec-assist').setup()
-  end,
-}
+
 -- debug stuff
 use {'mfussenegger/nvim-dap',
     requires = {
@@ -292,5 +290,13 @@ use {
 	default_lang = "cpp"
 }
     end
+}
+use {
+  "cuducos/yaml.nvim",
+  ft = {"yaml"}, -- optional
+  requires = {
+    "nvim-treesitter/nvim-treesitter",
+    "nvim-telescope/telescope.nvim" -- optional
+  },
 }
 end)
