@@ -45,18 +45,12 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH="$PATH:$ANDROID_HOME/emulator/"
 export PATH="$PATH:$HOME/.cargo/bin/"
-export PATH="$PATH:$HOME/Library/Python/2.7/bin"
-export PATH="$PATH:$HOME/nvim-stable/nvim-osx64/bin/"
-
-# export JAVA_HOME=$(/usr/libexec/java_home)
-# export PATH=$PATH:$JAVA_HOME/bin
+export PATH="$PATH:$HOME/nvim-stable/bin/"
+alias python=python3
 
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
-# export FZF_DEFAULT_COMMAND="fd ."
-# export FZF_CTRL_T_COMMAND="$FZF_DEFULT_COMMAND"
-# export FZF_ALT_C_COMMAND="fd -t d ."
 
 export EDITOR='nvim'
 export DOTFILE_DIR="$HOME/dotfiles"
@@ -83,18 +77,18 @@ alias so=source
 
 my_vim(){
 	if (( $# == 0 )); then
-    		$HOME/nvim-nightly/nvim-osx64/bin/nvim .
+    		$HOME/nvim-nightly/bin/nvim .
 	else
-		$HOME/nvim-nightly/nvim-osx64/bin/nvim $1
+		$HOME/nvim-nightly/bin/nvim $1
 	fi
 }
 alias n=my_vim
 
 my_vim_stable(){
 	if (( $# == 0 )); then
-    		$HOME/nvim-stable/nvim-osx64/bin/nvim .
+    		$HOME/nvim-stable/bin/nvim .
 	else
-		$HOME/nvim-stable/nvim-osx64/bin/nvim $1
+		$HOME/nvim-stable/bin/nvim $1
 	fi
 }
 alias ns=my_vim_stable
@@ -120,13 +114,11 @@ export NVM_DIR="$HOME/.nvm"
 alias gpa='git add .; git commit -m "$1"; git push;'
 
 update_vim(){
-  rm -rf $HOME/nvim-osx64
-  wget -c https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz -O - | tar -xv - -C $HOME/nvim-nightly
+  wget -c https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz -O - | tar -xv - -C $HOME/nvim-nightly --strip-components=1
 }
 
 update_vim_stable(){
-  rm -rf $HOME/nvim-osx64
-  wget -c https://github.com/neovim/neovim/releases/download/stable/nvim-macos.tar.gz -O - | tar -xv - -C $HOME/nvim-stable
+  wget -c https://github.com/neovim/neovim/releases/download/stable/nvim-macos.tar.gz -O - | tar -xv - -C $HOME/nvim-stable --strip-components=1
 }
 
 #tmux

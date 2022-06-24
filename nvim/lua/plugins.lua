@@ -36,7 +36,7 @@ packer.init({
 return packer.startup(function(use)
 
 use 'wbthomason/packer.nvim'
-
+use {'theHamsta/nvim_rocks', run = 'pip3 install --user hererocks && python3 -mhererocks . -j2.1.0-beta3 -r3.0.0 && cp nvim_rocks.lua lua'}
 -- color Theme
 use 'gruvbox-community/gruvbox'
 use({
@@ -119,20 +119,7 @@ use {
        require'flutter'
     end
 }
-use {
-  'akinsho/pubspec-assist.nvim',
-  requires = 'plenary.nvim',
-  rocks = {
-    {
-      'lyaml',
-      server = 'http://rocks.moonscript.org',
-      env = { YAML_DIR = '/usr/local/Cellar/libyaml/0.2.5/' },
-    },
-  },
-  config = function()
-    require('pubspec-assist').setup()
-  end,
-}
+
 -- debug stuff
 use {'mfussenegger/nvim-dap',
     requires = {
