@@ -23,9 +23,20 @@ vim.keymap.set('n','<leader>pc',"<cmd>PackerClean<cr>",{ noremap=true,
   silent=true })
 
 local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
+
+local cwd = vim.fs.normalize(vim.fn.getcwd())
+local nvim_dir = vim.fs.normalize('$DOTFILE_DIR/nvim')
+
+if cwd == nvim_dir then
 vim.api.nvim_create_autocmd('BufWritePost',
   { command = [[ source <afile> | PackerCompile ]],
   group = packer_group, pattern = '**/*.lua' })
+else
+vim.api.nvim_create_autocmd('BufWritePost',
+  { command = [[source <afile>]],
+  group = packer_group, pattern = '**/*.lua' })
+end
+
 
 local packer = require('packer')
 packer.init({
@@ -36,8 +47,8 @@ packer.init({
 return packer.startup(function(use)
 
 use 'wbthomason/packer.nvim'
-use {'theHamsta/nvim_rocks', run = 'pip3 install --user hererocks && python3 -mhererocks . -j2.1.0-beta3 -r3.0.0 && cp nvim_rocks.lua lua'}
 -- color Theme
+  --
 use 'gruvbox-community/gruvbox'
 use({
     "catppuccin/nvim",
@@ -279,5 +290,13 @@ use {
 	default_lang = "cpp"
 }
     end
+}
+use {
+  "cuducos/yaml.nvim",
+  ft = {"yaml"}, -- optional
+  requires = {
+    "nvim-treesitter/nvim-treesitter",
+    "nvim-telescope/telescope.nvim" -- optional
+  },
 }
 end)
