@@ -66,6 +66,9 @@ vim.keymap.set('n','<space>fb',builtin.buffers,opts)
 vim.keymap.set('n','<space>fo',builtin.oldfiles,opts)
 vim.keymap.set('n','<space>fr',builtin.resume,opts)
 
+vim.keymap.set('n', '<space>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
+vim.keymap.set('n', '<space><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
+
 vim.keymap.set('n','<space>qf',function ()
   builtin.quickfix(ivy)
 end,opts)
