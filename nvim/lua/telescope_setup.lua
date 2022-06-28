@@ -47,11 +47,12 @@ require('telescope').setup{
 }
 
 local ivy = require('telescope.themes').get_ivy();
+local dropdown = require('telescope.themes').get_dropdown({previewer = false});
 local builtin = require'telescope.builtin'
 
 local opts = { noremap=true, silent=true }
 
-vim.keymap.set('n','<space>p',function ()
+vim.keymap.set('n','<space><space>',function ()
   for dir in vim.fs.parents(vim.api.nvim_buf_get_name(0)) do
     if vim.fn.isdirectory(dir .. "/.git") == 1 then
       builtin.git_files({previewer = false})
@@ -59,32 +60,25 @@ vim.keymap.set('n','<space>p',function ()
     end
   end
   builtin.find_files({previewer = false})
-end,opts)
-
-vim.keymap.set('n','<space>fg',builtin.live_grep,opts)
-vim.keymap.set('n','<space>fb',builtin.buffers,opts)
-vim.keymap.set('n','<space>fo',builtin.oldfiles,opts)
-vim.keymap.set('n','<space>fr',builtin.resume,opts)
-
-vim.keymap.set('n', '<space>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-vim.keymap.set('n', '<space><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
+end,opts )
 
 vim.keymap.set('n','<space>qf',function ()
   builtin.quickfix(ivy)
 end,opts)
 
-vim.keymap.set('n','<space>gr',function ()
-  builtin.lsp_references(ivy)
-end ,opts)
-
-vim.keymap.set('n','<space>gd',function ()
-  builtin.lsp_definitions(ivy)
-end ,opts)
-
-vim.keymap.set('n','<space>fd',function ()
-  builtin.diagnostics(ivy)
-end ,opts)
-
-vim.keymap.set('n','<space>t',function ()
+vim.keymap.set('n','<space>st',function ()
   vim.cmd 'Telescope'
 end,opts)
+
+vim.keymap.set('n', '<space>sr',builtin.resume,{desc = '[S]earch [R]esume'})
+vim.keymap.set('n', '<space>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
+vim.keymap.set('n', '<space>fb', require('telescope.builtin').buffers, { desc = '[F]ind existing [B]uffers' })
+vim.keymap.set('n', '<space>/', function()
+  -- You can pass additional configuration to telescope to change theme, layout, etc.
+  require('telescope.builtin').current_buffer_fuzzy_find(dropdown)
+end, { desc = '[/] Fuzzily search in current buffer]' })
+
+vim.keymap.set('n', '<space>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
+vim.keymap.set('n', '<space>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
+vim.keymap.set('n', '<space>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
+vim.keymap.set('n', '<space>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })

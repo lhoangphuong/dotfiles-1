@@ -17,10 +17,14 @@ else
 end
 
 
-vim.keymap.set('n','<leader>ps',"<cmd>PackerSync<cr>",{ noremap=true,
-  silent=true })
-vim.keymap.set('n','<leader>pc',"<cmd>PackerClean<cr>",{ noremap=true,
-  silent=true })
+vim.keymap.set('n','<space>ps',function ()
+  vim.cmd 'PackerSync'
+end,{ noremap=true,
+  silent=false })
+vim.keymap.set('n','<space>pc',function ()
+  vim.cmd 'PackerClean'
+end,{ noremap=true,
+  silent=false })
 
 local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
 
@@ -31,10 +35,6 @@ if cwd == nvim_dir then
 vim.api.nvim_create_autocmd('BufWritePost',
   { command = [[ source <afile> | PackerCompile ]],
   group = packer_group, pattern = '**/*.lua' })
-else
-vim.api.nvim_create_autocmd('BufWritePost',
-  { command = [[source <afile>]],
-  group = packer_group, pattern = '**/*.lua' })
 end
 
 
@@ -42,9 +42,14 @@ local packer = require('packer')
 packer.init({
   git = {
         clone_timeout = 600, -- Timeout, in seconds, for git clones
-  }
+  },
+  luarocks = {
+    python_cmd =   'python3' -- Set the python command to use for running hererocks
+  },
 })
-return packer.startup(function(use)
+return packer.startup(function(use,use_rocks)
+
+use_rocks 'lyaml'
 
 use 'wbthomason/packer.nvim'
 -- color Theme
@@ -117,6 +122,21 @@ end}
 use{'neovim/nvim-lspconfig', config = function ()
     require'lspstuff'
 end}
+
+-- use {
+--   'akinsho/pubspec-assist.nvim',
+--   requires = 'plenary.nvim',
+--   rocks = {
+--     {
+--       'lyaml',
+--       server = 'http://rocks.moonscript.org',
+--       env = { YAML_DIR = '/usr/local/Cellar/libyaml/0.2.5/' },
+--     },
+--   },
+--   config = function()
+--     require('pubspec-assist').setup()
+--   end,
+-- }
 
 --flutter
 use {
