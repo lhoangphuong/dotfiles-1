@@ -278,45 +278,37 @@ use {'simrat39/rust-tools.nvim',
 
 use 'mtdl9/vim-log-highlighting'
 use 'nvim-lua/plenary.nvim'
-use {
-	'nullchilly/cpeditor.nvim',
-	requires = 'nvim-lua/plenary.nvim',
-    config = function ()
-      require("cpeditor").setup {
-	integration = {
-		bufferline = false,
-		nvim_dap = false
-	},
-	links = {
-		["local"] = "~/code/local",
-		["https://codeforces.com/contest/(%d+)/problem/(%w+)"] = "~/code/contest/codeforces",
-		["https://codeforces.com/problemset/problem/(%d+)/(%w+)"] = "~/code/contest/codeforces",
-	},
-	layouts = {
-		floating = {},
-		default = {
-			cmd = "set nosplitright | vs | setl wfw | wincmd w | bel sp | vs | vs | 1wincmd w",
-			order = {1, 2, 3, 4, 5}, -- main, errors, input, output, expected output
-		},
-	},
-	default_layout = "default",
-	langs = {
-		cpp = {
-			main = {"sol.cpp", "g++ -Wall -O2 -o sol", "./sol"},
-			brute = {"brute.cpp", "g++ -Wall -O2 -o brute", "./brute"},
-			gen = {"gen.cpp", "g++ -Wall -O2 -o gen", "./gen"},
-		}
-	},
-	default_lang = "cpp"
-}
-    end
-}
-use {
-  "cuducos/yaml.nvim",
-  ft = {"yaml"}, -- optional
-  requires = {
-    "nvim-treesitter/nvim-treesitter",
-    "nvim-telescope/telescope.nvim" -- optional
-  },
-}
+-- use {
+-- 	'nullchilly/cpeditor.nvim',
+-- 	requires = 'nvim-lua/plenary.nvim',
+--     config = function ()
+--       require("cpeditor").setup {
+-- 	integration = {
+-- 		bufferline = false,
+-- 		nvim_dap = false
+-- 	},
+-- 	links = {
+-- 		["local"] = "~/code/local",
+-- 		["https://codeforces.com/contest/(%d+)/problem/(%w+)"] = "~/code/contest/codeforces",
+-- 		["https://codeforces.com/problemset/problem/(%d+)/(%w+)"] = "~/code/contest/codeforces",
+-- 	},
+-- 	layouts = {
+-- 		floating = {},
+-- 		default = {
+-- 			cmd = "set nosplitright | vs | setl wfw | wincmd w | bel sp | vs | vs | 1wincmd w",
+-- 			order = {1, 2, 3, 4, 5}, -- main, errors, input, output, expected output
+-- 		},
+-- 	},
+-- 	default_layout = "default",
+-- 	langs = {
+-- 		cpp = {
+-- 			main = {"sol.cpp", "g++ -Wall -O2 -o sol", "./sol"},
+-- 			brute = {"brute.cpp", "g++ -Wall -O2 -o brute", "./brute"},
+-- 			gen = {"gen.cpp", "g++ -Wall -O2 -o gen", "./gen"},
+-- 		}
+-- 	},
+-- 	default_lang = "cpp"
+-- }
+--     end
+-- }
 end)

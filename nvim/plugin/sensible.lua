@@ -42,7 +42,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
-require 'catppuccin_setup'
+require 'lua.nightly_setup'
+-- require 'catppuccin_setup'
 -- require 'default_scheme'
 -- color scheme
 -- require'vscode_setup'
