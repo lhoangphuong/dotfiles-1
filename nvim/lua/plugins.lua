@@ -177,7 +177,9 @@ use{
       {'andersevenrud/cmp-tmux', after='nvim-cmp'},
       {'hrsh7th/cmp-copilot',after='nvim-cmp'},
       {'dmitmel/cmp-cmdline-history',after='nvim-cmp',
-      {'ray-x/cmp-treesitter', after='nvim-cmp'}
+      {'ray-x/cmp-treesitter', after='nvim-cmp'},
+      {'tzachar/cmp-fuzzy-path', after='nvim-cmp',
+          requires = {'tzachar/fuzzy.nvim'}}
       }
   }
 }

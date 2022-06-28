@@ -8,13 +8,14 @@ cmp.setup({
       vim_item.menu = ({
         luasnip = "[LuaSnip]",
         nvim_lsp = "[LSP]",
-        buffer = "[BUFFER]",
-        path = "[PATH]",
+        buffer = "[Buffer]",
+        path = "[Path]",
         treesitter = "[TS]",
-        copilot = "[COPILOT]",
-        tmux = "[TMUX]",
+        copilot = "[Copilot]",
+        tmux = "[tmux]",
         cmdline = "[CMD]",
-        cmdline_history = "[HISTORY]",
+        cmdline_history = "[History]",
+        fuzzy_path = "[FuzzyPath]"
       })[entry.source.name]
       return vim_item
     end
@@ -64,9 +65,9 @@ cmp.setup({
   sources = cmp.config.sources({
       { name = 'luasnip' },
       { name = 'nvim_lsp' },
-      { name = 'buffer' },
       { name = 'path' },
       { name = 'treesitter' },
+      { name = 'fuzzy_path' },
       { name = 'copilot'},
       { name = 'tmux',
         option = {
@@ -75,6 +76,7 @@ cmp.setup({
           trigger_characters_ft = {} -- { filetype = { '.' } }
         }
       },
+     { name = 'buffer' },
     }
     ),{
     }
@@ -90,6 +92,7 @@ cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
     { name = 'path' },
+    { name = 'fuzzy_path' },
   }, {
     { name = 'cmdline' },
     { name = 'cmdline_history' },

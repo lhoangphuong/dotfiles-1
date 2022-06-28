@@ -45,8 +45,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH="$PATH:$ANDROID_HOME/emulator/"
 export PATH="$PATH:$HOME/.cargo/bin/"
-export PATH="$PATH:$HOME/nvim-stable/bin/"
-alias python=python3
+export PATH="$PATH:$HOME/nvim-nightly/bin"
 
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
