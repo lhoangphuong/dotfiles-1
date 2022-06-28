@@ -11,7 +11,6 @@ require'nvim-treesitter.configs'.setup {
     'yaml',
     'toml',
     'bash',
-    'swift',
     'query',
     'cpp',
     'make',
