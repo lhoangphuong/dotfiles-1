@@ -47,9 +47,8 @@ packer.init({
     python_cmd =   'python3' -- Set the python command to use for running hererocks
   },
 })
-return packer.startup(function(use,use_rocks)
+return packer.startup(function(use)
 
-use_rocks 'lyaml'
 
 use 'wbthomason/packer.nvim'
 -- color Theme
