@@ -41,10 +41,10 @@ end
 local packer = require('packer')
 packer.init({
   git = {
-        clone_timeout = 600, -- Timeout, in seconds, for git clones
+    clone_timeout = 600, -- Timeout, in seconds, for git clones
   },
   luarocks = {
-    python_cmd =   'python3' -- Set the python command to use for running hererocks
+    python_cmd = 'python3' -- Set the python command to use for running hererocks
   },
 })
 return packer.startup(function(use)
@@ -57,7 +57,6 @@ use({
     "catppuccin/nvim",
     as = "catppuccin"
 })
-use 'bluz71/vim-nightfly-guicolors'
 
 -- Tree sitter
 use {
