@@ -17,11 +17,11 @@ else
 end
 
 
-vim.keymap.set('n','<space>ps',function ()
+vim.keymap.set('n','<leader>ps',function ()
   vim.cmd 'PackerSync'
 end,{ noremap=true,
   silent=false })
-vim.keymap.set('n','<space>pc',function ()
+vim.keymap.set('n','<leader>pc',function ()
   vim.cmd 'PackerClean'
 end,{ noremap=true,
   silent=false })
@@ -53,7 +53,6 @@ use_rocks 'lyaml'
 
 use 'wbthomason/packer.nvim'
 -- color Theme
-  --
 use 'gruvbox-community/gruvbox'
 use({
     "catppuccin/nvim",
@@ -123,20 +122,20 @@ use{'neovim/nvim-lspconfig', config = function ()
     require'lspstuff'
 end}
 
--- use {
---   'akinsho/pubspec-assist.nvim',
---   requires = 'plenary.nvim',
---   rocks = {
---     {
---       'lyaml',
---       server = 'http://rocks.moonscript.org',
---       env = { YAML_DIR = '/usr/local/Cellar/libyaml/0.2.5/' },
---     },
---   },
---   config = function()
---     require('pubspec-assist').setup()
---   end,
--- }
+use {
+  'akinsho/pubspec-assist.nvim',
+  requires = 'plenary.nvim',
+  rocks = {
+    {
+      'lyaml',
+      server = 'http://rocks.moonscript.org',
+      env = { YAML_DIR = '/usr/local/Cellar/libyaml/0.2.5/' },
+    },
+  },
+  config = function()
+    require('pubspec-assist').setup()
+  end,
+}
 
 --flutter
 use {
@@ -277,7 +276,16 @@ use {'simrat39/rust-tools.nvim',
 }
 
 use 'mtdl9/vim-log-highlighting'
-use 'nvim-lua/plenary.nvim'
+
+use {
+  'phaazon/hop.nvim',
+  branch = 'v1.3', -- optional but strongly recommended
+  config = function()
+    -- you can configure Hop the way you like here; see :h hop-config
+    require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+  end
+}
+
 -- use {
 -- 	'nullchilly/cpeditor.nvim',
 -- 	requires = 'nvim-lua/plenary.nvim',
