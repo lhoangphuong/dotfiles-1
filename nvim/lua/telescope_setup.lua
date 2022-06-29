@@ -72,7 +72,7 @@ end,opts)
 
 vim.keymap.set('n', '<space>sr',builtin.resume,{desc = '[S]earch [R]esume'})
 vim.keymap.set('n', '<space>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-vim.keymap.set('n', '<space>fb', require('telescope.builtin').buffers, { desc = '[F]ind existing [B]uffers' })
+vim.keymap.set('n', '<space>fb', require('telescope.builtin').buffers, { desc = '[S]earch existing [B]uffers' })
 vim.keymap.set('n', '<space>/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require('telescope.builtin').current_buffer_fuzzy_find(dropdown)

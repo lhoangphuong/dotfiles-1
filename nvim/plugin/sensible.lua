@@ -16,18 +16,17 @@ vim.o.smartcase = true
 vim.cmd 'set noswapfile'
 
 
-local opts = { noremap=true, silent=true }
-vim.keymap.set('n','<space>s',':update<CR>',opts)
+vim.keymap.set('n','<C-s>',':update<CR>',{noremap=true,silent=true,desc='[S]ave'})
 
-vim.keymap.set('n','<space>co',':copen<CR>',opts)
-vim.keymap.set('n','<space>cc',':ccl<CR>',opts)
-vim.keymap.set('n','<space>cl',':cli<CR>',opts)
+vim.keymap.set('n','<space>co',':copen<CR>',{noremap=true,silent=true})
+vim.keymap.set('n','<space>cc',':ccl<CR>',{noremap=true,silent=true})
+vim.keymap.set('n','<space>cl',':cli<CR>',{noremap=true,silent=true})
 
-vim.keymap.set('n', '<space>lo',':lopen<CR>',opts)
-vim.keymap.set('n', '<space>lc',':lcl<CR>',opts)
-vim.keymap.set('n', '<space>ll',':lli<CR>',opts)
+vim.keymap.set('n', '<space>lo',':lopen<CR>',{noremap=true,silent=true})
+vim.keymap.set('n', '<space>lc',':lcl<CR>',{noremap=true,silent=true})
+vim.keymap.set('n', '<space>ll',':lli<CR>',{noremap=true,silent=true})
 
-vim.keymap.set('t', '<Esc>','<C-\\><C-n>',opts)
+vim.keymap.set('t', '<Esc>','<C-\\><C-n>',{noremap=true,silent=true})
 
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })

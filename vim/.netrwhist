@@ -1,5 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =2
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/Users/hlg'
+let g:netrw_dirhist_4='/Users/hlg/elca-workspace/tixngo-admintool-flutter-2'
+let g:netrw_dirhist_3='/Users/hlg/dotfiles/vim'
 let g:netrw_dirhist_2='/Users/hlg/.local/share/nvim/site/pack/packer/start/nvim-treesitter'
 let g:netrw_dirhist_1='/Users/hlg/personal/leetcode/leetcode-algo-1'
 let g:netrw_dirhist_0='/Users/hlg/personal/leetcode'
@@ -7,6 +10,3 @@ let g:netrw_dirhist_9='/Users/hlg/dotfiles'
 let g:netrw_dirhist_8='/Users/TVG/dotfiles/nvim'
 let g:netrw_dirhist_7='/Users/hlg/dotfiles/tmux'
 let g:netrw_dirhist_6='/Users'
-let g:netrw_dirhist_5='/Users/hlg'
-let g:netrw_dirhist_4='/Users/hlg/dotfiles'
-let g:netrw_dirhist_3='/Users/hlg/dotfiles/nvim'
