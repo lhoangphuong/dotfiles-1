@@ -107,18 +107,16 @@ use {
   end
 }
 
--- ThePrimeagen
-use {'ThePrimeagen/git-worktree.nvim', require = {
-    'nvim-telescope/telescope.nvim'
-    },config = function ()
-  require 'git-worktree'.setup()
-  require("telescope").load_extension("git_worktree")
-end}
-
 -- lsp stuff
 use{'neovim/nvim-lspconfig', config = function ()
     require'lspstuff'
 end}
+use {
+  "smjonas/inc-rename.nvim",
+  config = function()
+    require("inc_rename").setup()
+  end,
+}
 
 use {
   'akinsho/pubspec-assist.nvim',
@@ -177,8 +175,9 @@ use{
       {'hrsh7th/cmp-copilot',after='nvim-cmp'},
       {'dmitmel/cmp-cmdline-history',after='nvim-cmp',
       {'ray-x/cmp-treesitter', after='nvim-cmp'},
-      {'tzachar/cmp-fuzzy-path', after='nvim-cmp',
-          requires = {'tzachar/fuzzy.nvim'}}
+      {'huylg/cmp-fuzzy-path', after='nvim-cmp',
+          requires = {'tzachar/fuzzy.nvim'},
+       }
       }
   }
 }
@@ -277,13 +276,13 @@ use {'simrat39/rust-tools.nvim',
 
 use 'mtdl9/vim-log-highlighting'
 
-use {
-  'phaazon/hop.nvim',
-  branch = 'v1.3', -- optional but strongly recommended
-  config = function()
-      require'hop_setup'
-  end
-}
+-- use {
+--   'phaazon/hop.nvim',
+--   branch = 'v1.3', -- optional but strongly recommended
+--   config = function()
+--       require'hop_setup'
+--   end
+-- }
 
 -- use {
 -- 	'nullchilly/cpeditor.nvim',

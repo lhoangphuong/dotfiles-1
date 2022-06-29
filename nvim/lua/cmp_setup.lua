@@ -91,8 +91,18 @@ cmp.setup.cmdline('/', {
 cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
+    { name = 'fuzzy_path',
+      options = {
+        fd_cmd = { 'fd', '-d', '20', '-p', '-i' },
+        allowed_cmd_context = {
+          [string.byte('e')] = true,
+          [string.byte('w')] = true,
+          [string.byte('r')] = true,
+        },
+        fd_timeout_msec = 500,
+      }
+    },
     { name = 'path' },
-    { name = 'fuzzy_path' },
   }, {
     { name = 'cmdline' },
     { name = 'cmdline_history' },
