@@ -67,7 +67,12 @@ cmp.setup({
       { name = 'nvim_lsp' },
       { name = 'path' },
       { name = 'treesitter' },
-      { name = 'fuzzy_path' },
+      { name = 'fuzzy_path',
+        options = {
+          fd_cmd = { 'fd', '-d', '20', '-p', '-i' },
+          fd_timeout_msec = 500,
+        }
+      },
       { name = 'copilot'},
       { name = 'tmux',
         option = {
@@ -91,18 +96,13 @@ cmp.setup.cmdline('/', {
 cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
+    { name = 'path' },
     { name = 'fuzzy_path',
       options = {
         fd_cmd = { 'fd', '-d', '20', '-p', '-i' },
-        allowed_cmd_context = {
-          [string.byte('e')] = true,
-          [string.byte('w')] = true,
-          [string.byte('r')] = true,
-        },
         fd_timeout_msec = 500,
       }
     },
-    { name = 'path' },
   }, {
     { name = 'cmdline' },
     { name = 'cmdline_history' },
