@@ -111,12 +111,6 @@ use {
 use{'neovim/nvim-lspconfig', config = function ()
     require'lspstuff'
 end}
-use {
-  "smjonas/inc-rename.nvim",
-  config = function()
-    require("inc_rename").setup()
-  end,
-}
 
 use {
   'akinsho/pubspec-assist.nvim',
@@ -275,6 +269,8 @@ use {'simrat39/rust-tools.nvim',
 }
 
 use 'mtdl9/vim-log-highlighting'
+use 'jremmen/vim-ripgrep'
+
 
 -- use {
 --   'phaazon/hop.nvim',

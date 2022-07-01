@@ -21,17 +21,19 @@ local function on_attach(client, bufnr)
     vim.cmd'Telescope flutter commands'
   end,opts)
   vim.keymap.set('n','<space>fl',':FlutterLogClear<CR>',opts)
-  vim.keymap.set('n','<space>fa',':FlutterRun -t lib/int5.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800 --verbose-system-logs<CR>',opts)
+  vim.keymap.set('n','<space>fa',':FlutterRun -t lib/main_development.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800 --verbose-system-logs<CR>',opts)
   vim.keymap.set('n','<space>fq',':FlutterQuit<CR>',opts)
   vim.keymap.set('n','<space>ft',':Dispatch flutter drive --driver=test_driver/integration_test.dart --target=integration_test/app_test.dart -d web-server --verbose <CR>',opts)
   vim.keymap.set('n','<space>dm',':DartFmt<CR>',opts)
-
-  if vim.api.nvim_buf_create_user_command ~= nil then
-    vim.api.nvim_buf_create_user_command(bufnr,'FlutterBuildRunner', function()
-      vim.cmd 'vs term://flutter pub get; flutter pub run build_runner build --delete-conflicting-outputs'
-    end, { force = true })
-  end
-
+  vim.api.nvim_buf_create_user_command(bufnr,'FlutterBuildRunner', function()
+    vim.cmd 'Dispatch flutter pub get; flutter pub run build_runner build --delete-conflicting-outputs'
+  end, { force = true })
+  vim.api.nvim_buf_create_user_command(bufnr,'FlutterAnalyze', function()
+    vim.cmd 'Dispatch flutter analyze'
+  end, { force = true })
+  vim.api.nvim_buf_create_user_command(bufnr,'FlutterGenL10n', function()
+    vim.cmd 'Dispatch flutter pub run intl_translation:generate_from_arb'
+  end, { force = true })
   require'lsp_mapping'.map(client,bufnr)
 
 end

@@ -40,7 +40,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
-if vim.g.termguicolors then
+if vim.o.termguicolors then
   require 'catppuccin_setup'
   vim.wo.colorcolumn='80'
 else
