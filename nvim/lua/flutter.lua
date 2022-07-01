@@ -17,7 +17,7 @@ local function on_attach(client, bufnr)
   -- vim.keymap.set('n','<space>fR',':FlutterRestart<CR>',opts)
   -- vim.keymap.set('n','<space>fc',':Telescope flutter commands<CR>',opts)
 
-  vim.keymap.set('n','<space><space>',function()
+  vim.keymap.set('n','<space>fc',function()
     vim.cmd'Telescope flutter commands'
   end,opts)
   vim.keymap.set('n','<space>fl',':FlutterLogClear<CR>',opts)

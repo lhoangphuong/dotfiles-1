@@ -73,7 +73,7 @@ cmp.setup({
           fd_timeout_msec = 500,
         }
       },
-      { name = 'copilot'},
+      -- { name = 'copilot'},
       { name = 'tmux',
         option = {
           all_panes = false,

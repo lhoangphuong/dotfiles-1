@@ -53,12 +53,10 @@ local builtin = require'telescope.builtin'
 local opts = { noremap=true, silent=true }
 
 vim.keymap.set('n','<space>p',function ()
-  for dir in vim.fs.parents(vim.api.nvim_buf_get_name(0)) do
-    if vim.fn.isdirectory(dir .. "/.git") == 1 then
-      builtin.git_files({previewer = false})
-      return
-    end
-  end
+  builtin.git_files({previewer = false})
+end,opts )
+
+vim.keymap.set('n','<space><space>',function ()
   builtin.find_files({previewer = false})
 end,opts )
 

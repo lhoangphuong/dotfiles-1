@@ -24,6 +24,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
+
+Plug 'machakann/vim-highlightedyank'
+
 call plug#end()
 
 let g:lsc_server_commands = {
@@ -37,14 +40,14 @@ let g:lsc_server_commands = {
     \},
 \}
 let g:lsc_auto_map = {
-    \ 'GoToDefinition': '<C-]>',
+    \ 'GoToDefinition': 'gd',
     \ 'GoToDefinitionSplit': ['<C-W>]', '<C-W><C-]>'],
     \ 'FindReferences': 'gr',
     \ 'NextReference': '<C-n>',
     \ 'PreviousReference': '<C-p>',
     \ 'FindImplementations': 'gI',
-    \ 'FindCodeActions': 'ga',
-    \ 'Rename': 'gR',
+    \ 'FindCodeActions': '<space>ca',
+    \ 'Rename': '<space>rn',
     \ 'ShowHover': v:true,
     \ 'DocumentSymbol': 'go',
     \ 'WorkspaceSymbol': 'gS',
@@ -57,7 +60,7 @@ set number
 set hlsearch
 set background=dark
 
-nmap <space>s  :update<CR>
+nmap <C-s>  :update<CR>
 nmap <space>co :copen<CR>
 nmap <space>cc :ccl<CR>
 nmap <space>cl :cli<CR>
@@ -65,9 +68,17 @@ nmap <space>lo :lopen<CR>
 nmap <space>lc :lcl<CR>
 nmap <space>ll :lli<CR>
 
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
 nmap <space>p :GFiles<CR>
+nmap <space><space> :Files<CR>
 nmap <space>fb :Buffers<CR>
-nmap <space>fg :Rg
+nmap <space>sg :Rg<CR>
+nmap <space>fo :History<CR>
+nmap <space>sh :Helptags<CR>
+
+nmap <space>qa :LSClientAllDiagnostics<CR>
+
+let g:highlightedyank_highlight_duration = 200
 
 "nmap k	 "v:count == 0 ? 'gk' : 'k'"
 "nmap j	 "v:count == 0 ? 'gj' : 'j'"

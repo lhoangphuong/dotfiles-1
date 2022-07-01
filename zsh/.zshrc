@@ -127,3 +127,4 @@ alias tss='sh ${DOTFILE_DIR}/tmux/tmux-sessionizer.sh'
 
 export PATH="$DOTFILE_DIR/bin/:$PATH"
 export MACOSX_DEPLOYMENT_TARGET=10.15
+alias v="/usr/local/Cellar/vim/9.0.0000/bin/vim"

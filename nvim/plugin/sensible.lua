@@ -10,7 +10,6 @@ vim.o.relativenumber=true
 vim.o.smartindent=true
 vim.o.cursorline = true
 -- vim.o.cursorcolumn = true
-vim.wo.colorcolumn='80'
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.cmd 'set noswapfile'
@@ -41,7 +40,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
-require 'catppuccin_setup'
+if vim.g.termguicolors then
+  require 'catppuccin_setup'
+  vim.wo.colorcolumn='80'
+else
+  require 'default_scheme'
+end
+
 -- require 'default_scheme'
 -- color scheme
 -- require'vscode_setup'
