@@ -139,6 +139,18 @@ use {
        require'flutter'
     end
 }
+use {
+  "nvim-neotest/neotest",
+  requires = {
+    "nvim-lua/plenary.nvim",
+    "nvim-treesitter/nvim-treesitter",
+    "antoinemadec/FixCursorHold.nvim",
+    'sidlatau/neotest-dart',
+  },
+  config = function()
+      require 'neotest_setup'
+  end
+}
 
 -- debug stuff
 use {'mfussenegger/nvim-dap',

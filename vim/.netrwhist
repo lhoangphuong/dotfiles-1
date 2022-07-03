@@ -1,12 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =8
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/Users/hlg/personal/rescript-react-realworld-example-app'
+let g:netrw_dirhist_1='/Users/hlg/personal/leetcode'
+let g:netrw_dirhist_0='/Users/hlg/dotfiles/nvim'
+let g:netrw_dirhist_9='/Users/hlg/personal/leetcode'
 let g:netrw_dirhist_8='/Users/hlg/dotfiles/nvim'
 let g:netrw_dirhist_7='/Users/hlg/dotfiles/alacritty'
 let g:netrw_dirhist_6='/Users/hlg/dotfiles/nvim'
 let g:netrw_dirhist_5='/Users/hlg'
 let g:netrw_dirhist_4='/Users/hlg/fvm/versions/stable'
 let g:netrw_dirhist_3='/Users/hlg/dotfiles/vim'
-let g:netrw_dirhist_2='/Users/hlg/elca-workspace/tixngo-admintool-flutter-2/lib/features/support/support_ticket/bloc'
-let g:netrw_dirhist_1='/Users/hlg/dotfiles/vim'
-let g:netrw_dirhist_0='/'
-let g:netrw_dirhist_9='/Users/hlg/dotfiles/nvim'
