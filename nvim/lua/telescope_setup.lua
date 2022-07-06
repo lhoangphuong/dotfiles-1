@@ -5,9 +5,10 @@ local previewers = require('telescope.previewers')
 
 local new_maker = function(filepath, bufnr, opts)
   opts = opts or {}
-  filepath = vim.fn.expand(filepath) vim.loop.fs_stat(filepath, function(_,
-    stat)
-  if not stat then return end
+  filepath = vim.fn.expand(filepath)
+  vim.loop.fs_stat(filepath, function(_,
+                                      stat)
+    if not stat then return end
     if stat.size > 100000 then
       return
     else
@@ -16,7 +17,7 @@ local new_maker = function(filepath, bufnr, opts)
   end)
 end
 
-require('telescope').setup{
+require('telescope').setup {
   igfile_ignore_patterns = { "node_modules" },
   defaults = {
     buffer_previewer_maker = new_maker,
@@ -33,42 +34,42 @@ require('telescope').setup{
       },
     },
   },
-   extensions = {
+  extensions = {
     ['ui-select'] = {
-       require('telescope.themes').get_ivy();
+      require('telescope.themes').get_ivy();
     },
     fzf = {
-      fuzzy = true,                    -- false will only do exact matching
+      fuzzy = true, -- false will only do exact matching
       override_generic_sorter = false, -- override the generic sorter
-      override_file_sorter = true,     -- override the file sorter
-      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+      override_file_sorter = true, -- override the file sorter
+      case_mode = "smart_case", -- or "ignore_case" or "respect_case"
     },
   }
 }
 
 local ivy = require('telescope.themes').get_ivy();
-local dropdown = require('telescope.themes').get_dropdown({previewer = false});
-local builtin = require'telescope.builtin'
+local dropdown = require('telescope.themes').get_dropdown({ previewer = false });
+local builtin = require 'telescope.builtin'
 
-local opts = { noremap=true, silent=true }
+local opts = { noremap = true, silent = true }
 
-vim.keymap.set('n','<space>p',function ()
-  builtin.git_files({previewer = false})
-end,opts )
+vim.keymap.set('n', '<space>p', function()
+  builtin.git_files({ previewer = false })
+end, opts)
 
-vim.keymap.set('n','<space><space>',function ()
-  builtin.find_files({previewer = false})
-end,opts )
+vim.keymap.set('n', '<space><space>', function()
+  builtin.find_files({ previewer = false })
+end, opts)
 
-vim.keymap.set('n','<space>qf',function ()
+vim.keymap.set('n', '<space>qf', function()
   builtin.quickfix(ivy)
-end,opts)
+end, opts)
 
-vim.keymap.set('n','<space>st',function ()
+vim.keymap.set('n', '<space>st', function()
   vim.cmd 'Telescope'
-end,opts)
+end, opts)
 
-vim.keymap.set('n', '<space>sr',builtin.resume,{desc = '[S]earch [R]esume'})
+vim.keymap.set('n', '<space>sr', builtin.resume, { desc = '[S]earch [R]esume' })
 vim.keymap.set('n', '<space>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<space>fb', require('telescope.builtin').buffers, { desc = '[S]earch existing [B]uffers' })
 vim.keymap.set('n', '<space>/', function()

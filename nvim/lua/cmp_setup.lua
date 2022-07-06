@@ -1,5 +1,5 @@
 -- Setup nvim-cmp.
-local cmp = require'cmp'
+local cmp = require 'cmp'
 local luasnip = require("luasnip")
 
 cmp.setup({
@@ -21,16 +21,16 @@ cmp.setup({
     end
   },
   snippet = {
-      expand = function(args)
-        require'luasnip'.lsp_expand(args.body)
-      end,
-    },
-      window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
-      },
+    expand = function(args)
+      require 'luasnip'.lsp_expand(args.body)
+    end,
+  },
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
+  },
   mapping = {
-        ['<Tab>'] = cmp.mapping(function(fallback)
+    ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       elseif luasnip.expand_or_jumpable() then
@@ -48,7 +48,7 @@ cmp.setup({
         fallback()
       end
     end, { 'i', 's' }),
-['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+    ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
     ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
     ['<Down>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
     ['<Up>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
@@ -63,28 +63,28 @@ cmp.setup({
   },
   confirmation = { completeopt = 'menu,menuone,noinsert' },
   sources = cmp.config.sources({
-      { name = 'luasnip' },
-      { name = 'nvim_lsp' },
-      { name = 'path' },
-      { name = 'treesitter' },
-      { name = 'fuzzy_path',
-        options = {
-          fd_cmd = { 'fd', '-d', '20', '-p', '-i' },
-          fd_timeout_msec = 500,
-        }
-      },
-      { name = 'copilot'},
-      { name = 'tmux',
-        option = {
-          all_panes = false,
-          trigger_characters = { '.' },
-          trigger_characters_ft = {} -- { filetype = { '.' } }
-        }
-      },
-     { name = 'buffer' },
-    }
-    ),{
-    }
+    { name = 'luasnip' },
+    { name = 'nvim_lsp' },
+    { name = 'path' },
+    { name = 'treesitter' },
+    { name = 'fuzzy_path',
+      options = {
+        fd_cmd = { 'fd', '-d', '20', '-p', '-i' },
+        fd_timeout_msec = 500,
+      }
+    },
+    { name = 'copilot' },
+    { name = 'tmux',
+      option = {
+        all_panes = false,
+        trigger_characters = { '.' },
+        trigger_characters_ft = {} -- { filetype = { '.' } }
+      }
+    },
+    { name = 'buffer' },
+  }
+  ), {
+  }
 })
 cmp.setup.cmdline('/', {
   mapping = cmp.mapping.preset.cmdline(),

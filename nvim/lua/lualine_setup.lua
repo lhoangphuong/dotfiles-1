@@ -44,7 +44,7 @@ local conditions = {
     local gitdir = vim.fn.finddir('.git', filepath .. ';')
     return gitdir and #gitdir > 0 and #gitdir < #filepath
   end,
-  check_flutter_workspace = function ()
+  check_flutter_workspace = function()
     return vim.g.flutter_tools_decorations ~= nil
   end
 
@@ -153,7 +153,7 @@ ins_left {
 
 ins_left { 'location' }
 
-ins_left { 'quickfix', color = { fg = colors.fg,} }
+ins_left { 'quickfix', color = { fg = colors.fg, } }
 
 ins_left { 'progress', color = { fg = colors.fg, gui = 'bold' } }
 
@@ -208,8 +208,8 @@ ins_left {
 --   color = { fg = '#ffffff', gui = 'bold' },
 -- }
 
-ins_left{
-  function ()
+ins_left {
+  function()
     return vim.g.flutter_tools_decorations.app_version
   end,
   icon = '⚡VERSION:',
