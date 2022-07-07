@@ -3,6 +3,20 @@
 -- map buffer local keybindings when the language server attaches
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+local function flutter_run()
+  local filepath = vim.fs.normalize '$HOME/elca-workspace/tyxr-app-sdk/branded_app'
+  local sdk_path = vim.fs.normalize('$HOME/elca-workspace/tyxr-app-sdk')
+  local admintool_path = vim.fs.normalize('$HOME/elca-workspace/tixngo-admintool-flutter-2')
+
+  if string.find(filepath, sdk_path, 1, true) then
+    return vim.cmd 'FlutterRun -t --host-vmservice-port 8000 --disable-service-auth-codes'
+  elseif string.find(filepath, admintool_path, 1, true) then
+    return vim.cmd 'FlutterRun -t lib/main_development.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800 --verbose-system-logs'
+  else
+    return vim.cmd ':FlutterRun'
+  end
+end
+
 local function on_attach(client, bufnr)
   require("telescope").load_extension("flutter")
 
@@ -22,7 +36,7 @@ local function on_attach(client, bufnr)
   end, opts)
   vim.keymap.set('n', '<space>fl', ':FlutterLogClear<CR>', opts)
   vim.keymap.set('n', '<space>fa',
-    ':FlutterRun -t lib/main_development.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800 --verbose-system-logs<CR>'
+    flutter_run
     , opts)
   vim.keymap.set('n', '<space>fq', ':FlutterQuit<CR>', opts)
   vim.keymap.set('n', '<space>ft',
