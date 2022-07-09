@@ -53,6 +53,7 @@ return packer.startup(function(use)
 
   use 'wbthomason/packer.nvim'
   -- color Theme
+  use "ellisonleao/gruvbox.nvim"
   use 'gruvbox-community/gruvbox'
   use({
     "catppuccin/nvim",
@@ -137,22 +138,12 @@ return packer.startup(function(use)
       'dart-lang/dart-vim-plugin',
       'Neevash/awesome-flutter-snippets',
     },
+    ft = { 'dart', 'feature', 'yaml', 'lua' },
     config = function()
       require 'flutter'
     end
   }
-  use {
-    "nvim-neotest/neotest",
-    requires = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-      "antoinemadec/FixCursorHold.nvim",
-      'sidlatau/neotest-dart',
-    },
-    config = function()
-      require 'neotest_setup'
-    end
-  }
+  use 'vim-test/vim-test'
 
   -- debug stuff
   use { 'mfussenegger/nvim-dap',
@@ -284,6 +275,16 @@ return packer.startup(function(use)
 
   use 'mtdl9/vim-log-highlighting'
   use 'jremmen/vim-ripgrep'
+
+  use { "akinsho/toggleterm.nvim", config = function()
+    require("toggleterm").setup({
+      size = vim.o.columns * 0.5,
+      persist_size = true,
+      direction = "vertical",
+      close_on_exit = false,
+      start_in_insert = false,
+    })
+  end }
 
 
   -- use {

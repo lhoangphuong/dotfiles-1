@@ -62,10 +62,12 @@ font:
   size: 11.0
   normal:
     family: SFMono Nerd Font
-
+env:
+  TERM: xterm-256color
 window:
-  opacity: 0.87
+  opacity: 0.8
   decorations: "none"
+  startup_mode: Maximized
 
 key_bindings:
 - { key: A,         mods: Alt,       chars: "\x1ba"                       }

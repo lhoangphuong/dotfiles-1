@@ -58,18 +58,19 @@ export PERSONAL_DIR="$HOME/personal"
 export PATH="$PATH:$HOME/fvm/versions/stable/bin"
 export PATH="$PATH:$HOME/fvm/versions/stable/bin/cache/dart-sdk/bin"
 
-alias f='flutter'
-alias fcl='flutter clean'
-alias fpg='flutter pub get'
-alias fr='flutter run'
-alias frc='flutter run '
-alias frm='flutter run'
-alias fu='flutter upgrade'
-alias fdo='flutter doctor'
-alias fa='flutter analyze'
-alias fbr='flutter pub get; flutter pub run build_runner build --delete-conflicting-outputs'
+alias f='fvm flutter'
+alias fcl='fvm flutter clean'
+alias fpg='fvm flutter pub get'
+alias fr='fvm flutter run'
+alias frc='fvm flutter run '
+alias frm='fvm flutter run'
+alias fu='fvm flutter upgrade'
+alias fdo='fvm flutter doctor'
+alias fa='fvm flutter analyze'
+alias fbr='fvm flutter pub get; fvm flutter pub run build_runner build --delete-conflicting-outputs'
 
-alias dr='dart run'
+alias dr='fvm dart run'
+alias clean_dart='pkill -f dart'
 
 alias lg=lazygit
 
@@ -106,10 +107,6 @@ enable-fzf-tab
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 #eval "$(rbenv init -)"
 # bindkey '^j' autosuggest-accept
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 alias gpa='git add .; git commit -m "$1"; git push;'
 

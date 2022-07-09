@@ -3,19 +3,29 @@
 -- map buffer local keybindings when the language server attaches
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-local function flutter_run()
-  local filepath = vim.fs.normalize '$HOME/elca-workspace/tyxr-app-sdk/branded_app'
-  local sdk_path = vim.fs.normalize('$HOME/elca-workspace/tyxr-app-sdk')
-  local admintool_path = vim.fs.normalize('$HOME/elca-workspace/tixngo-admintool-flutter-2')
+local current_workspace = vim.fn.getcwd();
+local sdk_path = vim.fs.normalize('$HOME/elca-workspace/tyxr-app-sdk')
+local admintool_path = vim.fs.normalize('$HOME/elca-workspace/tixngo-admintool-flutter-2')
+local flutter_run_command = ':FlutterRun'
 
-  if string.find(filepath, sdk_path, 1, true) then
-    return vim.cmd 'FlutterRun -t --host-vmservice-port 8000 --disable-service-auth-codes'
-  elseif string.find(filepath, admintool_path, 1, true) then
-    return vim.cmd 'FlutterRun -t lib/main_development.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800 --verbose-system-logs'
-  else
-    return vim.cmd ':FlutterRun'
-  end
+if string.find(current_workspace, sdk_path, 1, true) then
+  flutter_run_command = 'FlutterRun -t test_driver/app.dart --host-vmservice-port 8000 --disable-service-auth-codes'
+elseif current_workspace == admintool_path then
+  flutter_run_command = 'FlutterRun -t lib/main_development.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800'
 end
+
+local Terminal = require('toggleterm.terminal').Terminal
+local test_terminal = Terminal:new({ cmd = 'dart test_driver/app_test.dart', })
+vim.api.nvim_create_user_command('FlutterTest', function()
+  test_terminal:toggle()
+end, { force = true })
+
+vim.keymap.set('n', '<space>ft',
+  function ()
+    vim.cmd 'FlutterRestart'
+    vim.cmd 'FlutterTest'
+  end
+  , {})
 
 local function on_attach(client, bufnr)
   require("telescope").load_extension("flutter")
@@ -25,7 +35,7 @@ local function on_attach(client, bufnr)
   -- vim.keymap.set('n','<space>fa',':!zsh $HOME/dotfiles/tmux/flutter-run-admintool.sh<CR>',opts)
   -- vim.keymap.set('n','<space>fq',':FlutterQuit<CR>',opts)
   -- vim.keymap.set('n','<space>fc',':FlutterCopyProfilerUrl<CR>',opts)
-  -- vim.keymap.set('n','<space>fd',':FlutterDevices<CR>',opts)
+  -- vim.keymap.set('n','<space>fd',':ulutterDevices<CR>',opts)
   -- vim.keymap.set('n','<space>o' ,':FlutterOutlineToggle<CR>',opts)
   -- vim.keymap.set('n','<Space>rl',':FlutterReload<CR>',opts)
   -- vim.keymap.set('n','<space>fR',':FlutterRestart<CR>',opts)
@@ -35,13 +45,10 @@ local function on_attach(client, bufnr)
     vim.cmd 'Telescope flutter commands'
   end, opts)
   vim.keymap.set('n', '<space>fl', ':FlutterLogClear<CR>', opts)
-  vim.keymap.set('n', '<space>fa',
-    flutter_run
-    , opts)
+  vim.keymap.set('n', '<space>fa', function()
+    vim.cmd(flutter_run_command)
+  end, opts)
   vim.keymap.set('n', '<space>fq', ':FlutterQuit<CR>', opts)
-  vim.keymap.set('n', '<space>ft',
-    ':Dispatch flutter drive --driver=test_driver/integration_test.dart --target=integration_test/app_test.dart -d web-server --verbose <CR>'
-    , opts)
   vim.keymap.set('n', '<space>dm', ':DartFmt<CR>', opts)
   vim.api.nvim_buf_create_user_command(bufnr, 'FlutterBuildRunner', function()
     vim.cmd 'Dispatch flutter pub get; flutter pub run build_runner build --delete-conflicting-outputs'

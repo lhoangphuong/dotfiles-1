@@ -41,7 +41,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 if vim.o.termguicolors then
-  require 'catppuccin_setup'
+  vim.cmd 'colorscheme gruvbox'
   vim.wo.colorcolumn = '80'
 else
   require 'default_scheme'

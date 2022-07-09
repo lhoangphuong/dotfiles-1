@@ -16,7 +16,8 @@ require 'nvim-treesitter.configs'.setup {
     'make',
   },
   highlight = {
-    enable = vim.o.termguicolors,
+    -- enable = vim.o.termguicolors,
+    enable = true,
   },
   incremental_selection = {
     enable = true,
