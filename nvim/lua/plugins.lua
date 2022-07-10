@@ -276,16 +276,6 @@ return packer.startup(function(use)
   use 'mtdl9/vim-log-highlighting'
   use 'jremmen/vim-ripgrep'
 
-  use { "akinsho/toggleterm.nvim", config = function()
-    require("toggleterm").setup({
-      size = vim.o.columns * 0.5,
-      persist_size = true,
-      direction = "vertical",
-      close_on_exit = false,
-      start_in_insert = false,
-    })
-  end }
-
 
   -- use {
   --   'phaazon/hop.nvim',

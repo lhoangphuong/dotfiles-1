@@ -14,19 +14,6 @@ elseif current_workspace == admintool_path then
   flutter_run_command = 'FlutterRun -t lib/main_development.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800'
 end
 
-local Terminal = require('toggleterm.terminal').Terminal
-local test_terminal = Terminal:new({ cmd = 'dart test_driver/app_test.dart', })
-vim.api.nvim_create_user_command('FlutterTest', function()
-  test_terminal:toggle()
-end, { force = true })
-
-vim.keymap.set('n', '<space>ft',
-  function ()
-    vim.cmd 'FlutterRestart'
-    vim.cmd 'FlutterTest'
-  end
-  , {})
-
 local function on_attach(client, bufnr)
   require("telescope").load_extension("flutter")
 
