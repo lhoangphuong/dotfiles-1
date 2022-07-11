@@ -27,18 +27,6 @@ vim.keymap.set('n', '<leader>pc', function()
 end, { noremap = true,
   silent = false })
 
-local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
-
-local cwd = vim.fs.normalize(vim.fn.getcwd())
-local nvim_dir = vim.fs.normalize('$DOTFILE_DIR/nvim')
-
-if cwd == nvim_dir then
-  vim.api.nvim_create_autocmd('BufWritePost',
-    { command = [[ source <afile> | PackerCompile ]],
-      group = packer_group, pattern = '**/*.lua' })
-end
-
-
 local packer = require('packer')
 packer.init({
   git = {
@@ -55,6 +43,7 @@ return packer.startup(function(use)
   -- color Theme
   use "ellisonleao/gruvbox.nvim"
   use 'gruvbox-community/gruvbox'
+  use "rebelot/kanagawa.nvim"
   use({
     "catppuccin/nvim",
     as = "catppuccin"
@@ -275,8 +264,6 @@ return packer.startup(function(use)
 
   use 'mtdl9/vim-log-highlighting'
   use 'jremmen/vim-ripgrep'
-
-
   -- use {
   --   'phaazon/hop.nvim',
   --   branch = 'v1.3', -- optional but strongly recommended
