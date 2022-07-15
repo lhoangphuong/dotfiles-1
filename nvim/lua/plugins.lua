@@ -43,7 +43,8 @@ return packer.startup(function(use)
   -- color Theme
   use "ellisonleao/gruvbox.nvim"
   use 'gruvbox-community/gruvbox'
-  use "rebelot/kanagawa.nvim"
+  use 'folke/tokyonight.nvim'
+  use 'Mofiqul/vscode.nvim'
   use({
     "catppuccin/nvim",
     as = "catppuccin"
@@ -102,8 +103,25 @@ return packer.startup(function(use)
   use { 'neovim/nvim-lspconfig', config = function()
     require 'lspstuff'
   end }
-  use 'williamboman/nvim-lsp-installer'
-
+  use({
+    "andrewferrier/textobj-diagnostic.nvim",
+    config = function()
+      require("textobj-diagnostic").setup()
+    end,
+  })
+  --flutter
+  use {
+    'huylg/flutter-tools.nvim', requires = {
+      'nvim-lua/plenary.nvim',
+      'hrsh7th/cmp-nvim-lsp',
+      'dart-lang/dart-vim-plugin',
+      'Neevash/awesome-flutter-snippets',
+    },
+    ft = { 'dart', 'feature', 'yaml', 'lua' },
+    config = function()
+      require 'flutter'
+    end
+  }
   use {
     'akinsho/pubspec-assist.nvim',
     requires = 'plenary.nvim',
@@ -119,20 +137,6 @@ return packer.startup(function(use)
     end,
   }
 
-  --flutter
-  use {
-    'huylg/flutter-tools.nvim', requires = {
-      'nvim-lua/plenary.nvim',
-      'hrsh7th/cmp-nvim-lsp',
-      'dart-lang/dart-vim-plugin',
-      'Neevash/awesome-flutter-snippets',
-    },
-    ft = { 'dart', 'feature', 'yaml', 'lua' },
-    config = function()
-      require 'flutter'
-    end
-  }
-  use 'vim-test/vim-test'
 
   -- debug stuff
   use { 'mfussenegger/nvim-dap',
@@ -161,12 +165,12 @@ return packer.startup(function(use)
       { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' },
       { 'andersevenrud/cmp-tmux', after = 'nvim-cmp' },
       { 'hrsh7th/cmp-copilot', after = 'nvim-cmp' },
-      { 'dmitmel/cmp-cmdline-history', after = 'nvim-cmp',
-        { 'ray-x/cmp-treesitter', after = 'nvim-cmp' },
-        { 'tzachar/cmp-fuzzy-path', after = 'nvim-cmp',
-          requires = { 'tzachar/fuzzy.nvim' },
-        }
+      { 'dmitmel/cmp-cmdline-history', after = 'nvim-cmp' },
+      { 'ray-x/cmp-treesitter', after = 'nvim-cmp' },
+      { 'tzachar/cmp-fuzzy-path', after = 'nvim-cmp',
+        requires = { 'tzachar/fuzzy.nvim' },
       }
+
     }
   }
 
@@ -264,45 +268,5 @@ return packer.startup(function(use)
 
   use 'mtdl9/vim-log-highlighting'
   use 'jremmen/vim-ripgrep'
-  -- use {
-  --   'phaazon/hop.nvim',
-  --   branch = 'v1.3', -- optional but strongly recommended
-  --   config = function()
-  --       require'hop_setup'
-  --   end
-  -- }
-
-  -- use {
-  -- 	'nullchilly/cpeditor.nvim',
-  -- 	requires = 'nvim-lua/plenary.nvim',
-  --     config = function ()
-  --       require("cpeditor").setup {
-  -- 	integration = {
-  -- 		bufferline = false,
-  -- 		nvim_dap = false
-  -- 	},
-  -- 	links = {
-  -- 		["local"] = "~/code/local",
-  -- 		["https://codeforces.com/contest/(%d+)/problem/(%w+)"] = "~/code/contest/codeforces",
-  -- 		["https://codeforces.com/problemset/problem/(%d+)/(%w+)"] = "~/code/contest/codeforces",
-  -- 	},
-  -- 	layouts = {
-  -- 		floating = {},
-  -- 		default = {
-  -- 			cmd = "set nosplitright | vs | setl wfw | wincmd w | bel sp | vs | vs | 1wincmd w",
-  -- 			order = {1, 2, 3, 4, 5}, -- main, errors, input, output, expected output
-  -- 		},
-  -- 	},
-  -- 	default_layout = "default",
-  -- 	langs = {
-  -- 		cpp = {
-  -- 			main = {"sol.cpp", "g++ -Wall -O2 -o sol", "./sol"},
-  -- 			brute = {"brute.cpp", "g++ -Wall -O2 -o brute", "./brute"},
-  -- 			gen = {"gen.cpp", "g++ -Wall -O2 -o gen", "./gen"},
-  -- 		}
-  -- 	},
-  -- 	default_lang = "cpp"
-  -- }
-  --     end
-  -- }
+  use 'segeljakt/vim-silicon'
 end)

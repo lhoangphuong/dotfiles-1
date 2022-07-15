@@ -1,11 +1,11 @@
 require 'catppuccin'.setup {
-	transparent_background = false,
+	transparent_background = true,
 }
 
 vim.cmd([[
 	colorscheme catppuccin
 
-	hi Comment gui=italic guifg=#6c7886
+	hi Comment gui=italic guifg=#00ffff
 	" hi link GitSignsCurrentLineBlame Comment
 
 	hi! CursorLine gui=underline cterm=underline guibg=none

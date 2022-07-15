@@ -11,8 +11,8 @@ vim.o.smartindent = true
 vim.o.cursorline = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
-vim.o.cursorcolumn = true
-vim.wo.colorcolumn = '80'
+vim.o.cursorcolumn = false
+vim.wo.colorcolumn = 0
 vim.cmd 'set noswapfile'
 
 
@@ -42,7 +42,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 if vim.o.termguicolors then
-  vim.cmd 'colorschem kanagawa'
+  require 'catppuccin_setup'
 else
   require 'default_scheme'
 end

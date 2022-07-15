@@ -24,9 +24,9 @@ local function on_attach(client, bufnr)
   -- vim.keymap.set('n','<space>fc',':FlutterCopyProfilerUrl<CR>',opts)
   -- vim.keymap.set('n','<space>fd',':ulutterDevices<CR>',opts)
   -- vim.keymap.set('n','<space>o' ,':FlutterOutlineToggle<CR>',opts)
-  -- vim.keymap.set('n','<Space>rl',':FlutterReload<CR>',opts)
-  -- vim.keymap.set('n','<space>fR',':FlutterRestart<CR>',opts)
   -- vim.keymap.set('n','<space>fc',':Telescope flutter commands<CR>',opts)
+  vim.keymap.set('n', '<Space>fr', vim.cmd 'FlutterReload', opts)
+  vim.keymap.set('n', '<space>fR', vim.cmd 'FlutterRestart', opts)
 
   vim.keymap.set('n', '<space>fc', function()
     vim.cmd 'Telescope flutter commands'
@@ -106,7 +106,7 @@ require("flutter-tools").setup {
     enabled = true -- set to false to disable
   },
   dev_log = {
-    enabled = true,
+    enabled = false,
     open_cmd = "vnew", -- command to use to open the log buffer
   },
   dev_tools = {
