@@ -61,6 +61,11 @@ vim.keymap.set('n', '<space><space>', function()
   builtin.find_files({ previewer = false })
 end, opts)
 
+vim.api.nvim_create_user_command('TelescopeFindDirectory', function()
+  local find_command = { 'fd', '--type', 'd' }
+  builtin.find_files({ find_command = find_command, previewer = false })
+end, {})
+
 vim.keymap.set('n', '<space>qf', function()
   builtin.quickfix(ivy)
 end, opts)

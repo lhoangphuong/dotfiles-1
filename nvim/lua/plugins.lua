@@ -41,9 +41,7 @@ return packer.startup(function(use)
 
   use 'wbthomason/packer.nvim'
   -- color Theme
-  use "ellisonleao/gruvbox.nvim"
-  use 'gruvbox-community/gruvbox'
-  use 'folke/tokyonight.nvim'
+  use 'bluz71/vim-nightfly-guicolors'
   use 'Mofiqul/vscode.nvim'
   use({
     "catppuccin/nvim",

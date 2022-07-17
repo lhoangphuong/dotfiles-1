@@ -42,7 +42,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 if vim.o.termguicolors then
-  require 'catppuccin_setup'
+  vim.cmd [[colorscheme nightfly]]
 else
   require 'default_scheme'
 end
