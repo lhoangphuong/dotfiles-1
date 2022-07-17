@@ -42,7 +42,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 if vim.o.termguicolors then
-  vim.cmd [[colorscheme nightfly]]
+  vim.cmd [[
+    colorscheme nightfly
+    hi! CursorLine gui=underline cterm=underline guibg=none
+  ]]
 else
   require 'default_scheme'
 end

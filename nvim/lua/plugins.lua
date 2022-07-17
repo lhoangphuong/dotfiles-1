@@ -107,6 +107,21 @@ return packer.startup(function(use)
       require("textobj-diagnostic").setup()
     end,
   })
+
+  --ios swift
+  use {
+    'xbase-lab/xbase',
+    run = 'make install', -- make free_space (not recommended, longer build time)
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+      "neovim/nvim-lspconfig"
+    },
+    config = function()
+      require 'xbase'.setup({}) -- see default configuration bellow
+    end
+  }
+
   --flutter
   use {
     'huylg/flutter-tools.nvim', requires = {
