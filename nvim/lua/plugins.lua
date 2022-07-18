@@ -42,11 +42,6 @@ return packer.startup(function(use)
   use 'wbthomason/packer.nvim'
   -- color Theme
   use 'bluz71/vim-nightfly-guicolors'
-  use 'Mofiqul/vscode.nvim'
-  use({
-    "catppuccin/nvim",
-    as = "catppuccin"
-  })
 
   -- Tree sitter
   use {
@@ -80,7 +75,7 @@ return packer.startup(function(use)
         require('telescope').load_extension('fzf')
       end
       },
-      { 'kyazdani42/nvim-web-devicons' }
+      { 'kyazdani42/nvim-web-devicons' },
     },
   }
 
