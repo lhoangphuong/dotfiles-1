@@ -10,6 +10,11 @@ local flutter_run_command = ':FlutterRun'
 
 if string.find(current_workspace, sdk_path, 1, true) then
   flutter_run_command = 'FlutterRun -t test_driver/app.dart --host-vmservice-port 8000 --disable-service-auth-codes'
+  vim.api.nvim_create_user_command('FlutterTest', function()
+    vim.cmd [[
+      call MonkeyTerminalExec('flutter drive --driver=test_driver/integration_test_driver.dart --target=integration_test/gherkin_suite_test.dart')
+    ]]
+  end, { force = true })
 elseif current_workspace == admintool_path then
   flutter_run_command = 'FlutterRun -t lib/main_development.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800'
 end
@@ -37,13 +42,16 @@ local function on_attach(client, bufnr)
   end, opts)
   vim.keymap.set('n', '<space>fq', ':FlutterQuit<CR>', opts)
   vim.keymap.set('n', '<space>dm', ':DartFmt<CR>', opts)
-  vim.api.nvim_buf_create_user_command(bufnr, 'FlutterBuildRunner', function()
+  vim.api.nvim_create_user_command('FlutterBuildRunner', function()
     vim.cmd 'Dispatch flutter pub get; flutter pub run build_runner build --delete-conflicting-outputs'
   end, { force = true })
-  vim.api.nvim_buf_create_user_command(bufnr, 'FlutterAnalyze', function()
+  vim.api.nvim_create_user_command('FlutterCleanBuildRunner', function()
+    vim.cmd 'Dispatch flutter pub get; flutter pub run build_runner clean; flutter pub run build_runner build --delete-conflicting-outputs'
+  end, { force = true })
+  vim.api.nvim_create_user_command('FlutterAnalyze', function()
     vim.cmd 'Dispatch flutter analyze'
   end, { force = true })
-  vim.api.nvim_buf_create_user_command(bufnr, 'FlutterGenL10n', function()
+  vim.api.nvim_create_user_command('FlutterGenL10n', function()
     vim.cmd 'Dispatch flutter pub run intl_translation:generate_from_arb'
   end, { force = true })
   require 'lsp_mapping'.map(client, bufnr)
@@ -106,7 +114,7 @@ require("flutter-tools").setup {
     enabled = true -- set to false to disable
   },
   dev_log = {
-    enabled = false,
+    enabled = true,
     open_cmd = "vnew", -- command to use to open the log buffer
   },
   dev_tools = {

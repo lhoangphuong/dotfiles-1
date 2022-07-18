@@ -68,6 +68,7 @@ alias fu='fvm flutter upgrade'
 alias fdo='fvm flutter doctor'
 alias fa='fvm flutter analyze'
 alias fbr='fvm flutter pub get; fvm flutter pub run build_runner build --delete-conflicting-outputs'
+alias fbcr='fvm flutter pub get; fvm flutter pub run build_runner clean ;fvm flutter pub run build_runner build --delete-conflicting-outputs'
 
 alias dr='fvm dart run'
 alias clean_dart='pkill -f dart'
