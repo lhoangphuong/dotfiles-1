@@ -9,11 +9,11 @@ local admintool_path = vim.fs.normalize('$HOME/elca-workspace/tixngo-admintool-f
 local flutter_run_command = ':FlutterRun'
 
 if string.find(current_workspace, sdk_path, 1, true) then
-  flutter_run_command = 'FlutterRun -t test_driver/app.dart --host-vmservice-port 8000 --disable-service-auth-codes'
+  flutter_run_command = 'FlutterRun --host-vmservice-port 8000 --disable-service-auth-codes'
   vim.api.nvim_create_user_command('FlutterTest', function()
     vim.cmd [[
-      call MonkeyTerminalExec('flutter drive --driver=test_driver/integration_test_driver.dart --target=integration_test/gherkin_suite_test.dart')
-    ]]
+      " call MonkeyTerminalExec('flutter drive --driver=test_driver/integration_test_driver.dart --target=integration_test/gherkin_suite_test.dart --keep-app-running --no-build --purge-persistent-cache  --use-existing-app=build/app/outputs/flutter-apk/app-debug.apk')
+      vim.cmd [[call MonkeyTerminalExec('flutter test integration_test')]]
   end, { force = true })
 elseif current_workspace == admintool_path then
   flutter_run_command = 'FlutterRun -t lib/main_development.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800'
@@ -30,8 +30,15 @@ local function on_attach(client, bufnr)
   -- vim.keymap.set('n','<space>fd',':ulutterDevices<CR>',opts)
   -- vim.keymap.set('n','<space>o' ,':FlutterOutlineToggle<CR>',opts)
   -- vim.keymap.set('n','<space>fc',':Telescope flutter commands<CR>',opts)
-  vim.keymap.set('n', '<Space>fr', vim.cmd 'FlutterReload', opts)
-  vim.keymap.set('n', '<space>fR', vim.cmd 'FlutterRestart', opts)
+  vim.keymap.set('n', '<Space>fr', function()
+    vim.cmd 'FlutterReload'
+  end, opts)
+  vim.keymap.set('n', '<space>fR', function()
+    vim.cmd 'FlutterRestart'
+  end, opts)
+  vim.keymap.set('n', '<space>ft', function()
+    vim.cmd 'FlutterTest'
+  end, opts)
 
   vim.keymap.set('n', '<space>fc', function()
     vim.cmd 'Telescope flutter commands'

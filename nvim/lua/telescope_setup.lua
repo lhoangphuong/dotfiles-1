@@ -68,12 +68,13 @@ vim.api.nvim_create_user_command('TelescopeFindDirectory', function()
     find_command = find_command,
     previewer = false,
     cwd = git_root,
-    attach_mappings = function()
+    attach_mappings = function(bufnr)
       actions.select_default:replace(function()
         local action_state = require "telescope.actions.state"
         local selection = action_state.get_selected_entry()
         if selection ~= nil then
-          local open_command = string.format('tabnew %s/%s/', git_root, selection.value)
+          actions.close(bufnr)
+          local open_command = string.format('tab drop %s/%s/', git_root, selection.value)
           local cwd_command = string.format('tcd %s/%s/', git_root, selection.value)
           vim.cmd(open_command)
           vim.cmd(cwd_command)
