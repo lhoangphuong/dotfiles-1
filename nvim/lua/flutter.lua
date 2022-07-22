@@ -10,11 +10,6 @@ local flutter_run_command = ':FlutterRun'
 
 if string.find(current_workspace, sdk_path, 1, true) then
   flutter_run_command = 'FlutterRun --host-vmservice-port 8000 --disable-service-auth-codes'
-  vim.api.nvim_create_user_command('FlutterTest', function()
-    vim.cmd [[
-      " call MonkeyTerminalExec('flutter drive --driver=test_driver/integration_test_driver.dart --target=integration_test/gherkin_suite_test.dart --keep-app-running --no-build --purge-persistent-cache  --use-existing-app=build/app/outputs/flutter-apk/app-debug.apk')
-      vim.cmd [[call MonkeyTerminalExec('flutter test integration_test')]]
-  end, { force = true })
 elseif current_workspace == admintool_path then
   flutter_run_command = 'FlutterRun -t lib/main_development.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800'
 end
@@ -30,6 +25,11 @@ local function on_attach(client, bufnr)
   -- vim.keymap.set('n','<space>fd',':ulutterDevices<CR>',opts)
   -- vim.keymap.set('n','<space>o' ,':FlutterOutlineToggle<CR>',opts)
   -- vim.keymap.set('n','<space>fc',':Telescope flutter commands<CR>',opts)
+  vim.api.nvim_create_user_command('FlutterTest', function()
+    vim.cmd [[
+      call MonkeyTerminalExec('flutter test integration_test')
+    ]]
+  end, { force = true })
   vim.keymap.set('n', '<Space>fr', function()
     vim.cmd 'FlutterReload'
   end, opts)

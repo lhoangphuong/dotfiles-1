@@ -41,6 +41,7 @@ return packer.startup(function(use)
 
   use 'wbthomason/packer.nvim'
   -- color Theme
+  use {"marko-cerovac/material.nvim"}
   use 'bluz71/vim-nightfly-guicolors'
 
   -- Tree sitter

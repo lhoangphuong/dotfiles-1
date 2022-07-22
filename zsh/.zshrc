@@ -58,6 +58,7 @@ export PERSONAL_DIR="$HOME/personal"
 export PATH="$PATH:$HOME/fvm/versions/stable/bin"
 export PATH="$PATH:$HOME/fvm/versions/stable/bin/cache/dart-sdk/bin"
 
+# flutter and dart
 alias f='fvm flutter'
 alias fcl='fvm flutter clean'
 alias fpg='fvm flutter pub get'
@@ -69,13 +70,11 @@ alias fdo='fvm flutter doctor'
 alias fa='fvm flutter analyze'
 alias fbr='fvm flutter pub get; fvm flutter pub run build_runner build --delete-conflicting-outputs'
 alias fbcr='fvm flutter pub get; fvm flutter pub run build_runner clean ;fvm flutter pub run build_runner build --delete-conflicting-outputs'
-
 alias dr='fvm dart run'
-alias clean_dart='pkill -f dart'
+alias clean_dart='killall dart'
+export VM_SERVICE_URL=http://127.0.0.1:8000/
 
 alias lg=lazygit
-
-alias so=source
 
 my_vim(){
 	if (( $# == 0 )); then
@@ -125,4 +124,6 @@ alias tss='sh ${DOTFILE_DIR}/tmux/tmux-sessionizer.sh'
 
 export PATH="$DOTFILE_DIR/bin/:$PATH"
 export MACOSX_DEPLOYMENT_TARGET=10.15
-alias v="/usr/local/Cellar/vim/9.0.0000/bin/vim"
+
+# if i wrong :)
+alias sl=ls
