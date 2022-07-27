@@ -46,8 +46,10 @@ local conditions = {
   end,
   check_flutter_workspace = function()
     return vim.g.flutter_tools_decorations ~= nil
+  end,
+  check_search_result = function()
+    return vim.v.hlsearch ~= 0
   end
-
 }
 
 -- Config
@@ -213,6 +215,19 @@ ins_left {
   icon = '⚡VERSION:',
   cond = conditions.check_flutter_workspace,
   color = { fg = colors.fg, gui = 'bold' },
+}
+
+ins_right {
+  function()
+    local last_search = vim.fn.getreg('/')
+    if not last_search or last_search == '' then
+      return ''
+    end
+    local searchcount = vim.fn.searchcount { maxcount = 9999 }
+    return last_search .. ' [' .. searchcount.current .. '/' .. searchcount.total .. ']'
+  end,
+  cond = conditions.check_search_result,
+  color = { fg = colors.fg },
 }
 
 -- Add components to right sections

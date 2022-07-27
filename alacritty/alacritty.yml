@@ -1,4 +1,3 @@
-# Colors
 colors:
   # Default colors
   primary:
@@ -26,18 +25,6 @@ colors:
     magenta: '#c792ea'
     cyan:    '#7fdbca'
     white:   '#a1aab8'
-
-  # Bright colors
-  bright:
-    black:   '#7c8f8f'
-    red:     '#ff5874'
-    green:   '#21c7a8'
-    yellow:  '#ecc48d'
-    blue:    '#82aaff'
-    magenta: '#ae81ff'
-    cyan:    '#7fdbca'
-    white:   '#d6deeb'
-
 
 
 font:

@@ -41,9 +41,8 @@ return packer.startup(function(use)
 
   use 'wbthomason/packer.nvim'
   -- color Theme
-  use {"marko-cerovac/material.nvim"}
   use 'bluz71/vim-nightfly-guicolors'
-
+  use 'bluz71/vim-moonfly-colors'
   -- Tree sitter
   use {
     'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
@@ -82,9 +81,6 @@ return packer.startup(function(use)
 
   -- git stuff
   use 'tpope/vim-fugitive'
-  use { 'tommcdo/vim-fubitive', config = function()
-    vim.g.fubitive_domain_pattern = 'bitbucket.svc.elca.ch'
-  end }
   use {
     'lewis6991/gitsigns.nvim',
     requires = 'nvim-lua/plenary.nvim',
@@ -114,7 +110,7 @@ return packer.startup(function(use)
       "neovim/nvim-lspconfig"
     },
     config = function()
-      require 'xbase'.setup({}) -- see default configuration bellow
+      require 'xbase_setup'
     end
   }
 
@@ -189,6 +185,7 @@ return packer.startup(function(use)
   }
 
   use 'wellle/targets.vim'
+  use 'tpope/vim-tbone'
   use 'tpope/vim-surround'
   use 'tpope/vim-unimpaired'
   use 'tpope/vim-eunuch'
@@ -277,5 +274,4 @@ return packer.startup(function(use)
 
   use 'mtdl9/vim-log-highlighting'
   use 'jremmen/vim-ripgrep'
-  use 'segeljakt/vim-silicon'
 end)

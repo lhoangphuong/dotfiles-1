@@ -44,9 +44,11 @@ M.map = function(client, bufnr)
   vim.keymap.set('n', '<space>D', lsp.type_definition, opts)
 
   if client.server_capabilities.document_highlight then
-    vim.cmd 'autocmd CursorHold  <buffer> lua lsp.document_highlight'
-    vim.cmd 'autocmd CursorHoldI <buffer> lua lsp.document_highlight'
-    vim.cmd 'autocmd CursorMoved <buffer> lua lsp.clear_references'
+    vim.cmd [[
+      autocmd CursorHold  <buffer> lua lsp.document_highlight
+      autocmd CursorHoldI <buffer> lua lsp.document_highlight
+      autocmd CursorMoved <buffer> lua lsp.clear_references
+    ]]
   end
 end
 

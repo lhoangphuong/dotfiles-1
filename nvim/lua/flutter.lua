@@ -61,6 +61,9 @@ local function on_attach(client, bufnr)
   vim.api.nvim_create_user_command('FlutterGenL10n', function()
     vim.cmd 'Dispatch flutter pub run intl_translation:generate_from_arb'
   end, { force = true })
+  vim.api.nvim_create_user_command('FlutterRunWithoutBuild', function()
+    vim.cmd 'FlutterRun --use-application-binary=build/app/outputs/flutter-apk/app-debug.apk'
+  end, { force = true })
   require 'lsp_mapping'.map(client, bufnr)
 
 end

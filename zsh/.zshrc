@@ -94,15 +94,6 @@ my_vim_stable(){
 }
 alias ns=my_vim_stable
 
-my_helix(){
-	if (( $# == 0 )); then
-		$HOME/helix/hx .
-	else
-		$HOME/helix/hx $1
-	fi
-}
-alias h=my_helix
-
 enable-fzf-tab
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 #eval "$(rbenv init -)"
