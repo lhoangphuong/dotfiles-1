@@ -78,7 +78,7 @@ alias lg=lazygit
 
 my_vim(){
 	if (( $# == 0 )); then
-    		$HOME/nvim-nightly/bin/nvim .
+    		$HOME/nvim-nightly/bin/nvim . -S Session.vim
 	else
 		$HOME/nvim-nightly/bin/nvim $1
 	fi

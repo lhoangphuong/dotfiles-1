@@ -199,14 +199,6 @@ ins_left {
   color = { fg = colors.fg, gui = 'bold' },
 }
 
--- ins_left{
---   function ()
---     return vim.g.flutter_tools_decorations.device
---   end,
---   cond = conditions.check_flutter_workspace,
---   icon = 'device: ',
---   color = { fg = '#ffffff', gui = 'bold' },
--- }
 
 ins_left {
   function()

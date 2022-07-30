@@ -43,6 +43,8 @@ return packer.startup(function(use)
   -- color Theme
   use 'bluz71/vim-nightfly-guicolors'
   use 'bluz71/vim-moonfly-colors'
+  use "rebelot/kanagawa.nvim"
+
   -- Tree sitter
   use {
     'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
@@ -178,12 +180,21 @@ return packer.startup(function(use)
 
     }
   }
-
   use { 'L3MON4D3/LuaSnip', config = function()
     require("luasnip.loaders.from_vscode").lazy_load()
   end, requires = { 'rafamadriz/friendly-snippets' }
   }
 
+  use { 'lfilho/cosco.vim', config = function()
+    local opts = { noremap = true, };
+    vim.keymap.set('n', '<Space>;', function()
+      vim.cmd '<Plug>(cosco-commaOrSemiColon)'
+    end, opts)
+    vim.keymap.set('i', '<Space>;', function()
+      vim.cmd '<c-o><Plug>(cosco-commaOrSemiColon)'
+    end, opts)
+
+  end }
   use 'wellle/targets.vim'
   use 'tpope/vim-tbone'
   use 'tpope/vim-surround'
@@ -194,13 +205,37 @@ return packer.startup(function(use)
   use 'tpope/vim-dispatch'
   use 'tpope/vim-repeat'
   use 'tpope/vim-sensible'
+  use 'tpope/vim-obsession'
   use 'tpope/vim-rsi'
   use { 'github/copilot.vim', config = function()
     vim.cmd [[imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")]]
     vim.g.copilot_no_tab_map = true
   end }
 
+
+  --test
+  use { 'vim-test/vim-test', config = function()
+    vim.cmd 'let test#strategy = "neovim"'
+    local opts = { noremap = true, };
+    vim.keymap.set('n', '<Space>tn', function()
+      vim.cmd 'TestNearest'
+    end, opts)
+    vim.keymap.set('n', '<Space>tf', function()
+      vim.cmd 'TestFile'
+    end, opts)
+    vim.keymap.set('n', '<Space>ts', function()
+      vim.cmd 'TestSuite'
+    end, opts)
+    vim.keymap.set('n', '<Space>tl', function()
+      vim.cmd 'TestLast'
+    end, opts)
+    vim.keymap.set('n', '<Space>tg', function()
+      vim.cmd 'TestVisit'
+    end, opts)
+  end }
+
   -- other plugins
+  use 'wsdjeg/vim-fetch'
   use { 'windwp/nvim-autopairs', config = function()
     require('nvim-autopairs').setup({
       disable_filetype = { "TelescopePrompt" },
