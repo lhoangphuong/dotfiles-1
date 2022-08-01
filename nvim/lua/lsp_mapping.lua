@@ -2,7 +2,10 @@ local lsp = vim.lsp.buf
 local handlers = vim.lsp.handlers
 local diagnostic = vim.diagnostic
 local M = {}
+local navic = require("nvim-navic")
 M.map = function(client, bufnr)
+
+  navic.attach(client, bufnr)
 
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   local opts = { noremap = true, silent = true, buffer = bufnr }
