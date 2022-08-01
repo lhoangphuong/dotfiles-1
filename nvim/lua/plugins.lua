@@ -43,7 +43,6 @@ return packer.startup(function(use)
   -- color Theme
   use 'bluz71/vim-nightfly-guicolors'
   use 'bluz71/vim-moonfly-colors'
-  use "rebelot/kanagawa.nvim"
 
   -- Tree sitter
   use {
@@ -188,12 +187,8 @@ return packer.startup(function(use)
   use { 'lfilho/cosco.vim', config = function()
     local opts = { noremap = true, };
     vim.keymap.set('n', '<Space>;', function()
-      vim.cmd '<Plug>(cosco-commaOrSemiColon)'
+      vim.cmd 'CommaOrSemiColon';
     end, opts)
-    vim.keymap.set('i', '<Space>;', function()
-      vim.cmd '<c-o><Plug>(cosco-commaOrSemiColon)'
-    end, opts)
-
   end }
   use 'wellle/targets.vim'
   use 'tpope/vim-tbone'

@@ -56,13 +56,11 @@ end
 handlers["textDocument/hover"] = vim.lsp.with(
   handlers.hover, {
   border = "single"
-}
-)
+})
 
 handlers["textDocument/signatureHelp"] = vim.lsp.with(
   handlers.signature_help, {
   border = "single"
-}
-)
+})
 
 return M

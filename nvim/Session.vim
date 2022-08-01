@@ -14,19 +14,21 @@ else
   set shortmess=aoO
 endif
 badd +1 ~/dotfiles/nvim
-badd +4 init.lua
-badd +16 lua/lsp_mapping.lua
-badd +192 lua/plugins.lua
+badd +2 init.lua
+badd +66 lua/lsp_mapping.lua
+badd +202 lua/plugins.lua
 badd +68 ~/dotfiles/vim/vimrc
 badd +132 lua/flutter.lua
 badd +75 ~/dotfiles/zsh/.zshrc
 badd +32 lua/telescope_setup.lua
+badd +74 plugin/sensible.lua
+badd +48 Session.vim
 argglobal
 %argdel
 $argadd ~/dotfiles/nvim
-edit lua/plugins.lua
+edit lua/lsp_mapping.lua
 argglobal
-balt lua/flutter.lua
+balt Session.vim
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -37,12 +39,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 192 - ((43 * winheight(0) + 45) / 90)
+let s:l = 61 - ((23 * winheight(0) + 33) / 66)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 192
-normal! 07|
+keepjumps 61
+normal! 054|
 lcd ~/dotfiles/nvim
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
@@ -57,6 +59,7 @@ if filereadable(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
 set hlsearch
+nohlsearch
 let g:this_session = v:this_session
 let g:this_obsession = v:this_session
 doautoall SessionLoadPost
