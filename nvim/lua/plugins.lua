@@ -43,7 +43,6 @@ return packer.startup(function(use)
   -- color Theme
   use 'bluz71/vim-nightfly-guicolors'
   use 'bluz71/vim-moonfly-colors'
-  use "rebelot/kanagawa.nvim"
 
   -- Tree sitter
   use {
@@ -77,7 +76,7 @@ return packer.startup(function(use)
         require('telescope').load_extension('fzf')
       end
       },
-      { 'kyazdani42/nvim-web-devicons' },
+      'kyazdani42/nvim-web-devicons',
     },
   }
 
@@ -101,19 +100,9 @@ return packer.startup(function(use)
       require("textobj-diagnostic").setup()
     end,
   })
-
-  --ios swift
   use {
-    'xbase-lab/xbase',
-    run = 'make install', -- make free_space (not recommended, longer build time)
-    requires = {
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-      "neovim/nvim-lspconfig"
-    },
-    config = function()
-      require 'xbase_setup'
-    end
+    'SmiteshP/nvim-navic',
+    requires = 'neovim/nvim-lspconfig'
   }
 
   --flutter
@@ -185,16 +174,6 @@ return packer.startup(function(use)
   end, requires = { 'rafamadriz/friendly-snippets' }
   }
 
-  use { 'lfilho/cosco.vim', config = function()
-    local opts = { noremap = true, };
-    vim.keymap.set('n', '<Space>;', function()
-      vim.cmd '<Plug>(cosco-commaOrSemiColon)'
-    end, opts)
-    vim.keymap.set('i', '<Space>;', function()
-      vim.cmd '<c-o><Plug>(cosco-commaOrSemiColon)'
-    end, opts)
-
-  end }
   use 'wellle/targets.vim'
   use 'tpope/vim-tbone'
   use 'tpope/vim-surround'
@@ -213,25 +192,12 @@ return packer.startup(function(use)
   end }
 
 
-  --test
-  use { 'vim-test/vim-test', config = function()
+  use { "vim-test/vim-test", config = function()
     vim.cmd 'let test#strategy = "neovim"'
-    local opts = { noremap = true, };
-    vim.keymap.set('n', '<Space>tn', function()
+    vim.keymap.set('n', '<space>tn', function()
       vim.cmd 'TestNearest'
-    end, opts)
-    vim.keymap.set('n', '<Space>tf', function()
-      vim.cmd 'TestFile'
-    end, opts)
-    vim.keymap.set('n', '<Space>ts', function()
-      vim.cmd 'TestSuite'
-    end, opts)
-    vim.keymap.set('n', '<Space>tl', function()
-      vim.cmd 'TestLast'
-    end, opts)
-    vim.keymap.set('n', '<Space>tg', function()
-      vim.cmd 'TestVisit'
-    end, opts)
+    end, { silent = false })
+
   end }
 
   -- other plugins

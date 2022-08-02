@@ -17,7 +17,6 @@ require 'nvim-treesitter.configs'.setup {
     'swift',
   },
   highlight = {
-    -- enable = vim.o.termguicolors,
     enable = true,
   },
   incremental_selection = {

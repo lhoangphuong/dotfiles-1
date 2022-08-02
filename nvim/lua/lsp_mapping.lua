@@ -4,6 +4,8 @@ local diagnostic = vim.diagnostic
 local M = {}
 M.map = function(client, bufnr)
 
+  require 'nvim-navic'.attach(client, bufnr)
+
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   local opts = { noremap = true, silent = true, buffer = bufnr }
 
