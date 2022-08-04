@@ -209,7 +209,9 @@ return packer.startup(function(use)
       "smiteshp/nvim-navic",
     },
     config = function()
-      require 'barbecue'.setup({})
+      require 'barbecue'.setup({
+        prefix = "%m ",
+      })
     end
   }
   use { 'windwp/nvim-autopairs', config = function()
