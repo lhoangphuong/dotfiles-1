@@ -14,33 +14,32 @@ else
   set shortmess=aoO
 endif
 badd +1 ~/dotfiles/nvim
-badd +1 init.lua
-badd +48 lua/lsp_mapping.lua
-badd +29 lua/plugins.lua
+badd +11 init.lua
+badd +55 lua/lsp_mapping.lua
+badd +196 lua/plugins.lua
 badd +9 ~/dotfiles/vim/vimrc
-badd +79 lua/flutter.lua
+badd +11 lua/flutter.lua
 badd +33 ~/dotfiles/zsh/.zshrc
 badd +55 lua/telescope_setup.lua
 badd +1 lua
 badd +33 lua/lspstuff.lua
 badd +1 lua/monokai_setup.lua
 badd +4 lua/nighfly_setup.lua
-badd +43 plugin/sensible.lua
-badd +38 lua/ts.lua
+badd +21 plugin/sensible.lua
+badd +40 lua/ts.lua
 badd +6 ~/dotfiles/kitty/kitty.conf
 badd +1 lua/gitsigns_setup.lua
 badd +2 plugin/nightly_sensible.lua
 badd +1 lua/winbar_setup.lua
-badd +8 Session.vim
-badd +2 plugin/winbar_setup.lua
+badd +31 Session.vim
 badd +2 lua/cmp_setup.lua
 badd +1 ~/dotfiles
 argglobal
 %argdel
 $argadd ~/dotfiles/nvim
-edit lua/lsp_mapping.lua
+edit lua/plugins.lua
 argglobal
-balt lua/ts.lua
+balt plugin/sensible.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -51,11 +50,11 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 14 - ((13 * winheight(0) + 72) / 144)
+let s:l = 197 - ((77 * winheight(0) + 72) / 144)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 14
+keepjumps 197
 normal! 0
 lcd ~/dotfiles/nvim
 tabnext 1

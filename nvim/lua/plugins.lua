@@ -201,17 +201,6 @@ return packer.startup(function(use)
   end }
 
   -- other plugins
-  use {
-    "utilyre/barbecue.nvim",
-    requires = {
-      "kyazdani42/nvim-web-devicons", -- optional
-      "neovim/nvim-lspconfig",
-      "smiteshp/nvim-navic",
-    },
-    config = function()
-      require 'barbecue'.setup({})
-    end
-  }
   use { 'windwp/nvim-autopairs', config = function()
     require('nvim-autopairs').setup({
       disable_filetype = { "TelescopePrompt" },
