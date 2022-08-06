@@ -17,43 +17,22 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 
+Plug 'dart-lang/dart-vim-plugin'
+
 "git
 Plug 'tpope/vim-fugitive'
-
-" dart stuff
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'natebosch/vim-lsc'
-Plug 'natebosch/vim-lsc-dart'
-
 Plug 'machakann/vim-highlightedyank'
 
-call plug#end()
+"lsp
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-let g:lsc_server_commands = {
-    \ 'cpp': {
-        \ 'command': 'clangd --background-index',
-        \ 'suppress_stderr': v:true
-    \},
-    \ 'c': {
-        \ 'command': 'clangd --background-index',
-        \ 'suppress_stderr': v:true
-    \},
-\}
-let g:lsc_auto_map = {
-    \ 'GoToDefinition': 'gd',
-    \ 'GoToDefinitionSplit': ['<C-W>]', '<C-W><C-]>'],
-    \ 'FindReferences': 'gr',
-    \ 'NextReference': '<C-n>',
-    \ 'PreviousReference': '<C-p>',
-    \ 'FindImplementations': 'gI',
-    \ 'FindCodeActions': '<space>ca',
-    \ 'Rename': '<space>rn',
-    \ 'ShowHover': v:true,
-    \ 'DocumentSymbol': 'go',
-    \ 'WorkspaceSymbol': 'gS',
-    \ 'SignatureHelp': 'gm',
-    \ 'Completion': 'completefunc',
-    \}
+"command complete
+Plug 'gelguy/wilder.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+
+
+call plug#end()
 
 set relativenumber
 set number
@@ -82,4 +61,11 @@ let g:highlightedyank_highlight_duration = 200
 
 "nmap k	 "v:count == 0 ? 'gk' : 'k'"
 "nmap j	 "v:count == 0 ? 'gj' : 'j'"
-"
+
+source ~/dotfiles/vim/coc_setup.vim
+
+call wilder#setup({'modes': [':', '/', '?']})
+" 'highlighter' : applies highlighting to the candidates
+call wilder#set_option('renderer', wilder#popupmenu_renderer({
+      \ 'highlighter': wilder#basic_highlighter(),
+      \ }))

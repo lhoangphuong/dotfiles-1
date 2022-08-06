@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =2
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/Users/hlg/elca-workspace/tyxr-app-sdk/branded_app/tixngo_show'
+let g:netrw_dirhist_3='/Users/hlg/dotfiles/vim'
 let g:netrw_dirhist_2='/Users/hlg/dotfiles/nvim'
 let g:netrw_dirhist_1='/Users/hlg/Documents/myApp'
 let g:netrw_dirhist_0='/Users/huyly/dotfiles/nvim'
@@ -8,5 +10,3 @@ let g:netrw_dirhist_8='/Users/hlg/dotfiles/nvim'
 let g:netrw_dirhist_7='/Users/hlg/personal/leetcode'
 let g:netrw_dirhist_6='/Users/hlg/dotfiles/vim'
 let g:netrw_dirhist_5='/Users/hlg'
-let g:netrw_dirhist_4='/Users/hlg/dotfiles/dart_watcher'
-let g:netrw_dirhist_3='/Users/hlg/personal/leetcode'

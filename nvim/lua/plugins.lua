@@ -200,9 +200,6 @@ return packer.startup(function(use)
 
   end }
 
-  -- other plugins
-<<<<<<< HEAD
-=======
   use {
     "utilyre/barbecue.nvim",
     requires = {
@@ -214,14 +211,7 @@ return packer.startup(function(use)
       require 'barbecue'.setup({
         prefix = "%m ",
       })
-    end
-  }
->>>>>>> d9658e926a96d1a23652d7aee0b8a0d5edd6c215
-  use { 'windwp/nvim-autopairs', config = function()
-    require('nvim-autopairs').setup({
-      disable_filetype = { "TelescopePrompt" },
-    })
-  end }
+    end }
 
   use { 'antoinemadec/FixCursorHold.nvim', config = function()
     vim.g.cursorhold_updatetime = 100

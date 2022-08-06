@@ -14,25 +14,18 @@ else
   set shortmess=aoO
 endif
 badd +1 ~/dotfiles/nvim
-badd +11 init.lua
-<<<<<<< HEAD
-badd +55 lua/lsp_mapping.lua
-badd +196 lua/plugins.lua
-badd +9 ~/dotfiles/vim/vimrc
-badd +11 lua/flutter.lua
-=======
-badd +28 lua/lsp_mapping.lua
-badd +152 lua/plugins.lua
+badd +1 init.lua
+badd +8 lua/lsp_mapping.lua
+badd +100 lua/plugins.lua
 badd +9 ~/dotfiles/vim/vimrc
 badd +82 lua/flutter.lua
->>>>>>> d9658e926a96d1a23652d7aee0b8a0d5edd6c215
 badd +33 ~/dotfiles/zsh/.zshrc
 badd +55 lua/telescope_setup.lua
 badd +1 lua
 badd +33 lua/lspstuff.lua
 badd +1 lua/monokai_setup.lua
 badd +4 lua/nighfly_setup.lua
-badd +21 plugin/sensible.lua
+badd +11 plugin/sensible.lua
 badd +40 lua/ts.lua
 badd +6 ~/dotfiles/kitty/kitty.conf
 badd +1 lua/gitsigns_setup.lua
@@ -48,11 +41,7 @@ argglobal
 $argadd ~/dotfiles/nvim
 edit lua/plugins.lua
 argglobal
-<<<<<<< HEAD
-balt plugin/sensible.lua
-=======
-balt lua/flutter.lua
->>>>>>> d9658e926a96d1a23652d7aee0b8a0d5edd6c215
+balt lua/lsp_mapping.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -63,21 +52,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-<<<<<<< HEAD
-let s:l = 197 - ((77 * winheight(0) + 72) / 144)
+let s:l = 204 - ((57 * winheight(0) + 41) / 83)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 197
-normal! 0
-=======
-let s:l = 23 - ((22 * winheight(0) + 72) / 144)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 23
-normal! 013|
->>>>>>> d9658e926a96d1a23652d7aee0b8a0d5edd6c215
+keepjumps 204
+normal! 05|
 lcd ~/dotfiles/nvim
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
@@ -92,7 +72,6 @@ if filereadable(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
 set hlsearch
-nohlsearch
 let g:this_session = v:this_session
 let g:this_obsession = v:this_session
 doautoall SessionLoadPost
