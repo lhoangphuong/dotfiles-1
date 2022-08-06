@@ -16,7 +16,7 @@ endif
 badd +1 ~/dotfiles/nvim
 badd +1 init.lua
 badd +8 lua/lsp_mapping.lua
-badd +100 lua/plugins.lua
+badd +201 lua/plugins.lua
 badd +9 ~/dotfiles/vim/vimrc
 badd +82 lua/flutter.lua
 badd +33 ~/dotfiles/zsh/.zshrc
@@ -52,12 +52,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 204 - ((57 * winheight(0) + 41) / 83)
+let s:l = 191 - ((45 * winheight(0) + 41) / 83)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 204
-normal! 05|
+keepjumps 191
+normal! 0
 lcd ~/dotfiles/nvim
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'

@@ -200,18 +200,6 @@ return packer.startup(function(use)
 
   end }
 
-  use {
-    "utilyre/barbecue.nvim",
-    requires = {
-      "kyazdani42/nvim-web-devicons", -- optional
-      "neovim/nvim-lspconfig",
-      "smiteshp/nvim-navic",
-    },
-    config = function()
-      require 'barbecue'.setup({
-        prefix = "%m ",
-      })
-    end }
 
   use { 'antoinemadec/FixCursorHold.nvim', config = function()
     vim.g.cursorhold_updatetime = 100
