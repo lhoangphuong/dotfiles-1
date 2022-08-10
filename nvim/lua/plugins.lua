@@ -43,6 +43,7 @@ return packer.startup(function(use)
   -- color Theme
   use 'bluz71/vim-nightfly-guicolors'
   use 'bluz71/vim-moonfly-colors'
+  use 'folke/tokyonight.nvim'
 
   -- Tree sitter
   use {
@@ -190,7 +191,14 @@ return packer.startup(function(use)
     vim.cmd [[imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")]]
     vim.g.copilot_no_tab_map = true
   end }
-
+  use {
+    "windwp/nvim-autopairs",
+    config = function()
+      require('nvim-autopairs').setup({
+        disable_filetype = { "TelescopePrompt" },
+      })
+    end
+  }
 
   use { "vim-test/vim-test", config = function()
     vim.cmd 'let test#strategy = "neovim"'
@@ -246,26 +254,6 @@ return packer.startup(function(use)
   use { 'norcalli/nvim-colorizer.lua', config = function()
     require 'colorizer'.setup()
   end }
-
-  use { 'simrat39/rust-tools.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim',
-      'mfussenegger/nvim-dap',
-      use {
-        'saecki/crates.nvim',
-        event = { "BufRead Cargo.toml" },
-        requires = { { 'nvim-lua/plenary.nvim' } },
-        config = function()
-          require('crates').setup()
-        end,
-      }
-
-    },
-    config = function()
-      require 'rust-tools_setup'
-    end,
-  }
-
   use 'mtdl9/vim-log-highlighting'
   use 'jremmen/vim-ripgrep'
 end)
