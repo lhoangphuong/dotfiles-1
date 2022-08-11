@@ -43,7 +43,6 @@ return packer.startup(function(use)
   -- color Theme
   use 'bluz71/vim-nightfly-guicolors'
   use 'bluz71/vim-moonfly-colors'
-  use 'folke/tokyonight.nvim'
 
   -- Tree sitter
   use {
@@ -200,15 +199,6 @@ return packer.startup(function(use)
     end
   }
 
-  use { "vim-test/vim-test", config = function()
-    vim.cmd 'let test#strategy = "neovim"'
-    vim.keymap.set('n', '<space>tn', function()
-      vim.cmd 'TestNearest'
-    end, { silent = false })
-
-  end }
-
-
   use { 'antoinemadec/FixCursorHold.nvim', config = function()
     vim.g.cursorhold_updatetime = 100
   end }
@@ -256,4 +246,8 @@ return packer.startup(function(use)
   end }
   use 'mtdl9/vim-log-highlighting'
   use 'jremmen/vim-ripgrep'
+
+  -- csv
+  use 'chrisbra/csv.vim'
+
 end)
