@@ -14,9 +14,9 @@ else
   set shortmess=aoO
 endif
 badd +1 ~/dotfiles/nvim
-badd +7 init.lua
-badd +11 lua/lsp_mapping.lua
-badd +226 lua/plugins.lua
+badd +10 init.lua
+badd +24 lua/lsp_mapping.lua
+badd +25 lua/plugins.lua
 badd +9 ~/dotfiles/vim/vimrc
 badd +83 lua/flutter.lua
 badd +100 ~/dotfiles/zsh/.zshrc
@@ -24,7 +24,7 @@ badd +1 lua/telescope_setup.lua
 badd +33 lua/lspstuff.lua
 badd +1 lua/monokai_setup.lua
 badd +7 lua/nighfly_setup.lua
-badd +42 plugin/sensible.lua
+badd +19 plugin/sensible.lua
 badd +40 lua/ts.lua
 badd +6 ~/dotfiles/kitty/kitty.conf
 badd +1 lua/gitsigns_setup.lua
@@ -46,12 +46,14 @@ badd +36 ~/dotfiles/tmux/.tmux.conf
 badd +23 ~/dotfiles/alacritty/alacritty.yml
 badd +1 plugin
 badd +33 plugin/toggle-term.vim
+badd +2 lua/default_scheme.lua
+badd +1 lua
 argglobal
 %argdel
 $argadd ~/dotfiles/nvim
-edit lua/plugins.lua
+edit init.lua
 argglobal
-balt lua/telescope_setup.lua
+balt plugin/sensible.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -62,12 +64,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 239 - ((59 * winheight(0) + 41) / 83)
+let s:l = 9 - ((8 * winheight(0) + 37) / 74)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 239
-normal! 016|
+keepjumps 9
+normal! 0
 lcd ~/dotfiles/nvim
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'

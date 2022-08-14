@@ -12,6 +12,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-rsi'
 Plug 'jiangmiao/auto-pairs'
+Plug 'machakann/vim-highlightedyank'
 
 "fzf
 Plug 'junegunn/fzf'
@@ -21,7 +22,7 @@ Plug 'dart-lang/dart-vim-plugin'
 
 "git
 Plug 'tpope/vim-fugitive'
-Plug 'machakann/vim-highlightedyank'
+Plug 'airblade/vim-gitgutter'
 
 "lsp
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -30,7 +31,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'gelguy/wilder.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'morhetz/gruvbox'
 
+" vim status lien
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -69,3 +74,5 @@ call wilder#setup({'modes': [':', '/', '?']})
 call wilder#set_option('renderer', wilder#popupmenu_renderer({
       \ 'highlighter': wilder#basic_highlighter(),
       \ }))
+
+colorscheme gruvbox
