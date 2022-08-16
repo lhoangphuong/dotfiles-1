@@ -28,14 +28,18 @@ Plug 'airblade/vim-gitgutter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 "command complete
-Plug 'gelguy/wilder.nvim'
+Plug 'gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
-Plug 'morhetz/gruvbox'
 
-" vim status lien
+" snippets
+Plug 'rafamadriz/friendly-snippets'
+Plug 'Neevash/awesome-flutter-snippets'
+
+" vim status line
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+Plug 'github/copilot.vim'
 
 call plug#end()
 
@@ -60,14 +64,13 @@ nmap <space>sg :Rg<CR>
 nmap <space>fo :History<CR>
 nmap <space>sh :Helptags<CR>
 
-nmap <space>qa :LSClientAllDiagnostics<CR>
-
 let g:highlightedyank_highlight_duration = 200
 
 "nmap k	 "v:count == 0 ? 'gk' : 'k'"
 "nmap j	 "v:count == 0 ? 'gj' : 'j'"
 
 source ~/dotfiles/vim/coc_setup.vim
+source ~/dotfiles/nvim/plugin/toggle-term.vim
 
 call wilder#setup({'modes': [':', '/', '?']})
 " 'highlighter' : applies highlighting to the candidates
@@ -75,4 +78,6 @@ call wilder#set_option('renderer', wilder#popupmenu_renderer({
       \ 'highlighter': wilder#basic_highlighter(),
       \ }))
 
-colorscheme gruvbox
+let g:copilot_node_command = '/usr/local/opt/node@16/bin/node'
+
+set laststatus=3

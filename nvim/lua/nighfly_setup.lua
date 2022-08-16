@@ -6,4 +6,6 @@ vim.cmd [[
     hi link DiagnosticVirtualTextWarn NightflyYellow
     hi link DiagnosticVirtualTextHint NightflyWhite
     hi link DiagnosticVirtualTextInfo NightflyBlue
+    hi Winbar guibg=none guifg=#21c7a8
+    hi WinbarNC guibg=none 
   ]]

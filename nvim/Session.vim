@@ -14,17 +14,17 @@ else
   set shortmess=aoO
 endif
 badd +1 ~/dotfiles/nvim
-badd +10 init.lua
-badd +24 lua/lsp_mapping.lua
-badd +25 lua/plugins.lua
-badd +9 ~/dotfiles/vim/vimrc
+badd +8 init.lua
+badd +23 lua/lsp_mapping.lua
+badd +46 lua/plugins.lua
+badd +1 ~/dotfiles/vim/vimrc
 badd +83 lua/flutter.lua
 badd +100 ~/dotfiles/zsh/.zshrc
 badd +1 lua/telescope_setup.lua
 badd +33 lua/lspstuff.lua
 badd +1 lua/monokai_setup.lua
-badd +7 lua/nighfly_setup.lua
-badd +19 plugin/sensible.lua
+badd +8 lua/nighfly_setup.lua
+badd +50 plugin/sensible.lua
 badd +40 lua/ts.lua
 badd +6 ~/dotfiles/kitty/kitty.conf
 badd +1 lua/gitsigns_setup.lua
@@ -45,15 +45,19 @@ badd +2 term://~/dotfiles/nvim//61150:/bin/zsh
 badd +36 ~/dotfiles/tmux/.tmux.conf
 badd +23 ~/dotfiles/alacritty/alacritty.yml
 badd +1 plugin
-badd +33 plugin/toggle-term.vim
+badd +15 plugin/toggle-term.vim
 badd +2 lua/default_scheme.lua
 badd +1 lua
+badd +5 ~/dotfiles/wezterm/wezterm.lua
+badd +8 tokyonight_setup.lua\ lua/tokyonight_setup.lua
+badd +1 lua/tokyonight_setup.lua/tokyonight_setup.lua
+badd +4 lua/catppuccin_setup.lua
 argglobal
 %argdel
 $argadd ~/dotfiles/nvim
-edit init.lua
+edit lua/lsp_mapping.lua
 argglobal
-balt plugin/sensible.lua
+balt lua/catppuccin_setup.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -64,11 +68,11 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 9 - ((8 * winheight(0) + 37) / 74)
+let s:l = 22 - ((21 * winheight(0) + 31) / 63)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 9
+keepjumps 22
 normal! 0
 lcd ~/dotfiles/nvim
 tabnext 1

@@ -43,6 +43,7 @@ return packer.startup(function(use)
   -- color Theme
   use 'bluz71/vim-nightfly-guicolors'
   use 'bluz71/vim-moonfly-colors'
+  use { "catppuccin/nvim", as = "catppuccin" }
 
   -- Tree sitter
   use {
