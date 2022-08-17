@@ -40,22 +40,27 @@ local function on_attach(client, bufnr)
     vim.cmd(flutter_run_command)
   end, opts)
   vim.keymap.set('n', '<space>fq', ':FlutterQuit<CR>', opts)
-  vim.keymap.set('n', '<space>dm', ':DartFmt<CR>', opts)
+
+  vim.api.nvim_create_user_command('FlutterTest', function(data)
+    local cmd = 'flutter test integration_test '
+    local vim_cmd = 'call MonkeyTerminalExec(' .. "\'" .. cmd .. data.args .. "\'" .. ')';
+    vim.cmd(vim_cmd)
+  end, { nargs = "*" })
   vim.api.nvim_create_user_command('FlutterBuildRunner', function()
     vim.cmd 'Dispatch flutter pub get; flutter pub run build_runner build --delete-conflicting-outputs'
-  end, { force = true })
+  end, {})
   vim.api.nvim_create_user_command('FlutterCleanBuildRunner', function()
     vim.cmd 'Dispatch flutter pub get; flutter pub run build_runner clean; flutter pub run build_runner build --delete-conflicting-outputs'
-  end, { force = true })
+  end, {})
   vim.api.nvim_create_user_command('FlutterAnalyze', function()
     vim.cmd 'Dispatch flutter analyze'
-  end, { force = true })
+  end, {})
   vim.api.nvim_create_user_command('FlutterGenL10n', function()
     vim.cmd 'Dispatch flutter pub run intl_translation:generate_from_arb'
-  end, { force = true })
+  end, {})
   vim.api.nvim_create_user_command('FlutterRunWithoutBuild', function()
     vim.cmd 'FlutterRun --use-application-binary=build/app/outputs/flutter-apk/app-debug.apk'
-  end, { force = true })
+  end, {})
   require 'lsp_mapping'.map(client, bufnr)
 
 end

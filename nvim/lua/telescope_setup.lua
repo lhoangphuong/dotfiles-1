@@ -2,6 +2,7 @@ local actions = require('telescope.actions')
 local actions_layout = require('telescope.actions.layout')
 
 local previewers = require('telescope.previewers')
+local git_root = require('lspconfig').util.find_git_ancestor(vim.fn.getcwd())
 
 local new_maker = function(filepath, bufnr, opts)
   opts = opts or {}
@@ -63,7 +64,6 @@ end, opts)
 
 vim.api.nvim_create_user_command('TelescopeFindDirectory', function()
   local find_command = { 'fd', '--type', 'd' }
-  local git_root = require('lspconfig').util.find_git_ancestor(vim.fn.getcwd())
   builtin.find_files({
     find_command = find_command,
     previewer = false,
@@ -103,5 +103,11 @@ end, { desc = '[/] Fuzzily search in current buffer]' })
 
 vim.keymap.set('n', '<space>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<space>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
-vim.keymap.set('n', '<space>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
+
+vim.keymap.set('n', '<space>sg', function()
+  require('telescope.builtin').live_grep({
+    cwd = git_root,
+  })
+end, { desc = '[S]earch by [G]rep' })
+
 vim.keymap.set('n', '<space>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })

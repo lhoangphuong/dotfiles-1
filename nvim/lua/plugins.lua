@@ -133,6 +133,18 @@ return packer.startup(function(use)
       require('pubspec-assist').setup()
     end,
   }
+  use({
+    'nvim-neotest/neotest',
+    requires = {
+      'huylg/neotest-dart',
+      'nvim-lua/plenary.nvim',
+      'nvim-treesitter/nvim-treesitter',
+      'antoinemadec/FixCursorHold.nvim'
+    },
+    config = function()
+      require 'neotest_setup'
+    end
+  })
 
 
   -- debug stuff
@@ -250,5 +262,10 @@ return packer.startup(function(use)
 
   -- csv
   use 'chrisbra/csv.vim'
+
+  --toogle text
+  use { 'nguyenvukhang/nvim-toggler', config = function()
+    require('nvim-toggler')
+  end }
 
 end)

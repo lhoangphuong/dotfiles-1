@@ -118,3 +118,5 @@ export MACOSX_DEPLOYMENT_TARGET=10.15
 
 # if i wrong :)
 alias sl=ls
+
+NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
