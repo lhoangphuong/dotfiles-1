@@ -14,23 +14,22 @@ else
   set shortmess=aoO
 endif
 badd +1 ~/dotfiles/nvim
-badd +3 init.lua
-badd +6 lua/lsp_mapping.lua
-badd +145 lua/plugins.lua
+badd +11 init.lua
+badd +41 lua/lsp_mapping.lua
+badd +268 lua/plugins.lua
 badd +1 ~/dotfiles/vim/vimrc
-badd +51 lua/flutter.lua
-badd +1 ~/dotfiles/zsh/.zshrc
+badd +44 lua/flutter.lua
+badd +63 ~/dotfiles/zsh/.zshrc
 badd +80 lua/telescope_setup.lua
 badd +37 lua/lspstuff.lua
 badd +1 lua/monokai_setup.lua
-badd +10 lua/nighfly_setup.lua
-badd +38 plugin/sensible.lua
+badd +1 lua/nighfly_setup.lua
+badd +17 plugin/sensible.lua
 badd +40 lua/ts.lua
 badd +6 ~/dotfiles/kitty/kitty.conf
 badd +1 lua/gitsigns_setup.lua
-badd +10 plugin/nightly_sensible.lua
+badd +1 plugin/nightly_sensible.lua
 badd +1 lua/winbar_setup.lua
-badd +31 Session.vim
 badd +28 lua/cmp_setup.lua
 badd +1 ~/dotfiles
 badd +106 ~/.local/share/nvim/site/pack/packer/start/barbecue.nvim/README.md
@@ -45,14 +44,14 @@ badd +2 term://~/dotfiles/nvim//61150:/bin/zsh
 badd +36 ~/dotfiles/tmux/.tmux.conf
 badd +23 ~/dotfiles/alacritty/alacritty.yml
 badd +1 plugin
-badd +53 plugin/toggle-term.vim
+badd +58 plugin/toggle-term.vim
 badd +2 lua/default_scheme.lua
 badd +1 lua
-badd +5 ~/dotfiles/wezterm/wezterm.lua
+badd +3 ~/dotfiles/wezterm/wezterm.lua
 badd +1 ~/.local/share/nvim/site/pack/packer/start/telescope.nvim/lua/telescope/builtin/init.lua
 badd +1 neotest_setup.lua
 badd +18 lua/lualine_setup.lua
-badd +85 lua/neotest_setup.lua
+badd +68 lua/neotest_setup.lua
 badd +21 ~/elca-workspace/tyxr-app-sdk/branded_app/tixngo_show/lib/main.dart
 badd +115 ~/.local/share/nvim/site/pack/packer/start/neotest-dart/lua/neotest-dart/init.lua
 badd +199 ~/elca-workspace/tyxr-app-sdk/branded_app/tixngo_show/integration_test/app_test.dart
@@ -61,7 +60,7 @@ badd +5 lua/catppuccin_setup.lua
 argglobal
 %argdel
 $argadd ~/dotfiles/nvim
-edit lua/neotest_setup.lua
+edit lua/flutter.lua
 argglobal
 balt lua/plugins.lua
 setlocal fdm=manual
@@ -74,12 +73,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 85 - ((68 * winheight(0) + 39) / 79)
+let s:l = 27 - ((15 * winheight(0) + 36) / 73)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 85
-normal! 04|
+keepjumps 27
+normal! 0
 lcd ~/dotfiles/nvim
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
@@ -94,7 +93,6 @@ if filereadable(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
 set hlsearch
-nohlsearch
 let g:this_session = v:this_session
 let g:this_obsession = v:this_session
 doautoall SessionLoadPost

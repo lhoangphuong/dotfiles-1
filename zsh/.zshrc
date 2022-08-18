@@ -35,7 +35,7 @@ pastefinish() {
   zle -N self-insert $OLD_SELF_INSERT
 }
 zstyle :bracketed-paste-magic paste-init pasteinit
-zstyle :bracketed-paste-magic paste-finish pastefinish
+zstyle :bracketed-paste-magic paste-finish pastefinishzsh
 
 
 
@@ -59,9 +59,21 @@ export PATH="$PATH:$HOME/fvm/versions/stable/bin"
 export PATH="$PATH:$HOME/fvm/versions/stable/bin/cache/dart-sdk/bin"
 
 # flutter and dart
+
+flutter_pub_get_all(){
+  for d in */ ; do
+	  echo "$d"
+	  cd $d
+	  fpg
+	  cd -
+  done
+}
+
+
 alias f='fvm flutter'
 alias fcl='fvm flutter clean'
 alias fpg='fvm flutter pub get'
+alias fpga=flutter
 alias fr='fvm flutter run'
 alias frc='fvm flutter run '
 alias frm='fvm flutter run'
