@@ -35,6 +35,7 @@ local function on_attach(client, bufnr)
 		vim.cmd(flutter_run_command)
 	end, opts)
 	vim.keymap.set('n', '<space>fq', ':FlutterQuit<CR>', opts)
+	vim.keymap.set('n', '<space>fo', ':FlutterLogOpen<CR>', opts)
 
 	vim.api.nvim_create_user_command('FlutterLogOpen', function()
 		vim.cmd 'vsplit'

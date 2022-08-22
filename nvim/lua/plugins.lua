@@ -43,7 +43,7 @@ return packer.startup(function(use)
   -- color Theme
   use 'bluz71/vim-nightfly-guicolors'
   use 'bluz71/vim-moonfly-colors'
-  use { "catppuccin/nvim", as = "catppuccin" }
+  -- Tree sitter
 
   -- Tree sitter
   use {
@@ -199,6 +199,7 @@ return packer.startup(function(use)
   use 'tpope/vim-sensible'
   use 'tpope/vim-obsession'
   use 'tpope/vim-rsi'
+  use 'tpope/vim-scriptease'
   use { 'github/copilot.vim', config = function()
     vim.cmd [[imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")]]
     vim.g.copilot_no_tab_map = true
@@ -262,10 +263,4 @@ return packer.startup(function(use)
 
   -- csv
   use 'chrisbra/csv.vim'
-
-  --toogle text
-  use { 'nguyenvukhang/nvim-toggler', config = function()
-    require('nvim-toggler')
-  end }
-
 end)
