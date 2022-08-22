@@ -91,8 +91,7 @@ alias lg=lazygit
 my_vim(){
 	if (( $# == 0 )); then
     		$HOME/nvim-nightly/bin/nvim . -S Session.vim
-	else
-		$HOME/nvim-nightly/bin/nvim $1
+	else $HOME/nvim-nightly/bin/nvim $1
 	fi
 }
 alias n=my_vim
@@ -132,3 +131,6 @@ export MACOSX_DEPLOYMENT_TARGET=10.15
 alias sl=ls
 
 NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
+
+# Added by Amplify CLI binary installer
+export PATH="$HOME/.amplify/bin:$PATH"

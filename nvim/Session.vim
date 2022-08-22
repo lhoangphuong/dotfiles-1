@@ -16,10 +16,10 @@ endif
 badd +1 ~/dotfiles/nvim
 badd +11 init.lua
 badd +19 lua/lsp_mapping.lua
-badd +202 lua/plugins.lua
+badd +119 lua/plugins.lua
 badd +1 ~/dotfiles/vim/vimrc
-badd +55 lua/flutter.lua
-badd +63 ~/dotfiles/zsh/.zshrc
+badd +74 lua/flutter.lua
+badd +135 ~/dotfiles/zsh/.zshrc
 badd +80 lua/telescope_setup.lua
 badd +37 lua/lspstuff.lua
 badd +1 lua/monokai_setup.lua
@@ -31,7 +31,6 @@ badd +1 lua/gitsigns_setup.lua
 badd +6 plugin/nightly_sensible.lua
 badd +1 lua/winbar_setup.lua
 badd +28 lua/cmp_setup.lua
-badd +1 ~/dotfiles
 badd +106 ~/.local/share/nvim/site/pack/packer/start/barbecue.nvim/README.md
 badd +4 term://~/dotfiles/nvim//19178:/bin/zsh
 badd +1 nvim/plugin/winbar_setup.lua
@@ -41,7 +40,7 @@ badd +1 term://~/dotfiles/nvim//35126:/bin/zsh
 badd +3 term://~/dotfiles/nvim//35861:/bin/zsh
 badd +16 term://~/dotfiles/nvim//36981:/bin/zsh
 badd +2 term://~/dotfiles/nvim//61150:/bin/zsh
-badd +36 ~/dotfiles/tmux/.tmux.conf
+badd +35 ~/dotfiles/tmux/.tmux.conf
 badd +23 ~/dotfiles/alacritty/alacritty.yml
 badd +1 plugin
 badd +58 plugin/toggle-term.vim
@@ -56,12 +55,17 @@ badd +115 ~/.local/share/nvim/site/pack/packer/start/neotest-dart/lua/neotest-da
 badd +199 ~/elca-workspace/tyxr-app-sdk/branded_app/tixngo_show/integration_test/app_test.dart
 badd +1 ~/.local/share/nvim/site/pack/packer/start/neotest-dart
 badd +9 lua/tokyonight_setup.lua
+badd +11 lua/rusttools_setup.rust
+badd +1 lua
+badd +162 lua/rusttools_setup.lua
+badd +1 ~/dotfiles/bin/xkbswitch
+badd +0 ~/dotfiles/bin/get-active-application.sh
 argglobal
 %argdel
 $argadd ~/dotfiles/nvim
-edit lua/plugins.lua
+edit ~/dotfiles/tmux/.tmux.conf
 argglobal
-balt ~/dotfiles/wezterm/wezterm.lua
+balt ~/dotfiles/zsh/.zshrc
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -72,12 +76,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 191 - ((28 * winheight(0) + 39) / 79)
+let s:l = 26 - ((25 * winheight(0) + 39) / 79)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 191
-normal! 04|
+keepjumps 26
+normal! 0
 lcd ~/dotfiles/nvim
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'

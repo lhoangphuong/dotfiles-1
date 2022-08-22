@@ -106,6 +106,26 @@ return packer.startup(function(use)
     requires = 'neovim/nvim-lspconfig'
   }
 
+  --rust
+  use { 'simrat39/rust-tools.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'mfussenegger/nvim-dap',
+      use {
+        'saecki/crates.nvim',
+        event = { "BufRead Cargo.toml" },
+        requires = { { 'nvim-lua/plenary.nvim' } },
+        config = function()
+          require('crates').setup()
+        end,
+      }
+
+    },
+    config = function()
+      require 'rusttools_setup'
+    end,
+  }
+
   --flutter
   use {
     'huylg/flutter-tools.nvim', requires = {
