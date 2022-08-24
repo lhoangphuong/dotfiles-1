@@ -42,6 +42,9 @@ local function on_attach(client, bufnr)
 		vim.cmd 'buffer __FLUTTER_DEV_LOG__'
 	end, {})
 	vim.api.nvim_create_user_command('RemoveShowApp', function()
+		local git_root = require('lspconfig').util.find_git_ancestor(vim.fn.getcwd())
+		local lyaml = require('lyaml')
+		print(lyaml)
 		vim.cmd('call MonkeyTerminalExec(' .. "\'" .. 'adb uninstall io.tixngo.app.show' .. "\'" .. ')')
 	end, {})
 	vim.api.nvim_create_user_command('FlutterLastTest', function()
@@ -64,7 +67,7 @@ local function on_attach(client, bufnr)
 		vim.cmd 'Dispatch flutter pub get; flutter pub run build_runner clean; flutter pub run build_runner build --delete-conflicting-outputs'
 	end, {})
 	vim.api.nvim_create_user_command('FlutterAnalyze', function()
-		vim.cmd 'Dispatch flutter analyze'
+		vim.cmd('call MonkeyTerminalExec(' .. "\'" .. 'flutter analyze' .. "\'" .. ')')
 	end, {})
 	vim.api.nvim_create_user_command('FlutterGenL10n', function()
 		vim.cmd 'Dispatch flutter pub run intl_translation:generate_from_arb'
