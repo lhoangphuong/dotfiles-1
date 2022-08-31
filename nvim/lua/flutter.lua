@@ -36,16 +36,15 @@ local function on_attach(client, bufnr)
 	end, opts)
 	vim.keymap.set('n', '<space>fq', ':FlutterQuit<CR>', opts)
 	vim.keymap.set('n', '<space>fo', ':FlutterLogOpen<CR>', opts)
+	vim.keymap.set('n', '<space>ft', ':FlutterLastTest<CR>', opts)
 
 	vim.api.nvim_create_user_command('FlutterLogOpen', function()
 		vim.cmd 'vsplit'
 		vim.cmd 'buffer __FLUTTER_DEV_LOG__'
 	end, {})
-	vim.api.nvim_create_user_command('RemoveShowApp', function()
-		local git_root = require('lspconfig').util.find_git_ancestor(vim.fn.getcwd())
-		local lyaml = require('lyaml')
-		print(lyaml)
-		vim.cmd('call MonkeyTerminalExec(' .. "\'" .. 'adb uninstall io.tixngo.app.show' .. "\'" .. ')')
+	vim.api.nvim_create_user_command('RemoveAndroidApp', function()
+		local command = '~/dotfiles/bin/remove-android-app'
+		vim.cmd('Dispatch ' .. command)
 	end, {})
 	vim.api.nvim_create_user_command('FlutterLastTest', function()
 		if flutter_test_vim_command then
@@ -56,7 +55,7 @@ local function on_attach(client, bufnr)
 	end, {})
 	vim.api.nvim_create_user_command('FlutterTest', function(data)
 		local flutter_test_command = 'flutter test integration_test/app_test.dart '
-		flutter_test_vim_command = 'call MonkeyTerminalExec(' .. "\'" .. flutter_test_command .. data.args .. "\'" .. ')';
+		flutter_test_vim_command = 'call MonkeyTerminalExec(' .. "\'" .. flutter_test_command .. data.args .. "\'" .. ')'
 		vim.cmd(flutter_test_vim_command)
 	end, { nargs = "*" })
 

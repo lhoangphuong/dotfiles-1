@@ -50,7 +50,7 @@ return packer.startup(function(use)
   -- Tree sitter
   use {
     'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
-    commit = '668de0951a36ef17016074f1120b6aacbe6c4515',
+    -- commit = '668de0951a36ef17016074f1120b6aacbe6c4515',
     config = function()
       require 'ts'
     end,
@@ -121,14 +121,12 @@ return packer.startup(function(use)
         config = function()
           require('crates').setup()
         end,
-        disable = true,
       }
 
     },
     config = function()
       require 'rusttools_setup'
     end,
-    disable = true,
   }
 
   --flutter
@@ -288,4 +286,5 @@ return packer.startup(function(use)
 
   -- csv
   use 'chrisbra/csv.vim'
+  use 'ianding1/leetcode.vim'
 end)

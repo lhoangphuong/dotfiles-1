@@ -15,58 +15,32 @@ else
 endif
 badd +1 ~/dotfiles/nvim
 badd +6 init.lua
-badd +18 lua/lsp_mapping.lua
-badd +50 lua/plugins.lua
-badd +1 ~/dotfiles/vim/vimrc
-badd +44 lua/flutter.lua
-badd +135 ~/dotfiles/zsh/.zshrc
-badd +5 lua/telescope_setup.lua
-badd +37 lua/lspstuff.lua
-badd +1 lua/monokai_setup.lua
-badd +8 lua/nighfly_setup.lua
-badd +46 plugin/sensible.lua
-badd +96 lua/ts.lua
-badd +6 ~/dotfiles/kitty/kitty.conf
-badd +1 lua/gitsigns_setup.lua
-badd +8 plugin/nightly_sensible.lua
-badd +1 lua/winbar_setup.lua
-badd +28 lua/cmp_setup.lua
-badd +106 ~/.local/share/nvim/site/pack/packer/start/barbecue.nvim/README.md
-badd +4 term://~/dotfiles/nvim//19178:/bin/zsh
-badd +1 nvim/plugin/winbar_setup.lua
-badd +1 plugin/winbar_setup.lua
-badd +20 lua/hop_setup.lua
-badd +1 term://~/dotfiles/nvim//35126:/bin/zsh
-badd +3 term://~/dotfiles/nvim//35861:/bin/zsh
-badd +16 term://~/dotfiles/nvim//36981:/bin/zsh
-badd +2 term://~/dotfiles/nvim//61150:/bin/zsh
-badd +12 ~/dotfiles/tmux/.tmux.conf
-badd +36 ~/dotfiles/alacritty/alacritty.yml
-badd +1 plugin
-badd +58 plugin/toggle-term.vim
-badd +1 lua/default_scheme.lua
-badd +5 ~/dotfiles/wezterm/wezterm.lua
-badd +1 ~/.local/share/nvim/site/pack/packer/start/telescope.nvim/lua/telescope/builtin/init.lua
-badd +1 neotest_setup.lua
-badd +210 lua/lualine_setup.lua
-badd +68 lua/neotest_setup.lua
-badd +21 ~/elca-workspace/tyxr-app-sdk/branded_app/tixngo_show/lib/main.dart
-badd +115 ~/.local/share/nvim/site/pack/packer/start/neotest-dart/lua/neotest-dart/init.lua
-badd +199 ~/elca-workspace/tyxr-app-sdk/branded_app/tixngo_show/integration_test/app_test.dart
-badd +1 ~/.local/share/nvim/site/pack/packer/start/neotest-dart
-badd +9 lua/tokyonight_setup.lua
-badd +11 lua/rusttools_setup.rust
-badd +162 lua/rusttools_setup.lua
-badd +1 ~/dotfiles/bin/xkbswitch
-badd +1 ~/dotfiles/bin/get-active-application.sh
-badd +11 lua/kanagawa_setup.lua
-badd +19 lua/vscode_setup.lua
+badd +40 lua/lsp_mapping.lua
+badd +213 lua/plugins.lua
+badd +93 ~/dotfiles/zsh/.zshrc
+badd +6 ~/dotfiles/wezterm/wezterm.lua
+badd +35 lua/flutter.lua
+badd +46 ~/dotfiles/kitty/kitty.conf
+badd +16 Session.vim
+badd +32 plugin/sensible.lua
+badd +9 lua/vscode_setup.lua
+badd +1 lua/moonfly_setup.lua
+badd +80 plugin/monkey_term.lua
+badd +6 ~/dotfiles/vim/vimrc
+badd +138 ~/dotfiles/vim/coc_setup.vim
+badd +5 lua/default_scheme.lua
+badd +247 lua/lualine_setup.lua
+badd +28 ~/dotfiles/tmux/.tmux.conf
+badd +1 ~/dotfiles/tmux/tmux-sessionizer.sh
+badd +19 lua/lspstuff.lua
+badd +38 lua/cmp_setup.lua
+badd +7 plugin/nightly_sensible.lua
 argglobal
 %argdel
 $argadd ~/dotfiles/nvim
 edit lua/plugins.lua
 argglobal
-balt init.lua
+balt ~/dotfiles/zsh/.zshrc
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -77,12 +51,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 102 - ((21 * winheight(0) + 39) / 79)
+let s:l = 234 - ((22 * winheight(0) + 43) / 86)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 102
-normal! 02|
+keepjumps 234
+normal! 025|
 lcd ~/dotfiles/nvim
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'

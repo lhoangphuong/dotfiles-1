@@ -48,3 +48,9 @@ if vim.o.termguicolors then
 else
   require 'default_scheme'
 end
+
+vim.api.nvim_create_user_command('JwtParser', function()
+  local shell_command = 'jwt decode $(pbpaste) | jid'
+  local vim_cmd = 'call MonkeyTerminalExec(' .. "\'" .. shell_command .. "\'" .. ')'
+  vim.cmd(vim_cmd)
+end, {})

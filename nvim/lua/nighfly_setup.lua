@@ -1,4 +1,5 @@
 vim.g.nightflyWinSeparator = 2
+vim.g.nightflyTransparent = true
 vim.cmd [[
     colorscheme nightfly
     hi! CursorLine gui=underline cterm=underline guibg=none

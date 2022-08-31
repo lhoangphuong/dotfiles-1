@@ -1,0 +1,1 @@
+adb uninstall "$(~/dotfiles/bin/gradle-to-json ~/elca-workspace/tyxr-app-sdk/branded_app/tixngo_show/android/app/build.gradle | jq '.android.defaultConfig.applicationId' | xargs)"

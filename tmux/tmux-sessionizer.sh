@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(fd . $HOME/elca-workspace  $DOTFILE_DIR $HOME/personal -t d ---exact-depth 1 | fzf)
+    selected=$(fd . $HOME/elca-workspace  $DOTFILE_DIR $HOME/personal $HOME/tools -t d ---exact-depth 1 | fzf)
 fi
 
 if [[ -z $selected ]]; then
