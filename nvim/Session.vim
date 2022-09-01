@@ -14,10 +14,10 @@ else
   set shortmess=aoO
 endif
 badd +1 ~/dotfiles/nvim
-badd +6 init.lua
+badd +5 init.lua
 badd +40 lua/lsp_mapping.lua
-badd +213 lua/plugins.lua
-badd +93 ~/dotfiles/zsh/.zshrc
+badd +277 lua/plugins.lua
+badd +123 ~/dotfiles/zsh/.zshrc
 badd +6 ~/dotfiles/wezterm/wezterm.lua
 badd +35 lua/flutter.lua
 badd +46 ~/dotfiles/kitty/kitty.conf
@@ -38,9 +38,9 @@ badd +7 plugin/nightly_sensible.lua
 argglobal
 %argdel
 $argadd ~/dotfiles/nvim
-edit lua/plugins.lua
+edit ~/dotfiles/zsh/.zshrc
 argglobal
-balt ~/dotfiles/zsh/.zshrc
+balt lua/plugins.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -51,12 +51,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 234 - ((22 * winheight(0) + 43) / 86)
+let s:l = 127 - ((55 * winheight(0) + 39) / 79)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 234
-normal! 025|
+keepjumps 127
+normal! 041|
 lcd ~/dotfiles/nvim
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'

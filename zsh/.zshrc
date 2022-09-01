@@ -116,8 +116,20 @@ update_vim(){
   wget -c https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz -O - | tar -xv - -C $HOME/nvim-nightly --strip-components=1
 }
 
-update_vim_stable(){
-  wget -c https://github.com/neovim/neovim/releases/download/stable/nvim-macos.tar.gz -O - | tar -xv - -C $HOME/nvim-stable --strip-components=1
+
+toggle_nvim_profile(){
+  if [[ "$(readlink $HOME/.config/nvim)" == $HOME/dotfiles/nvim ]]; then
+		echo 'switch to vim profile'
+		unlink $HOME/.config/nvim
+		ln -s $HOME/dotfiles/vim $HOME/.config/nvim
+  elif [[  "$(readlink $HOME/.config/nvim)" == $HOME/dotfiles/vim  ]]; then
+		echo 'switch to nvim profile'
+		unlink $HOME/.config/nvim
+		ln -s $HOME/dotfiles/nvim $HOME/.config/nvim
+  else
+		echo "do nothing"
+  fi
+
 }
 
 #tmux

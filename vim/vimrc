@@ -1,3 +1,9 @@
+function! UpdateRemotePlugins(...)
+    " Needed to refresh runtime files
+    let &rtp=&rtp
+    UpdateRemotePlugins
+endfunction
+
 call plug#begin()
 
 "basic stuff
@@ -16,11 +22,7 @@ Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-scriptease'
 Plug 'jiangmiao/auto-pairs'
 Plug 'machakann/vim-highlightedyank'
-Plug 'sjl/clam.vim'
 
-"fzf
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
 
 "git
 Plug 'tpope/vim-fugitive'
@@ -32,12 +34,26 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Airline
 Plug 'vim-airline/vim-airline'
 
+Plug 'gelguy/wilder.nvim', { 'do': function('UpdateRemotePlugins') }
+
+Plug 'rafamadriz/friendly-snippets'
+
+
 call plug#end()
+
+packadd termdebug
+packadd cfilter
+
+
+let g:termdebug_config = {}
+let g:termdebug_config['command'] = "lldb"
+let g:termdebug_config['command_add_args'] = "pty"
 
 set relativenumber
 set number
 set hlsearch
 set background=dark
+set clipboard+=unnamedplus
 
 "nmap <C-s>  :update<CR>
 nmap <space>co :copen<CR>
@@ -47,17 +63,31 @@ nmap <space>lo :lopen<CR>
 nmap <space>lc :lcl<CR>
 nmap <space>ll :lli<CR>
 
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
-nmap <space>p :GFiles<CR>
-nmap <space><space> :Files<CR>
-nmap <space>fb :Buffers<CR>
-nmap <space>sg :Rg<CR>
-nmap <space>fo :History<CR>
-nmap <space>sh :Helptags<CR>
+nmap <space>p :Telescope git_files<CR>
+nmap <space><space> :Telescope find_files<CR>
+nmap <space>fb :Telescope buffers<CR>
+nmap <space>sg :Telescope live_grep<CR>
 
 let g:highlightedyank_highlight_duration = 200
 
 source ~/dotfiles/vim/coc_setup.vim
-"source ~/dotfiles/nvim/plugin/monkey_term.lua
+source ~/dotfiles/nvim/plugin/monkey_term.lua
+lua vim.o.winbar = '%m %f'
 
-set laststatus=2
+set laststatus=3
+set cmdheight=0
+
+hi Pmenu ctermbg=none ctermfg=white
+hi SignColumn ctermbg=none
+hi WinSeparator ctermbg=none
+
+call wilder#setup({
+      \ 'modes': [':', '/', '?'],
+      \ 'next_key': '<Tab>',
+      \ 'previous_key': '<S-Tab>',
+      \ 'accept_key': '<Down>',
+      \ 'reject_key': '<Up>',
+      \ })
+call wilder#set_option('renderer', wilder#popupmenu_renderer({
+      \ 'highlighter': wilder#basic_highlighter(),
+      \ }))
