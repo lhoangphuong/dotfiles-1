@@ -15,9 +15,9 @@ else
 endif
 badd +1 ~/dotfiles/nvim
 badd +11 init.lua
-badd +43 ~/dotfiles/vim/vimrc
+badd +37 ~/dotfiles/vim/vimrc
 badd +2540 ~/dotfiles/vim/autoload/plug.vim
-badd +1 lua/plugins.lua
+badd +149 lua/plugins.lua
 badd +60 lua/cmp_setup.lua
 badd +15 plugin/sensible.lua
 badd +147 ~/dotfiles/zsh/.zshrc
@@ -26,12 +26,15 @@ badd +181 ~/elca-workspace/tyxr-app-sdk/modules/sso_aws/lib/screen/confirmation_
 badd +1 lua/lsp_mapping.lua
 badd +4 plugin/nightly_sensible.lua
 badd +7 lua/flutter.lua
+badd +63 plugin/monkey_term.lua
+badd +8 lua/lspstuff.lua
+badd +21 lua/clangd_setup.lua
 argglobal
 %argdel
 $argadd ~/dotfiles/nvim
-edit ~/dotfiles/vim/vimrc
+edit lua/lspstuff.lua
 argglobal
-balt init.lua
+balt lua/clangd_setup.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -42,12 +45,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 43 - ((42 * winheight(0) + 39) / 79)
+let s:l = 14 - ((13 * winheight(0) + 39) / 79)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 43
-normal! 02|
+keepjumps 14
+normal! 08|
 lcd ~/dotfiles/nvim
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
@@ -62,6 +65,7 @@ if filereadable(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
 set hlsearch
+nohlsearch
 let g:this_session = v:this_session
 let g:this_obsession = v:this_session
 doautoall SessionLoadPost

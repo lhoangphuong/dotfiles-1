@@ -57,10 +57,10 @@ function! MonkeyTerminalExec(cmd)
   endif
 
   " clear current input
-  call jobsend(s:monkey_terminal_job_id, "clear\n")
+  " call jobsend(s:monkey_terminal_job_id, "clear\n")
 
   " run cmd
-  call jobsend(s:monkey_terminal_job_id, a:cmd . "\n")
+  call jobsend(s:monkey_terminal_job_id, "clear; ". a:cmd . "\n")
   normal! G
   wincmd p
 endfunction

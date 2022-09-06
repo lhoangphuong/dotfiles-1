@@ -155,19 +155,11 @@ return packer.startup(function(use)
       require('pubspec-assist').setup()
     end,
   }
-  use({
-    'nvim-neotest/neotest',
-    requires = {
-      'huylg/neotest-dart',
-      'nvim-lua/plenary.nvim',
-      'nvim-treesitter/nvim-treesitter',
-      'antoinemadec/FixCursorHold.nvim'
-    },
-    config = function()
-      require 'neotest_setup'
-    end
-  })
 
+  --clangd
+  use {'p00f/clangd_extensions.nvim',config = function ()
+    require 'clangd_setup'
+  end}
 
 
   -- autocomplete

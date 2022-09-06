@@ -5,7 +5,7 @@ local servers = { 'hls',
 	'tsserver',
 	'elmls',
 	'sumneko_lua',
-	'clangd',
+	-- 'clangd',
 	'pyright',
 	-- 'sourcekit',
 	'cucumber_language_server'
