@@ -6,28 +6,6 @@ endfunction
 
 call plug#begin()
 
-"basic stuff
-Plug 'wellle/targets.vim'
-Plug 'tpope/vim-tbone'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-sleuth'
-Plug 'tpope/vim-vinegar'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-obsession'
-Plug 'tpope/vim-rsi'
-Plug 'tpope/vim-scriptease'
-Plug 'jiangmiao/auto-pairs'
-Plug 'machakann/vim-highlightedyank'
-
-
-"git
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-
 "lsp
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -35,8 +13,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 
 Plug 'gelguy/wilder.nvim', { 'do': function('UpdateRemotePlugins') }
-
-Plug 'rafamadriz/friendly-snippets'
 
 
 call plug#end()
@@ -66,16 +42,30 @@ nmap <space>lo :lopen<CR>
 nmap <space>lc :lcl<CR>
 nmap <space>ll :lli<CR>
 
-nmap <space>p :Telescope git_files<CR>
-nmap <space><space> :Telescope find_files<CR>
-nmap <space>fb :Telescope buffers<CR>
-nmap <space>sg :Telescope live_grep<CR>
-
-let g:highlightedyank_highlight_duration = 200
+lua << EOF
+  local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+  vim.api.nvim_create_autocmd('TextYankPost', {
+    callback = function()
+      vim.highlight.on_yank()
+    end,
+    group = highlight_group,
+    pattern = '*',
+  })
+EOF
 
 source ~/dotfiles/vim/coc_setup.vim
 source ~/dotfiles/nvim/plugin/monkey_term.lua
-lua vim.o.winbar = '%m %f'
+source ~/dotfiles/nvim/lua/ts.lua
+source ~/dotfiles/nvim/lua/telescope_setup.lua
+source ~/dotfiles/nvim/lua/telescope_setup.lua
+source ~/dotfiles/nvim/lua/comment_setup.lua
+source ~/dotfiles/nvim/lua/gitsigns_setup.lua
+
+lua << EOF
+    if vim.version().minor >= 8 then
+      vim.o.winbar = '%m %f'
+    end
+EOF
 
 set laststatus=3
 set cmdheight=1
@@ -83,6 +73,9 @@ set cmdheight=1
 hi Pmenu ctermbg=none ctermfg=white
 hi SignColumn ctermbg=none
 hi WinSeparator ctermbg=none
+hi DiffAdd ctermbg=none ctermfg=green
+hi DiffDelete ctermbg=none ctermfg=red
+hi DiffChange ctermbg=none ctermfg=yellow
 
 call wilder#setup({
       \ 'modes': [':', '/', '?'],

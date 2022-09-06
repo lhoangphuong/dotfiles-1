@@ -1,7 +1,6 @@
 -- Setup nvim-cmp.
 local cmp = require 'cmp'
 local luasnip = require("luasnip")
-
 cmp.setup({
   formatting = {
     format = function(entry, vim_item)
@@ -73,7 +72,8 @@ cmp.setup({
         fd_timeout_msec = 500,
       }
     },
-    { name = 'copilot' },
+    -- { name = 'copilot', is_available = function() return false end },
+    { name = 'buffer' },
     { name = 'tmux',
       option = {
         all_panes = false,

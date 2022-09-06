@@ -58,7 +58,6 @@ return packer.startup(function(use)
       { 'nvim-treesitter/playground', after = 'nvim-treesitter' },
       { 'nvim-treesitter/nvim-treesitter-textobjects', after = 'nvim-treesitter' },
       { 'nvim-treesitter/nvim-treesitter-refactor', after = 'nvim-treesitter' },
-      { 'nkrkv/nvim-treesitter-rescript', run = ':TSInstall rescript', after = 'nvim-treesitter' }
     },
   }
 
@@ -170,18 +169,6 @@ return packer.startup(function(use)
   })
 
 
-  -- debug stuff
-  use { 'mfussenegger/nvim-dap',
-    requires = {
-      'rcarriga/nvim-dap-ui',
-      after = 'nvim-dap', config = function()
-        require 'dap_setup'
-      end
-    }
-  }
-
-  --rescript-lang
-  use 'rescript-lang/vim-rescript'
 
   -- autocomplete
   use {
@@ -226,6 +213,9 @@ return packer.startup(function(use)
   use { 'github/copilot.vim', config = function()
     vim.cmd [[imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")]]
     vim.g.copilot_no_tab_map = true
+    vim.g.copilot_filetypes = {
+      cpp = not vim.g.cp_flag,
+    }
   end }
   use {
     "windwp/nvim-autopairs",
@@ -243,29 +233,7 @@ return packer.startup(function(use)
   use { 'mg979/vim-visual-multi', branch = 'master' }
   use { 'numToStr/Comment.nvim', config =
   function()
-    require('Comment').setup({
-      padding = true,
-      sticky = true,
-      ignore = nil,
-      mappings = {
-        basic = true,
-        extra = true,
-        extended = false,
-      },
-      toggler = {
-        line = 'gcc',
-        block = 'gbc',
-      },
-      opleader = {
-        line = 'gc',
-        block = 'gb',
-      },
-      pre_hook = nil,
-      post_hook = nil,
-    })
-
-    require 'Comment.ft'.set('dart', { '// %s', '/*%s*/' })
-
+    require 'comment_setup'
   end }
 
   use {
@@ -286,5 +254,4 @@ return packer.startup(function(use)
 
   -- csv
   use 'chrisbra/csv.vim'
-  use 'ianding1/leetcode.vim'
 end)

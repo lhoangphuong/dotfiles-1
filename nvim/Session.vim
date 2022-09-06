@@ -13,36 +13,23 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +9 init.lua
-badd +40 lua/lsp_mapping.lua
-badd +85 ~/dotfiles/zsh/.zshrc
-badd +6 ~/dotfiles/wezterm/wezterm.lua
-badd +35 lua/flutter.lua
-badd +46 ~/dotfiles/kitty/kitty.conf
-badd +16 Session.vim
-badd +32 plugin/sensible.lua
-badd +9 lua/vscode_setup.lua
-badd +1 lua/moonfly_setup.lua
-badd +80 plugin/monkey_term.lua
-badd +37 ~/dotfiles/vim/vimrc
-badd +106 ~/dotfiles/vim/coc_setup.vim
-badd +5 lua/default_scheme.lua
-badd +247 lua/lualine_setup.lua
-badd +28 ~/dotfiles/tmux/.tmux.conf
-badd +1 ~/dotfiles/tmux/tmux-sessionizer.sh
-badd +19 lua/lspstuff.lua
-badd +38 lua/cmp_setup.lua
-badd +7 plugin/nightly_sensible.lua
-badd +13 man://select(2)
-badd +8 man://last(1)
-badd +1 ~/dotfiles/lazygit/config.yml
-badd +1 ~/dotfiles/slack-term/config
-badd +1 lua/plugins_native_lsp.lua
-badd +0 lua/plugins_coc.lua
+badd +1 ~/dotfiles/nvim
+badd +11 init.lua
+badd +43 ~/dotfiles/vim/vimrc
+badd +2540 ~/dotfiles/vim/autoload/plug.vim
+badd +1 lua/plugins.lua
+badd +60 lua/cmp_setup.lua
+badd +15 plugin/sensible.lua
+badd +147 ~/dotfiles/zsh/.zshrc
+badd +1 Session.vim
+badd +181 ~/elca-workspace/tyxr-app-sdk/modules/sso_aws/lib/screen/confirmation_page.dart
+badd +1 lua/lsp_mapping.lua
+badd +4 plugin/nightly_sensible.lua
+badd +7 lua/flutter.lua
 argglobal
 %argdel
 $argadd ~/dotfiles/nvim
-edit lua/plugins_coc.lua
+edit ~/dotfiles/vim/vimrc
 argglobal
 balt init.lua
 setlocal fdm=manual
@@ -55,12 +42,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 40 - ((27 * winheight(0) + 40) / 80)
+let s:l = 43 - ((42 * winheight(0) + 39) / 79)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 40
-normal! 0
+keepjumps 43
+normal! 02|
 lcd ~/dotfiles/nvim
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
@@ -75,7 +62,6 @@ if filereadable(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
 set hlsearch
-nohlsearch
 let g:this_session = v:this_session
 let g:this_obsession = v:this_session
 doautoall SessionLoadPost

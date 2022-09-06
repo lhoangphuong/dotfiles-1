@@ -1,6 +1,15 @@
 vim.cmd([[
   autocmd FileType qf wincmd J
   packadd cfilter
+  packadd termdebug
+
+  let g:termdebug_config = {}
+  let g:termdebug_config['command'] = "lldb"
+  let g:termdebug_config['command_add_args'] = ""
+
+                        let g:copilot_filetypes = {
+                              \ 'cpp': v:false,
+                              \ }
 ]])
 
 vim.o.mouse = 'a'
@@ -42,8 +51,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 if vim.o.termguicolors then
-  require 'vscode_setup'
-  -- require 'nighfly_setup'
+  -- require 'vscode_setup'
+  require 'nighfly_setup'
   -- require 'moonfly_setup'
 else
   require 'default_scheme'
