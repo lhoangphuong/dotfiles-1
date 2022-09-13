@@ -1,15 +1,10 @@
 vim.cmd([[
   autocmd FileType qf wincmd J
   packadd cfilter
-  packadd termdebug
 
-  let g:termdebug_config = {}
-  let g:termdebug_config['command'] = "lldb"
-  let g:termdebug_config['command_add_args'] = ""
-
-                        let g:copilot_filetypes = {
-                              \ 'cpp': v:false,
-                              \ }
+  let g:copilot_filetypes = {
+  \ 'cpp': v:false,
+  \ }
 ]])
 
 vim.o.mouse = 'a'
@@ -40,6 +35,10 @@ vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
+
+-- reselect pasted text
+vim.keymap.set('n', 'gp', '`[v`]')
+
 -- Highlight on yank
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
@@ -60,6 +59,17 @@ end
 
 vim.api.nvim_create_user_command('JwtParser', function()
   local shell_command = 'jwt decode $(pbpaste) | jid'
-  local vim_cmd = 'call MonkeyTerminalExec(' .. "\'" .. shell_command .. "\'" .. ')'
+  local vim_cmd = 'call MonkeyTerminalExecZsh(' .. "\'" .. shell_command .. "\'" .. ')'
   vim.cmd(vim_cmd)
 end, {})
+
+vim.api.nvim_create_user_command('Touch', function(data)
+  local create_command = 'silent !touch ' .. data.args;
+
+  vim.cmd(create_command)
+
+  -- open buffer with new file
+  vim.cmd('e ' .. data.args)
+
+
+end, { nargs = "*" })

@@ -42,7 +42,6 @@ return packer.startup(function(use)
   use 'wbthomason/packer.nvim'
   -- color Theme
   use 'bluz71/vim-nightfly-guicolors'
-  use 'bluz71/vim-moonfly-colors'
   use 'Mofiqul/vscode.nvim'
 
   -- Tree sitter
@@ -135,6 +134,7 @@ return packer.startup(function(use)
       'hrsh7th/cmp-nvim-lsp',
       'dart-lang/dart-vim-plugin',
       'Neevash/awesome-flutter-snippets',
+      'RobertBrunhage/flutter-riverpod-snippets'
     },
     ft = { 'dart', 'feature', 'yaml', 'lua' },
     config = function()
@@ -157,9 +157,9 @@ return packer.startup(function(use)
   }
 
   --clangd
-  use {'p00f/clangd_extensions.nvim',config = function ()
+  use { 'p00f/clangd_extensions.nvim', config = function()
     require 'clangd_setup'
-  end}
+  end }
 
 
   -- autocomplete
@@ -242,8 +242,17 @@ return packer.startup(function(use)
     require 'colorizer'.setup()
   end }
   use 'mtdl9/vim-log-highlighting'
-  use 'jremmen/vim-ripgrep'
 
   -- csv
   use 'chrisbra/csv.vim'
+
+  -- http client
+  use {
+    "NTBBloodbath/rest.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require 'rest_setup'
+    end
+  }
+
 end)

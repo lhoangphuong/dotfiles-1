@@ -53,9 +53,28 @@ local function on_attach(client, bufnr)
 			print 'run flutter test command first'
 		end
 	end, {})
+	vim.api.nvim_create_user_command('DartRun', function()
+		local vim_cmd = 'call MonkeyTerminalExecZsh(' .. "\'" .. 'dart run' .. "\'" .. ')'
+		vim.cmd(vim_cmd)
+	end, {})
+
+	vim.api.nvim_create_user_command('FlutterRoute', function(data)
+		if data.args == "" then
+			vim.ui.input({ prompt = 'Enter route: ' }, function(input)
+				local command = flutter_run_command .. ' --route=' .. input;
+				print(command)
+				vim.cmd(command)
+			end)
+		else
+			local command = flutter_run_command .. ' --route ' .. data.args;
+			print(command)
+			vim.cmd(command)
+		end
+	end, { nargs = "*" })
+
 	vim.api.nvim_create_user_command('FlutterTest', function(data)
 		local flutter_test_command = 'flutter test integration_test/app_test.dart '
-		flutter_test_vim_command = 'call MonkeyTerminalExec(' .. "\'" .. flutter_test_command .. data.args .. "\'" .. ')'
+		flutter_test_vim_command = 'call MonkeyTerminalExecZsh(' .. "\'" .. flutter_test_command .. data.args .. "\'" .. ')'
 		vim.cmd(flutter_test_vim_command)
 	end, { nargs = "*" })
 
@@ -66,7 +85,7 @@ local function on_attach(client, bufnr)
 		vim.cmd 'Dispatch flutter pub get; flutter pub run build_runner clean; flutter pub run build_runner build --delete-conflicting-outputs'
 	end, {})
 	vim.api.nvim_create_user_command('FlutterAnalyze', function()
-		vim.cmd('call MonkeyTerminalExec(' .. "\'" .. 'flutter analyze' .. "\'" .. ')')
+		vim.cmd('call MonkeyTerminalExecZsh(' .. "\'" .. 'flutter analyze' .. "\'" .. ')')
 	end, {})
 	vim.api.nvim_create_user_command('FlutterGenL10n', function()
 		vim.cmd 'Dispatch flutter pub run intl_translation:generate_from_arb'

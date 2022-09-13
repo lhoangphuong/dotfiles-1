@@ -55,6 +55,15 @@ function! MonkeyTerminalExec(cmd)
   if !win_gotoid(s:monkey_terminal_window)
     call MonkeyTerminalOpen()
   endif
+  call jobsend(s:monkey_terminal_job_id, a:cmd . "\n")
+  normal! G
+  wincmd p
+endfunction
+
+function! MonkeyTerminalExecZsh(cmd)
+  if !win_gotoid(s:monkey_terminal_window)
+    call MonkeyTerminalOpen()
+  endif
 
   " clear current input
   " call jobsend(s:monkey_terminal_job_id, "clear\n")
@@ -72,6 +81,10 @@ end, {})
 
 vim.api.nvim_create_user_command('TerminalExec', function(data)
   local command = 'call MonkeyTerminalExec(' .. "\'" .. data.args .. "\'" .. ')'
+  vim.cmd(command)
+end, { nargs = "*" })
+vim.api.nvim_create_user_command('TerminalExecZsh', function(data)
+  local command = 'call MonkeyTerminalExecZsh(' .. "\'" .. data.args .. "\'" .. ')'
   vim.cmd(command)
 end, { nargs = "*" })
 
