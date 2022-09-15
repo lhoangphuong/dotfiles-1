@@ -42,7 +42,6 @@ return packer.startup(function(use)
   use 'wbthomason/packer.nvim'
   -- color Theme
   use 'bluz71/vim-nightfly-guicolors'
-  use 'Mofiqul/vscode.nvim'
 
   -- Tree sitter
 
@@ -254,5 +253,4 @@ return packer.startup(function(use)
       require 'rest_setup'
     end
   }
-
 end)

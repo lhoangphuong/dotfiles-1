@@ -53,10 +53,11 @@ local function on_attach(client, bufnr)
 			print 'run flutter test command first'
 		end
 	end, {})
-	vim.api.nvim_create_user_command('DartRun', function()
-		local vim_cmd = 'call MonkeyTerminalExecZsh(' .. "\'" .. 'dart run' .. "\'" .. ')'
-		vim.cmd(vim_cmd)
-	end, {})
+	local dartRun = function()
+		vim.cmd("call MonkeyTerminalExecZsh('dart run')")
+	end
+	vim.api.nvim_create_user_command('DartRun', dartRun, {})
+	vim.keymap.set('n', '<space>r', dartRun, { noremap = true, silent = false })
 
 	vim.api.nvim_create_user_command('FlutterRoute', function(data)
 		if data.args == "" then

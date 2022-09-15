@@ -4,19 +4,21 @@ require("clangd_extensions").setup {
     -- i.e. the arguments to require("lspconfig").clangd.setup({})
     on_attach = function(client, bufnr)
 
-      vim.api.nvim_create_user_command('ClangdRun', function()
+      local run = function()
         local current_file = vim.fn.expand('%')
-
         vim.cmd 'set norelativenumber'
         vim.cmd("call MonkeyTerminalExecZsh('make target=" .. current_file .. "')")
-      end, {})
+      end
+
+      vim.api.nvim_create_user_command('ClangdRun', run, {})
+      vim.keymap.set('n', '<space>r', run, { noremap = true, silent = false })
 
       -- 1. build app with debug flag
       -- 2. make debug
       -- 3. start lldb with app
       -- 4. set breakpoint add current line
       -- 5. lldb run
-      vim.api.nvim_create_user_command('ClangdDebug', function()
+      local debug = function()
         local current_line = vim.api.nvim_win_get_cursor(0)[1]
         local current_file = vim.fn.expand('%')
 
@@ -33,7 +35,9 @@ require("clangd_extensions").setup {
         vim.cmd [[
           call MonkeyTerminalExec('r')
         ]]
-      end, {})
+      end
+      vim.keymap.set('n', '<space>cd', debug, { noremap = true, silent = false })
+      vim.api.nvim_create_user_command('ClangdDebug', debug, {})
 
       require 'lsp_mapping'.map(client, bufnr)
     end,

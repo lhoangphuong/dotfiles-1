@@ -30,8 +30,6 @@ vim.keymap.set('n', '<space>lo', ':lopen<CR>', { noremap = true, silent = true }
 vim.keymap.set('n', '<space>lc', ':lcl<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<space>ll', ':lli<CR>', { noremap = true, silent = true })
 
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
-
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
@@ -50,9 +48,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 if vim.o.termguicolors then
-  -- require 'vscode_setup'
   require 'nighfly_setup'
-  -- require 'moonfly_setup'
 else
   require 'default_scheme'
 end
