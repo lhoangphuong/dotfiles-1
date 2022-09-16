@@ -6,7 +6,6 @@ require("clangd_extensions").setup {
 
       local run = function()
         local current_file = vim.fn.expand('%')
-        vim.cmd 'set norelativenumber'
         vim.cmd("call MonkeyTerminalExecZsh('make target=" .. current_file .. "')")
       end
 
