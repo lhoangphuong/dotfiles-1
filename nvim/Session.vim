@@ -14,17 +14,17 @@ else
   set shortmess=aoO
 endif
 badd +1 ~/dotfiles/nvim
-badd +1 init.lua
+badd +7 init.lua
 badd +37 ~/dotfiles/vim/vimrc
 badd +2540 ~/dotfiles/vim/autoload/plug.vim
-badd +197 lua/plugins.lua
+badd +45 lua/plugins.lua
 badd +60 lua/cmp_setup.lua
-badd +52 plugin/sensible.lua
+badd +49 plugin/sensible.lua
 badd +147 ~/dotfiles/zsh/.zshrc
 badd +1 Session.vim
 badd +181 ~/elca-workspace/tyxr-app-sdk/modules/sso_aws/lib/screen/confirmation_page.dart
-badd +25 lua/lsp_mapping.lua
-badd +12 plugin/nightly_sensible.lua
+badd +19 lua/lsp_mapping.lua
+badd +3 plugin/nightly_sensible.lua
 badd +11 lua/flutter.lua
 badd +38 plugin/monkey_term.lua
 badd +20 lua/lspstuff.lua
@@ -34,18 +34,19 @@ badd +1 lua/rest_setup.lua
 badd +6 lua/ts.lua
 badd +3 plugin/winbar_setup.lua
 badd +12 ~/dotfiles/wezterm/wezterm.lua
-badd +57 ~/dotfiles/alacritty/alacritty.yml
-badd +10 lua/nighfly_setup.lua
+badd +24 ~/dotfiles/alacritty/alacritty.yml
+badd +11 lua/nighfly_setup.lua
 badd +322 ~/dotfiles/bin/tmpmail
 badd +1 temp.json
 badd +10 lua/default_scheme.lua
 badd +2 ~/dotfiles/.Xdefaults
+badd +1 lua/gruvbuddy.lua
 argglobal
 %argdel
 $argadd ~/dotfiles/nvim
-edit lua/plugins.lua
+edit plugin/sensible.lua
 argglobal
-balt ~/dotfiles/.Xdefaults
+balt lua/plugins.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -56,12 +57,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 169 - ((7 * winheight(0) + 34) / 68)
+let s:l = 30 - ((29 * winheight(0) + 39) / 79)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 169
-normal! 07|
+keepjumps 30
+normal! 0
 lcd ~/dotfiles/nvim
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'

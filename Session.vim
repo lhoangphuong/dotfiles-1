@@ -15,7 +15,7 @@ else
 endif
 badd +1 ~/dotfiles
 badd +10 vim/vimrc
-badd +1 nvim/lua/plugins.lua
+badd +185 nvim/lua/plugins.lua
 argglobal
 %argdel
 $argadd ~/dotfiles
@@ -32,11 +32,11 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 172 - ((15 * winheight(0) + 10) / 20)
+let s:l = 185 - ((72 * winheight(0) + 39) / 79)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 172
+keepjumps 185
 normal! 0
 lcd ~/dotfiles
 tabnext 1
