@@ -54,9 +54,7 @@ else
 end
 
 vim.api.nvim_create_user_command('JwtParser', function()
-  local shell_command = 'jwt decode $(pbpaste) | jid'
-  local vim_cmd = 'call MonkeyTerminalExecZsh(' .. "\'" .. shell_command .. "\'" .. ')'
-  vim.cmd(vim_cmd)
+  vim.cmd "call MonkeyTerminalExecZsh('jwt decode $(pbpaste) | jid')"
 end, {})
 
 vim.api.nvim_create_user_command('Touch', function(data)

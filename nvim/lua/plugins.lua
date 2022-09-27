@@ -218,6 +218,7 @@ return packer.startup(function(use)
   use 'tpope/vim-obsession'
   use 'tpope/vim-rsi'
   use 'tpope/vim-scriptease'
+  use 'tpope/vim-dadbod'
   use { 'github/copilot.vim', config = function()
     vim.cmd [[imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")]]
     vim.g.copilot_no_tab_map = true
@@ -225,6 +226,7 @@ return packer.startup(function(use)
       cpp = not vim.g.cp_flag,
     }
   end, }
+
   use {
     "windwp/nvim-autopairs",
     config = function()
@@ -233,7 +235,6 @@ return packer.startup(function(use)
       })
     end
   }
-
   use { 'antoinemadec/FixCursorHold.nvim', config = function()
     vim.g.cursorhold_updatetime = 100
   end }
@@ -261,6 +262,7 @@ return packer.startup(function(use)
 
   -- csv
   use 'chrisbra/csv.vim'
+  use 'Einenlum/yaml-revealer'
 
   -- http client
   use {
