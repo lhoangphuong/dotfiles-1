@@ -23,4 +23,5 @@
 *color15: #c0caf5
  
 *faceName: SFMono Nerd Font
-*faceSize: 9
+*faceSize: 9x18
+*faceWeight: bold

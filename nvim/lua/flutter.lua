@@ -9,10 +9,10 @@ local admintool_path = vim.fs.normalize('$HOME/elca-workspace/tixngo-admintool-f
 local flutter_run_command = ':FlutterRun'
 local flutter_test_vim_command = nil
 
-if string.find(current_workspace, sdk_path, 1, true) then
-	flutter_run_command = 'FlutterRun -t integration_test/app_test.dart --host-vmservice-port 8000 --disable-service-auth-codes'
-elseif current_workspace == admintool_path then
+if string.find(current_workspace, admintool_path, 1, true) then
 	flutter_run_command = 'FlutterRun -t lib/main_development.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800'
+elseif current_workspace == sdk_path then
+	flutter_run_command = 'FlutterRun -t integration_test/app_test.dart --host-vmservice-port 8000 --disable-service-auth-codes'
 end
 
 local function on_attach(client, bufnr)
@@ -42,9 +42,17 @@ local function on_attach(client, bufnr)
 		vim.cmd 'vsplit'
 		vim.cmd 'buffer __FLUTTER_DEV_LOG__'
 	end, {})
+	vim.api.nvim_create_user_command('GrantPermission', function()
+		vim.cmd('Dispatch! ~/dotfiles/bin/grant-permission-android-app')
+	end, {})
+	vim.api.nvim_create_user_command('UnlockScreen', function()
+		vim.cmd('Dispatch! ~/dotfiles/bin/unlock_screen_android')
+	end, {})
+	vim.api.nvim_create_user_command('GrantPermission', function()
+		vim.cmd('Dispatch! ~/dotfiles/bin/grant-permission-android-app')
+	end, {})
 	vim.api.nvim_create_user_command('RemoveAndroidApp', function()
-		local command = '~/dotfiles/bin/remove-android-app'
-		vim.cmd('Dispatch ' .. command)
+		vim.cmd('Dispatch! ~/dotfiles/bin/remove-android-app')
 	end, {})
 	vim.api.nvim_create_user_command('FlutterLastTest', function()
 		if flutter_test_vim_command then
@@ -57,7 +65,13 @@ local function on_attach(client, bufnr)
 		vim.cmd("call MonkeyTerminalExecZsh('dart run')")
 	end
 	vim.api.nvim_create_user_command('DartRun', dartRun, {})
-	vim.keymap.set('n', '<space>r', dartRun, { noremap = true, silent = false })
+	if flutter_run_command == ':FlutterRun' then
+		vim.keymap.set('n', '<space>r', dartRun, { noremap = true, silent = false })
+	else
+		vim.keymap.set('n', '<space>r', function()
+			vim.cmd 'FlutterRestart'
+		end, { noremap = true, silent = false })
+	end
 
 	vim.api.nvim_create_user_command('FlutterRoute', function(data)
 		if data.args == "" then

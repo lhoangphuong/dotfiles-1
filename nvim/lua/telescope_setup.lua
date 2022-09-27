@@ -55,12 +55,31 @@ local builtin = require 'telescope.builtin'
 local opts = { noremap = true, silent = true }
 
 vim.keymap.set('n', '<space>p', function()
-  builtin.git_files({ previewer = false })
+  builtin.find_files({ previewer = false, cwd = git_root })
 end, opts)
 
 vim.keymap.set('n', '<space><space>', function()
   builtin.find_files({ previewer = false })
 end, opts)
+
+vim.api.nvim_create_user_command('Config', function()
+  builtin.find_files({
+    previewer = false,
+    cwd = vim.fs.normalize('$DOTFILE_DIR')
+  })
+end, {})
+vim.api.nvim_create_user_command('Admintool', function()
+  builtin.git_files({
+    previewer = false,
+    cwd = vim.fs.normalize('$HOME/elca-workspace/tixngo-admintool-flutter-2')
+  })
+end, {})
+vim.api.nvim_create_user_command('Sdk', function()
+  builtin.git_files({
+    previewer = false,
+    cwd = vim.fs.normalize('$HOME/elca-workspace/tyxr-app-sdk')
+  })
+end, {})
 
 vim.api.nvim_create_user_command('TelescopeFindDirectory', function()
   local find_command = { 'fd', '--type', 'd' }
@@ -84,6 +103,7 @@ vim.api.nvim_create_user_command('TelescopeFindDirectory', function()
       return true
     end })
 end, {})
+
 
 vim.keymap.set('n', '<space>qf', function()
   builtin.quickfix(ivy)
@@ -110,4 +130,5 @@ vim.keymap.set('n', '<space>sg', function()
   })
 end, { desc = '[S]earch by [G]rep' })
 
+vim.keymap.set('n', '<space>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<space>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })

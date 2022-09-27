@@ -13,17 +13,16 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +1 ~/dotfiles/vim
-badd +59 init.vim
-badd +117 coc_setup.vim
+badd +56 init.vim
+badd +138 coc_setup.vim
 badd +152 ~/dotfiles/nvim/lua/plugins.lua
 badd +6 plugged/vim-airline/autoload/airline/extensions/nvimlsp.vim
 argglobal
 %argdel
 $argadd ~/dotfiles/vim
-edit init.vim
+edit coc_setup.vim
 argglobal
-balt plugged/vim-airline/autoload/airline/extensions/nvimlsp.vim
+balt init.vim
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -34,11 +33,11 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 43 - ((34 * winheight(0) + 39) / 79)
+let s:l = 131 - ((52 * winheight(0) + 39) / 79)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 43
+keepjumps 131
 normal! 0
 lcd ~/dotfiles/vim
 tabnext 1
@@ -54,6 +53,7 @@ if filereadable(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
 set hlsearch
+nohlsearch
 let g:this_session = v:this_session
 let g:this_obsession = v:this_session
 doautoall SessionLoadPost

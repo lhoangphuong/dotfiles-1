@@ -43,6 +43,8 @@ return packer.startup(function(use)
   -- color Theme
   use 'bluz71/vim-nightfly-guicolors'
 
+  --rscript-lang
+  use 'rescript-lang/vim-rescript'
 
   -- Tree sitter
   use {
@@ -55,6 +57,7 @@ return packer.startup(function(use)
       { 'nvim-treesitter/playground', after = 'nvim-treesitter' },
       { 'nvim-treesitter/nvim-treesitter-textobjects', after = 'nvim-treesitter' },
       { 'nvim-treesitter/nvim-treesitter-refactor', after = 'nvim-treesitter' },
+      { 'nkrkv/nvim-treesitter-rescript', run = ':TSInstall rescript', after = 'nvim-treesitter' }
     },
   }
 
@@ -77,6 +80,21 @@ return packer.startup(function(use)
       end
       },
       'kyazdani42/nvim-web-devicons',
+      { 'dzfrias/gsearch.nvim', config = function()
+        local gsearch = require 'gsearch'
+        gsearch.setup {
+          -- Set to false to disable the plugin
+          enabled = true,
+          -- The key to use to Google search for what's in your Telescope prompt
+          -- without using one of the suggestions
+          open_raw_key = "<s-CR>",
+          -- The shell command to use to open the URL. As an empty string, it
+          -- defaults to your OS defaults ("open" for macOS, "xdg-open" for Linux)
+          open_cmd = "open -a Vieb.app",
+        }
+        vim.keymap.set('n', '<space>gs', require("gsearch").search, { noremap = true, silent = true })
+      end
+      },
     },
   }
 
@@ -92,7 +110,7 @@ return packer.startup(function(use)
 
   -- lsp stuff
   use { 'neovim/nvim-lspconfig', config = function()
-    require 'lspstuff'
+    require 'lspconfig_setup'
   end }
   use({
     "andrewferrier/textobj-diagnostic.nvim",
@@ -206,7 +224,7 @@ return packer.startup(function(use)
     vim.g.copilot_filetypes = {
       cpp = not vim.g.cp_flag,
     }
-  end }
+  end, }
   use {
     "windwp/nvim-autopairs",
     config = function()

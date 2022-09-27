@@ -1,6 +1,32 @@
 -- Setup nvim-cmp.
 local cmp = require 'cmp'
 local luasnip = require("luasnip")
+local sources = {
+  { name = 'luasnip' },
+  { name = 'nvim_lsp' },
+  { name = 'path' },
+  { name = 'treesitter' },
+  { name = 'fuzzy_path',
+    options = {
+      fd_cmd = { 'fd', '-d', '20', '-p', '-i' },
+      fd_timeout_msec = 500,
+    }
+  },
+  { name = 'buffer' },
+  { name = 'tmux',
+    option = {
+      all_panes = false,
+      trigger_characters = { '.' },
+      trigger_characters_ft = {} -- { filetype = { '.' } }
+    }
+  },
+  { name = 'buffer' },
+}
+
+if not vim.g.cp_flag then
+  table.insert(sources, { name = 'copilot' })
+end
+
 cmp.setup({
   formatting = {
     format = function(entry, vim_item)
@@ -61,30 +87,7 @@ cmp.setup({
     })
   },
   confirmation = { completeopt = 'menu,menuone,noinsert' },
-  sources = cmp.config.sources({
-    { name = 'luasnip' },
-    { name = 'nvim_lsp' },
-    { name = 'path' },
-    { name = 'treesitter' },
-    { name = 'fuzzy_path',
-      options = {
-        fd_cmd = { 'fd', '-d', '20', '-p', '-i' },
-        fd_timeout_msec = 500,
-      }
-    },
-    -- { name = 'copilot', is_available = function() return false end },
-    { name = 'buffer' },
-    { name = 'tmux',
-      option = {
-        all_panes = false,
-        trigger_characters = { '.' },
-        trigger_characters_ft = {} -- { filetype = { '.' } }
-      }
-    },
-    { name = 'buffer' },
-  }
-  ), {
-  }
+  sources = cmp.config.sources(sources),
 })
 cmp.setup.cmdline('/', {
   mapping = cmp.mapping.preset.cmdline(),
