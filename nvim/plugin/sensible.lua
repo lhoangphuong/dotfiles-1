@@ -4,6 +4,7 @@ vim.cmd([[
 
   let g:copilot_filetypes = {
   \ 'cpp': v:false,
+  \ 'dap-repl': v:false,
   \ }
 ]])
 
@@ -18,6 +19,7 @@ vim.o.smartcase = true
 vim.o.cursorcolumn = false
 vim.wo.colorcolumn = 0
 vim.cmd 'set noswapfile'
+vim.cmd 'set cmdheight=0'
 
 
 vim.keymap.set('n', '<C-s>', ':update<CR>', { noremap = true, silent = true, desc = '[S]ave' })
@@ -67,3 +69,13 @@ vim.api.nvim_create_user_command('Touch', function(data)
 
 
 end, { nargs = "*" })
+
+local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
+local cwd = vim.fs.normalize(vim.fn.getcwd())
+local nvim_dir = vim.fs.normalize('$DOTFILE_DIR/nvim')
+
+if cwd == nvim_dir then
+  vim.api.nvim_create_autocmd('BufWritePost',
+    { command = [[ source <afile> | PackerCompile ]],
+      group = packer_group, pattern = '**/*.lua' })
+end

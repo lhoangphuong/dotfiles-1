@@ -64,7 +64,7 @@ flutter_pub_get_all(){
   for d in */ ; do
 	  echo "$d"
 	  cd $d
-	  fpg
+	  flutter pub get
 	  cd -
   done
 }
@@ -73,7 +73,7 @@ flutter_pub_get_all(){
 alias f='fvm flutter'
 alias fcl='fvm flutter clean'
 alias fpg='fvm flutter pub get'
-alias fpga=flutter
+alias fpga=flutter_pub_get_all
 alias fr='fvm flutter run'
 alias frc='fvm flutter run '
 alias frm='fvm flutter run'

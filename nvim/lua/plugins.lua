@@ -40,6 +40,7 @@ return packer.startup(function(use)
 
 
   use 'wbthomason/packer.nvim'
+
   -- color Theme
   use 'bluz71/vim-nightfly-guicolors'
 
@@ -150,7 +151,7 @@ return packer.startup(function(use)
       'hrsh7th/cmp-nvim-lsp',
       'dart-lang/dart-vim-plugin',
       'Neevash/awesome-flutter-snippets',
-      'RobertBrunhage/flutter-riverpod-snippets'
+      'RobertBrunhage/flutter-riverpod-snippets',
     },
     ft = { 'dart', 'feature', 'yaml', 'lua' },
     config = function()
@@ -177,6 +178,23 @@ return packer.startup(function(use)
     require 'clangd_setup'
   end }
 
+  --debug
+
+
+
+  -- testing
+  use {
+    "nvim-neotest/neotest",
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-treesitter/nvim-treesitter',
+      'antoinemadec/FixCursorHold.nvim',
+      'huylg/neotest-dart',
+    },
+    config = function()
+      require 'neotest_setup'
+    end,
+  }
 
   -- autocomplete
   use {
@@ -260,7 +278,7 @@ return packer.startup(function(use)
   end }
   use 'mtdl9/vim-log-highlighting'
 
-  -- csv
+  -- data format
   use 'chrisbra/csv.vim'
   use 'Einenlum/yaml-revealer'
 

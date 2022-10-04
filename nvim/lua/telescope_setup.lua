@@ -55,7 +55,7 @@ local builtin = require 'telescope.builtin'
 local opts = { noremap = true, silent = true }
 
 vim.keymap.set('n', '<space>p', function()
-  builtin.find_files({ previewer = false, cwd = git_root })
+  builtin.git_files({ previewer = false, cwd = git_root })
 end, opts)
 
 vim.keymap.set('n', '<space><space>', function()
@@ -63,7 +63,7 @@ vim.keymap.set('n', '<space><space>', function()
 end, opts)
 
 vim.api.nvim_create_user_command('Config', function()
-  builtin.find_files({
+  builtin.git_files({
     previewer = false,
     cwd = vim.fs.normalize('$DOTFILE_DIR')
   })
@@ -115,14 +115,16 @@ end, opts)
 
 vim.keymap.set('n', '<space>sr', builtin.resume, { desc = '[S]earch [R]esume' })
 vim.keymap.set('n', '<space>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-vim.keymap.set('n', '<space>fb', require('telescope.builtin').buffers, { desc = '[S]earch existing [B]uffers' })
+vim.keymap.set('n', '<space>fb', require('telescope.builtin').buffers, { desc = '[f]ind existing [B]uffers' })
 vim.keymap.set('n', '<space>/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require('telescope.builtin').current_buffer_fuzzy_find(dropdown)
 end, { desc = '[/] Fuzzily search in current buffer]' })
 
 vim.keymap.set('n', '<space>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
-vim.keymap.set('n', '<space>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
+vim.keymap.set('n', '<space>sw', function()
+  require('telescope.builtin').grep_string({ search_dirs = { git_root } })
+end, { desc = '[S]earch current [W]ord' })
 
 vim.keymap.set('n', '<space>sg', function()
   require('telescope.builtin').live_grep({
@@ -130,5 +132,4 @@ vim.keymap.set('n', '<space>sg', function()
   })
 end, { desc = '[S]earch by [G]rep' })
 
-vim.keymap.set('n', '<space>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<space>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })

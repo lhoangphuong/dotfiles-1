@@ -7,13 +7,20 @@ local current_workspace = vim.fn.getcwd();
 local sdk_path = vim.fs.normalize('$HOME/elca-workspace/tyxr-app-sdk')
 local admintool_path = vim.fs.normalize('$HOME/elca-workspace/tixngo-admintool-flutter-2')
 local flutter_run_command = ':FlutterRun'
-local flutter_test_vim_command = nil
 
 if string.find(current_workspace, admintool_path, 1, true) then
 	flutter_run_command = 'FlutterRun -t lib/main_development.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800'
 elseif current_workspace == sdk_path then
-	flutter_run_command = 'FlutterRun -t integration_test/app_test.dart --host-vmservice-port 8000 --disable-service-auth-codes'
+	flutter_run_command = 'FlutterRun -t integration_test/transfer_test.dart --host-vmservice-port 8000 --disable-service-auth-codes'
 end
+
+local opts = { noremap = true, silent = true }
+vim.keymap.set('n', '<space>fl', ':FlutterLogClear<CR>', opts)
+vim.keymap.set('n', '<space>fa', function()
+	vim.cmd(flutter_run_command)
+end, opts)
+vim.keymap.set('n', '<space>fq', ':FlutterQuit<CR>', opts)
+vim.keymap.set('n', '<space>fo', ':FlutterLogOpen<CR>', opts)
 
 local function on_attach(client, bufnr)
 	require("telescope").load_extension("flutter")
@@ -30,13 +37,6 @@ local function on_attach(client, bufnr)
 	vim.keymap.set('n', '<space>fc', function()
 		vim.cmd 'Telescope flutter commands'
 	end, opts)
-	vim.keymap.set('n', '<space>fl', ':FlutterLogClear<CR>', opts)
-	vim.keymap.set('n', '<space>fa', function()
-		vim.cmd(flutter_run_command)
-	end, opts)
-	vim.keymap.set('n', '<space>fq', ':FlutterQuit<CR>', opts)
-	vim.keymap.set('n', '<space>fo', ':FlutterLogOpen<CR>', opts)
-	vim.keymap.set('n', '<space>ft', ':FlutterLastTest<CR>', opts)
 
 	vim.api.nvim_create_user_command('FlutterLogOpen', function()
 		vim.cmd 'vsplit'
@@ -52,14 +52,7 @@ local function on_attach(client, bufnr)
 		vim.cmd('Dispatch! ~/dotfiles/bin/grant-permission-android-app')
 	end, {})
 	vim.api.nvim_create_user_command('RemoveAndroidApp', function()
-		vim.cmd('Dispatch! ~/dotfiles/bin/remove-android-app')
-	end, {})
-	vim.api.nvim_create_user_command('FlutterLastTest', function()
-		if flutter_test_vim_command then
-			vim.cmd(flutter_test_vim_command)
-		else
-			print 'run flutter test command first'
-		end
+		vim.cmd('Dispatch ~/dotfiles/bin/remove-android-app')
 	end, {})
 	local dartRun = function()
 		vim.cmd("call MonkeyTerminalExecZsh('dart run')")
@@ -87,11 +80,6 @@ local function on_attach(client, bufnr)
 		end
 	end, { nargs = "*" })
 
-	vim.api.nvim_create_user_command('FlutterTest', function(data)
-		local flutter_test_command = 'flutter test integration_test/app_test.dart '
-		flutter_test_vim_command = 'call MonkeyTerminalExecZsh(' .. "\'" .. flutter_test_command .. data.args .. "\'" .. ')'
-		vim.cmd(flutter_test_vim_command)
-	end, { nargs = "*" })
 
 	vim.api.nvim_create_user_command('FlutterBuildRunner', function()
 		vim.cmd 'Dispatch flutter pub get; flutter pub run build_runner build --delete-conflicting-outputs'

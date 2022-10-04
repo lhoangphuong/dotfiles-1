@@ -1,4 +1,5 @@
-require('neotest').setup({
+local neotest = require 'neotest'
+neotest.setup({
   adapters = {
     require('neotest-dart') {
       command = 'fvm flutter', -- Command being used to run tests. Defaults to `flutter`
@@ -14,8 +15,8 @@ require('neotest').setup({
   },
   floating = {
     border = "rounded",
-    max_height = 0.6,
-    max_width = 0.6,
+    max_height = 0.8,
+    max_width = 0.8,
     options = {}
   },
   highlights = {
@@ -47,7 +48,7 @@ require('neotest').setup({
     final_child_prefix = "╰",
     non_collapsible = "─",
     passed = "✔",
-    running = "⚡",
+    running = "ϟ",
     skipped = "ﰸ",
     unknown = "?"
   },
@@ -56,15 +57,15 @@ require('neotest').setup({
   },
   output = {
     enabled = true,
-    open_on_run = "short"
+    open_on_run = "full"
   },
   run = {
     enabled = true
   },
   status = {
     enabled = true,
-    signs = true,
-    virtual_text = false
+    signs = false,
+    virtual_text = true,
   },
   strategies = {
     integrated = {
@@ -94,4 +95,45 @@ require('neotest').setup({
   }
 })
 
-vim.api.nvim_create_user_command('NeotestSummaryToggle', require 'neotest'.summary.toggle, {})
+
+vim.api.nvim_create_user_command('TestSummary', neotest.summary.toggle, {})
+vim.api.nvim_create_user_command('TestNearest', neotest.run.run, {})
+vim.api.nvim_create_user_command('TestDap', function()
+  neotest.run.run({ strategy = 'dap' })
+end, {})
+vim.api.nvim_create_user_command('TestLast', neotest.run.run_last, {})
+vim.api.nvim_create_user_command('TestLastDap', function()
+  neotest.run.run_last({ strategy = 'dap' })
+end, {})
+vim.api.nvim_create_user_command('TestStop', function()
+  neotest.run.stop({})
+end, {})
+vim.api.nvim_create_user_command('TestFile', function()
+  neotest.run.run(vim.fn.expand('%'))
+end, {})
+vim.api.nvim_create_user_command('TestOutput', function()
+  neotest.output.open({ short = false, enter = true })
+end, {})
+vim.api.nvim_create_user_command('TestDap', function()
+  neotest.run.run({ strategy = 'dap' })
+end, {})
+
+local opts = { noremap = true, silent = true }
+vim.keymap.set('n', '<space>ts', neotest.summary.toggle, opts)
+vim.keymap.set('n', '<space>tl', neotest.run.run_last, opts)
+vim.keymap.set('n', '<space>tr', neotest.run.run, opts)
+vim.keymap.set('n', '<space>to', function()
+  neotest.output.open({ short = false, enter = true })
+end, opts)
+
+
+vim.keymap.set('n', ']n', function()
+  neotest.jump.next { status = 'failed' }
+end, opts)
+vim.keymap.set('n', '[n', function()
+  neotest.jump.prev { status = 'failed' }
+end, opts)
+
+
+vim.keymap.set('n', ']t', neotest.jump.next, opts)
+vim.keymap.set('n', '[t', neotest.jump.prev, opts)
