@@ -21,7 +21,7 @@ badd +20 lua/cmp_setup.lua
 badd +26 ~/dotfiles/x11/.Xresources
 badd +81 plugin/sensible.lua
 badd +9 lua/flutter.lua
-badd +162 lua/plugins.lua
+badd +239 lua/plugins.lua
 badd +105 lua/telescope_setup.lua
 badd +14 lua/lspconfig_setup.lua
 badd +39 lua/gitsigns_setup.lua
@@ -31,7 +31,7 @@ badd +1 ~/dotfiles/bin/remove-android-app
 badd +6 man://json(n)
 badd +1 ~/dotfiles/bin/grant-permission-android-app
 badd +1 ~/dotfiles/bin/unlock_screen_android.sh
-badd +5 lua/nighfly_setup.lua
+badd +11 lua/nighfly_setup.lua
 badd +8 lua/default_scheme.lua
 badd +1 lua/gruvbuddy_setup.lua
 badd +15 ~/dotfiles/kitty/kitty.conf
@@ -49,9 +49,9 @@ badd +19 lua/rest_setup.lua
 argglobal
 %argdel
 $argadd ~/dotfiles/nvim
-edit ~/dotfiles/alacritty/alacritty.yml
+edit lua/plugins.lua
 argglobal
-balt lua/neotest_setup.lua
+balt lua/nighfly_setup.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -62,12 +62,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 52 - ((51 * winheight(0) + 40) / 80)
+let s:l = 220 - ((76 * winheight(0) + 72) / 144)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 52
-normal! 0
+keepjumps 220
+normal! 03|
 lcd ~/dotfiles/nvim
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
