@@ -16,6 +16,7 @@ end
 
 local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<space>fl', ':FlutterLogClear<CR>', opts)
+vim.keymap.set('n', '<space>fw', 'FlutterSendRawKey w', opts)
 vim.keymap.set('n', '<space>fa', function()
 	vim.cmd(flutter_run_command)
 end, opts)
@@ -38,6 +39,9 @@ local function on_attach(client, bufnr)
 		vim.cmd 'Telescope flutter commands'
 	end, opts)
 
+	vim.api.nvim_create_user_command('FlutterRunFile', function()
+		vim.cmd('FlutterRun' .. vim.fn.expand('%'))
+	end, {})
 	vim.api.nvim_create_user_command('FlutterLogOpen', function()
 		vim.cmd 'vsplit'
 		vim.cmd 'buffer __FLUTTER_DEV_LOG__'
@@ -51,8 +55,11 @@ local function on_attach(client, bufnr)
 	vim.api.nvim_create_user_command('GrantPermission', function()
 		vim.cmd('Dispatch! ~/dotfiles/bin/grant-permission-android-app')
 	end, {})
-	vim.api.nvim_create_user_command('RemoveAndroidApp', function()
-		vim.cmd('Dispatch ~/dotfiles/bin/remove-android-app')
+	vim.api.nvim_create_user_command('UninstallApp', function()
+		vim.cmd 'Dispatch ~/dotfiles/bin/uninstall-android-app'
+	end, {})
+	vim.api.nvim_create_user_command('InstallApp', function()
+		vim.cmd 'Dispatch ~/dotfiles/bin/install-android-app'
 	end, {})
 	local dartRun = function()
 		vim.cmd("call MonkeyTerminalExecZsh('dart run')")

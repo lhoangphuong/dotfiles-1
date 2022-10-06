@@ -9,4 +9,5 @@ vim.cmd [[
     hi link DiagnosticVirtualTextInfo NightflyBlue
     hi Winbar guibg=none guifg=#21c7a8
     hi WinbarNC guibg=none 
+    hi StatusLine guibg=none
   ]]

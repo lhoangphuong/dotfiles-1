@@ -18,8 +18,11 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.cursorcolumn = false
 vim.wo.colorcolumn = 0
-vim.cmd 'set noswapfile'
-vim.cmd 'set cmdheight=0'
+vim.cmd [[
+  set noswapfile
+  set cmdheight=0
+  set switchbuf+=useopen
+]]
 
 
 vim.keymap.set('n', '<C-s>', ':update<CR>', { noremap = true, silent = true, desc = '[S]ave' })

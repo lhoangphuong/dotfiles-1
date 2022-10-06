@@ -223,6 +223,10 @@ return packer.startup(function(use)
   end, requires = { 'rafamadriz/friendly-snippets' }
   }
 
+  -- productivity
+  use { 'nguyenvukhang/nvim-toggler', config = function()
+    require('nvim-toggler').setup()
+  end }
   use 'wellle/targets.vim'
   use 'tpope/vim-tbone'
   use 'tpope/vim-surround'
@@ -253,6 +257,7 @@ return packer.startup(function(use)
       })
     end
   }
+
   use { 'antoinemadec/FixCursorHold.nvim', config = function()
     vim.g.cursorhold_updatetime = 100
   end }

@@ -89,10 +89,11 @@ export VM_SERVICE_URL=http://127.0.0.1:8000/
 alias lg=lazygit
 
 my_vim(){
-	if (( $# == 0 )); then
-    		$HOME/nvim-nightly/bin/nvim . -S Session.vim
-	else $HOME/nvim-nightly/bin/nvim $1
-	fi
+	  if [ ! -f Session.vim ]; then
+	    $HOME/nvim-nightly/bin/nvim . 
+	  else
+	    $HOME/nvim-nightly/bin/nvim . -S Session.vim
+	  fi
 }
 alias n=my_vim
 
