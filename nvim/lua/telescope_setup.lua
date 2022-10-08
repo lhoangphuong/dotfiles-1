@@ -68,6 +68,13 @@ vim.api.nvim_create_user_command('Config', function()
     cwd = vim.fs.normalize('$DOTFILE_DIR')
   })
 end, {})
+vim.keymap.set('n', '<space>P', function()
+  builtin.find_files({
+    previewer = false,
+    cwd = require('packer').config.package_root,
+  })
+end, opts)
+
 vim.api.nvim_create_user_command('Admintool', function()
   builtin.git_files({
     previewer = false,

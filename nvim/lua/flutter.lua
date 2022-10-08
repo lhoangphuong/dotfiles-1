@@ -8,10 +8,13 @@ local sdk_path = vim.fs.normalize('$HOME/elca-workspace/tyxr-app-sdk')
 local admintool_path = vim.fs.normalize('$HOME/elca-workspace/tixngo-admintool-flutter-2')
 local flutter_run_command = ':FlutterRun'
 
-if string.find(current_workspace, admintool_path, 1, true) then
-	flutter_run_command = 'FlutterRun -t lib/main_development.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800'
-elseif current_workspace == sdk_path then
+if string.find(current_workspace, sdk_path, 1, true) then
 	flutter_run_command = 'FlutterRun -t integration_test/transfer_test.dart --host-vmservice-port 8000 --disable-service-auth-codes'
+	vim.api.nvim_create_user_command('FlutterPubGetSDK', function()
+		vim.cmd("call MonkeyTerminalExecZsh('cd $HOME/elca-workspace/tyxr-app-sdk/modules && fpga; cd $HOME/elca-workspace/tyxr-app-sdk/branded_app/tixngo_show && fpg')")
+	end, {})
+elseif current_workspace == admintool_path then
+	flutter_run_command = 'FlutterRun -t lib/main_development.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800'
 end
 
 local opts = { noremap = true, silent = true }
@@ -40,7 +43,7 @@ local function on_attach(client, bufnr)
 	end, opts)
 
 	vim.api.nvim_create_user_command('FlutterRunFile', function()
-		vim.cmd('FlutterRun' .. vim.fn.expand('%'))
+		vim.cmd('FlutterRun ' .. vim.fn.expand('%'))
 	end, {})
 	vim.api.nvim_create_user_command('FlutterLogOpen', function()
 		vim.cmd 'vsplit'
@@ -56,7 +59,7 @@ local function on_attach(client, bufnr)
 		vim.cmd('Dispatch! ~/dotfiles/bin/grant-permission-android-app')
 	end, {})
 	vim.api.nvim_create_user_command('UninstallApp', function()
-		vim.cmd 'Dispatch ~/dotfiles/bin/uninstall-android-app'
+		vim.cmd 'Dispatch! ~/dotfiles/bin/uninstall-android-app'
 	end, {})
 	vim.api.nvim_create_user_command('InstallApp', function()
 		vim.cmd 'Dispatch ~/dotfiles/bin/install-android-app'

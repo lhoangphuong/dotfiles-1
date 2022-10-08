@@ -184,7 +184,7 @@ return packer.startup(function(use)
 
   -- testing
   use {
-    "nvim-neotest/neotest",
+    "huylg/neotest",
     requires = {
       'nvim-lua/plenary.nvim',
       'nvim-treesitter/nvim-treesitter',
@@ -224,9 +224,6 @@ return packer.startup(function(use)
   }
 
   -- productivity
-  use { 'nguyenvukhang/nvim-toggler', config = function()
-    require('nvim-toggler').setup()
-  end }
   use 'wellle/targets.vim'
   use 'tpope/vim-tbone'
   use 'tpope/vim-surround'

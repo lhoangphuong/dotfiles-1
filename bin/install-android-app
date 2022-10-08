@@ -1,1 +1,2 @@
 adb install ./build/app/outputs/apk/debug/app-debug.apk
+adb shell monkey -p "$(~/dotfiles/bin/gradle-to-json ./android/app/build.gradle | jq '.android.defaultConfig.applicationId' | xargs)" 1
