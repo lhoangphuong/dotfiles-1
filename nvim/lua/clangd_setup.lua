@@ -6,7 +6,7 @@ require("clangd_extensions").setup {
 
       local run = function()
         local current_file = vim.fn.expand('%')
-        vim.cmd("call MonkeyTerminalExecZsh('make target=" .. current_file .. "')")
+        vim.cmd.Make({ 'target=' .. current_file })
       end
 
       vim.api.nvim_create_user_command('ClangdRun', run, {})
@@ -23,17 +23,7 @@ require("clangd_extensions").setup {
 
         vim.cmd 'set relativenumber!'
 
-        local make_command = 'make debug target=' .. current_file .. '; '
-        local lldb_command = 'lldb a.out '
-
-        vim.cmd('call MonkeyTerminalExecZsh(' .. "\'" .. make_command .. lldb_command .. "\'" .. ')')
-
-        local set_breakpoint_command = 'b ' .. current_line;
-
-        vim.cmd('call MonkeyTerminalExec(' .. "\'" .. set_breakpoint_command .. "\'" .. ')')
-        vim.cmd [[
-          call MonkeyTerminalExec('r')
-        ]]
+        vim.cmd.Make({ 'debug', 'target=' .. current_file, '&&', 'lldb', 'a.out' })
       end
       vim.keymap.set('n', '<space>cd', debug, { noremap = true, silent = false })
       vim.api.nvim_create_user_command('ClangdDebug', debug, {})

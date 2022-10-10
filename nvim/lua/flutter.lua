@@ -11,20 +11,22 @@ local flutter_run_command = ':FlutterRun'
 if string.find(current_workspace, sdk_path, 1, true) then
 	flutter_run_command = 'FlutterRun -t integration_test/transfer_test.dart --host-vmservice-port 8000 --disable-service-auth-codes'
 	vim.api.nvim_create_user_command('FlutterPubGetSDK', function()
-		vim.cmd("call MonkeyTerminalExecZsh('cd $HOME/elca-workspace/tyxr-app-sdk/modules && fpga; cd $HOME/elca-workspace/tyxr-app-sdk/branded_app/tixngo_show && fpg')")
+		vim.cmd.Dispatch 'cd $HOME/elca-workspace/tyxr-app-sdk/modules && fpga; cd $HOME/elca-workspace/tyxr-app-sdk/branded_app/tixngo_show && fpg'
 	end, {})
 elseif current_workspace == admintool_path then
 	flutter_run_command = 'FlutterRun -t lib/main_development.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800'
 end
 
 local opts = { noremap = true, silent = true }
-vim.keymap.set('n', '<space>fl', ':FlutterLogClear<CR>', opts)
-vim.keymap.set('n', '<space>fw', 'FlutterSendRawKey w', opts)
+vim.keymap.set('n', '<space>fl', vim.cmd.FlutterLogClear, opts)
+vim.keymap.set('n', '<space>fw', function()
+	vim.cmd.FlutterSendRawKey 'w'
+end, opts)
 vim.keymap.set('n', '<space>fa', function()
 	vim.cmd(flutter_run_command)
 end, opts)
-vim.keymap.set('n', '<space>fq', ':FlutterQuit<CR>', opts)
-vim.keymap.set('n', '<space>fo', ':FlutterLogOpen<CR>', opts)
+vim.keymap.set('n', '<space>fq', vim.cmd.FlutterQuit, opts)
+vim.keymap.set('n', '<space>fo', vim.cmd.FlutterLogOpen, opts)
 
 local function on_attach(client, bufnr)
 	require("telescope").load_extension("flutter")
@@ -65,7 +67,7 @@ local function on_attach(client, bufnr)
 		vim.cmd 'Dispatch ~/dotfiles/bin/install-android-app'
 	end, {})
 	local dartRun = function()
-		vim.cmd("call MonkeyTerminalExecZsh('dart run')")
+		vim.cmd.Dispatch 'dart run'
 	end
 	vim.api.nvim_create_user_command('DartRun', dartRun, {})
 	if flutter_run_command == ':FlutterRun' then
@@ -98,13 +100,13 @@ local function on_attach(client, bufnr)
 		vim.cmd 'Dispatch flutter pub get; flutter pub run build_runner clean; flutter pub run build_runner build --delete-conflicting-outputs'
 	end, {})
 	vim.api.nvim_create_user_command('FlutterAnalyze', function()
-		vim.cmd('call MonkeyTerminalExecZsh(' .. "\'" .. 'flutter analyze' .. "\'" .. ')')
+		vim.cmd.Dispatch 'flutter analyze'
 	end, {})
 	vim.api.nvim_create_user_command('FlutterGenL10n', function()
-		vim.cmd 'Dispatch flutter pub run intl_translation:generate_from_arb'
+		vim.cmd.Dispatch 'flutter pub run intl_translation:generate_from_arb'
 	end, {})
 	vim.api.nvim_create_user_command('FlutterRunWithoutBuild', function()
-		vim.cmd 'FlutterRun --use-application-binary=build/app/outputs/flutter-apk/app-debug.apk'
+		vim.cmd.FlutterRun '--use-application-binary=build/app/outputs/flutter-apk/app-debug.apk'
 	end, {})
 	require 'lsp_mapping'.map(client, bufnr)
 

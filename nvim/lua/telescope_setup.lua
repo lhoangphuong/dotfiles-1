@@ -117,7 +117,7 @@ vim.keymap.set('n', '<space>qf', function()
 end, opts)
 
 vim.keymap.set('n', '<space>st', function()
-  vim.cmd 'Telescope'
+  vim.cmd.Telescope()
 end, opts)
 
 vim.keymap.set('n', '<space>sr', builtin.resume, { desc = '[S]earch [R]esume' })

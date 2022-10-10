@@ -1,13 +1,14 @@
-vim.cmd([[
-  autocmd FileType qf wincmd J
-  packadd cfilter
-
-  let g:copilot_filetypes = {
-  \ 'cpp': v:false,
-  \ 'dap-repl': v:false,
-  \ }
-]])
-
+vim.api.nvim_create_autocmd('FileType', {
+  callback = function()
+    vim.cmd.wincmd('J')
+  end,
+  pattern = 'qf',
+})
+vim.cmd.packadd('cfilter')
+vim.g.copilot_filetypes = {
+  cpp = false,
+  ['dap-repl'] = false,
+}
 vim.o.mouse = 'a'
 vim.o.clipboard = 'unnamedplus'
 vim.o.number = true
@@ -18,11 +19,8 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.cursorcolumn = false
 vim.wo.colorcolumn = 0
-vim.cmd [[
-  set noswapfile
-  set cmdheight=0
-  set switchbuf+=useopen
-]]
+vim.g.noswapfile = true
+vim.o.cmdheight = 0
 
 
 vim.keymap.set('n', '<C-s>', ':update<CR>', { noremap = true, silent = true, desc = '[S]ave' })
@@ -59,7 +57,7 @@ else
 end
 
 vim.api.nvim_create_user_command('JwtParser', function()
-  vim.cmd "call MonkeyTerminalExecZsh('jwt decode $(pbpaste) | jid')"
+  vim.cmd.Start 'jwt decode $(pbpaste) | jid'
 end, {})
 
 vim.api.nvim_create_user_command('Touch', function(data)
