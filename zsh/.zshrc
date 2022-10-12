@@ -46,6 +46,7 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH="$PATH:$ANDROID_HOME/emulator/"
 export PATH="$PATH:$HOME/.cargo/bin/"
 export PATH="$PATH:$HOME/nvim-nightly/bin"
+export PATH="/usr/local/opt/openjdk@8/bin:$PATH"
 
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
@@ -119,11 +120,11 @@ update_vim(){
 
 
 toggle_nvim_profile(){
-  if [[ "$(readlink $HOME/.config/nvim)" == $HOME/dotfiles/nvim ]]; then
+  if [[ "$(readlink -f  $HOME/.config/nvim)" == $HOME/dotfiles/nvim ]]; then
 		echo 'switch to vim profile'
 		unlink $HOME/.config/nvim
 		ln -s $HOME/dotfiles/vim $HOME/.config/nvim
-  elif [[  "$(readlink $HOME/.config/nvim)" == $HOME/dotfiles/vim  ]]; then
+  elif [[  "$(readlink -f $HOME/.config/nvim)" == $HOME/dotfiles/vim  ]]; then
 		echo 'switch to nvim profile'
 		unlink $HOME/.config/nvim
 		ln -s $HOME/dotfiles/nvim $HOME/.config/nvim

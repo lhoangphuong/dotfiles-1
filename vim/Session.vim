@@ -13,16 +13,34 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +56 init.vim
-badd +138 coc_setup.vim
+badd +1 ~/dotfiles/vim
+badd +29 init.vim
+badd +102 coc_setup.vim
 badd +152 ~/dotfiles/nvim/lua/plugins.lua
 badd +6 plugged/vim-airline/autoload/airline/extensions/nvimlsp.vim
+badd +47 ~/dotfiles/zsh/.zshrc
+badd +80 term://~/dotfiles/vim//29523:/bin/zsh
+badd +1 ~/dotfiles/nvim/init.lua
+badd +11 autoload/plug.vim
+badd +12 ~/dotfiles/kitty/kitty.conf
 argglobal
 %argdel
 $argadd ~/dotfiles/vim
-edit coc_setup.vim
+edit init.vim
+let s:save_splitbelow = &splitbelow
+let s:save_splitright = &splitright
+set splitbelow splitright
+let &splitbelow = s:save_splitbelow
+let &splitright = s:save_splitright
+wincmd t
+let s:save_winminheight = &winminheight
+let s:save_winminwidth = &winminwidth
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
 argglobal
-balt init.vim
+balt ~/dotfiles/zsh/.zshrc
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -33,11 +51,11 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 131 - ((52 * winheight(0) + 39) / 79)
+let s:l = 25 - ((24 * winheight(0) + 39) / 79)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 131
+keepjumps 25
 normal! 0
 lcd ~/dotfiles/vim
 tabnext 1
@@ -47,6 +65,8 @@ endif
 unlet! s:wipebuf
 set winheight=1 winwidth=20
 let &shortmess = s:shortmess_save
+let &winminheight = s:save_winminheight
+let &winminwidth = s:save_winminwidth
 let s:sx = expand("<sfile>:p:r")."x.vim"
 if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)

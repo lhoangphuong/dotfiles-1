@@ -46,15 +46,16 @@ badd +43 ~/dotfiles/alacritty/alacritty.yml
 badd +10 man://false(1)
 badd +1 lua/plenary_setup.lua
 badd +19 lua/rest_setup.lua
-badd +99 ~/dotfiles/zsh/.zshrc
+badd +49 ~/dotfiles/zsh/.zshrc
 badd +1 ~/dotfiles/bin/install-android-app
-badd +33 lua/clangd_setup.lua
+badd +93 lua/clangd_setup.lua
+badd +24 ~/dotfiles/vim/init.vim
 argglobal
 %argdel
 $argadd ~/dotfiles/nvim
-edit lua/clangd_setup.lua
+edit plugin/sensible.lua
 argglobal
-balt lua/flutter.lua
+balt init.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -65,12 +66,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 32 - ((31 * winheight(0) + 72) / 144)
+let s:l = 82 - ((78 * winheight(0) + 39) / 79)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 32
-normal! 0
+keepjumps 82
+normal! 02|
 lcd ~/dotfiles/nvim
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
