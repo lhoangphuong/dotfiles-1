@@ -1,7 +1,7 @@
 vim.g.nightflyWinSeparator = 2
 vim.g.nightflyTransparent = false
 vim.cmd.colorscheme 'nightfly'
-vim.api.nvim_set_hl(0, 'CursorLine', { underline = true, bg = nil })
+vim.api.nvim_set_hl(0, 'CursorLine', { underline = false, bg = nil })
 vim.api.nvim_set_hl(0, 'DiagnosticVirtualTextError', { link = 'NightflyRed' })
 vim.api.nvim_set_hl(0, 'DiagnosticVirtualTextWarn', { link = 'NightflyYellow' })
 vim.api.nvim_set_hl(0, 'DiagnosticVirtualTextHint', { link = 'NightflyWhite' })

@@ -18,7 +18,6 @@ require("clangd_extensions").setup {
       -- 4. set breakpoint add current line
       -- 5. lldb run
       local debug = function()
-        local current_line = vim.api.nvim_win_get_cursor(0)[1]
         local current_file = vim.fn.expand('%')
 
         vim.cmd 'set relativenumber!'

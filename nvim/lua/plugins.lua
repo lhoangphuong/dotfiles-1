@@ -119,6 +119,10 @@ return packer.startup(function(use)
       require("textobj-diagnostic").setup()
     end,
   })
+  use { 'simrat39/symbols-outline.nvim', config = function()
+    require 'symbols-outline_setup'
+  end }
+
   use {
     'SmiteshP/nvim-navic',
     requires = 'neovim/nvim-lspconfig'
@@ -224,6 +228,12 @@ return packer.startup(function(use)
   }
 
   -- productivity
+  use { 'tpope/vim-sexp-mappings-for-regular-people', require = {
+    'guns/vim-sexp',
+    'tpope/vim-repeat',
+    'tpope/vim-surround',
+  } }
+
   use 'wellle/targets.vim'
   use 'tpope/vim-tbone'
   use 'tpope/vim-surround'
@@ -282,7 +292,6 @@ return packer.startup(function(use)
 
   -- data format
   use 'chrisbra/csv.vim'
-  use 'Einenlum/yaml-revealer'
 
   -- http client
   use {

@@ -21,6 +21,7 @@ vim.o.cursorcolumn = false
 vim.wo.colorcolumn = 0
 vim.g.noswapfile = true
 vim.o.cmdheight = 0
+vim.g.dispatch_no_tmux = 1
 
 
 vim.keymap.set('n', '<C-s>', ':update<CR>', { noremap = true, silent = true, desc = '[S]ave' })
@@ -80,3 +81,7 @@ if cwd == nvim_dir then
     { command = [[ source <afile> | PackerCompile ]],
       group = packer_group, pattern = '**/*.lua' })
 end
+
+vim.api.nvim_create_autocmd('BufWritePost',
+  { command = [[ Dispatch! omz update ]],
+    group = packer_group, pattern = '.zshrc' })

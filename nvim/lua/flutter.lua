@@ -66,16 +66,10 @@ local function on_attach(client, bufnr)
 	vim.api.nvim_create_user_command('InstallApp', function()
 		vim.cmd 'Dispatch ~/dotfiles/bin/install-android-app'
 	end, {})
-	local dartRun = function()
-		vim.cmd.Dispatch 'dart run'
-	end
-	vim.api.nvim_create_user_command('DartRun', dartRun, {})
 	if flutter_run_command == ':FlutterRun' then
-		vim.keymap.set('n', '<space>r', dartRun, { noremap = true, silent = false })
+		vim.b.dispatch = 'dart run'
 	else
-		vim.keymap.set('n', '<space>r', function()
-			vim.cmd 'FlutterRestart'
-		end, { noremap = true, silent = false })
+		vim.b.dispatch = 'flutter test integration_test/'
 	end
 
 	vim.api.nvim_create_user_command('FlutterRoute', function(data)
