@@ -81,7 +81,3 @@ if cwd == nvim_dir then
     { command = [[ source <afile> | PackerCompile ]],
       group = packer_group, pattern = '**/*.lua' })
 end
-
-vim.api.nvim_create_autocmd('BufWritePost',
-  { command = [[ Dispatch! omz update ]],
-    group = packer_group, pattern = '.zshrc' })
