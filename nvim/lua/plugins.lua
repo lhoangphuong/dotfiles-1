@@ -45,7 +45,9 @@ return packer.startup(function(use)
   use 'bluz71/vim-nightfly-guicolors'
 
   --rscript-lang
-  use 'rescript-lang/vim-rescript'
+  -- use { 'rescript-lang/vim-rescript',
+  --   requires = { 'nkrkv/nvim-treesitter-rescript', run = ':TSInstall rescript', after = 'nvim-treesitter' }
+  -- }
 
   -- Tree sitter
   use {
@@ -58,7 +60,6 @@ return packer.startup(function(use)
       { 'nvim-treesitter/playground', after = 'nvim-treesitter' },
       { 'nvim-treesitter/nvim-treesitter-textobjects', after = 'nvim-treesitter' },
       { 'nvim-treesitter/nvim-treesitter-refactor', after = 'nvim-treesitter' },
-      { 'nkrkv/nvim-treesitter-rescript', run = ':TSInstall rescript', after = 'nvim-treesitter' }
     },
   }
 
@@ -81,21 +82,6 @@ return packer.startup(function(use)
       end
       },
       'kyazdani42/nvim-web-devicons',
-      { 'dzfrias/gsearch.nvim', config = function()
-        local gsearch = require 'gsearch'
-        gsearch.setup {
-          -- Set to false to disable the plugin
-          enabled = true,
-          -- The key to use to Google search for what's in your Telescope prompt
-          -- without using one of the suggestions
-          open_raw_key = "<s-CR>",
-          -- The shell command to use to open the URL. As an empty string, it
-          -- defaults to your OS defaults ("open" for macOS, "xdg-open" for Linux)
-          open_cmd = "open -a Vieb.app",
-        }
-        vim.keymap.set('n', '<space>gs', require("gsearch").search, { noremap = true, silent = true })
-      end
-      },
     },
   }
 
@@ -129,24 +115,24 @@ return packer.startup(function(use)
   }
 
   --rust
-  use { 'simrat39/rust-tools.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim',
-      'mfussenegger/nvim-dap',
-      use {
-        'saecki/crates.nvim',
-        event = { "BufRead Cargo.toml" },
-        requires = { { 'nvim-lua/plenary.nvim' } },
-        config = function()
-          require('crates').setup()
-        end,
-      }
-
-    },
-    config = function()
-      require 'rusttools_setup'
-    end,
-  }
+  -- use { 'simrat39/rust-tools.nvim',
+  --   requires = {
+  --     'nvim-lua/plenary.nvim',
+  --     'mfussenegger/nvim-dap',
+  --     use {
+  --       'saecki/crates.nvim',
+  --       event = { "BufRead Cargo.toml" },
+  --       requires = { { 'nvim-lua/plenary.nvim' } },
+  --       config = function()
+  --         require('crates').setup()
+  --       end,
+  --     }
+  --
+  --   },
+  --   config = function()
+  --     require 'rusttools_setup'
+  --   end,
+  -- }
 
   --flutter
   use {
@@ -155,7 +141,6 @@ return packer.startup(function(use)
       'hrsh7th/cmp-nvim-lsp',
       'dart-lang/dart-vim-plugin',
       'Neevash/awesome-flutter-snippets',
-      'RobertBrunhage/flutter-riverpod-snippets',
     },
     ft = { 'dart', 'feature', 'yaml', 'lua' },
     config = function()
@@ -178,9 +163,9 @@ return packer.startup(function(use)
   }
 
   --clangd
-  use { 'p00f/clangd_extensions.nvim', config = function()
-    require 'clangd_setup'
-  end }
+  -- use { 'p00f/clangd_extensions.nvim', config = function()
+  --   require 'clangd_setup'
+  -- end }
 
   --debug
 
@@ -291,14 +276,14 @@ return packer.startup(function(use)
   use 'mtdl9/vim-log-highlighting'
 
   -- data format
-  use 'chrisbra/csv.vim'
+  -- use 'chrisbra/csv.vim'
 
   -- http client
-  use {
-    "NTBBloodbath/rest.nvim",
-    requires = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require 'rest_setup'
-    end
-  }
+  -- use {
+  --   "NTBBloodbath/rest.nvim",
+  --   requires = { "nvim-lua/plenary.nvim" },
+  --   config = function()
+  --     require 'rest_setup'
+  --   end
+  -- }
 end)

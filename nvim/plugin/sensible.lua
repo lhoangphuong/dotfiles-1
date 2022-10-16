@@ -81,3 +81,17 @@ if cwd == nvim_dir then
     { command = [[ source <afile> | PackerCompile ]],
       group = packer_group, pattern = '**/*.lua' })
 end
+
+vim.api.nvim_create_user_command('Vterm', function(data)
+  if data.args == '' then
+    vim.cmd.vs 'term://zsh'
+    vim.cmd.norm 'i'
+  else
+    vim.cmd.vs('term://' .. data.args)
+  end
+end, {})
+
+
+vim.api.nvim_create_user_command('SHIT', function()
+  print(vim.inspect(vim.lsp.get_active_clients({ name = "dartls" })[1].server_capabilities))
+end, {})

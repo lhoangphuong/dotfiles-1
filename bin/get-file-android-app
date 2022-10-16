@@ -1,0 +1,3 @@
+#!/bin/bash
+pname="$(~/dotfiles/bin/gradle-to-json ./android/app/build.gradle | jq '.android.defaultConfig.applicationId' | xargs)"
+adb shell "cat /storage/emulated/0/Android/data/$pname/files/hlg.txt"

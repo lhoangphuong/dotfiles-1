@@ -1,7 +1,7 @@
 -- Mappings.
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local current_workspace = vim.fn.getcwd();
 local sdk_path = vim.fs.normalize('$HOME/elca-workspace/tyxr-app-sdk')
@@ -9,10 +9,7 @@ local admintool_path = vim.fs.normalize('$HOME/elca-workspace/tixngo-admintool-f
 local flutter_run_command = ':FlutterRun'
 
 if string.find(current_workspace, sdk_path, 1, true) then
-	flutter_run_command = 'FlutterRun -t integration_test/transfer_test.dart --host-vmservice-port 8000 --disable-service-auth-codes'
-	vim.api.nvim_create_user_command('FlutterPubGetSDK', function()
-		vim.cmd.Dispatch 'cd $HOME/elca-workspace/tyxr-app-sdk/modules && fpga; cd $HOME/elca-workspace/tyxr-app-sdk/branded_app/tixngo_show && fpg'
-	end, {})
+	flutter_run_command = 'FlutterRun --host-vmservice-port 8000 --disable-service-auth-codes --fast-start'
 elseif current_workspace == admintool_path then
 	flutter_run_command = 'FlutterRun -t lib/main_development.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800'
 end
@@ -44,12 +41,14 @@ local function on_attach(client, bufnr)
 		vim.cmd 'Telescope flutter commands'
 	end, opts)
 
+	vim.api.nvim_create_user_command('FlutterPubGetSDK', function()
+		vim.cmd.Dispatch 'cd $HOME/elca-workspace/tyxr-app-sdk/modules && fpga; cd $HOME/elca-workspace/tyxr-app-sdk/branded_app/tixngo_show && fpg'
+	end, {})
 	vim.api.nvim_create_user_command('FlutterRunFile', function()
 		vim.cmd('FlutterRun ' .. vim.fn.expand('%'))
 	end, {})
 	vim.api.nvim_create_user_command('FlutterLogOpen', function()
-		vim.cmd 'vsplit'
-		vim.cmd 'buffer __FLUTTER_DEV_LOG__'
+		vim.cmd.sb '__FLUTTER_DEV_LOG__'
 	end, {})
 	vim.api.nvim_create_user_command('GrantPermission', function()
 		vim.cmd('Dispatch! ~/dotfiles/bin/grant-permission-android-app')
@@ -57,15 +56,26 @@ local function on_attach(client, bufnr)
 	vim.api.nvim_create_user_command('UnlockScreen', function()
 		vim.cmd('Dispatch! ~/dotfiles/bin/unlock_screen_android')
 	end, {})
-	vim.api.nvim_create_user_command('GrantPermission', function()
-		vim.cmd('Dispatch! ~/dotfiles/bin/grant-permission-android-app')
-	end, {})
 	vim.api.nvim_create_user_command('UninstallApp', function()
-		vim.cmd 'Dispatch! ~/dotfiles/bin/uninstall-android-app'
+		vim.cmd.Dispatch('~/dotfiles/bin/uninstall-android-app')
 	end, {})
 	vim.api.nvim_create_user_command('InstallApp', function()
 		vim.cmd 'Dispatch ~/dotfiles/bin/install-android-app'
 	end, {})
+	vim.api.nvim_create_user_command('ReinstallApp', function()
+		vim.cmd.Dispatch 'uninstall-android-app; install-android-app'
+	end, {})
+	vim.api.nvim_create_user_command('AdbShell', function()
+		vim.cmd.Start({ 'adb', 'shell' })
+	end, {})
+	vim.api.nvim_create_user_command('GetFile', function()
+		vim.cmd.Dispatch '~/dotfiles/bin/get-file-android-app'
+	end, {})
+	vim.api.nvim_create_user_command('WriteFile', function(data)
+		local email = data.args;
+		vim.cmd.Dispatch('~/dotfiles/bin/write-file-android-app ' .. email .. ' 123456789')
+		vim.cmd.FlutterRestart()
+	end, { nargs = '*' })
 	if flutter_run_command == ':FlutterRun' then
 		vim.b.dispatch = 'dart run'
 	else
@@ -88,7 +98,7 @@ local function on_attach(client, bufnr)
 
 
 	vim.api.nvim_create_user_command('FlutterBuildRunner', function()
-		vim.cmd 'Dispatch flutter pub get; flutter pub run build_runner build --delete-conflicting-outputs'
+		vim.cmd 'Dispatch flutter pub get; flutte pub run build_runner build --delete-conflicting-outputs'
 	end, {})
 	vim.api.nvim_create_user_command('FlutterCleanBuildRunner', function()
 		vim.cmd 'Dispatch flutter pub get; flutter pub run build_runner clean; flutter pub run build_runner build --delete-conflicting-outputs'
@@ -163,7 +173,7 @@ require("flutter-tools").setup {
 	},
 	dev_log = {
 		enabled = true,
-		open_cmd = "vnew", -- command to use to open the log buffer
+		open_cmd = "new", -- command to use to open the log buffer
 	},
 	dev_tools = {
 		autostart = true, -- autostart devtools server if not detected
