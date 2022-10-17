@@ -56,8 +56,9 @@ export EDITOR='nvim'
 export DOTFILE_DIR="$HOME/dotfiles"
 export PERSONAL_DIR="$HOME/personal"
 
-export PATH="$PATH:$HOME/fvm/versions/stable/bin"
-export PATH="$PATH:$HOME/fvm/versions/stable/bin/cache/dart-sdk/bin"
+export FVM_VERSION='master'
+export PATH="$PATH:$HOME/fvm/versions/$FVM_VERSION/bin"
+export PATH="$PATH:$HOME/fvm/versions/$FVM_VERSION/bin/cache/dart-sdk/bin"
 
 # flutter and dart
 

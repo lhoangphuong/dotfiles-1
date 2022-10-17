@@ -14,16 +14,16 @@ else
   set shortmess=aoO
 endif
 badd +1 ~/dotfiles/nvim
-badd +8 init.lua
+badd +14 init.lua
 badd +363 ~/.local/share/nvim/site/pack/packer/start/copilot.vim/autoload/copilot/agent.vim
-badd +12 lua/lsp_mapping.lua
+badd +36 lua/lsp_mapping.lua
 badd +95 lua/cmp_setup.lua
 badd +26 ~/dotfiles/x11/.Xresources
 badd +87 plugin/sensible.lua
-badd +66 lua/flutter.lua
-badd +73 lua/plugins.lua
+badd +19 lua/flutter.lua
+badd +15 lua/plugins.lua
 badd +118 lua/telescope_setup.lua
-badd +14 lua/lspconfig_setup.lua
+badd +49 lua/lspconfig_setup.lua
 badd +31 lua/gitsigns_setup.lua
 badd +1 plugin/nightly_sensible.lua
 badd +1 @
@@ -46,7 +46,7 @@ badd +43 ~/dotfiles/alacritty/alacritty.yml
 badd +10 man://false(1)
 badd +1 lua/plenary_setup.lua
 badd +19 lua/rest_setup.lua
-badd +99 ~/dotfiles/zsh/.zshrc
+badd +1 ~/dotfiles/zsh/.zshrc
 badd +1 ~/dotfiles/bin/install-android-app
 badd +53 lua/clangd_setup.lua
 badd +62 lua/symbols-outline_setup.lua
@@ -54,13 +54,13 @@ badd +1 ~/dotfiles/bin/uninstall-android-app
 badd +1 ~/dotfiles/bin/get-file-android-app
 badd +1 lua
 badd +4 ~/dotfiles/bin/write-file-android-app
-badd +13 ~/dotfiles/tmux/.tmux.conf
+badd +27 ~/dotfiles/tmux/.tmux.conf
 argglobal
 %argdel
 $argadd ~/dotfiles/nvim
-edit lua/plugins.lua
+edit lua/flutter.lua
 argglobal
-balt lua/flutter.lua
+balt init.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -71,12 +71,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 108 - ((32 * winheight(0) + 41) / 83)
+let s:l = 19 - ((18 * winheight(0) + 35) / 71)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 108
-normal! 060|
+keepjumps 19
+normal! 0
 lcd ~/dotfiles/nvim
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'

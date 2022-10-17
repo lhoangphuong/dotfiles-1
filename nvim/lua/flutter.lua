@@ -3,6 +3,20 @@
 -- map buffer local keybindings when the language server attaches
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+vim.api.nvim_create_user_command('Send', function()
+	local params = {
+		textDocument = vim.lsp.util.make_text_document_params(),
+		-- range = vim.lsp.util.make_range_params(),
+	}
+	print(vim.inspect(params))
+
+	local clients = vim.lsp.get_active_clients({ name = "dartls" })
+	for _, client in ipairs(clients) do
+		local response = (client.request("textDocument/documentColor", params, print, 0));
+		print(vim.inspect(response))
+	end
+end, {})
+
 local current_workspace = vim.fn.getcwd();
 local sdk_path = vim.fs.normalize('$HOME/elca-workspace/tyxr-app-sdk')
 local admintool_path = vim.fs.normalize('$HOME/elca-workspace/tixngo-admintool-flutter-2')
@@ -132,7 +146,7 @@ require("flutter-tools").setup {
 		}
 	},
 	debugger = { -- integrate with nvim dap + install dart code debugger
-		enabled = true,
+		enabled = false,
 		run_via_dap = false, -- use dap instead of a plenary job to run flutter apps
 		register_configurations = function(paths)
 
