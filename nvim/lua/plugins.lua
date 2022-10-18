@@ -220,6 +220,8 @@ return packer.startup(function(use)
     'tpope/vim-repeat',
     'tpope/vim-surround',
   } }
+
+  use 'tpope/vim-abolish'
   use 'godlygeek/tabular'
   use 'wellle/targets.vim'
   use 'tpope/vim-tbone'
@@ -235,6 +237,7 @@ return packer.startup(function(use)
   use 'tpope/vim-rsi'
   use 'tpope/vim-scriptease'
   use 'tpope/vim-dadbod'
+  use 'tpope/vim-jdaddy'
   use { 'github/copilot.vim', config = function()
     vim.cmd [[imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")]]
     vim.g.copilot_no_tab_map = true
@@ -288,4 +291,12 @@ return packer.startup(function(use)
   --     require 'rest_setup'
   --   end
   -- }
+  --
+  use {
+    'tamton-aquib/duck.nvim',
+    config = function()
+      vim.keymap.set('n', '<leader>dd', function() require("duck").hatch('🐤') end, {})
+      vim.keymap.set('n', '<leader>dk', function() require("duck").cook() end, {})
+    end
+  }
 end)
