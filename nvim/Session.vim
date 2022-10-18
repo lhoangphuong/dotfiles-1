@@ -21,7 +21,7 @@ badd +105 lua/cmp_setup.lua
 badd +26 ~/dotfiles/x11/.Xresources
 badd +55 plugin/sensible.lua
 badd +110 lua/flutter.lua
-badd +47 lua/plugins.lua
+badd +7 lua/plugins.lua
 badd +118 lua/telescope_setup.lua
 badd +49 lua/lspconfig_setup.lua
 badd +55 lua/gitsigns_setup.lua
@@ -31,7 +31,7 @@ badd +1 pull-share-preference-android-app
 badd +6 man://json(n)
 badd +1 ~/dotfiles/bin/grant-permission-android-app
 badd +1 ~/dotfiles/bin/unlock_screen_android.sh
-badd +3 lua/gruvbuddy_setup.lua
+badd +7 lua/gruvbuddy_setup.lua
 badd +8 lua/default_scheme.lua
 badd +7 ~/dotfiles/kitty/kitty.conf
 badd +8 lua/comment_setup.lua
@@ -58,9 +58,9 @@ badd +7 lua/nighfly_setup.lua
 argglobal
 %argdel
 $argadd ~/dotfiles/nvim
-edit lua/plugins.lua
+edit lua/gruvbuddy_setup.lua
 argglobal
-balt plugin/sensible.lua
+balt lua/plugins.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -71,12 +71,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 47 - ((40 * winheight(0) + 33) / 66)
+let s:l = 7 - ((6 * winheight(0) + 33) / 66)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 47
-normal! 04|
+keepjumps 7
+normal! 050|
 lcd ~/dotfiles/nvim
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
@@ -91,7 +91,6 @@ if filereadable(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
 set hlsearch
-nohlsearch
 let g:this_session = v:this_session
 let g:this_obsession = v:this_session
 doautoall SessionLoadPost
