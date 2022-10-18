@@ -52,7 +52,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 if vim.o.termguicolors then
-  require 'nighfly_setup'
+  -- require 'nighfly_setup'
+  require 'gruvbuddy_setup'
 else
   require 'default_scheme'
 end
