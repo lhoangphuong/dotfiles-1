@@ -1,12 +1,13 @@
 draw_bold_text_with_bright_colors: true
 
+colors:
+  primary:
+    background: '#282c34'
 
 font:
   size: 11.0
   normal:
     family: SFMono Nerd Font
-env:
-  TERM: xterm-256color
 
 window:
   # opacity: 0.95

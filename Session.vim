@@ -15,13 +15,15 @@ else
 endif
 badd +1 ~/dotfiles
 badd +10 vim/vimrc
-badd +185 nvim/lua/plugins.lua
+badd +159 nvim/lua/plugins.lua
+badd +40 alacritty/alacritty.yml
+badd +1 tmux/.tmux.conf
 argglobal
 %argdel
 $argadd ~/dotfiles
-edit nvim/lua/plugins.lua
+edit tmux/.tmux.conf
 argglobal
-balt vim/vimrc
+balt alacritty/alacritty.yml
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -32,11 +34,11 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 185 - ((65 * winheight(0) + 35) / 71)
+let s:l = 23 - ((22 * winheight(0) + 33) / 67)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 185
+keepjumps 23
 normal! 0
 lcd ~/dotfiles
 tabnext 1

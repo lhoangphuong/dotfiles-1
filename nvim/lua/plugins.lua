@@ -272,7 +272,7 @@ return packer.startup(function(use)
     }
   }
 
-  use { 'norcalli/nvim-colorizer.lua', config = function()
+  use { 'nvchad/nvim-colorizer.lua', config = function()
     require 'colorizer'.setup()
   end }
   use 'mtdl9/vim-log-highlighting'
