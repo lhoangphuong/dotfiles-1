@@ -44,22 +44,18 @@ local function on_attach(client, bufnr)
 
 	local opts = { noremap = true, silent = true, buffer = bufnr }
 
-	vim.keymap.set('n', '<Space>fr', function()
-		vim.cmd 'FlutterReload'
-	end, opts)
-	vim.keymap.set('n', '<space>fR', function()
-		vim.cmd 'FlutterRestart'
-	end, opts)
+	vim.keymap.set('n', '<Space>fr', vim.cmd.FlutterReload, opts)
+	vim.keymap.set('n', '<space>fR', vim.cmd.FlutterRestart, opts)
 
 	vim.keymap.set('n', '<space>fc', function()
-		vim.cmd 'Telescope flutter commands'
+		vim.cmd.Telescope { 'flutter', 'commands' }
 	end, opts)
 
 	vim.api.nvim_create_user_command('FlutterPubGetSDK', function()
 		vim.cmd.Dispatch 'cd $HOME/elca-workspace/tyxr-app-sdk/modules && fpga; cd $HOME/elca-workspace/tyxr-app-sdk/branded_app/tixngo_show && fpg'
 	end, {})
 	vim.api.nvim_create_user_command('FlutterRunFile', function()
-		vim.cmd('FlutterRun ' .. vim.fn.expand('%'))
+		vim.cmd.FlutterRun(vim.fn.expand('%'))
 	end, {})
 	vim.api.nvim_create_user_command('FlutterLogOpen', function()
 		vim.cmd.sb '__FLUTTER_DEV_LOG__'
@@ -71,23 +67,23 @@ local function on_attach(client, bufnr)
 		vim.cmd('Dispatch! ~/dotfiles/bin/unlock_screen_android')
 	end, {})
 	vim.api.nvim_create_user_command('UninstallApp', function()
-		vim.cmd.Dispatch('~/dotfiles/bin/uninstall-android-app')
+		vim.cmd.Dispatch 'uninstall-android-app'
 	end, {})
 	vim.api.nvim_create_user_command('InstallApp', function()
-		vim.cmd 'Dispatch ~/dotfiles/bin/install-android-app'
+		vim.cmd.Dispatch 'install-android-app'
 	end, {})
 	vim.api.nvim_create_user_command('ReinstallApp', function()
-		vim.cmd.Dispatch 'uninstall-android-app; install-android-app'
+		vim.cmd.Dispatch { 'uninstall-android-app;', 'install-android-app' }
 	end, {})
 	vim.api.nvim_create_user_command('AdbShell', function()
-		vim.cmd.Start({ 'adb', 'shell' })
+		vim.cmd.Start { 'adb', 'shell' }
 	end, {})
 	vim.api.nvim_create_user_command('GetFile', function()
-		vim.cmd.Dispatch '~/dotfiles/bin/get-file-android-app'
+		vim.cmd.Dispatch 'get-file-android-app'
 	end, {})
 	vim.api.nvim_create_user_command('WriteFile', function(data)
 		local email = data.args;
-		vim.cmd.Dispatch('~/dotfiles/bin/write-file-android-app ' .. email .. ' 123456789')
+		vim.cmd.Dispatch { '~/dotfiles/bin/write-file-android-app', email, '123456789' }
 		vim.cmd.FlutterRestart()
 	end, { nargs = '*' })
 	if flutter_run_command == ':FlutterRun' then
@@ -112,10 +108,10 @@ local function on_attach(client, bufnr)
 
 
 	vim.api.nvim_create_user_command('FlutterBuildRunner', function()
-		vim.cmd 'Dispatch flutter pub get; flutte pub run build_runner build --delete-conflicting-outputs'
+		vim.cmd.Dispatch 'flutter pub get; flutte pub run build_runner build --delete-conflicting-outputs'
 	end, {})
 	vim.api.nvim_create_user_command('FlutterCleanBuildRunner', function()
-		vim.cmd 'Dispatch flutter pub get; flutter pub run build_runner clean; flutter pub run build_runner build --delete-conflicting-outputs'
+		vim.cmd.Dispatch 'flutter pub get; flutter pub run build_runner clean; flutter pub run build_runner build --delete-conflicting-outputs'
 	end, {})
 	vim.api.nvim_create_user_command('FlutterAnalyze', function()
 		vim.cmd.Dispatch 'flutter analyze'
