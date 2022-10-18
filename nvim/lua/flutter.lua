@@ -4,16 +4,11 @@
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 vim.api.nvim_create_user_command('Send', function()
-	local params = {
-		textDocument = vim.lsp.util.make_text_document_params(),
-		-- range = vim.lsp.util.make_range_params(),
-	}
-	print(vim.inspect(params))
+	local params = vim.lsp.util.make_range_params()
 
 	local clients = vim.lsp.get_active_clients({ name = "dartls" })
 	for _, client in ipairs(clients) do
-		local response = (client.request("textDocument/documentColor", params, print, 0));
-		print(vim.inspect(response))
+		client.request("textDocument/inlayHint", params, nil, 0);
 	end
 end, {})
 

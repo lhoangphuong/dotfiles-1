@@ -218,7 +218,7 @@ return packer.startup(function(use)
     'tpope/vim-repeat',
     'tpope/vim-surround',
   } }
-
+  use 'godlygeek/tabular'
   use 'wellle/targets.vim'
   use 'tpope/vim-tbone'
   use 'tpope/vim-surround'
