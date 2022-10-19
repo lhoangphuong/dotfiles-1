@@ -43,8 +43,7 @@ return packer.startup(function(use)
 
   -- color Theme
   use 'bluz71/vim-nightfly-guicolors'
-  use 'tjdevries/colorbuddy.vim'
-  use 'tjdevries/gruvbuddy.nvim'
+  use { 'tjdevries/gruvbuddy.nvim', requires = { 'tjdevries/colorbuddy.vim' } }
 
   --rscript-lang
   -- use { 'rescript-lang/vim-rescript',

@@ -3,24 +3,9 @@
 -- Credit: glepnir
 local lualine = require('lualine')
 
--- Color table for highlights
--- stylua: ignore
--- local colors = {
---   bg       = '#282828', fg       = '#dfbf8e',
---   yellow   = '#e78a4e',
---   cyan     = '#89b482',
---   darkblue = '#081633',
---   green    = '#a9b665',
---   orange   = '#FF8800',
---   violet   = '#a9a1e1',
---   magenta  = '#d3869b',
---   blue     = '#7daea3',
---   red      = '#ea6962',
--- }
-
 local colors = {
   bg       = 'none',
-  fg       = '#bbc2cf',
+  fg       = 'white',
   yellow   = '#ECBE7B',
   cyan     = '#008080',
   darkblue = '#081633',

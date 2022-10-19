@@ -16,12 +16,12 @@ endif
 badd +1 ~/dotfiles/nvim
 badd +6 init.lua
 badd +363 ~/.local/share/nvim/site/pack/packer/start/copilot.vim/autoload/copilot/agent.vim
-badd +1 lua/lsp_mapping.lua
-badd +105 lua/cmp_setup.lua
+badd +34 lua/lsp_mapping.lua
+badd +68 lua/cmp_setup.lua
 badd +26 ~/dotfiles/x11/.Xresources
 badd +25 plugin/sensible.lua
 badd +110 lua/flutter.lua
-badd +291 lua/plugins.lua
+badd +18 lua/plugins.lua
 badd +118 lua/telescope_setup.lua
 badd +49 lua/lspconfig_setup.lua
 badd +55 lua/gitsigns_setup.lua
@@ -36,7 +36,7 @@ badd +8 lua/default_scheme.lua
 badd +13 ~/dotfiles/kitty/kitty.conf
 badd +8 lua/comment_setup.lua
 badd +81 lua/ts.lua
-badd +52 lua/lualine_setup.lua
+badd +25 lua/lualine_setup.lua
 badd +1 ~/dotfiles/vim/plugged/fzf/shell/completion.zsh
 badd +62 lua/neotest_setup.lua
 badd +206 ~/elca-workspace/tyxr-app-sdk/branded_app/tixngo_show/integration_test/transfer_test.dart
@@ -52,16 +52,34 @@ badd +62 lua/symbols-outline_setup.lua
 badd +1 ~/dotfiles/bin/uninstall-android-app
 badd +1 ~/dotfiles/bin/get-file-android-app
 badd +4 ~/dotfiles/bin/write-file-android-app
-badd +30 ~/dotfiles/tmux/.tmux.conf
+badd +1 ~/dotfiles/tmux/.tmux.conf
 badd +1 lua/lua/gruvbuddy_setup.lua
 badd +7 lua/nighfly_setup.lua
 badd +1 ~/dotfiles/bin/open-android-app
 argglobal
 %argdel
 $argadd ~/dotfiles/nvim
-edit lua/plugins.lua
+edit lua/lsp_mapping.lua
+let s:save_splitbelow = &splitbelow
+let s:save_splitright = &splitright
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+let &splitbelow = s:save_splitbelow
+let &splitright = s:save_splitright
+wincmd t
+let s:save_winminheight = &winminheight
+let s:save_winminwidth = &winminwidth
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+exe 'vert 1resize ' . ((&columns * 110 + 110) / 221)
+exe 'vert 2resize ' . ((&columns * 110 + 110) / 221)
 argglobal
-balt plugin/sensible.lua
+balt lua/cmp_setup.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -72,13 +90,41 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 284 - ((103 * winheight(0) + 65) / 131)
+let s:l = 35 - ((32 * winheight(0) + 33) / 66)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 284
-normal! 027|
+keepjumps 35
+normal! 03|
 lcd ~/dotfiles/nvim
+wincmd w
+argglobal
+if bufexists(fnamemodify("~/dotfiles/nvim/lua/cmp_setup.lua", ":p")) | buffer ~/dotfiles/nvim/lua/cmp_setup.lua | else | edit ~/dotfiles/nvim/lua/cmp_setup.lua | endif
+if &buftype ==# 'terminal'
+  silent file ~/dotfiles/nvim/lua/cmp_setup.lua
+endif
+balt ~/dotfiles/nvim/lua/lualine_setup.lua
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 68 - ((48 * winheight(0) + 33) / 66)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 68
+normal! 024|
+lcd ~/dotfiles/nvim
+wincmd w
+2wincmd w
+exe 'vert 1resize ' . ((&columns * 110 + 110) / 221)
+exe 'vert 2resize ' . ((&columns * 110 + 110) / 221)
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
@@ -86,6 +132,8 @@ endif
 unlet! s:wipebuf
 set winheight=1 winwidth=20
 let &shortmess = s:shortmess_save
+let &winminheight = s:save_winminheight
+let &winminwidth = s:save_winminwidth
 let s:sx = expand("<sfile>:p:r")."x.vim"
 if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
