@@ -213,6 +213,32 @@ return packer.startup(function(use)
   end, requires = { 'rafamadriz/friendly-snippets' }
   }
 
+  --private stuff
+  use {'ssh://git@bitbucket.svc.elca.ch:7999/~hlg/db-config.git', config = function()
+    local config = require 'db-config'
+    vim.g.db = config.dadbod
+  end}
+
+  -- sql stuff
+  use 'tpope/vim-dadbod'
+  use {'nanotee/sqls.nvim', requires = 'neovim/nvim-lspconfig', config = function ()
+    local config = require 'db-config'.sqls
+    require'lspconfig'.sqls.setup{
+      on_attach = require 'sqls'.on_attach,
+  settings = {
+    sqls = {
+      connections = {
+        {
+          driver = 'postgresql',
+          dataSourceName = config,
+        },
+      },
+    },
+  },
+}
+  end}
+
+
   -- productivity
   use { 'tpope/vim-sexp-mappings-for-regular-people', require = {
     'guns/vim-sexp',
@@ -235,7 +261,6 @@ return packer.startup(function(use)
   use 'tpope/vim-obsession'
   use 'tpope/vim-rsi'
   use 'tpope/vim-scriptease'
-  use 'tpope/vim-dadbod'
   use 'tpope/vim-jdaddy'
   use { 'github/copilot.vim', config = function()
     vim.cmd [[imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")]]
@@ -291,11 +316,4 @@ return packer.startup(function(use)
   --   end
   -- }
   --
-  use {
-    'tamton-aquib/duck.nvim',
-    config = function()
-      vim.keymap.set('n', '<leader>dd', function() require("duck").hatch('🐤') end, {})
-      vim.keymap.set('n', '<leader>dk', function() require("duck").cook() end, {})
-    end
-  }
 end)
