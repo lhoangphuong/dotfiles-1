@@ -29,6 +29,7 @@ vim.keymap.set('n', '<space>fw', function()
 	vim.cmd.FlutterSendRawKey 'w'
 end, opts)
 vim.keymap.set('n', '<space>fa', function()
+	print(flutter_run_command)
 	vim.cmd(flutter_run_command)
 end, opts)
 vim.keymap.set('n', '<space>fq', vim.cmd.FlutterQuit, opts)
@@ -48,6 +49,9 @@ local function on_attach(client, bufnr)
 
 	vim.api.nvim_create_user_command('FlutterPubGetSDK', function()
 		vim.cmd.Dispatch 'cd $HOME/elca-workspace/tyxr-app-sdk/modules && fpga; cd $HOME/elca-workspace/tyxr-app-sdk/branded_app/tixngo_show && fpg'
+	end, {})
+	vim.api.nvim_create_user_command('FlutterRunFile', function()
+		vim.cmd.FlutterRun(vim.fn.expand('%'))
 	end, {})
 	vim.api.nvim_create_user_command('FlutterRunFile', function()
 		vim.cmd.FlutterRun(vim.fn.expand('%'))
@@ -115,7 +119,12 @@ local function on_attach(client, bufnr)
 		vim.cmd.Dispatch 'flutter pub run intl_translation:generate_from_arb'
 	end, {})
 	vim.api.nvim_create_user_command('FlutterRunWithoutBuild', function()
-		vim.cmd.FlutterRun '--use-application-binary=build/app/outputs/flutter-apk/app-debug.apk'
+		vim.cmd(flutter_run_command .. ' --use-application-binary=build/app/outputs/flutter-apk/app-debug.apk')
+	end, {})
+
+	vim.api.nvim_create_user_command('FlutterRebuild', function()
+		vim.cmd('Dispatch! uninstall-android-app');
+		vim.cmd.FlutterRun()
 	end, {})
 	require 'lsp_mapping'.map(client, bufnr)
 
@@ -196,6 +205,7 @@ require("flutter-tools").setup {
 			virtual_text = true, -- show the highlight using virtual text
 			virtual_text_str = "■", -- the virtual text character to highlight
 		},
+		inlay_hints = { enabled = true },
 		on_attach = on_attach,
 		capabilities = capabilities, -- e.g. lsp_status capabilities
 		settings = {
