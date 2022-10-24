@@ -42,8 +42,16 @@ return packer.startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- color Theme
-  use 'bluz71/vim-nightfly-guicolors'
-  use { 'tjdevries/gruvbuddy.nvim', requires = { 'tjdevries/colorbuddy.vim' } }
+  use({
+    'rose-pine/neovim',
+    as = 'rose-pine',
+    config = function()
+      require 'blackpink_setup'
+    end
+  })
+  use { 'tjdevries/gruvbuddy.nvim', requires = { 'tjdevries/colorbuddy.vim' }, config = function()
+    -- require 'gruvbuddy_setup'
+  end }
 
   --rscript-lang
   -- use { 'rescript-lang/vim-rescript',
@@ -149,7 +157,7 @@ return packer.startup(function(use)
     end
   }
   use {
-    'akinsho/pubspec-assist.nvim',
+    'huylg/pubspec-assist.nvim',
     requires = 'plenary.nvim',
     rocks = {
       {
@@ -214,29 +222,29 @@ return packer.startup(function(use)
   }
 
   --private stuff
-  use {'ssh://git@bitbucket.svc.elca.ch:7999/~hlg/db-config.git', config = function()
+  use { 'ssh://git@bitbucket.svc.elca.ch:7999/~hlg/db-config.git', config = function()
     local config = require 'db-config'
     vim.g.db = config.dadbod
-  end}
+  end }
 
   -- sql stuff
   use 'tpope/vim-dadbod'
-  use {'nanotee/sqls.nvim', requires = 'neovim/nvim-lspconfig', config = function ()
+  use { 'nanotee/sqls.nvim', requires = 'neovim/nvim-lspconfig', config = function()
     local config = require 'db-config'.sqls
-    require'lspconfig'.sqls.setup{
+    require 'lspconfig'.sqls.setup {
       on_attach = require 'sqls'.on_attach,
-  settings = {
-    sqls = {
-      connections = {
-        {
-          driver = 'postgresql',
-          dataSourceName = config,
+      settings = {
+        sqls = {
+          connections = {
+            {
+              driver = 'postgresql',
+              dataSourceName = config,
+            },
+          },
         },
       },
-    },
-  },
-}
-  end}
+    }
+  end }
 
 
   -- productivity
@@ -246,6 +254,7 @@ return packer.startup(function(use)
     'tpope/vim-surround',
   } }
 
+  use 'tpope/vim-capslock'
   use 'tpope/vim-abolish'
   use 'godlygeek/tabular'
   use 'wellle/targets.vim'

@@ -22,6 +22,7 @@ vim.wo.colorcolumn = 0
 vim.g.noswapfile = true
 vim.o.cmdheight = 0
 vim.g.dispatch_no_tmux = 1
+vim.cmd.set('belloff=')
 
 
 vim.keymap.set('n', '<C-s>', ':update<CR>', { noremap = true, silent = true, desc = '[S]ave' })
@@ -50,13 +51,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
-
-if vim.o.termguicolors then
-  -- require 'nighfly_setup'
-  require 'gruvbuddy_setup'
-else
-  require 'default_scheme'
-end
 
 vim.api.nvim_create_user_command('JwtParser', function()
   vim.cmd.Start 'jwt decode $(pbpaste) | jid'
@@ -92,7 +86,16 @@ vim.api.nvim_create_user_command('Vterm', function(data)
   end
 end, {})
 
+vim.g.focusMode = false
 
-vim.api.nvim_create_user_command('SHIT', function()
-  print(vim.inspect(vim.lsp.get_active_clients({ name = "dartls" })[1].server_capabilities))
+vim.api.nvim_create_user_command('Focus', function()
+  if vim.g.focusMode then
+    vim.g.focusMode = false
+    vim.cmd.set 'laststatus=3'
+    vim.cmd.Tmux { args = { 'set -g status on' }, bang = true }
+  else
+    vim.g.focusMode = true
+    vim.cmd.set 'laststatus=0'
+    vim.cmd.Tmux { args = { 'set -g status off' }, bang = true }
+  end
 end, {})

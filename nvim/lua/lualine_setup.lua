@@ -5,7 +5,7 @@ local lualine = require('lualine')
 
 local colors = {
   bg       = 'none',
-  fg       = 'white',
+  fg       = '#e0def4',
   yellow   = '#ECBE7B',
   cyan     = '#008080',
   darkblue = '#081633',

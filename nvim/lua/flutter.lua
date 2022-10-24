@@ -53,17 +53,14 @@ local function on_attach(client, bufnr)
 	vim.api.nvim_create_user_command('FlutterRunFile', function()
 		vim.cmd.FlutterRun(vim.fn.expand('%'))
 	end, {})
-	vim.api.nvim_create_user_command('FlutterRunFile', function()
-		vim.cmd.FlutterRun(vim.fn.expand('%'))
-	end, {})
 	vim.api.nvim_create_user_command('FlutterLogOpen', function()
 		vim.cmd.sb '__FLUTTER_DEV_LOG__'
 	end, {})
 	vim.api.nvim_create_user_command('GrantPermission', function()
-		vim.cmd('Dispatch! ~/dotfiles/bin/grant-permission-android-app')
+		vim.cmd.Dispatch { args = 'grant-permission-android-app', bang = true }
 	end, {})
 	vim.api.nvim_create_user_command('UnlockScreen', function()
-		vim.cmd('Dispatch! ~/dotfiles/bin/unlock_screen_android')
+		vim.cmd.Dispatch { agrs = '~/dotfiles/bin/unlock_screen_android', bang = true }
 	end, {})
 	vim.api.nvim_create_user_command('UninstallApp', function()
 		vim.cmd.Dispatch 'uninstall-android-app'
