@@ -36,6 +36,7 @@ vim.keymap.set('n', '<space>fq', vim.cmd.FlutterQuit, opts)
 vim.keymap.set('n', '<space>fo', vim.cmd.FlutterLogOpen, opts)
 
 local function on_attach(client, bufnr)
+	vim.b.dispatch = 'dart run'
 	require("telescope").load_extension("flutter")
 
 	local opts = { noremap = true, silent = true, buffer = bufnr }
@@ -85,11 +86,6 @@ local function on_attach(client, bufnr)
 		vim.cmd.Dispatch { '~/dotfiles/bin/write-file-android-app', email, '123456789' }
 		vim.cmd.FlutterRestart()
 	end, { nargs = '*' })
-	if flutter_run_command == ':FlutterRun' then
-		vim.b.dispatch = 'dart run'
-	else
-		vim.b.dispatch = 'flutter test integration_test/'
-	end
 
 	vim.api.nvim_create_user_command('FlutterRoute', function(data)
 		if data.args == "" then

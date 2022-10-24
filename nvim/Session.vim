@@ -20,7 +20,7 @@ badd +35 lua/lsp_mapping.lua
 badd +28 lua/cmp_setup.lua
 badd +26 ~/dotfiles/x11/.Xresources
 badd +25 plugin/sensible.lua
-badd +127 lua/flutter.lua
+badd +95 lua/flutter.lua
 badd +18 lua/plugins.lua
 badd +118 lua/telescope_setup.lua
 badd +49 lua/lspconfig_setup.lua
@@ -59,9 +59,8 @@ badd +1 ~/dotfiles/bin/open-android-app
 argglobal
 %argdel
 $argadd ~/dotfiles/nvim
-edit lua/flutter.lua
+edit lua/cmp_setup.lua
 argglobal
-balt ~/dotfiles/zsh/.zshrc
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -72,11 +71,11 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 135 - ((27 * winheight(0) + 42) / 84)
+let s:l = 1 - ((0 * winheight(0) + 72) / 144)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 135
+keepjumps 1
 normal! 0
 lcd ~/dotfiles/nvim
 tabnext 1

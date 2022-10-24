@@ -150,11 +150,4 @@ NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 # Added by Amplify CLI binary installer
 export PATH="$HOME/.amplify/bin:$PATH"
 
-# bun completions
-[ -s "/Users/hlg/.bun/_bun" ] && source "/Users/hlg/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
 export TERM=xterm-256color
