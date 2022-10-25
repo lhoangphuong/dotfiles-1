@@ -223,27 +223,32 @@ return packer.startup(function(use)
 
   --private stuff
   use { 'ssh://git@bitbucket.svc.elca.ch:7999/~hlg/db-config.git', config = function()
-    local config = require 'db-config'
-    vim.g.db = config.dadbod
+    local ok, config = pcall(require, 'db-config')
+    if ok then
+      vim.g.db = config.dadbod
+    end
   end }
 
   -- sql stuff
   use 'tpope/vim-dadbod'
   use { 'nanotee/sqls.nvim', requires = 'neovim/nvim-lspconfig', config = function()
-    local config = require 'db-config'.sqls
-    require 'lspconfig'.sqls.setup {
-      on_attach = require 'sqls'.on_attach,
-      settings = {
-        sqls = {
-          connections = {
-            {
-              driver = 'postgresql',
-              dataSourceName = config,
+
+    local ok, config = pcall(require, 'db-config')
+    if ok then
+      require 'lspconfig'.sqls.setup {
+        on_attach = require 'sqls'.on_attach,
+        settings = {
+          sqls = {
+            connections = {
+              {
+                driver = 'postgresql',
+                dataSourceName = config.sqls,
+              },
             },
           },
         },
-      },
-    }
+      }
+    end
   end }
 
 
