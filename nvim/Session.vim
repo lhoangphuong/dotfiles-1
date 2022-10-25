@@ -13,14 +13,15 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
+badd +1 ~/dotfiles/nvim
 badd +13 init.lua
 badd +363 ~/.local/share/nvim/site/pack/packer/start/copilot.vim/autoload/copilot/agent.vim
 badd +26 lua/lsp_mapping.lua
 badd +33 lua/cmp_setup.lua
 badd +26 ~/dotfiles/x11/.Xresources
-badd +64 plugin/sensible.lua
+badd +1 plugin/sensible.lua
 badd +38 lua/flutter.lua
-badd +236 lua/plugins.lua
+badd +117 lua/plugins.lua
 badd +118 lua/telescope_setup.lua
 badd +49 lua/lspconfig_setup.lua
 badd +55 lua/gitsigns_setup.lua
@@ -59,9 +60,49 @@ badd +3 lua/blackpink_setup.lua
 argglobal
 %argdel
 $argadd ~/dotfiles/nvim
-edit lua/plugins.lua
+edit plugin/sensible.lua
+let s:save_splitbelow = &splitbelow
+let s:save_splitright = &splitright
+set splitbelow splitright
+wincmd _ | wincmd |
+split
+1wincmd k
+wincmd w
+let &splitbelow = s:save_splitbelow
+let &splitright = s:save_splitright
+wincmd t
+let s:save_winminheight = &winminheight
+let s:save_winminwidth = &winminwidth
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+exe '1resize ' . ((&lines * 33 + 34) / 68)
+exe '2resize ' . ((&lines * 33 + 34) / 68)
 argglobal
-balt ~/dotfiles/alacritty/alacritty.yml
+enew | setl bt=help
+help gp@en
+balt lua/plugins.lua
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 1062 - ((25 * winheight(0) + 16) / 32)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 1062
+normal! 076|
+lcd ~/dotfiles/nvim
+wincmd w
+argglobal
+balt ~/dotfiles/nvim/lua/plugins.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -72,13 +113,17 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 114 - ((14 * winheight(0) + 33) / 66)
+let s:l = 40 - ((24 * winheight(0) + 16) / 32)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 114
-normal! 043|
+keepjumps 40
+normal! 0
 lcd ~/dotfiles/nvim
+wincmd w
+2wincmd w
+exe '1resize ' . ((&lines * 33 + 34) / 68)
+exe '2resize ' . ((&lines * 33 + 34) / 68)
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
@@ -86,6 +131,8 @@ endif
 unlet! s:wipebuf
 set winheight=1 winwidth=20
 let &shortmess = s:shortmess_save
+let &winminheight = s:save_winminheight
+let &winminwidth = s:save_winminwidth
 let s:sx = expand("<sfile>:p:r")."x.vim"
 if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
