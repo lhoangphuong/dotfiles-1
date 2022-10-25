@@ -16,12 +16,12 @@ endif
 badd +1 ~/dotfiles/nvim
 badd +16 init.lua
 badd +363 ~/.local/share/nvim/site/pack/packer/start/copilot.vim/autoload/copilot/agent.vim
-badd +26 lua/lsp_mapping.lua
+badd +48 lua/lsp_mapping.lua
 badd +33 lua/cmp_setup.lua
 badd +26 ~/dotfiles/x11/.Xresources
-badd +64 plugin/sensible.lua
-badd +38 lua/flutter.lua
-badd +304 lua/plugins.lua
+badd +85 plugin/sensible.lua
+badd +36 lua/flutter.lua
+badd +57 lua/plugins.lua
 badd +118 lua/telescope_setup.lua
 badd +49 lua/lspconfig_setup.lua
 badd +55 lua/gitsigns_setup.lua
@@ -52,7 +52,7 @@ badd +62 lua/symbols-outline_setup.lua
 badd +1 ~/dotfiles/bin/uninstall-android-app
 badd +1 ~/dotfiles/bin/get-file-android-app
 badd +4 ~/dotfiles/bin/write-file-android-app
-badd +40 ~/dotfiles/tmux/.tmux.conf
+badd +34 ~/dotfiles/tmux/.tmux.conf
 badd +1 lua/lua/gruvbuddy_setup.lua
 badd +1 ~/dotfiles/bin/open-android-app
 badd +1 plugin
@@ -62,7 +62,7 @@ argglobal
 $argadd ~/dotfiles/nvim
 edit lua/plugins.lua
 argglobal
-balt lua/lualine_setup.lua
+balt plugin/sensible.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -73,11 +73,11 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 106 - ((63 * winheight(0) + 42) / 84)
+let s:l = 58 - ((57 * winheight(0) + 72) / 145)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 106
+keepjumps 58
 normal! 0
 lcd ~/dotfiles/nvim
 tabnext 1

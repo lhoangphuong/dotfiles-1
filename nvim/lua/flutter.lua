@@ -18,7 +18,7 @@ local admintool_path = vim.fs.normalize('$HOME/elca-workspace/tixngo-admintool-f
 local flutter_run_command = ':FlutterRun'
 
 if string.find(current_workspace, sdk_path, 1, true) then
-	flutter_run_command = 'FlutterRun --host-vmservice-port 8000 --disable-service-auth-codes --fast-start'
+	flutter_run_command = 'FlutterRun -t integration_test/main.dart  --host-vmservice-port 8000 --disable-service-auth-codes --fast-start --machine'
 elseif current_workspace == admintool_path then
 	flutter_run_command = 'FlutterRun -t lib/main_development.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800'
 end
@@ -58,16 +58,16 @@ local function on_attach(client, bufnr)
 		vim.cmd.sb '__FLUTTER_DEV_LOG__'
 	end, {})
 	vim.api.nvim_create_user_command('GrantPermission', function()
-		vim.cmd.Dispatch { args = 'grant-permission-android-app', bang = true }
+		vim.cmd.Dispatch { 'grant-permission-android-app', bang = true }
 	end, {})
 	vim.api.nvim_create_user_command('UnlockScreen', function()
-		vim.cmd.Dispatch { agrs = '~/dotfiles/bin/unlock_screen_android', bang = true }
+		vim.cmd.Dispatch { 'unlock_screen_android', bang = true }
 	end, {})
 	vim.api.nvim_create_user_command('UninstallApp', function()
-		vim.cmd.Dispatch 'uninstall-android-app'
+		vim.cmd.Dispatch { 'uninstall-android-app', bang = true }
 	end, {})
 	vim.api.nvim_create_user_command('InstallApp', function()
-		vim.cmd.Dispatch 'install-android-app'
+		vim.cmd.Dispatch { 'install-android-app', bang = true }
 	end, {})
 	vim.api.nvim_create_user_command('ReinstallApp', function()
 		vim.cmd.Dispatch { 'uninstall-android-app;', 'install-android-app' }
@@ -80,7 +80,7 @@ local function on_attach(client, bufnr)
 	end, {})
 	vim.api.nvim_create_user_command('WriteFile', function(data)
 		local email = data.args;
-		vim.cmd.Dispatch { '~/dotfiles/bin/write-file-android-app', email, '123456789' }
+		vim.cmd.Dispatch { 'write-file-android-app', email, '123456789' }
 		vim.cmd.FlutterRestart()
 	end, { nargs = '*' })
 

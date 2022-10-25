@@ -92,10 +92,10 @@ vim.api.nvim_create_user_command('Focus', function()
   if vim.g.focusMode then
     vim.g.focusMode = false
     vim.cmd.set 'laststatus=3'
-    vim.cmd.Tmux { args = { 'set -g status on' }, bang = true }
+    vim.cmd.Tmux { args = { 'set -s status on' }, bang = true }
   else
     vim.g.focusMode = true
     vim.cmd.set 'laststatus=0'
-    vim.cmd.Tmux { args = { 'set -g status off' }, bang = true }
+    vim.cmd.Tmux { args = { 'set -s status off' }, bang = true }
   end
 end, {})

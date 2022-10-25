@@ -86,7 +86,7 @@ alias fbr='fvm flutter pub get; fvm flutter pub run build_runner build --delete-
 alias fbcr='fvm flutter pub get; fvm flutter pub run build_runner clean ;fvm flutter pub run build_runner build --delete-conflicting-outputs'
 alias dr='fvm dart run'
 alias clean_dart='killall dart'
-export VM_SERVICE_URL=http://127.0.0.1:8000/
+export VM_SERVICE_URL=http://127.0.0.1:7800/
 
 alias lg=lazygit
 
