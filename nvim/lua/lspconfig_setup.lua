@@ -8,7 +8,8 @@ local servers = { 'hls',
 	-- 'clangd',
 	'pyright',
 	'sourcekit',
-	'cucumber_language_server'
+	'cucumber_language_server',
+	'ocamllsp'
 }
 
 for _, lsp in ipairs(servers) do

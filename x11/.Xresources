@@ -1,6 +1,5 @@
 
 ! TokyoNight colors for Xresources
-
 *background: #1a1b26
 *foreground: #c0caf5
 
@@ -24,4 +23,5 @@
  
 *faceName: SFMono Nerd Font
 *faceSize: 9x18
-*faceWeight: bold
+XTerm*eightBitInput:   false
+XTerm*eightBitOutput:  true

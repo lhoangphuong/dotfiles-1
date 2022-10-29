@@ -14,6 +14,7 @@ require 'nvim-treesitter.configs'.setup {
     'query',
     'cpp',
     'make',
+    'ocaml',
   },
   highlight = {
     enable = true,

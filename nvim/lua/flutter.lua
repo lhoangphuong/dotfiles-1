@@ -18,7 +18,7 @@ local admintool_path = vim.fs.normalize('$HOME/elca-workspace/tixngo-admintool-f
 local flutter_run_command = ':FlutterRun'
 
 if string.find(current_workspace, sdk_path, 1, true) then
-	flutter_run_command = 'FlutterRun -t integration_test/main.dart  --host-vmservice-port 8000 --disable-service-auth-codes --fast-start --machine'
+	flutter_run_command = 'FlutterRun -t integration_test/main.dart  --host-vmservice-port 8000 --disable-service-auth-codes --fast-start'
 elseif current_workspace == admintool_path then
 	flutter_run_command = 'FlutterRun -t lib/main_development.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800'
 end
@@ -210,3 +210,15 @@ require("flutter-tools").setup {
 		}
 	}
 }
+local flutter_group = vim.api.nvim_create_augroup('flutter', {})
+
+local id_autocmd;
+
+vim.api.nvim_create_user_command('FlutterRestartWatch', function()
+	id_autocmd = vim.api.nvim_create_autocmd('BufWritePost',
+		{ command = "FlutterRestart",
+			group = flutter_group, pattern = '**/*.dart' })
+end, {})
+vim.api.nvim_create_user_command('FlutterRestartStop', function()
+	vim.api.nvim_del_autocmd(id_autocmd)
+end, {})

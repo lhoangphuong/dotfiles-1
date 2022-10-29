@@ -196,6 +196,15 @@ ins_left {
 
 ins_right {
   function()
+    local status = vim.api.nvim_call_function('CapsLockStatusline', {})
+    return status
+  end,
+  color = { fg = colors.fg },
+}
+
+
+ins_right {
+  function()
     local last_search = vim.fn.getreg('/')
     if not last_search or last_search == '' then
       return ''

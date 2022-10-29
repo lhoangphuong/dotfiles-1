@@ -53,11 +53,6 @@ return packer.startup(function(use)
     -- require 'gruvbuddy_setup'
   end }
 
-  --rscript-lang
-  -- use { 'rescript-lang/vim-rescript',
-  --   requires = { 'nkrkv/nvim-treesitter-rescript', run = ':TSInstall rescript', after = 'nvim-treesitter' }
-  -- }
-
   -- Tree sitter
   use {
     'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',

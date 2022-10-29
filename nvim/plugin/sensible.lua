@@ -4,7 +4,8 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
   pattern = 'qf',
 })
-vim.cmd.packadd('cfilter')
+vim.cmd.packadd 'cfilter'
+vim.cmd.packadd 'matchit'
 vim.g.copilot_filetypes = {
   cpp = false,
   ['dap-repl'] = false,
@@ -63,7 +64,7 @@ vim.api.nvim_create_user_command('Touch', function(data)
 
 end, { nargs = "*" })
 
-local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
+local packer_group = vim.api.nvim_create_augroup('Packer', {})
 local cwd = vim.fs.normalize(vim.fn.getcwd())
 local nvim_dir = vim.fs.normalize('$DOTFILE_DIR/nvim')
 
@@ -94,4 +95,9 @@ vim.api.nvim_create_user_command('Focus', function()
     vim.cmd.set 'laststatus=0'
     vim.cmd.Tmux { args = { 'set -s status off' }, bang = true }
   end
+end, {})
+
+
+vim.api.nvim_create_user_command('Lg', function()
+  vim.cmd.Start 'lazygit'
 end, {})
