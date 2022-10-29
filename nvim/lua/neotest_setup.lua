@@ -137,3 +137,17 @@ end, opts)
 
 vim.keymap.set('n', ']t', neotest.jump.next, opts)
 vim.keymap.set('n', '[t', neotest.jump.prev, opts)
+
+local neotest_group = vim.api.nvim_create_augroup('neotest', {})
+
+local autocmd_id
+vim.api.nvim_create_user_command('TestWatch', function()
+  autocmd_id = vim.api.nvim_create_autocmd('BufWritePost',
+    { command = 'TestLast',
+      group = neotest_group, pattern = '**/*.dart' })
+end, {})
+
+
+vim.api.nvim_create_user_command('TestWatchStop', function()
+  vim.api.nvim_del_autocmd(autocmd_id)
+end, {})
