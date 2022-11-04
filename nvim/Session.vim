@@ -20,8 +20,8 @@ badd +9 lua/lsp_mapping.lua
 badd +33 lua/cmp_setup.lua
 badd +26 ~/dotfiles/x11/.Xresources
 badd +72 plugin/sensible.lua
-badd +43 lua/flutter.lua
-badd +292 lua/plugins.lua
+badd +57 lua/flutter.lua
+badd +289 lua/plugins.lua
 badd +118 lua/telescope_setup.lua
 badd +35 lua/lspconfig_setup.lua
 badd +16 lua/gitsigns_setup.lua
@@ -60,9 +60,9 @@ badd +3 lua/blackpink_setup.lua
 argglobal
 %argdel
 $argadd ~/dotfiles/nvim
-edit lua/plugins.lua
+edit lua/flutter.lua
 argglobal
-balt ~/dotfiles/nvim
+balt lua/plugins.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -73,12 +73,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 277 - ((82 * winheight(0) + 72) / 144)
+let s:l = 63 - ((47 * winheight(0) + 41) / 83)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 277
-normal! 031|
+keepjumps 63
+normal! 048|
 lcd ~/dotfiles/nvim
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
@@ -93,7 +93,6 @@ if filereadable(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
 set hlsearch
-nohlsearch
 let g:this_session = v:this_session
 let g:this_obsession = v:this_session
 doautoall SessionLoadPost

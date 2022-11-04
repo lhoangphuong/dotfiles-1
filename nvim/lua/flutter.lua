@@ -17,13 +17,19 @@ local sdk_path = vim.fs.normalize('$HOME/elca-workspace/tyxr-app-sdk')
 local admintool_path = vim.fs.normalize('$HOME/elca-workspace/tixngo-admintool-flutter-2')
 local flutter_run_command = ':FlutterRun'
 
+local opts = { noremap = true, silent = true }
+
 if string.find(current_workspace, sdk_path, 1, true) then
-	flutter_run_command = 'FlutterRun -t integration_test/main.dart  --host-vmservice-port 8000 --disable-service-auth-codes --fast-start'
+	-- flutter_run_command = 'FlutterRun -t integration_test/main.dart  --host-vmservice-port 8000 --disable-service-auth-codes --fast-start'
+	flutter_run_command = 'FlutterRun -t integration_test/activation_test.dart  --host-vmservice-port 8000 --disable-service-auth-codes --fast-start'
+	vim.keymap.set('n', '<space>fq', vim.cmd.UninstallApp, opts)
+	vim.keymap.set('n', '<space>fu', vim.cmd.UnlockScreen, opts)
 elseif current_workspace == admintool_path then
 	flutter_run_command = 'FlutterRun -t lib/main_development.dart -d chrome --web-hostname 0.0.0.0 --web-port=7800'
+else
+	vim.keymap.set('n', '<space>fq', vim.cmd.FlutterQuit, opts)
 end
 
-local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<space>fl', vim.cmd.FlutterLogClear, opts)
 vim.keymap.set('n', '<space>fw', function()
 	vim.cmd.FlutterSendRawKey 'w'
@@ -32,7 +38,6 @@ vim.keymap.set('n', '<space>fa', function()
 	print(flutter_run_command)
 	vim.cmd(flutter_run_command)
 end, opts)
-vim.keymap.set('n', '<space>fq', vim.cmd.FlutterQuit, opts)
 vim.keymap.set('n', '<space>fo', vim.cmd.FlutterLogOpen, opts)
 
 local function on_attach(client, bufnr)
