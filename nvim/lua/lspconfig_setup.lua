@@ -28,6 +28,14 @@ for _, lsp in ipairs(servers) do
 	}
 end
 
+nvim_lsp['jdtls'].setup {
+	on_attach = lsp_mapping,
+	flags = {
+		debounce_text_changes = 150,
+	},
+	cmd = {'/Users/TVG/Downloads/jdts/bin/jdtls'},
+}
+
 nvim_lsp['rescriptls'].setup {
 	on_attach = lsp_mapping,
 	flags = {

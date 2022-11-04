@@ -151,7 +151,8 @@ NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 export PATH="$HOME/.amplify/bin:$PATH"
 
 export TERM=xterm-256color
-export PSQL_EDITOR="vim"
+export PSQL_EDITOR="tmux split-window -v nvim"
 
 # opam configuration
 [[ ! -r /Users/hlg/.opam/opam-init/init.zsh ]] || source /Users/hlg/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+export PATH="/usr/local/opt/openjdk/bin:$PATH"

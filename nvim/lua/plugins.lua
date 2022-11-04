@@ -137,6 +137,9 @@ return packer.startup(function(use)
   --     require 'rusttools_setup'
   --   end,
   -- }
+  --
+
+  use 'rescript-lang/vim-rescript'
 
   --flutter
   use {
