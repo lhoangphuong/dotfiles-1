@@ -17,6 +17,7 @@ require('kanagawa').setup({
   overrides = {
     Cursorline = { bg = 'none', underline = true },
     Winbar = { link = 'Special' },
+    WinSeparator = { fg = '#C8C093' },
   },
   theme = "default" -- Load "default" theme or the experimental "light" theme
 })
