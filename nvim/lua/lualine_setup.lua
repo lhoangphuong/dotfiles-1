@@ -4,17 +4,17 @@
 local lualine = require('lualine')
 
 local colors = {
-  bg       = 'none',
-  fg       = '#e0def4',
+  bg       = '#16161D',
+  fg       = '#C8C093',
   yellow   = '#ECBE7B',
   cyan     = '#008080',
   darkblue = '#081633',
-  green    = '#98be65',
+  green    = '#98BB6C',
   orange   = '#FF8800',
-  violet   = '#a9a1e1',
+  violet   = '#938AA9',
   magenta  = '#c678dd',
-  blue     = '#51afef',
-  red      = '#ec5f67',
+  blue     = '#7FB4CA',
+  red      = '#E46876',
 }
 
 local conditions = {
@@ -140,8 +140,6 @@ ins_left { 'location' }
 
 ins_left { 'quickfix', color = { fg = colors.fg, } }
 
-ins_left { 'progress', color = { fg = colors.fg, gui = 'bold' } }
-
 ins_left 'lsp_progress'
 
 ins_left {
@@ -157,11 +155,6 @@ ins_left {
 
 -- Insert mid section. You can make any number of sections in neovim :)
 -- for lualine it's any number greater then 2
-ins_left {
-  function()
-    return '%='
-  end,
-}
 
 ins_left {
   -- Lsp server name .
@@ -175,12 +168,11 @@ ins_left {
     for _, client in ipairs(clients) do
       local filetypes = client.config.filetypes
       if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-        return client.name
+        return '[' .. client.name .. ']'
       end
     end
     return msg
   end,
-  icon = ' LSP:',
   color = { fg = colors.fg, gui = 'bold' },
 }
 

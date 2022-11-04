@@ -16,12 +16,12 @@ endif
 badd +1 ~/dotfiles/nvim
 badd +16 init.lua
 badd +363 ~/.local/share/nvim/site/pack/packer/start/copilot.vim/autoload/copilot/agent.vim
-badd +9 lua/lsp_mapping.lua
+badd +13 lua/lsp_mapping.lua
 badd +33 lua/cmp_setup.lua
 badd +26 ~/dotfiles/x11/.Xresources
 badd +72 plugin/sensible.lua
 badd +57 lua/flutter.lua
-badd +289 lua/plugins.lua
+badd +33 lua/plugins.lua
 badd +118 lua/telescope_setup.lua
 badd +35 lua/lspconfig_setup.lua
 badd +16 lua/gitsigns_setup.lua
@@ -36,7 +36,7 @@ badd +8 lua/default_scheme.lua
 badd +20 ~/dotfiles/kitty/kitty.conf
 badd +8 lua/comment_setup.lua
 badd +17 lua/ts.lua
-badd +25 lua/lualine_setup.lua
+badd +150 lua/lualine_setup.lua
 badd +1 ~/dotfiles/vim/plugged/fzf/shell/completion.zsh
 badd +153 lua/neotest_setup.lua
 badd +206 ~/elca-workspace/tyxr-app-sdk/branded_app/tixngo_show/integration_test/transfer_test.dart
@@ -57,12 +57,13 @@ badd +1 lua/lua/gruvbuddy_setup.lua
 badd +1 ~/dotfiles/bin/open-android-app
 badd +1 plugin
 badd +3 lua/blackpink_setup.lua
+badd +18 lua/kanagawa_setup.lua
 argglobal
 %argdel
 $argadd ~/dotfiles/nvim
-edit lua/flutter.lua
+edit lua/kanagawa_setup.lua
 argglobal
-balt lua/plugins.lua
+balt lua/lsp_mapping.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -73,12 +74,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 63 - ((47 * winheight(0) + 41) / 83)
+let s:l = 18 - ((17 * winheight(0) + 41) / 83)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 63
-normal! 048|
+keepjumps 18
+normal! 013|
 lcd ~/dotfiles/nvim
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
@@ -93,6 +94,7 @@ if filereadable(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
 set hlsearch
+nohlsearch
 let g:this_session = v:this_session
 let g:this_obsession = v:this_session
 doautoall SessionLoadPost

@@ -46,12 +46,12 @@ return packer.startup(function(use)
     'rose-pine/neovim',
     as = 'rose-pine',
     config = function()
-      require 'blackpink_setup'
+      -- require 'blackpink_setup'
     end
   })
-  use { 'tjdevries/gruvbuddy.nvim', requires = { 'tjdevries/colorbuddy.vim' }, config = function()
-    -- require 'gruvbuddy_setup'
-  end }
+  use {'rebelot/kanagawa.nvim',config = function ()
+    require 'kanagawa_setup'
+  end}
 
   -- Tree sitter
   use {
