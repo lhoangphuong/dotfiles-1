@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 
-if [[ $# -eq 1 ]]; then
-    selected=$1
-else
-    selected=$(fd . $HOME/elca-workspace  $DOTFILE_DIR $HOME/personal $HOME/tools -t d ---exact-depth 1 | fzf)
-fi
+selected=$(fd . $WORK_DIR $DOTFILE_DIR $PERSONAL_DIR $TOOL_DIR -t d ---exact-depth 1 | fzf-tmux -p)
 
 if [[ -z $selected ]]; then
     exit 0

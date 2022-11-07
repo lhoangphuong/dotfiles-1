@@ -23,7 +23,8 @@ vim.wo.colorcolumn = 0
 vim.g.noswapfile = true
 vim.o.cmdheight = 0
 vim.g.dispatch_no_tmux = 1
-vim.cmd.set('belloff=')
+vim.cmd.set 'belloff='
+vim.cmd.set 'fileformat=mac'
 
 
 vim.keymap.set('n', '<C-s>', ':update<CR>', { noremap = true, silent = true, desc = '[S]ave' })
