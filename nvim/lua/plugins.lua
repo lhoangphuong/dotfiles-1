@@ -49,9 +49,9 @@ return packer.startup(function(use)
       -- require 'blackpink_setup'
     end
   })
-  use {'rebelot/kanagawa.nvim',config = function ()
+  use { 'rebelot/kanagawa.nvim', config = function()
     require 'kanagawa_setup'
-  end}
+  end }
 
   -- Tree sitter
   use {
@@ -118,27 +118,35 @@ return packer.startup(function(use)
     requires = 'neovim/nvim-lspconfig'
   }
 
-  --rust
-  -- use { 'simrat39/rust-tools.nvim',
-  --   requires = {
-  --     'nvim-lua/plenary.nvim',
-  --     'mfussenegger/nvim-dap',
-  --     use {
-  --       'saecki/crates.nvim',
-  --       event = { "BufRead Cargo.toml" },
-  --       requires = { { 'nvim-lua/plenary.nvim' } },
-  --       config = function()
-  --         require('crates').setup()
-  --       end,
-  --     }
-  --
-  --   },
-  --   config = function()
-  --     require 'rusttools_setup'
-  --   end,
-  -- }
+  --debug
+  use { 'mfussenegger/nvim-dap', config = function()
+    local dap = require('dap')
 
-  --flutter
+    dap.adapters.dart = {
+      type = "executable",
+      command = "flutter",
+      -- This command was introduced upstream in https://github.com/dart-lang/sdk/commit/b68ccc9a
+      args = { "debug_adapter" }
+    }
+    dap.configurations.dart = {
+      {
+        type = "dart",
+        request = "launch",
+        name = "Launch Dart Program",
+        -- The nvim-dap plugin populates this variable with the filename of the current buffer
+        program = "${file}",
+        -- The nvim-dap plugin populates this variable with the editor's current working directory
+        cwd = "${workspaceFolder}",
+        args = { "--help" }, -- Note for Dart apps this is args, for Flutter apps toolArgs
+      }
+    }
+  end }
+
+  --rescrtip
+  use 'rescript-lang/vim-rescript'
+
+
+  --flutter stuff
   use {
     'huylg/flutter-tools.nvim', requires = {
       'nvim-lua/plenary.nvim',
@@ -165,17 +173,6 @@ return packer.startup(function(use)
       require('pubspec-assist').setup()
     end,
   }
-
-  --clangd
-  -- use { 'p00f/clangd_extensions.nvim', config = function()
-  --   require 'clangd_setup'
-  -- end }
-
-  --debug
-
-
-
-  -- testing
   use {
     "huylg/neotest",
     requires = {

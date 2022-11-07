@@ -55,6 +55,8 @@ export PATH="$PATH":"$HOME/.pub-cache/bin"
 export EDITOR='nvim'
 export DOTFILE_DIR="$HOME/dotfiles"
 export PERSONAL_DIR="$HOME/personal"
+export WORK_DIR="$HOME/elca-workspace"
+export TOOL_DIR="$HOME/tools"
 
 export FVM_VERSION='stable'
 export PATH="$PATH:$HOME/fvm/versions/$FVM_VERSION/bin"
@@ -138,6 +140,7 @@ toggle_nvim_profile(){
 #tmux
 alias t=tmux
 alias tss='sh ${DOTFILE_DIR}/tmux/tmux-sessionizer.sh'
+alias tldrf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
 
 export PATH="$DOTFILE_DIR/bin/:$PATH"
 export MACOSX_DEPLOYMENT_TARGET=10.15
@@ -155,3 +158,4 @@ export PSQL_EDITOR="vim"
 
 # opam configuration
 [[ ! -r /Users/hlg/.opam/opam-init/init.zsh ]] || source /Users/hlg/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
