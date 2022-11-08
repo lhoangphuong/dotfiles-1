@@ -1,0 +1,6 @@
+#!/bin/bash
+pname="$(~/dotfiles/bin/gradle-to-json ./android/app/build.gradle | jq '.android.defaultConfig.applicationId' | xargs)"
+
+asdb shell  "run-as $pname; "
+
+adb shell pm clear pname
