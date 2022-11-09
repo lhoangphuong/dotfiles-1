@@ -1,0 +1,3 @@
+pname="io.tixngo.app.show"
+idb terminate $pname
+idb uninstall $pname

@@ -1,1 +1,2 @@
-adb uninstall "$(~/dotfiles/bin/gradle-to-json ./android/app/build.gradle | jq '.android.defaultConfig.applicationId' | xargs)"
+pname=$(~/dotfiles/bin/gradle-to-json ./android/app/build.gradle | jq '.android.defaultConfig.applicationId' | xargs)
+adb uninstall $pname
