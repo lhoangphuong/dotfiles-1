@@ -15,7 +15,6 @@ require('kanagawa').setup({
   terminalColors = true, -- define vim.g.terminal_color_{0,17}
   colors = {},
   overrides = {
-    Cursorline = { bg = 'none', underline = true },
     Winbar = { link = 'Special' },
     WinSeparator = { fg = '#C8C093' },
   },
@@ -24,3 +23,5 @@ require('kanagawa').setup({
 
 -- setup must be called before loading
 vim.cmd.colorscheme 'kanagawa'
+
+vim.api.nvim_set_hl(0, 'Cursorline', { bg = 'none', underline = true })
