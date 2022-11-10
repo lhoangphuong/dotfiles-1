@@ -65,9 +65,6 @@ local function on_attach(client, bufnr)
   vim.api.nvim_create_user_command('FlutterPubGetSDK', function()
     vim.cmd.Dispatch 'cd $HOME/elca-workspace/tyxr-app-sdk/modules && fpga; cd $HOME/elca-workspace/tyxr-app-sdk/branded_app/tixngo_show && fpg'
   end, {})
-  vim.api.nvim_create_user_command('FlutterRunFile', function()
-    vim.cmd.FlutterRun(vim.fn.expand('%'))
-  end, {})
   vim.api.nvim_create_user_command('FlutterLogOpen', function()
     vim.cmd.sb '__FLUTTER_DEV_LOG__'
   end, {})
@@ -78,9 +75,9 @@ local function on_attach(client, bufnr)
     vim.cmd.Dispatch { 'unlock_screen_android', bang = true }
   end, {})
   vim.api.nvim_create_user_command('UninstallApp', function()
+    vim.cmd.FlutterQuit()
     vim.cmd.Dispatch { 'uninstall-ios-app', bang = true }
     -- vim.cmd.Dispatch { 'uninstall-android-app', bang = true }
-    vim.cmd.FlutterQuit()
   end, {})
   vim.api.nvim_create_user_command('InstallApp', function()
     vim.cmd.Dispatch { 'install-android-app', bang = true }
@@ -196,7 +193,7 @@ require("flutter-tools").setup {
   },
   dev_log = {
     enabled = true,
-    open_cmd = "new", -- command to use to open the log buffer
+    open_cmd = "vnew", -- command to use to open the log buffer
   },
   dev_tools = {
     autostart = true, -- autostart devtools server if not detected
